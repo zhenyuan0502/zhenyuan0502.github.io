@@ -463,12 +463,16 @@ var Obsidian = {
 
           item.empty();
 
+          // https://codemirror.net/doc/manual.html
           var myCodeMirror = CodeMirror(this, {
             value: $code,
             mode: Obsidian.getCodeMirrorMode(lang),
             lineNumbers: !item.is('.inline'),
             readOnly: true,
             lineWrapping: true,
+            indentUnit: 4,
+            tabSize: 4,
+            indentWithTabs: true,
             theme: 'dracula',
           });
 
