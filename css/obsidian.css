@@ -616,6 +616,7 @@ body.touch .article {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  font-weight: 900;
 }
 .icon-play {
   position: absolute;
