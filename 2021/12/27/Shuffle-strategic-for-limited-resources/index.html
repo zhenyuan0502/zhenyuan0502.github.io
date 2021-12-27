@@ -118,13 +118,13 @@
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    7.1k
+                    7.3k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    6 mins.
+                    7 mins.
                 </span>
                 
                 
@@ -158,17 +158,17 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <p>On the early stage of Machine Learning, Data Mining progress, one of the problems we have to deal with processing large-size file, including corpus shuffle, usually its size would be larger than our limited resources like memory or capacity. Let’s say, the file is 30GB, whereas the provided memory is 8GB or 16GB, we surely cannot load entire them to memory in term of resource shuffling distribution notion. Therefore, the strategic which will be built to serve that case called Lazy Shuffling Algorithm allowing us to generally trade off time and capacity with memory allocation.</p>
-<h1 id="Shuffle-Algorithm"><a href="#Shuffle-Algorithm" class="headerlink" title="Shuffle Algorithm"></a>Shuffle Algorithm</h1><p>In Computer Science, mixing dataset randomly required unpredictable randomness method, that pure randomness leads the data to be more natural sense. Due to the fact that computer only creates a <em>true random number</em> indeed an external event from real world, that means it measures some type of physical phenomenon that takes place outside of the computer like keyboard typing, mouse moving as a environment seeds to make sure generated number cannot be reproduced by some kind of reverse engineering.</p>
+            <p>On the early stage of Machine Learning, Data Mining progress, one of the problems we have to deal with processing large-size file, including corpus shuffle, usually its size would be larger than our limited resources like memory or capacity. Let’s say, the file is 30GB, whereas the provided memory is 8GB or 16GB, we surely cannot load entire them to memory in term of resource shuffling distribution notion. Therefore, the strategic tends to serve that case called Lazy Shuffling Algorithm allowing us to generally trade off time and capacity for memory allocation.</p>
+<h1 id="Shuffle-Algorithm"><a href="#Shuffle-Algorithm" class="headerlink" title="Shuffle Algorithm"></a>Shuffle Algorithm</h1><p>In Computer Science, mixing dataset randomly required unpredictable randomness method, that pure randomness leads the data to be more natural sense. Due to the fact that computer only creates a <em>true random number</em> indeed an external event from real world, by other words, it measures some type of physical phenomenon that takes place outside of the computer like keyboard typing, mouse moving, temporature, treated as environment seeds to make sure generated numbers cannot be reproduced by some kind of reverse engineering.</p>
 <p><img src="/images/pasted-10.png" alt="Random number"></p>
-<p>Actually, the true data shuffling with high and perfect expectation could be somewhere fulfill by <em>pseudorandom generator</em>, these random numbers completely created by algorithm and seed value, instead of external event factors are also reluctantly acceptable, since sequence results  are closer to truly random in several proven experiments. From there, Fisher Yates shuffle algorithm, inherits the perspective of pseudorandom generator approach, says </p>
+<p>Actually, the true data shuffling with high and perfect expectation could be somewhere fulfill by <em>pseudorandom generator</em>, these random numbers completely created by algorithm and seed value, instead of external event factors are also reluctantly acceptable, since sequence results are closer to truly random in several proven experiments. From there, Fisher Yates shuffle algorithm, leverages the perspective of pseudorandom generator approach, says </p>
 <pre><code class="text">-- To shuffle an array a of n elements (indices 0..n-1):
 for i from n−1 downto 1 do
      j ← random integer such that 0 ≤ j ≤ i
      exchange a[j] and a[i]
 </code></pre>
 <p>Wiki: <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle">https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle</a></p>
-<p>The algorithm inspired by pseudorandom generator approach to randomly permutate in-memory swapping throughout entire dataset, thus, the in-place update does not incurred new dataset, of course no more spaces required before and after executing.</p>
+<p>The algorithm inspired by pseudorandom generator approach to randomly permutate in-memory swapping throughout entire dataset, thus, the in-place update does not incurred new dataset, of course no more spaces required before and after executing. But when if memory issue is a big deal, which would become puzzled to apply.</p>
 <h1 id="Lazy-Shuffle-Algorithm"><a href="#Lazy-Shuffle-Algorithm" class="headerlink" title="Lazy Shuffle Algorithm"></a>Lazy Shuffle Algorithm</h1><p>Considering space is adjustable and time could be as fast as possible excepts memory is finite, we are not able to load whole large data based on FY Shuffle, then we have to improve it as Lazy Shuffle Algorithm, working around by shuffling index first, seeking and assigning new shuffled data later. Below algorithm serves the line by line format, if the file is a binary, we will have same approach but more complicated on binary serial structure.</p>
 <ul>
 <li>Load line by line and save the cursor offset, aka line map on each line into the offset_list. For example line 1 ends at 30, line 2 ends at 60 and so on, the offset_list should be <code>offset_list = [0, 30, 60, .... 40]</code></li>
@@ -176,14 +176,14 @@ for i from n−1 downto 1 do
 <li>Conduct shuffling index_list, in view of the fact that index_list contains only those indices, so it will not too much large resource basically. The sequence results would be also index_list object (because of in-place swapping) likely as <code>index_list = [4504, 134, 27676, 364756, 4...., 43]</code></li>
 <li>Looping through shuffled index_list, we will leverage the offset_list to quickly access to the line, for example, <code>index_list[0] = 4504</code> and <code>offset_list[4504] = 490478</code>, seek file cursor <code>f</code> by <code>f.seek(490478)</code> and <code>new_line = f.readline()</code>, then appended writes <code>new_line</code> sequetially in a new file instead of in-place swapping. </li>
 </ul>
-<h1 id="Python-implementation"><a href="#Python-implementation" class="headerlink" title="Python implementation"></a>Python implementation</h1><p>I have prepared the 5.6GB file proposed by binhvq, uncompressed ~27.5GB:<br><a target="_blank" rel="noopener" href="https://github.com/binhvq/news-corpus#full-txt-v2">https://github.com/binhvq/news-corpus#full-txt-v2</a></p>
-<p>To easier demo, I will use colab for the whole algorithm</p>
+<h1 id="Python-implementation"><a href="#Python-implementation" class="headerlink" title="Python implementation"></a>Python implementation</h1><p>I have prepared the 5.6GB file aggregated by binhvq, uncompressed ~27.5GB:<br><a target="_blank" rel="noopener" href="https://github.com/binhvq/news-corpus#full-txt-v2">https://github.com/binhvq/news-corpus#full-txt-v2</a></p>
+<p>To easier demo, I will use colab for the whole algorithm, firsly, download the file and wait for completion.</p>
 <pre><code class="python">!gdown --id 1GFbe-qs6HmCYs0JwJgivOy2Bvb06M8OI
 !7z e corpus-full-20181217.7z
 </code></pre>
 <p>It will take ~10 min to finish process, so let move to next section</p>
-<p>To seek the file, the example here<br><a target="_blank" rel="noopener" href="https://gist.github.com/JosephCatrambone/25476e9a37e932e50c527fc41e164e07">https://gist.github.com/JosephCatrambone/25476e9a37e932e50c527fc41e164e07</a></p>
-<p>I modify a bit the class <code>LineSeekableFile</code>, on the first time initialization, the line will be loop entire the file, but only keep line position to <code>line_map</code> aka <code>offset_list</code>, I set 10 lines read to easier testing</p>
+<p>To seek the file partially, the example here<br><a target="_blank" rel="noopener" href="https://gist.github.com/JosephCatrambone/25476e9a37e932e50c527fc41e164e07">https://gist.github.com/JosephCatrambone/25476e9a37e932e50c527fc41e164e07</a></p>
+<p>I modify a bit the class <code>LineSeekableFile</code>, on the first time initialization, the line will be loop entire the file, but only keep line positions to <code>line_map</code> aka <code>offset_list</code>, I set 10 lines read to easier testing</p>
 <pre><code class="python">class LineSeekableFile:
     def __init__(self, f):
         self.fin = f
