@@ -52,7 +52,6 @@ pre code .language-mark {
   color: var(--secondary);
   z-index: 5;
   text-transform: uppercase;
-  font-family: Roboto, Lato, lucida grande, lucida sans unicode, Tahoma, 'Microsoft Yahei', 'WenQuanYi Micro Hei', sans-serif;
   font-size: 0.6rem;
   background: rgba(16,14,23,0.36);
   border-radius: 8px;
@@ -105,7 +104,6 @@ pre code .language-mark b {
 }
 .CodeMirror .CodeMirror-lines {
   font-size: 0.8rem;
-  font-family: Roboto, Lato, lucida grande, lucida sans unicode, Tahoma, 'Microsoft Yahei', 'WenQuanYi Micro Hei', sans-serif;
 }
 /* Responsive style */
 body {
@@ -143,7 +141,7 @@ body .loader > .la-ball-atom {
 div {
   margin: 0;
   padding: 0;
-  font-weight: bold;
+  font-weight: 400;
   list-style: none;
 }
 h1,
@@ -154,7 +152,7 @@ h5,
 h6 {
   margin: 0;
   padding: 0;
-  font-weight: bold;
+  font-weight: 400;
   list-style: none;
 }
 h1 a,
@@ -187,19 +185,19 @@ h6 a:hover {
 p {
   margin: 0;
   padding: 0;
-  font-weight: 500;
+  font-weight: 400;
   list-style: none;
 }
 ul {
   margin: 0;
   padding: 0;
-  font-weight: bold;
+  font-weight: 600;
   list-style: none;
 }
 li {
   margin: 0;
   padding: 0;
-  font-weight: normal;
+  font-weight: 400;
   list-style: none;
 }
 html {
@@ -1382,7 +1380,7 @@ footer .copyright a {
 }
 .set h3 {
   font-size: 22px;
-  font-weight: 500;
+  font-weight: 400;
   margin: 15px 0 20px;
 }
 .set a {
@@ -2973,7 +2971,7 @@ code {
   opacity: 0.9;
 }
 pre {
-  font-family: 'Roboto', 'Microsoft Yahei', 'WenQuanYi Micro Hei', sans-serif !important;
+  font-family: 'Roboto', 'Microsoft Yahei', 'WenQuanYi Micro Hei', sans-serif;
   margin: 2em 0;
 }
 pre .comment {

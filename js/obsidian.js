@@ -470,7 +470,7 @@ var Obsidian = {
             lineNumbers: !item.is('.inline'),
             readOnly: true,
             lineWrapping: true,
-            indentUnit: 4,
+            indentUnit: 2,
             tabSize: 4,
             indentWithTabs: true,
             theme: 'dracula',
