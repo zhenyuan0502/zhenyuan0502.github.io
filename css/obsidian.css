@@ -2726,6 +2726,7 @@ h1.title {
   transition: all 200ms ease-in-out;
   position: relative;
   font-weight: 900;
+  word-break: break-all;
 }
 .content a:hover {
   color: var(--secondary);
