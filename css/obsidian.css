@@ -2415,6 +2415,8 @@ h1.title {
   width: 65%;
   animation-delay: 600ms;
   animation-duration: 2.6s;
+  text-align: justify;
+  text-justify: inter-word;
 }
 .else .md-content blockquote {
   position: relative;
