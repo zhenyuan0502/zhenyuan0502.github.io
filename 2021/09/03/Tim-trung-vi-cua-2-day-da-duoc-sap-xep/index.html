@@ -11,7 +11,7 @@
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Nguyen Luu zhenyuan0502,"> 
     <meta name="description" content="Cho hai dãy nums1, nums2 đã được sắp xếp theo thứ tự có size là m và n, hãy tìm trung vị (median) c,"> 
-    <meta name="author" content="Nguyên Lưu (Alfred - Yuan)"> 
+    <meta name="author" content="Nguyen Luu"> 
     <link rel="alternative" href="atom.xml" title="Nguyen Luu Blog" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
     
@@ -74,7 +74,7 @@
 <div id="top" style="display: block;">
     <div class="bar" style="width: 0;"></div>
     <div class="navigation animated fadeIn fast delay-1s">
-        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://nguyenluu.dev">
+        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="/">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
         <h3 class="subtitle">Tìm trung vị của 2 dãy đã được sắp xếp</h3>
         <div class="social">
@@ -117,20 +117,20 @@
             <p class="post-count animated fadeInDown">
                 
                 <span>
-                    <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    14k
+                    <b class="iconfont icon-text2"></b> <i>Số chữ</i>
+                    13k
                 </span>
                 
                 
                 <span>
-                    <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    13 mins.
+                    <b class="iconfont icon-timer__s"></b> <i>Thời gian đọc</i>
+                    12 mins.
                 </span>
                 
                 
                 
                 <span id="busuanzi_container_page_pv">
-                    <b class="iconfont icon-read"></b> <i>Read count</i>
+                    <b class="iconfont icon-read"></b> <i>Lượt đọc</i>
                     <span id="busuanzi_value_page_pv">0</span>
                 </span>
                 
@@ -161,36 +161,41 @@
             <p>Cho hai dãy <code>nums1</code>, <code>nums2</code> đã được sắp xếp theo thứ tự có size là <code>m</code> và <code>n</code>, hãy tìm trung vị (median) của hai dãy đó.</p>
 <p>Đây là bài toán được xem là mức độ khó trên <a target="_blank" rel="noopener" href="https://leetcode.com/problems/median-of-two-sorted-arrays/">leetcode.com</a>, thách thức của bài này là thuật toán phải được chạy với time <code>O(log(m+n))</code></p>
 <p>Nguyên văn bài toán và các ví dụ</p>
-<blockquote>
-<p>Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.</p>
-</blockquote>
-<blockquote>
-<p>The overall run time complexity should be O(log (m+n)).</p>
-</blockquote>
-<blockquote>
-<p>Example 1:<br>Input: nums1 = [1,3], nums2 = [2]<br>Output: 2.00000<br>Explanation: merged array = [1,2,3] and median is 2.</p>
-</blockquote>
-<blockquote>
-<p>Example 2:<br>Input: nums1 = [1,2], nums2 = [3,4]<br>Output: 2.50000<br>Explanation: merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5.</p>
-</blockquote>
-<blockquote>
-<p>Example 3:<br>Input: nums1 = [0,0], nums2 = [0,0]<br>Output: 0.00000</p>
-</blockquote>
-<blockquote>
-<p>Example 4:<br>Input: nums1 = [], nums2 = [1]<br>Output: 1.00000</p>
-</blockquote>
-<blockquote>
-<p>Example 5:<br>Input: nums1 = [2], nums2 = []<br>Output: 2.00000</p>
-</blockquote>
+<pre><code class="text">Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
+
+The overall run time complexity should be O(log (m+n)).
+
+Example 1:
+Input: nums1 = [1,3], nums2 = [2]
+Output: 2.00000
+Explanation: merged array = [1,2,3] and median is 2.
+
+Example 2:
+Input: nums1 = [1,2], nums2 = [3,4]
+Output: 2.50000
+Explanation: merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5.
+
+Example 3:
+Input: nums1 = [0,0], nums2 = [0,0]
+Output: 0.00000
+
+Example 4:
+Input: nums1 = [], nums2 = [1]
+Output: 1.00000
+
+Example 5:
+Input: nums1 = [2], nums2 = []
+Output: 2.00000
+</code></pre>
 <h1 id="Trung-vi-la-gi"><a href="#Trung-vi-la-gi" class="headerlink" title="Trung vị là gì?"></a>Trung vị là gì?</h1><p>Khác với trung bình, trung vị là vị trí phần tử ở chính giữa của một dãy đã sắp xếp, vị trí đó cho biết giá trị điển hình của dãy đó. Nếu dãy có số lượng phần tử là lẻ, thì sẽ lấy phần tử ở giữa, ngược lại là chẵn, thì sẽ lấy trung bình của 2 phần tử ở giữa</p>
-<h1 id="Huong-tiep-can-1"><a href="#Huong-tiep-can-1" class="headerlink" title="Hướng tiếp cận 1"></a>Hướng tiếp cận 1</h1><p>Hướng tiếp cận ban đầu, dễ nhất chính là sử dụng một dãy merge chứa toàn bộ phần tử củ hai dãy, sau đó cài đặt thuật toán sắp xếp lại rồi tìm trung vị như công thức.</p>
-<pre><code class="python">    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -&gt; float:
-        nums = nums1 + nums2
-        #sort in-place memory
-        nums.sort() 
-        length = len(nums)
+<h1 id="Huong-tiep-can-1"><a href="#Huong-tiep-can-1" class="headerlink" title="Hướng tiếp cận 1"></a>Hướng tiếp cận 1</h1><p>Hướng tiếp cận ban đầu, dễ nhất chính là sử dụng một dãy merge chứa toàn bộ phần tử của hai dãy, sau đó cài đặt thuật toán sắp xếp lại rồi tìm trung vị như công thức.</p>
+<pre><code class="python">def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -&gt; float:
+    nums = nums1 + nums2
+    #sort in-place memory
+    nums.sort() 
+    length = len(nums)
         
-        return (nums[int(length/2)-1] + nums[int(length/2)])/2 if length % 2 == 0 else nums[int(length/2)]
+    return (nums[int(length/2)-1] + nums[int(length/2)])/2 if length % 2 == 0 else nums[int(length/2)]
 </code></pre>
 <p>Lợi ích của code này là bạn không cần quan tâm đến việc <code>sort()</code> của code được chạy như thế nào, thực tế, python sử dụng thuật toán <code>Timsort</code>, giải quyết được tổng quát đa số trường hợp để có time and space complexity thấp nhất, bạn có thể tham khảo thêm tại: </p>
 <p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Timsort">https://en.wikipedia.org/wiki/Timsort</a></p>
@@ -355,7 +360,7 @@
 <td>[5 = M]</td>
 </tr>
 </tbody></table>
-<p>Rất dễ nhận biết, xét 4 số trung tâm 6, 4, 8, 5, tướng ứng O, N, P, M</p>
+<p>Rất dễ nhận biết, xét 4 số trung tâm 6, 4, 8, 5, tương ứng O, N, P, M</p>
 <ul>
 <li>Theo chiều kim nếu <code>O &gt; M</code>: 6 &gt; 5. Mà <code>N &lt;= M, O &lt;= P</code> =&gt; <code>P &gt;= O &gt; M &gt;= N</code> =&gt; <code>P &gt; N</code></li>
 <li>Ngược chiều kim nếu <code>N &gt; P</code>. Mà <code>N &lt;= M, O &lt;= P</code> =&gt; <code>M &gt;= N &gt; P &gt;= O</code> =&gt; <code>M &gt; O</code></li>
@@ -396,42 +401,42 @@
 <li>Nếu dịch theo chiều kim, <code>x_a &gt; y_b</code>, thì sẽ lùi  <code>a_search_end</code> một khoảng sao cho mốc mới sẽ bằng với <code>x_len_a</code> trừ một đơn vị</li>
 <li>Ngược chiều kim, thì sẽ tăng <code>a_search_start</code> một khoảng sao cho mốc mới sẽ bằng với <code>x_len_a</code> thêm một đơn vị</li>
 </ul>
-<pre><code class="python">    def findMedianSortedArrays(self, A: List[int], B: List[int]) -&gt; float:
-        if len(A) &gt; len(B):
-            A, B = B, A
-        
-        len_a, len_b = len(A), len(B)
-        most_min, most_max = float(&quot;-inf&quot;), float(&quot;inf&quot;)
+<pre><code class="python">def findMedianSortedArrays(self, A: List[int], B: List[int]) -&gt; float:
+    if len(A) &gt; len(B):
+        A, B = B, A
 
-        size_x = (len_a + len_b + 1) // 2
-        a_search_start = 0
-        a_search_end = len_a
+    len_a, len_b = len(A), len(B)
+    most_min, most_max = float(&quot;-inf&quot;), float(&quot;inf&quot;)
 
-        is_even = ((len_a + len_b) % 2) == 0
-        while True:     
-            x_len_a = (a_search_start + a_search_end) // 2
-            x_len_b = size_x - x_len_a
+    size_x = (len_a + len_b + 1) // 2
+    a_search_start = 0
+    a_search_end = len_a
+
+    is_even = ((len_a + len_b) % 2) == 0
+    while True:     
+        x_len_a = (a_search_start + a_search_end) // 2
+        x_len_b = size_x - x_len_a
+
+        x_a = most_min if x_len_a == 0 else A[x_len_a - 1]
+        y_a = most_max if x_len_a == len_a else A[x_len_a]
+        x_b = most_min if x_len_b == 0 else B[x_len_b - 1]
+        y_b = most_max if x_len_b == len_b else B[x_len_b]
+
+        if x_a &lt;= y_b and x_b &lt;= y_a:
+            if is_even:
+                return (max(x_a, x_b) + min(y_a, y_b))/ 2
+
+            return max(x_a, x_b)
+
+        if x_a &gt; y_b:
+            a_search_end = x_len_a - 1
+            continue
+
+        if x_b &gt; y_a:
+            a_search_start = x_len_a + 1
+            continue
             
-            x_a = most_min if x_len_a == 0 else A[x_len_a - 1]
-            y_a = most_max if x_len_a == len_a else A[x_len_a]
-            x_b = most_min if x_len_b == 0 else B[x_len_b - 1]
-            y_b = most_max if x_len_b == len_b else B[x_len_b]
-            
-            if x_a &lt;= y_b and x_b &lt;= y_a:
-                if is_even:
-                    return (max(x_a, x_b) + min(y_a, y_b))/ 2
-                
-                return max(x_a, x_b)
-                
-            if x_a &gt; y_b:
-                a_search_end = x_len_a - 1
-                continue
-                
-            if x_b &gt; y_a:
-                a_search_start = x_len_a + 1
-                continue
 </code></pre>
-<h1 id="Tong-ket"><a href="#Tong-ket" class="headerlink" title="Tổng kết"></a>Tổng kết</h1><p>Đây là một trong các bài ứng dụng của Binary Search, tôi tham khảo và viết chú thích cũng tốn gần nửa ngày thời gian, mọi trích dẫn vui lòng dẫn nguồn. Cám ơn bạn đọc đã đọc hết bài viết.</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -475,12 +480,12 @@
             <div class="post-nav">
                 <hr>
                 
-                    <div class="post-nav-item">Previous Post: <a href="/2021/09/21/Ky-nguyen-Digital-Transformation/" rel="prev" 
+                    <div class="post-nav-item">Bài viết trước: <a href="/2021/09/21/Ky-nguyen-Digital-Transformation/" rel="prev" 
                         title="Kỷ nguyên Digital Transformation">Kỷ nguyên Digital Transformation
                       </a></div>
                 
                 
-                    <div class="post-nav-item">Next Post: <a href="/2021/04/03/Qua-trinh-tim-CTTQ-cua-bai-toan-do-xuc-xac/" rel="next" 
+                    <div class="post-nav-item">Bài viết kế: <a href="/2021/04/03/Qua-trinh-tim-CTTQ-cua-bai-toan-do-xuc-xac/" rel="next" 
                         title="Quá trình tìm CTTQ của bài toán đổ xúc xắc">Quá trình tìm CTTQ của bài toán đổ xúc xắc</a></div>
                                 
             </div>   
@@ -496,8 +501,8 @@
         <div class="sidebar">
             <div class="box animated fadeInRight">
                 <div class="subbox">
-                    <img src="/img/qoobee.jpeg" height=300 width=300></img>
-                    <p>Nguyên Lưu (Alfred - Yuan)</p>
+                    <img src="/img/qoobee.jpeg" margin-top=1rem height=200 width=200></img>
+                    <p>Nguyen Luu<br>(Alfred - Yuan)</p>
                     <span>Think like an artist, develop like an artisan</span>
                     <dl>
                         <dd><a href="https://github.com/zhenyuan0502" target="_blank"><span
@@ -509,9 +514,9 @@
                     </dl>
                 </div>
                 <ul>
-                    <li><a href="/">6 <p>Articles</p></a></li>
-                    <li><a href="/categories">4 <p>Categories</p></a></li>
-                    <li><a href="/tags">13 <p>Tags</p></a></li>
+                    <li><a href="/">6 <p>Bài viết</p></a></li>
+                    <li><a href="/categories">4 <p>Danh mục</p></a></li>
+                    <li><a href="/tags">15 <p>Thẻ</p></a></li>
                 </ul>
             </div>
             
@@ -519,8 +524,8 @@
             
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
-                    <h4>Contents</h4>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Trung-vi-la-gi"><span class="toc-number">1.</span> <span class="toc-text">Trung vị là gì?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Huong-tiep-can-1"><span class="toc-number">2.</span> <span class="toc-text">Hướng tiếp cận 1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Huong-tiep-can-2"><span class="toc-number">3.</span> <span class="toc-text">Hướng tiếp cận 2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Huong-tiep-can-3"><span class="toc-number">4.</span> <span class="toc-text">Hướng tiếp cận 3</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Y-tuong-chinh"><span class="toc-number">4.1.</span> <span class="toc-text">Ý tưởng chính</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Khong-con-kha-nang-shift"><span class="toc-number">4.2.</span> <span class="toc-text">Không còn khả năng shift</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Truong-hop-lech-nhau-1-don-vi"><span class="toc-number">4.3.</span> <span class="toc-text">Trường hợp lệch nhau 1 đơn vị</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Co-ton-tai-lech-nhau-nhieu-hon-1-don-vi-ma-khong-the-shift"><span class="toc-number">4.4.</span> <span class="toc-text">Có tồn tại lệch nhau nhiều hơn 1 đơn vị mà không thể shift?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Lam-sao-de-biet-shift-chieu-nao"><span class="toc-number">4.5.</span> <span class="toc-text">Làm sao để biết shift chiều nào?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dich-bao-nhieu-don-vi"><span class="toc-number">4.6.</span> <span class="toc-text">Dịch bao nhiêu đơn vị?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cai-dat-tren-Python"><span class="toc-number">4.7.</span> <span class="toc-text">Cài đặt trên Python</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Tong-ket"><span class="toc-number">5.</span> <span class="toc-text">Tổng kết</span></a></li></ol>
+                    <h4>Nội dung</h4>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Trung-vi-la-gi"><span class="toc-number">1.</span> <span class="toc-text">Trung vị là gì?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Huong-tiep-can-1"><span class="toc-number">2.</span> <span class="toc-text">Hướng tiếp cận 1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Huong-tiep-can-2"><span class="toc-number">3.</span> <span class="toc-text">Hướng tiếp cận 2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Huong-tiep-can-3"><span class="toc-number">4.</span> <span class="toc-text">Hướng tiếp cận 3</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Y-tuong-chinh"><span class="toc-number">4.1.</span> <span class="toc-text">Ý tưởng chính</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Khong-con-kha-nang-shift"><span class="toc-number">4.2.</span> <span class="toc-text">Không còn khả năng shift</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Truong-hop-lech-nhau-1-don-vi"><span class="toc-number">4.3.</span> <span class="toc-text">Trường hợp lệch nhau 1 đơn vị</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Co-ton-tai-lech-nhau-nhieu-hon-1-don-vi-ma-khong-the-shift"><span class="toc-number">4.4.</span> <span class="toc-text">Có tồn tại lệch nhau nhiều hơn 1 đơn vị mà không thể shift?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Lam-sao-de-biet-shift-chieu-nao"><span class="toc-number">4.5.</span> <span class="toc-text">Làm sao để biết shift chiều nào?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dich-bao-nhieu-don-vi"><span class="toc-number">4.6.</span> <span class="toc-text">Dịch bao nhiêu đơn vị?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cai-dat-tren-Python"><span class="toc-number">4.7.</span> <span class="toc-text">Cài đặt trên Python</span></a></li></ol></li></ol>
                 </div>
             </div>
             
@@ -539,9 +544,9 @@
 </body>
 <footer>
     <p class="copyright" id="copyright">
-        &copy; 2021
+        &copy; 2022
         <span class="gradient-text">
-            Nguyên Lưu (Alfred - Yuan)
+            Nguyen Luu
         </span>.
         Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
         Theme
@@ -629,6 +634,8 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/mode/htmlmixed/htmlmixed.min.js"></script>
   
 <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/mode/python/python.min.js"></script>
+  
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/mode/markdown/markdown.min.js"></script>
    
 <script src="/js/busuanzi.min.js"></script>
 

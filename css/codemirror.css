@@ -2,7 +2,7 @@ pre code .language-mark {
   position: absolute;
   top: 15px;
   left: 15px;
-  font-weight: 900;
+  font-weight: bold;
   color: var(--secondary);
   z-index: 5;
   text-transform: uppercase;
@@ -16,7 +16,7 @@ pre code .language-mark b {
   top: 2px;
   left: 0;
 }
-.language-mark[ref="css"] {
+.language-mark[ref="text"] {
   color: #ff8a00;
 }
 .language-mark[ref="scss"] {
@@ -36,7 +36,7 @@ pre code .language-mark b {
   color: #03a9f4;
   color: #ff79c6;
 }
-.language-mark[ref=php] {
+.language-mark[ref=python] {
   color: #ff79c6;
 }
 /* CodeMirror Dracula theme */
@@ -52,7 +52,7 @@ pre code .language-mark b {
   padding: 0 3px 0 15px;
 }
 .CodeMirror .CodeMirror-scroll {
-  padding: 55px 30px 60px 10px !important;
+  padding: 30px 0px 10px 10px !important;
 }
 .CodeMirror.cm-s-dracula {
   height: 100%;

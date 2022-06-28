@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Nguyen Luu Blog - The Art of Burning Code</title>
+    <title>Tag: Scrape - Nguyen Luu Blog</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
@@ -69,50 +69,151 @@
     </div>
     <span id="config-title" style="display:none">Nguyen Luu Blog</span>
     <div id="loader"></div>
-    <div id="single" class="page">
-    <div id="top">
-        <a class="iconfont icon-left image-icon" href="javascript:history.back()"></a>
+    <div class="nav">
+    <ul id="menu-menu" class="menu">
+        
+        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/about/" title="ABOUT" external="false">ABOUT</a>
+        </li>
+        
+        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/categories/" title="CATEGORIES" external="false">CATEGORIES</a>
+        </li>
+        
+        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/tags/" title="TAGS" external="false">TAGS</a>
+        </li>
+        
+        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/archives/" title="ARCHIVES" external="false">ARCHIVES</a>
+        </li>
+        
+    </ul>
+    <p class="copyright" id="copyright">
+        &copy; 2022 Nguyen Luu.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+    </p>
+</div>
+
+<div id="container">
+    
+<div class="search-box">
+    <form class="site-search-form">
+        <span class="iconfont icon-search"></span>
+        <input type="text" id="local-search-input" class="st-search-input" />
+        <div class="iconfont icon-cross search-box-close"></div>
+    </form>
+    <div class="search-scrollable">
+        <div id="local-search-result" class="local-search-result-cls" data-initialise="Initialising search index..."
+            data-start="Please input search keywords." data-empty="No result found, please try other keywords.">
+            <span>Please input search keywords.</span>
+        </div>
     </div>
-    <div class="clone-element"></div>
-    <div class="section dark-obsidian">
-        <div class="article animated fadeIn">
-            <div class="main animated fadeIn">
-                <div class="content animated fadeIn">
-                
-                        <h1 id="About-me"><a href="#About-me" class="headerlink" title="About me"></a>About me</h1><pre><code class="English">Hi there, I am Alfred, thank you for visiting my blog nguyenluu.dev
-My major is Data Engineering &amp; Science, this blog is being written to spread the spirit of &quot;Share to be shared&quot; and hope my content could fit your needs. As it is personal blog, Vietnamese and English both are used, if the post is in English, there would defintely be a technical content and vice versa.
+</div>
+<div id="header">
+    <div>
+        <div class="logo animated fadeInDown">
+            <img src="/img/favicon.png" alt="">
+            <a class="image-logo" href="/"></a>
+        </div>
+        <ul id="menu-menu" class="menu text-menu">
+            
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/about/" title="ABOUT" external="false" class="menu-link">ABOUT</a>
+            </li>
+            
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/categories/" title="CATEGORIES" external="false" class="menu-link">CATEGORIES</a>
+            </li>
+            
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/tags/" title="TAGS" external="false" class="menu-link">TAGS</a>
+            </li>
+            
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/archives/" title="ARCHIVES" external="false" class="menu-link">ARCHIVES</a>
+            </li>
+            
+            
+            <li class="animated fadeInDown search-bar iconfont icon-search"></li>
+            
+        </ul>
+        <div class="iconfont icon-menu switchmenu gradient-text animated fadeInDown"></div>
+    </div>
+</div>
+<div id="screen">
+    <div id="mark">
+        <div class="cover animated fadeIn" style="
+            animation-delay: 900ms;
+            animation-duration: 2.8s;
+            background-image:
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.56), #100e17),
+                url(/img/cover.jpg);">
+        </div>
+    </div>
+    
+    <div id="post0" class="else">
+        <p class="animated fadeInDown">
+            
+            <a href="/categories/Crawl Data"><b>「
+                </b>CRAWL DATA<b> 」</b></a>
+            
+            June 27, 2022
+        </p>
+        <h3 class="post-title animated fadeInDown">
+            <a href="/2022/06/27/Crawl-data-from-App-Store-Connect/" title="Crawl data from App Store Connect" class="posttitle">Crawl data from App Store Connect</a></h3>
+        
+        <p class="post-count animated fadeInDown">
+            
+            <span>
+                <b class="iconfont icon-text2"></b> <i>Words count</i>
+                5.4k
+            </span>
+            
+            
+            <span>
+                <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                5 mins.
+            </span>
+            
+            
+        </p>
+        
+        
+        <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/App-Store-Connect/" rel="tag">App Store Connect</a><span class="animated fadeInDown post-tags-list-count">1</span></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Apple/" rel="tag">Apple</a><span class="animated fadeInDown post-tags-list-count">1</span></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Python/" rel="tag">Python</a><span class="animated fadeInDown post-tags-list-count">3</span></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Scrape/" rel="tag">Scrape</a><span class="animated fadeInDown post-tags-list-count">1</span></li></ul>
+        
+        <div class="md-content animated fadeIn">
+            
+            <p>In this article, I will show you the way to get Units, the term indicates how many downloads on your own application published on App Store, following by days, months, years, using Python script</p>
+<p>Make sure you have your own privileges to access App Store...</p>
+            
+            <span class="read-more"><a href="/2022/06/27/Crawl-data-from-App-Store-Connect/" title="Read article" class="posttitle">Read article</a>
+                <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
+    </div>
+    
+</div>
 
-I am very glad if you could: 
-- Find something helpful or mistaken on my blog, do not hestitate to leave a comment or an email.
-- Make references if you share to another places 
-</code></pre>
-<ul>
-<li>Linkedin: <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/luutannguyen/">https://www.linkedin.com/in/luutannguyen/</a></li>
-<li>Email: <a href="mailto:&#103;&#x69;&#97;&#x6e;&#x67;&#x63;&#104;&#x61;&#x6e;&#110;&#103;&#117;&#121;&#x65;&#x6e;&#64;&#103;&#109;&#97;&#x69;&#x6c;&#x2e;&#x63;&#111;&#x6d;">&#103;&#x69;&#97;&#x6e;&#x67;&#x63;&#104;&#x61;&#x6e;&#110;&#103;&#117;&#121;&#x65;&#x6e;&#64;&#103;&#109;&#97;&#x69;&#x6c;&#x2e;&#x63;&#111;&#x6d;</a></li>
-<li>StackOverflow:<br><a target="_blank" rel="noopener" href="https://stackoverflow.com/users/3789481/"><img src="https://stackoverflow.com/users/flair/3789481.png?theme=clean" width="200" height="58" ></a></li>
-</ul>
-<hr>
-<p>Tôi là Lưu Tấn Nguyên, tôi tốt nghiệp Đại học Hoa Sen với danh hiệu thủ khoa ngành Software Engineering vào tháng 11-2018. Trong thời gian học, tôi đã may mắn nhận được hai học bổng cover toàn bộ chi phí. Hiện tôi đang làm culi vị trí Data Engineer &amp; Science tại một công ty khởi nghiệp tại VN. </p>
-<p>Cám ơn các bạn đã ghé thăm blog nguyenluu.dev của tôi.<br><img src="/images/tonton.gif"></p>
-<h1 id="Ly-do-viet-Blog"><a href="#Ly-do-viet-Blog" class="headerlink" title="Lý do viết Blog"></a>Lý do viết Blog</h1><p>Tôi đã ấp ủ viết blog từ lâu, từ khi còn là Microsoft Student Partner Vietnam tôi có tạo một trang <a target="_blank" rel="noopener" href="https://giangchannguyen.wordpress.com/">blog</a> nhằm thể hiện tinh thần “Share to be shared” của Technical Evangelist. Tuy nhiên, tôi lại chưa chú tâm lắm, một phần vì lịch học và công việc của tôi cũng tương đối dày đặc, một phần tôi phải lo việc nhà vì đã có nhiều biến cố xảy ra.</p>
-<p>Cho đến tận bây giờ, sau khi mọi thứ ổn thoả, việc viết blog gần như rơi vào quên lãng thì tôi phát hiện là tôi bị mất rất nhiều thời gian để tìm hiểu lại những kiến thức mà tôi đã chia sẻ trên các nền tảng mạng xã hội khác: StackOverflow, Facebook, Github và thậm chí là thất lạc những mớ giấy lộn A4 thời đi học tôi đã viết tay lại :( Do đó tôi quyết tâm khởi động lại dự án cá nhân này, để khi mà các nền tảng khác có bị dừng đột ngột, thì tôi vẫn luôn có một bản ghi đầy đủ như bản nhật ký</p>
-<h1 id="Blog-viet-ve-gi"><a href="#Blog-viet-ve-gi" class="headerlink" title="Blog viết về gì"></a>Blog viết về gì</h1><p>Tôi lại không phải là Back-end hay Front-end, mà là thuộc thế giới thứ ba Data nên những kiến thức của tôi không thật sự là vững chắc, mỗi bên lượm lặt một ít rồi thành kỹ thuật riêng của mình. Vì vậy phạm vi của blog hứa hẹn sẽ tràn gian đại hải, từ Kỹ thuật lập trình, Toán-Tin, Machine Learning, Mining, BI đến Vật lý học, Tâm lý học, Logic học đến kỹ năng mềm, câu chuyện hằng ngày, các kinh nghiệm cá nhân như xây nhà, networking, etc</p>
-<p><img src="/images/mind-blowing.gif"></p>
-<h1 id="Ngon-ngu"><a href="#Ngon-ngu" class="headerlink" title="Ngôn ngữ"></a>Ngôn ngữ</h1><p>Một trong các mục đích viết blog của tôi là rèn lại văn viết cả Tiếng Việt lẫn Tiếng Anh, trong phạm vi lập trình, tôi sẽ viết Tiếng Anh vì thuật ngữ khá nhiều, còn đối với những cái còn lại, tôi sẽ viết Tiếng Việt cho gần gũi, nếu có bất tiện, cảm phiền các bạn cho biết để tôi làm bản song ngữ</p>
-<h1 id="Cac-cong-nghe-su-dung"><a href="#Cac-cong-nghe-su-dung" class="headerlink" title="Các công nghệ sử dụng"></a>Các công nghệ sử dụng</h1><p>Tôi vốn không thích làm web lắm, tôi đã từ bỏ việc làm web từ khi tiếp cận PHP Zend lúc tôi lớp 8, quay trở lại và tiếp tục bỏ web vào thời đại học ASP.NET MVC, nên những thứ tôi cần cho blog của tôi là nhanh-gọn-lẹ, dễ sử dụng dễ tuỳ biến, dễ backup và di chuyển.</p>
-<p>Sau nửa ngày tìm hiểu, tôi dùng:</p>
-<ul>
-<li>Hexo framework: <a target="_blank" rel="noopener" href="https://hexo.io/docs/">Documentation | Hexo</a></li>
-<li>Theme Obsidian: <a target="_blank" rel="noopener" href="https://github.com/TriDiamond/hexo-theme-obsidian">TriDiamond/hexo-theme-obsidian: 🎨 A dark Hexo theme, it’s responsive, simple but elegant. (github.com)</a></li>
-<li>Github Pages: <a target="_blank" rel="noopener" href="https://pages.github.com/">GitHub Pages | Websites for you and your projects, hosted directly from your GitHub repository. Just edit, push, and your changes are live.</a></li>
-</ul>
-
-                
-                </div>
+<div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="typed-text"></span>
+                </p>
             </div>
         </div>
     </div>
 </div>
+
+    <div id="primary">
+        
+    </div>
+    
+</div>
+<div id="preview"></div>
+
 
     <div id="back-to-top" class="animated fadeIn faster">
         <div class="flow"></div>

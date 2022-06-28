@@ -452,7 +452,11 @@ var Obsidian = {
         };
 
         var displayLangText = '';
-        if (lang in langMap) displayLangText = langMap[lang];
+        var isInLangMap = false
+        if (lang in langMap)  {
+          displayLangText = langMap[lang];
+          isInLangMap = true; 
+        }
         else displayLangText = lang;
         if (item.find('.language-mark').length <= 0 && displayLangText) {
           // reset code block styles
@@ -467,7 +471,7 @@ var Obsidian = {
           var myCodeMirror = CodeMirror(this, {
             value: $code,
             mode: Obsidian.getCodeMirrorMode(lang),
-            lineNumbers: !item.is('.inline'),
+            lineNumbers: isInLangMap && !item.is('.inline'),
             readOnly: true,
             lineWrapping: true,
             indentUnit: 2,
@@ -475,8 +479,7 @@ var Obsidian = {
             indentWithTabs: true,
             theme: 'dracula',
           });
-
-          item
+            item
             .find('.CodeMirror')
             .prepend(
               '<span class="language-mark" ref=' +
