@@ -118,7 +118,7 @@
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    5.4k
+                    5.7k
                 </span>
                 
                 
@@ -160,10 +160,7 @@
         <div class="content markdown animated fadeIn">
             <p>In this article, I will show you the way to get Units, the term indicates how many downloads on your own application published on App Store, following by days, months, years, using Python script</p>
 <p>Make sure you have your own privileges to access App Store Connect and generate below information:</p>
-<ol>
-<li>Generate API Key, download Private Key, </li>
-</ol>
-<pre><code class="text">- Select Users and Access, and then select the API Keys tab.
+<h1 id="Generate-API-Key-download-Private-Key"><a href="#Generate-API-Key-download-Private-Key" class="headerlink" title="Generate API Key, download Private Key,"></a>Generate API Key, download Private Key,</h1><pre><code class="text">- Select Users and Access, and then select the API Keys tab.
 - Click Generate API Key or the Add (+) button.
 - Enter a name for the key. The name is for your reference only and is not part of the key itself.
 - Under Access, select the role for the key.
@@ -190,9 +187,7 @@ VendorId
 KeyId = API Key
 PrivateKey
 </code></pre>
-<ol start="2">
-<li>Sign JWT Token<br>Next, we will use them to create and sign JWT Token, I have created a python function to archieve downloading, if you are using another language or simply RESTful, please follow official instruction here<br><a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/appstoreconnectapi/generating_tokens_for_api_requests">https://developer.apple.com/documentation/appstoreconnectapi/generating_tokens_for_api_requests</a></li>
-</ol>
+<h1 id="Sign-JWT-Token"><a href="#Sign-JWT-Token" class="headerlink" title="Sign JWT Token"></a>Sign JWT Token</h1><p>Next, we will use them to create and sign JWT Token, I have created a python function to archieve downloading, if you are using another language or simply RESTful, please follow official instruction here<br><a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/appstoreconnectapi/generating_tokens_for_api_requests">https://developer.apple.com/documentation/appstoreconnectapi/generating_tokens_for_api_requests</a></p>
 <pre><code class="python"># pip install pyjwt
 # pip install pyjwt[crypto]
 from datetime import datetime, timezone
@@ -213,9 +208,7 @@ def sign_appstore_token(issuer_id, key_id, generated_private_key):
     &#125;)
     return token
 </code></pre>
-<ol start="3">
-<li>Download report<br>This link provides the method to download report <a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/appstoreconnectapi/download_sales_and_trends_reports">https://developer.apple.com/documentation/appstoreconnectapi/download_sales_and_trends_reports</a></li>
-</ol>
+<h1 id="Download-report"><a href="#Download-report" class="headerlink" title="Download report"></a>Download report</h1><p>This link provides the method to download report <a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/appstoreconnectapi/download_sales_and_trends_reports">https://developer.apple.com/documentation/appstoreconnectapi/download_sales_and_trends_reports</a></p>
 <p>Be noticed that to get the Units, reportType should be <code>SALES</code>. Also noticed that reportDate and frequency have to consistency each other, if you specify: </p>
 <ul>
 <li><code>filter[frequency] = YEARLY</code>, then <code>filter[reportDate] = 2021</code></li>
@@ -308,6 +301,10 @@ Type
             <div class="post-nav">
                 <hr>
                 
+                    <div class="post-nav-item">Previous Post: <a href="/2022/06/29/KickStart-Practice-2-Building-Palindromes/" rel="prev" 
+                        title="KickStart Practice #2: Building Palindromes">KickStart Practice #2: Building Palindromes
+                      </a></div>
+                
                 
                     <div class="post-nav-item">Next Post: <a href="/2021/12/27/Shuffle-strategic-for-limited-resources/" rel="next" 
                         title="Shuffle strategic for limited resources">Shuffle strategic for limited resources</a></div>
@@ -338,13 +335,20 @@ Type
                     </dl>
                 </div>
                 <ul>
-                    <li><a href="/">6 <p>Articles</p></a></li>
-                    <li><a href="/categories">4 <p>Categories</p></a></li>
-                    <li><a href="/tags">15 <p>Tags</p></a></li>
+                    <li><a href="/">7 <p>Articles</p></a></li>
+                    <li><a href="/categories">8 <p>Categories</p></a></li>
+                    <li><a href="/tags">17 <p>Tags</p></a></li>
                 </ul>
             </div>
             
             
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <h4>Contents</h4>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Generate-API-Key-download-Private-Key"><span class="toc-number">1.</span> <span class="toc-text">Generate API Key, download Private Key,</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Sign-JWT-Token"><span class="toc-number">2.</span> <span class="toc-text">Sign JWT Token</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Download-report"><span class="toc-number">3.</span> <span class="toc-text">Download report</span></a></li></ol>
+                </div>
+            </div>
             
             
         </div>
