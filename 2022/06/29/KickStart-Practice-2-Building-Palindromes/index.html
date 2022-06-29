@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Nguyen Luu zhenyuan0502,"> 
-    <meta name="description" content="Palindrome string is one of the problems always presents in Interview or Competetive Programming. G,"> 
+    <meta name="description" content="Palindrome string is one of the problems always presents in Interview or Competitive Programming. G,"> 
     <meta name="author" content="Nguyen Luu"> 
     <link rel="alternative" href="atom.xml" title="Nguyen Luu Blog" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -118,7 +118,7 @@
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    10k
+                    9.8k
                 </span>
                 
                 
@@ -158,11 +158,11 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <p>Palindrome string is one of the problems always presents in Interview or Competetive Programming. Google Kick Start has launched there practice session in four days, included <code>Building Palindromes</code>. </p>
-<h1 id="The-Problem"><a href="#The-Problem" class="headerlink" title="The Problem"></a>The Problem</h1><p>To avoid rambling, the problem is shortened and paraphrased to keep the core problem only. If you wish to do it yourself, please access <a target="_blank" rel="noopener" href="https://codingcompetitions.withgoogle.com/kickstart/round/00000000008f4a94/0000000000b54d3b">https://codingcompetitions.withgoogle.com/kickstart/round/00000000008f4a94/0000000000b54d3b</a></p>
+            <p>Palindrome string is one of the problems always presents in Interview or Competitive Programming. Google Kick Start has launched there practice session in four days, included <code>Building Palindromes</code>. </p>
+<h1 id="The-Problem"><a href="#The-Problem" class="headerlink" title="The Problem"></a>The Problem</h1><p>To avoid rambling, the problem is shortened and paraphrased to keep the core problem only. If you wish to do it yourself, please access <a target="_blank" rel="noopener" href="https://codingcompetitions.withgoogle.com/kickstart/round/00000000008f4a94/0000000000b54d3b">here</a></p>
 <pre><code class="text">A palindrome is a string that is the same written forwards and backwards. For example, ANNA, RACECAR, AAA and X are all palindromes, while AB, FROG and YOYO are not.
 
-Given Q questions. The i-th question is: can we form a inclusive substring to palindrome started at L to R? We may rearrange the string to make it palindrome if necessary, and if it coule be, answer &quot;yes&quot;. In the end, count number of these &quot;yes&quot;(s).
+Given Q questions, the i-th question is: can we form a inclusive substring to palindrome started at L to R? We may rearrange the string to make it palindrome if necessary, and if it coule be, answer &quot;yes&quot;. In the end, count number of these &quot;yes&quot;(s).
 
 Be noticed that L, R is human natural count, which means started at 1, not 0 like computer.
 
@@ -303,11 +303,11 @@ def test_v3():
         sayYes += query_v3(arr, L, R)
     return sayYes
 </code></pre>
-<p>Some minor optimizations you can consider<br>If you are using Python 3.10, the count code would be 6 times faster <a target="_blank" rel="noopener" href="https://github.com/python/cpython/pull/771#issuecomment-288570744">https://github.com/python/cpython/pull/771#issuecomment-288570744</a></p>
+<p>Some minor optimizations you can consider<br>If you are using Python 3.10, the count code would be <a target="_blank" rel="noopener" href="https://github.com/python/cpython/pull/771#issuecomment-288570744">6 times faster</a> </p>
 <pre><code class="python">int.bit_count()
 </code></pre>
 <p>Or you could take while loop until it exceeds 1 =&gt; return False</p>
-<h1 id="Further-expanding-problem"><a href="#Further-expanding-problem" class="headerlink" title="Further expanding problem"></a>Further expanding problem</h1><p>During searching for optimized solution, I have found the similar challenge on leetcode <a target="_blank" rel="noopener" href="https://leetcode.com/problems/can-make-palindrome-from-substring/">https://leetcode.com/problems/can-make-palindrome-from-substring/</a></p>
+<h1 id="Further-expanding-problem"><a href="#Further-expanding-problem" class="headerlink" title="Further expanding problem"></a>Further expanding problem</h1><p>During searching for optimized solution, I have found the similar challenge on <a target="_blank" rel="noopener" href="https://leetcode.com/problems/can-make-palindrome-from-substring/">leetcode</a>.</p>
 <p>The problem is expanded to opt for <code>k</code> times replacement on substring, say <code>ABC</code>, you will have at least 1 time to replace <code>C</code> to <code>A</code>, form <code>ABA</code>. Realistically, <code>ABC</code> stands for <code>[1, 1, 1]</code> and sum of 1s is 3. We would like to make valid Palindrome so there becomes <code>3 div 2 = 1</code> =&gt; 1 is the minimum of replacement.</p>
 <ul>
 <li>Another example, say <code>ABACDC</code>=&gt; <code>[0, 1, 0, 1]</code> =&gt; <code>2 div 2 = 1</code>. Exactly for rearrangement like <code>CCABDACC</code> =&gt; <code>D</code> to <code>B</code> or vice versa =&gt; <code>CCABBACC</code></li>
