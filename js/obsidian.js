@@ -530,8 +530,8 @@ var Obsidian = {
     var $config = {
       title: document.title,
       description: document.description,
-      wechatQrcodeTitle: '微信扫一扫：分享', // 微信二维码提示文字
-      wechatQrcodeHelper: '<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>',
+      wechatQrcodeTitle: 'Smooth seas do not make skillful sailors',
+      wechatQrcodeHelper: '<p>Practice makes perfect</p>',
     };
 
     socialShare('.share-component-cc', $config);
