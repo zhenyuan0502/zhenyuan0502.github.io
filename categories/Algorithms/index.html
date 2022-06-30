@@ -55,7 +55,7 @@
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v12.0&appId=2138205256335572&autoLogAppEvents=1" nonce="tBKZJtS0"></script>
     
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 
 <body class="loading">
@@ -185,7 +185,7 @@
         
         <div class="md-content animated fadeIn">
             
-            <p>On the early stage of Machine Learning, Data Mining progress, one of the problems we have to deal with processing large-size file, including corpus shuffle, usually its size would be larger than our limited resources like memory or capacity. Let’s say...</p>
+            <p>On the early stage of Machine Learning, Data Mining progress, one of the problems we have to deal with processing large-size file, including corpus shuffle, usually its size would be larger than our limited resources like memory or capacity. Let’s say, the file is 30GB, whereas the provided memory is 8GB or 16GB, we surely cannot load entire them to...</p>
             
             <span class="read-more"><a href="/2021/12/27/Shuffle-strategic-for-limited-resources/" title="Read article" class="posttitle">Read article</a>
                 <b class="iconfont icon-arrow-right- gradient-text"></b></span>
@@ -246,11 +246,14 @@
         
         <div class="md-content animated fadeIn">
             
-                <p>Cho hai dãy ,  đã được sắp xếp theo thứ tự có size là  và , hãy tìm trung vị (median) của hai dãy đó.</p>
-<p>Đây là bài toán được xem là mức độ khó trên <a target="_blank" rel="noopener" href="https://leetcode.com/problems/median-of-two-sorted-arrays/">leetcode.com</a>, thách thức của bài này là thuật toán phải được chạy với time </p>
+                <p>Cho hai dãy <code>nums1</code>, <code>nums2</code> đã được sắp xếp theo thứ tự có size là <code>m</code> và <code>n</code>, hãy tìm trung vị (median) của hai dãy đó.</p>
+<p>Đây là bài toán được xem là mức độ khó trên <a target="_blank" rel="noopener" href="https://leetcode.com/problems/median-of-two-sorted-arrays/">leetcode.com</a>, thách thức của bài này là thuật toán phải được chạy với time <code>O(log(m+n))</code></p>
 <p>Nguyên văn bài toán và các ví dụ</p>
-<pre></pre>
-<p>Khác với trung bình, trung vị là vị trí phần tử ở chính giữa của một dãy đã sắp xếp, vị trí đó...</p>
+<pre><code class="text">Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
+
+The overall run time complexity should be O(log (m+n)).
+
+Example...</code></pre>
             
             <span class="read-more"><a href="/2021/09/03/Tim-trung-vi-cua-2-day-da-duoc-sap-xep/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
         </div>

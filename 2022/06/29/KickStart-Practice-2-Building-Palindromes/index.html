@@ -55,7 +55,7 @@
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v12.0&appId=2138205256335572&autoLogAppEvents=1" nonce="tBKZJtS0"></script>
     
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 
 <body class="loading">
@@ -118,7 +118,7 @@
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    9.8k
+                    10k
                 </span>
                 
                 
@@ -159,6 +159,7 @@
     <div class='main'>
         <div class="content markdown animated fadeIn">
             <p>Palindrome string is one of the problems always presents in Interview or Competitive Programming. Google Kick Start has launched there practice session in four days, included <code>Building Palindromes</code>. </p>
+<hr>
 <h1 id="The-Problem"><a href="#The-Problem" class="headerlink" title="The Problem"></a>The Problem</h1><p>To avoid rambling, the problem is shortened and paraphrased to keep the core problem only. If you wish to do it yourself, please access <a target="_blank" rel="noopener" href="https://codingcompetitions.withgoogle.com/kickstart/round/00000000008f4a94/0000000000b54d3b">here</a></p>
 <pre><code class="text">A palindrome is a string that is the same written forwards and backwards. For example, ANNA, RACECAR, AAA and X are all palindromes, while AB, FROG and YOYO are not.
 
@@ -276,14 +277,14 @@ def test_v2():
 
     return sayYes
 </code></pre>
-<p>The above code shows I have encoded to 26 places, stored in arr stands for prefix array. After generated ASCII code via <code>ord()</code> function, more, instead of XOR entire 2 arrays between last prefix array and decoded char, I can easily address to the prefix array in representative position, then doing XOR with 1 in this line <code>new[ord(el)-ord(&#39;A&#39;)] ^= 1</code>.</p>
+<p>The above code shows I have encoded to 26 places, stored in <code>arr</code> stands for prefix array. After that generated ASCII code via <code>ord()</code> function and put them in exact position. More, instead of XOR entire 2 arrays between last prefix array and decoded char, I can easily address to the prefix array in representative position, then doing XOR with 1 in this line <code>new[ord(el)-ord(&#39;A&#39;)] ^= 1</code>.</p>
 <p>It can submit to pass Test Set 2 now.</p>
-<p>Some small optimization here<br><code>(x-y) % 2 != 0</code> based on prefix sum sense, as in this case we could change to <code>x ^ y</code> basically. So</p>
+<p>Some small optimizations here<br><code>(x-y) % 2 != 0</code> is based on prefix sum sense, as in this case we could change to <code>x ^ y</code> without changing meaning and result basically. So the code would be as following</p>
 <pre><code class="python">def query_v2(arr, L, R):
     odd=sum((x^y) for x,y in zip(arr[L-1], arr[R]))
     return odd &lt;= 1
 </code></pre>
-<h1 id="Further-optimization"><a href="#Further-optimization" class="headerlink" title="Further optimization"></a>Further optimization</h1><p>In this version, I am going to optimize the technique used on previous section, which is array, instead of places the array of 26 places (A to Z), I will place in an array but in bit, known as integer.<br><code>[1, 0, 0]</code> would be bits <code>100</code> = 8 integer</p>
+<h1 id="Further-optimization"><a href="#Further-optimization" class="headerlink" title="Further optimization"></a>Further optimization</h1><p>In this version, I am going to optimize the technique used on previous section, which is array, instead of places the array of 26 places (A to Z), I will place in an array but in bit, known as integer. Ex.<br><code>[1, 0, 0]</code> would be bits <code>100</code> equivalent to integer of 6</p>
 <p>To adjust XOR on specified bit, we will shift 1 into there desired index as usual.</p>
 <pre><code class="python">def query_v3(arr, L, R):
     odd = bin(arr[L-1] ^ arr[R]).count(&#39;1&#39;)
