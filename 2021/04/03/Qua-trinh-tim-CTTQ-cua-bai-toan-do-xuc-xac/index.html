@@ -164,13 +164,14 @@ Cho 2 viên xúc xắc (x,">
 <blockquote>
 <p>Cho 2 viên xúc xắc (xí ngầu) cân đối đồng chất, hãy tìm số trường hợp có thể xảy ra trong một lần gieo, không phân biệt thứ tự</p>
 </blockquote>
-<p>Vì là cân đối, đồng chất, một lần gieo, không biệt thứ tự =&gt; Do đó cặp (x, y) đối xứng như (1, 6) (6, 1) là như nhau</p>
-<p>Cách tìm đơn giản là vét cạn trâu bò nhất, cụ thể</p>
+<p>Vì là cân đối, đồng chất, một lần gieo, không biệt thứ tự =&gt; Do đó cặp (x, y) đối xứng ví dụ như (1, 6) (6, 1) sẽ là như nhau. Từ đó dễ dàng tìm được có 21 trường hợp có thể xảy ra. Vậy nếu mở rộng tổng quát <code>n</code> đồng xu thì sẽ như nào?</p>
+<hr>
+<h1 id="Bai-toan"><a href="#Bai-toan" class="headerlink" title="Bài toán"></a>Bài toán</h1><p>Quay lại cách giải với n = 2,, cách tìm đơn giản là vét cạn trâu bò nhất, cụ thể</p>
 <blockquote>
 <p>(1, 1) (1, 2) (1, 3) (1, 4) (1, 5) (1, 6)<br>(2, 2) (2, 3) (2, 4) (2, 5) (2, 6)<br>(3, 3) (3, 4) (3, 5) (3, 6)<br>(4, 4) (4, 5) (4, 6)<br>(5, 5) (5, 6)<br>(6, 6)</p>
 </blockquote>
 <p>Vậy có tổng cộng 21 trường hợp có thể xảy ra</p>
-<p>Lúc đấy tôi đã đặt câu hỏi để mở rộng bài toán cho trường hợp n:</p>
+<p>Giả sử, mở rộng bài toán cho trường hợp n:</p>
 <blockquote>
 <p>Cho <em>n</em> viên xúc xắc (xí ngầu) cân đối đồng chất, hãy tìm số trường hợp có thể xảy ra trong một lần gieo, không phân biệt thứ tự</p>
 </blockquote>
@@ -551,7 +552,7 @@ for i in range(1, n):
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>Nội dung</h4>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hanh-trinh-cu"><span class="toc-number">1.</span> <span class="toc-text">Hành trình cũ</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Khao-sat"><span class="toc-number">2.</span> <span class="toc-text">Khảo sát</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Su-dung-day-cong-thuc-truy-hoi"><span class="toc-number">2.1.</span> <span class="toc-text">Sử dụng dãy công thức truy hồi</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Su-dung-lien-he-voi-Tam-giac-Pascal"><span class="toc-number">2.2.</span> <span class="toc-text">Sử dụng liên hệ với Tam giác Pascal</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Loi-ket"><span class="toc-number">3.</span> <span class="toc-text">Lời kết</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Bai-toan"><span class="toc-number">1.</span> <span class="toc-text">Bài toán</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hanh-trinh-cu"><span class="toc-number">2.</span> <span class="toc-text">Hành trình cũ</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Khao-sat"><span class="toc-number">3.</span> <span class="toc-text">Khảo sát</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Su-dung-day-cong-thuc-truy-hoi"><span class="toc-number">3.1.</span> <span class="toc-text">Sử dụng dãy công thức truy hồi</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Su-dung-lien-he-voi-Tam-giac-Pascal"><span class="toc-number">3.2.</span> <span class="toc-text">Sử dụng liên hệ với Tam giác Pascal</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Loi-ket"><span class="toc-number">4.</span> <span class="toc-text">Lời kết</span></a></li></ol>
                 </div>
             </div>
             
