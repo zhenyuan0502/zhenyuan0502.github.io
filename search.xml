@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>Apply Sliding Window technique with Two Pointers</title>
+      <link href="2022/07/14/Apply-Sliding-Window-technique-with-two-pointers/"/>
+      <url>2022/07/14/Apply-Sliding-Window-technique-with-two-pointers/</url>
+      
+        <content type="html"><![CDATA[<p>Inspired after solving problem <code>Longest Substring Without Repeating Characters</code> on <a href="https://leetcode.com/problems/longest-substring-without-repeating-characters/">Leetcode</a>, I rush to write this light but very interesting <code>Sliding Window</code> technique in order to review the way using two pointer efficiently.</p><hr><h1 id="Origin-Problem"><a href="#Origin-Problem" class="headerlink" title="Origin Problem"></a>Origin Problem</h1><p>The origin description is quite short</p><pre><code class="text">Example 1:Input: s = &quot;abcabcbb&quot;Output: 3Explanation: The answer is &quot;abc&quot;, with the length of 3.Example 2:Input: s = &quot;bbbbb&quot;Output: 1Explanation: The answer is &quot;b&quot;, with the length of 1.Example 3:Input: s = &quot;pwwkew&quot;Output: 3Explanation: The answer is &quot;wke&quot;, with the length of 3.Notice that the answer must be a substring, &quot;pwke&quot; is a subsequence and not a substring.</code></pre><p>The output answer is counting only, therefore we can make it easy by using:</p><ul><li>HashSet: to determine whether the next char is existed yet, or not</li><li>Right Pointer: shifting point on the right. Right Pointer iterates entire the length of string</li><li>Left Pointer: shifting point on the left. If the Right Pointer met existing char, the Left Pointer would be shifted till that first duplicated position and removed entirely from the HashSet</li></ul><p>For example:</p><pre><code class="text">s = abcabcbbs[left:right] = as[left:right] = abs[left:right] = abcs[left:right] = bca &lt;= Here we will remove first &#39;a&#39; from &#39;abca&#39;s[left:right] = cab &lt;= Similarly,&#39;b&#39; removed from &#39;bcab&#39;s[left:right] = abc &lt;= &#39;c&#39; removed from &#39;cabc&#39;s[left:right] = cb &lt;= Here we removed &#39;ab&#39; from substring &#39;abcb&#39;s[left:right] = b &lt;= Here &#39;cb&#39; removed from &#39;cbb&#39;</code></pre><p>During sliding, we could get the maximum longest integer as the result is 3 for that.</p><p>Python code</p><pre><code class="python">class Solution:    def lengthOfLongestSubstring(self, s: str) -&gt; int:        charSet = set()        left = 0        result = 0        for right in range(len(s)):            while s[right] in charSet:                charSet.remove(s[left])                left += 1                            charSet.add(s[right])            result = max(result, right - left + 1)        return result</code></pre><h1 id="Further-Expanding"><a href="#Further-Expanding" class="headerlink" title="Further Expanding"></a>Further Expanding</h1><p>What if the question required us to <strong>return substring instead of counting</strong>? Well, you could declare a new dictionary, which key is <code>result integer</code> to store value <code>array of strings</code>, since there could be multiple substrings with the same maximum length.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Algorithm </category>
+          
+          <category> Python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+            <tag> Sliding Window </tag>
+            
+            <tag> Two Pointers </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>KickStart Practice #2: Building Palindromes</title>
       <link href="2022/06/29/KickStart-Practice-2-Building-Palindromes/"/>
       <url>2022/06/29/KickStart-Practice-2-Building-Palindromes/</url>

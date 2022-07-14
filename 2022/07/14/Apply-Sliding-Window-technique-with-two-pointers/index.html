@@ -5,12 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Kỷ nguyên Digital Transformation - Nguyen Luu Blog</title>
+    <title>Apply Sliding Window technique with Two Pointers - Nguyen Luu Blog</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Nguyen Luu zhenyuan0502,"> 
-    <meta name="description" content="Những năm gần đây, một trong những thuật ngữ được nhắc đến rất nhiều trong Cách mạng Công nghiệp 4.,"> 
+    <meta name="description" content="Inspired after solving problem Longest Substring Without Repeating Characters on Leetcode, I rush t,"> 
     <meta name="author" content="Nguyen Luu"> 
     <link rel="alternative" href="atom.xml" title="Nguyen Luu Blog" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -76,7 +76,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="/">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">Kỷ nguyên Digital Transformation</h3>
+        <h3 class="subtitle">Apply Sliding Window technique with Two Pointers</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -106,37 +106,38 @@
         <div class="else">
             <p class="animated fadeInDown">
                 
-                <a href="javascript:;"><b>「 </b>Bài viết<b> 」</b></a>
+                <a href="/categories/Algorithm"><b>「
+                    </b>ALGORITHM<b> 」</b></a>
                 
-                September 21, 2021
+                July 14, 2022
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2021/09/21/Ky-nguyen-Digital-Transformation/" title="Kỷ nguyên Digital Transformation" class="">Kỷ nguyên Digital Transformation</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2022/07/14/Apply-Sliding-Window-technique-with-two-pointers/" title="Apply Sliding Window technique with Two Pointers" class="">Apply Sliding Window technique with Two Pointers</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
-                    <b class="iconfont icon-text2"></b> <i>Số chữ</i>
-                    7.6k
+                    <b class="iconfont icon-text2"></b> <i>Words count</i>
+                    3k
                 </span>
                 
                 
                 <span>
-                    <b class="iconfont icon-timer__s"></b> <i>Thời gian đọc</i>
-                    7 mins.
+                    <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                    3 mins.
                 </span>
                 
                 
                 
                 <span id="busuanzi_container_page_pv">
-                    <b class="iconfont icon-read"></b> <i>Lượt đọc</i>
+                    <b class="iconfont icon-read"></b> <i>Read count</i>
                     <span id="busuanzi_value_page_pv">0</span>
                 </span>
                 
             </p>
             
             
-            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Digital-Transformation/" rel="tag">Digital Transformation</a></li></ul>
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Sliding-Window/" rel="tag">Sliding Window</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Two-Pointers/" rel="tag">Two Pointers</a></li></ul>
             
         </div>
     </div>
@@ -157,48 +158,60 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <p>Những năm gần đây, một trong những thuật ngữ được nhắc đến rất nhiều trong Cách mạng Công nghiệp 4.0 thì không thể không kể đến Digital Transformation, hay còn gọi là Chuyển Đổi Số (CDS). Vậy CDS là gì mà các doanh nghiệp đang lưu tâm, nó có đóng góp cho sự thay đổi nào cho doanh nghiệp không? Có mang lại lợi ích lớn nào không?</p>
+            <p>Inspired after solving problem <code>Longest Substring Without Repeating Characters</code> on <a target="_blank" rel="noopener" href="https://leetcode.com/problems/longest-substring-without-repeating-characters/">Leetcode</a>, I rush to write this light but very interesting <code>Sliding Window</code> technique in order to review the way using two pointer efficiently.</p>
 <hr>
-<h1 id="Lich-su"><a href="#Lich-su" class="headerlink" title="Lịch sử"></a>Lịch sử</h1><p>Để hiểu về CDS, trước hết mình cần phải hiểu và tránh nhầm lẫn với những thuật ngữ khác như Số Hóa (Digitization), Kỹ Thuật Số Hóa (Digitalization), và Ứng Dụng Số Hóa (Digitalized Application).</p>
-<p>Từ thời xa xưa, khi con người biết sử dụng giấy để ghi chép lại thông tin, họ luôn muốn lưu giữ hoặc truyền bá thông điệp một cách hiệu quả. Chẳng hạn như thời phong kiến, nếu muốn truyền thông tin đến công chúng một cách rộng rãi và nhanh chóng, họ sẽ lựa chọn khắc gỗ bản gốc và cho in hàng loạt.</p>
-<p>Thời cận đại, máy gõ chữ giúp người gõ văn bản nhanh chóng, nhân loại đã có bước tiến, nhưng chưa đủ</p>
-<p><img src="/images/pasted-7.png" alt="Máy gõ chữ"></p>
-<p>Con người tiếp tục phát minh ra bộ nhớ lưu trữ, văn bản được nhập liệu trực tiếp và được in hoặc in khi cần. Đến đây, thuật ngữ Số Hóa (Digitization) được dùng để miêu tả quá trình đưa dữ liệu vật lý sang dạng số và lưu trữ được.</p>
-<p>Các công việc Số Hóa sẽ bao gồm:</p>
+<h1 id="Origin-Problem"><a href="#Origin-Problem" class="headerlink" title="Origin Problem"></a>Origin Problem</h1><p>The origin description is quite short</p>
+<pre><code class="text">Example 1:
+Input: s = &quot;abcabcbb&quot;
+Output: 3
+Explanation: The answer is &quot;abc&quot;, with the length of 3.
+
+Example 2:
+Input: s = &quot;bbbbb&quot;
+Output: 1
+Explanation: The answer is &quot;b&quot;, with the length of 1.
+
+Example 3:
+Input: s = &quot;pwwkew&quot;
+Output: 3
+Explanation: The answer is &quot;wke&quot;, with the length of 3.
+Notice that the answer must be a substring, &quot;pwke&quot; is a subsequence and not a substring.
+</code></pre>
+<p>The output answer is counting only, therefore we can make it easy by using:</p>
 <ul>
-<li>Soạn thảo văn bản, tài liệu, số liệu</li>
-<li>Ghi âm </li>
-<li>Scan giấy, hình vật lý sang định dạng hình ảnh của máy tính</li>
+<li>HashSet: to determine whether the next char is existed yet, or not</li>
+<li>Right Pointer: shifting point on the right. Right Pointer iterates entire the length of string</li>
+<li>Left Pointer: shifting point on the left. If the Right Pointer met existing char, the Left Pointer would be shifted till that first duplicated position and removed entirely from the HashSet</li>
 </ul>
-<p>Những tài liệu này sẽ được gửi email, được phổ biến rộng rãi từ nơi này sang nơi khác nhanh hơn, được lưu trữ ở một nơi nào đó an toàn hơn. Các công việc, kinh doanh cũng sẽ được thao tác thực hiện trên máy tính nhiều hơn.</p>
-<p>Về doanh nghiệp, sẽ thật thiếu sót nếu không kể đến các Ứng Dụng Số Hóa (Digitalized Application), đó có thể là mức độ thấp như Word, Excel, Powerpoint cho đến các mức độ cao như ERP, CRM, SAP để tối ưu hóa luồng công việc, giảm thiếu chi phí thực hiện từ hai phía nội bộ doanh nghiệp và lĩnh vực doanh nghiệp đang kinh doanh.</p>
-<p>Khi có ứng dụng rồi, thì người quản lý dữ liệu đó phải học cách khai thác, một doanh nghiệp nhỏ có thể sử dụng Excel để làm thống kê, đưa ra phương hướng quyết định, nhưng khi mức độ nhiều hơn, số lượng dữ liệu quá lớn, thì bắt buộc phải có Kỹ Thuật Số Hóa để phù hợp với từng nhánh chuyên sâu hơn. Doanh nghiệp có thể đặt hàng công ty dữ liệu để đưa ra các Insights, ví dụ như các biểu đồ, thống kê, xu hướng, độ tin cậy của một mô hình,… Để từ đó lập kế hoạch, chiến dịch cho tương lai</p>
-<p>Nhìn chung, sự áp dụng Kỹ Thuật Số đã đi sâu vào đời sống doanh nghiệp, từ mức độ thấp cho đến mức độ cao. Nhưng khi bước vào giai đoạn mới, gọi là Chuyển Đổi Số, nó lại liên quan đến văn hóa (Culture) nhiều hơn là kỹ thuật (Technology)</p>
-<h1 id="Chuyen-doi-so"><a href="#Chuyen-doi-so" class="headerlink" title="Chuyển đổi số"></a>Chuyển đổi số</h1><p>Các doanh nghiệp lâu đời sẽ rất khó ứng dụng chuyển đổi số một cách nhanh chóng so với những doanh nghiệp khởi nghiệp, do họ còn tồn tại các quy trình, các văn hóa, tất nhiên điều đó không sai nếu xét về mặt ổn định.</p>
-<p><img src="/images/pasted-8.png" alt="Netflix"></p>
-<p>Ví dụ về công ty Netflix, năm 1997, công ty đang định hình ở mảng cho thuê DVD qua thư bưu điện, 10 năm sau Netflix cho phép phát hành video online, cho đến hiện nay đã rất thành công trong việc bán subscription để người dùng được thưởng thức không chỉ series truyền hình mà còn cả phim rạp. Từ đó, hình thành văn hóa xem phim online thay cho băng đĩa hay truyền hình cáp truyền thống. Nói cách khác, Netflix đã chủ động thay đổi và từng bước đưa giải pháp để người xem tiếp cận được tiện ích giải trí.</p>
-<p><img src="/images/pasted-9.png" alt="Dropbox"></p>
-<p>Công ty Dropbox khởi nghiệp với mục tiêu thay đổi cách gửi file qua email hay USB vì sẽ có rủi ro virus và mất mát. Qua đó định hình được văn hóa sử dụng Cloud Computing để lưu trữ (SaaS)</p>
-<p>Trong thời gian dịch vừa qua, rất rõ ràng có nhiều tổ chức đã phải quyết định thực hiện Ứng Dụng Số Hóa một cách đột ngột:</p>
-<ul>
-<li>Nhà trường sử dụng Zoom để dạy online</li>
-<li>Hàng hóa, rau củ, chợ được bày bán ở Facebook, Zalo</li>
-<li>Công việc được làm ở nhà, quy trình giấy tờ được giảm bớt</li>
-</ul>
-<p>Có thể thấy, xã hội sẽ phải đối mặt với việc CDS ở rất nhiều lĩnh vực, không nhất thiết tổ chức doanh nghiệp buộc phải có AI, IoT, Big Data,… những suy nghĩ đấy không hẳn đúng hoàn toàn. Hai công ty ví dụ phía trên đều không có áp dụng những kỹ thuật tiên tiến ngay thời buổi ban đầu, nhưng nhờ CDS, họ có thể áp dụng rất nhiều kỹ thuật đó để ngày càng phát triển hơn, nói cách khác, CDS là tiền đề để áp dụng khoa học công nghệ và kỹ thuật.</p>
-<h1 id="Dieu-kien-de-chuyen-doi-so"><a href="#Dieu-kien-de-chuyen-doi-so" class="headerlink" title="Điều kiện để chuyển đổi số"></a>Điều kiện để chuyển đổi số</h1><h2 id="Fault-tolerance-from-Leader"><a href="#Fault-tolerance-from-Leader" class="headerlink" title="Fault tolerance from Leader"></a>Fault tolerance from Leader</h2><p>Luôn khoan dung với lỗi lầm và rủi ro có thể xảy ra đối với CDS, các lãnh đạo doanh nghiệp phải nhận thức được tầm quan trọng của CDS, để từ đó đưa ra lộ trình, ngân sách và hướng giải quyết khi mắc lỗi lầm.</p>
-<h2 id="Technology-skills-amp-security-issue"><a href="#Technology-skills-amp-security-issue" class="headerlink" title="Technology skills &amp; security issue"></a>Technology skills &amp; security issue</h2><p>Các phòng ban phải có kỹ năng công nghệ thông tin nhất định và cũng phải có nhận thức về bảo mật thông tin. Ngoài ra phòng ban cũng phải có ý chí để tiếp thu được công nghệ, qua đó đóng góp được hướng xử lý tốt hơn.</p>
-<p>Ví dụ: Ban lãnh đạo muốn sử dụng máy quét vân tay, KPI hoàn thành, để đo đạc được chất lượng của nhân viên. Các quy trình xin nghỉ phép, hạch toán, lương bổng phải được tự động hóa. Những bài toán này được đặt cho Team HR và Dev để cùng nhau thực hiện, tuy nhiên, HR chỉ muốn làm trên Excel vì nó này nọ kia, thì Dev cho dù có cố gắng cũng không thể thực hiện CDS triệt để, vì Dev và HR không hiểu nhau.</p>
-<h2 id="Custommer-understanding"><a href="#Custommer-understanding" class="headerlink" title="Custommer understanding"></a>Custommer understanding</h2><p>Lấy khách hàng là trọng tâm để hoạch định chiến lược CDS. Từ những thành công trước đó về CDS của Netflix và Dropbox, một khi khách hàng hiểu sản phẩm của mình và cảm thấy thật sự giải quyết được những bất tiện họ đang gặp phải, họ sẵn sằng chi hầu bao cho dịch vụ đó.</p>
-<h2 id="Agile-Transformation"><a href="#Agile-Transformation" class="headerlink" title="Agile Transformation"></a>Agile Transformation</h2><p>Từng bước CDS từ các phòng ban cho đến toàn hệ thống. Ví dụ, Team Marketing sẽ phải biết sử dụng SQL &amp; BI để đọc Insights data và đưa ra các chiến lược Marketing. Thay vì những công việc này vốn phải là đơn đặt hàng cho Team Data</p>
-<p>Ngoài ra, Agile Transformation còn có ý nghĩa là việc CDS phải luôn liên tục và không ngừng nghỉ để đáp ứng được với xu hướng của thời đại.</p>
-<h1 id="Ket-luan"><a href="#Ket-luan" class="headerlink" title="Kết luận"></a>Kết luận</h1><ul>
-<li>Chuyển đổi số liên quan đến văn hóa, nhiều hơn là công nghệ</li>
-<li>Chuyển đổi số không cần thiết phải có áp dụng AI, IoT, Big Data mà là tiền đề để áp dụng nó</li>
-<li>Doanh nghiệp thay đổi cần tập trung dịch vụ hướng người dùng một cách tốt nhất</li>
-<li>Chuyển đổi số là liên tục, không ngừng nghỉ</li>
-<li>Các phòng ban và lãnh đạo phải có ý chí thực hiện Chuyển đổi số để nâng cao hiệu quả công việc</li>
-</ul>
+<p>For example:</p>
+<pre><code class="text">s = abcabcbb
+s[left:right] = a
+s[left:right] = ab
+s[left:right] = abc
+s[left:right] = bca &lt;= Here we will remove first &#39;a&#39; from &#39;abca&#39;
+s[left:right] = cab &lt;= Similarly,&#39;b&#39; removed from &#39;bcab&#39;
+s[left:right] = abc &lt;= &#39;c&#39; removed from &#39;cabc&#39;
+s[left:right] = cb &lt;= Here we removed &#39;ab&#39; from substring &#39;abcb&#39;
+s[left:right] = b &lt;= Here &#39;cb&#39; removed from &#39;cbb&#39;
+</code></pre>
+<p>During sliding, we could get the maximum longest integer as the result is 3 for that.</p>
+<p>Python code</p>
+<pre><code class="python">class Solution:
+    def lengthOfLongestSubstring(self, s: str) -&gt; int:
+        charSet = set()
+        left = 0
+        result = 0
+        for right in range(len(s)):
+            while s[right] in charSet:
+                charSet.remove(s[left])
+                left += 1
+                
+            charSet.add(s[right])
+            result = max(result, right - left + 1)
+
+        return result
+</code></pre>
+<h1 id="Further-Expanding"><a href="#Further-Expanding" class="headerlink" title="Further Expanding"></a>Further Expanding</h1><p>What if the question required us to <strong>return substring instead of counting</strong>? Well, you could declare a new dictionary, which key is <code>result integer</code> to store value <code>array of strings</code>, since there could be multiple substrings with the same maximum length.</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -223,11 +236,11 @@
 <ul class="post-copyright">
   <li class="post-copyright-author">
     <strong>Author</strong>
-    Nguyên Lưu (Alfred - Yuan)
+    Nguyen Luu
   </li>
   <li class="post-copyright-link">
     <strong>Link</strong>
-    <a href="https://nguyenluu.dev/2021/09/21/Ky-nguyen-Digital-Transformation/" title="Kỷ nguyên Digital Transformation">https://nguyenluu.dev/2021/09/21/Ky-nguyen-Digital-Transformation/</a>
+    <a href="https://nguyenluu.dev/2022/07/14/Apply-Sliding-Window-technique-with-two-pointers/" title="Apply Sliding Window technique with Two Pointers">https://nguyenluu.dev/2022/07/14/Apply-Sliding-Window-technique-with-two-pointers/</a>
   </li>
   <li class="post-copyright-license">
     <strong>License</strong>
@@ -242,13 +255,9 @@
             <div class="post-nav">
                 <hr>
                 
-                    <div class="post-nav-item">Bài viết trước: <a href="/2021/12/27/Shuffle-strategic-for-limited-resources/" rel="prev" 
-                        title="Shuffle strategic for limited resources">Shuffle strategic for limited resources
-                      </a></div>
                 
-                
-                    <div class="post-nav-item">Bài viết kế: <a href="/2021/09/03/Tim-trung-vi-cua-2-day-da-duoc-sap-xep/" rel="next" 
-                        title="Tìm trung vị của 2 dãy đã được sắp xếp">Tìm trung vị của 2 dãy đã được sắp xếp</a></div>
+                    <div class="post-nav-item">Next Post: <a href="/2022/06/29/KickStart-Practice-2-Building-Palindromes/" rel="next" 
+                        title="KickStart Practice #2: Building Palindromes">KickStart Practice #2: Building Palindromes</a></div>
                                 
             </div>   
                         
@@ -256,7 +265,7 @@
             
 
             
-            <div class="fb-comments" data-width="100%" data-href="/2021/09/21/Ky-nguyen-Digital-Transformation/" data-width="" data-numposts="5"></div>
+            <div class="fb-comments" data-width="100%" data-href="/2022/07/14/Apply-Sliding-Window-technique-with-two-pointers/" data-width="" data-numposts="5"></div>
             
 
         </div>
@@ -276,9 +285,9 @@
                     </dl>
                 </div>
                 <ul>
-                    <li><a href="/">8 <p>Bài viết</p></a></li>
-                    <li><a href="/categories">8 <p>Danh mục</p></a></li>
-                    <li><a href="/tags">19 <p>Thẻ</p></a></li>
+                    <li><a href="/">8 <p>Articles</p></a></li>
+                    <li><a href="/categories">8 <p>Categories</p></a></li>
+                    <li><a href="/tags">19 <p>Tags</p></a></li>
                 </ul>
             </div>
             
@@ -286,8 +295,8 @@
             
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
-                    <h4>Nội dung</h4>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Lich-su"><span class="toc-number">1.</span> <span class="toc-text">Lịch sử</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Chuyen-doi-so"><span class="toc-number">2.</span> <span class="toc-text">Chuyển đổi số</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Dieu-kien-de-chuyen-doi-so"><span class="toc-number">3.</span> <span class="toc-text">Điều kiện để chuyển đổi số</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Fault-tolerance-from-Leader"><span class="toc-number">3.1.</span> <span class="toc-text">Fault tolerance from Leader</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Technology-skills-amp-security-issue"><span class="toc-number">3.2.</span> <span class="toc-text">Technology skills &amp; security issue</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Custommer-understanding"><span class="toc-number">3.3.</span> <span class="toc-text">Custommer understanding</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Agile-Transformation"><span class="toc-number">3.4.</span> <span class="toc-text">Agile Transformation</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Ket-luan"><span class="toc-number">4.</span> <span class="toc-text">Kết luận</span></a></li></ol>
+                    <h4>Contents</h4>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Origin-Problem"><span class="toc-number">1.</span> <span class="toc-text">Origin Problem</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Further-Expanding"><span class="toc-number">2.</span> <span class="toc-text">Further Expanding</span></a></li></ol>
                 </div>
             </div>
             
