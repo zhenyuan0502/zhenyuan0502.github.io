@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Nguyen Luu zhenyuan0502,"> 
-    <meta name="description" content="Inspired after solving problem Longest Substring Without Repeating Characters on Leetcode, I rush t,"> 
+    <meta name="description" content="Motivated by my successful solution to the “Longest Substring Without Repeating Characters” problem,"> 
     <meta name="author" content="Nguyen Luu"> 
     <link rel="alternative" href="atom.xml" title="Nguyen Luu Blog" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -118,7 +118,7 @@
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    3k
+                    3.7k
                 </span>
                 
                 
@@ -158,9 +158,9 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <p>Inspired after solving problem <code>Longest Substring Without Repeating Characters</code> on <a target="_blank" rel="noopener" href="https://leetcode.com/problems/longest-substring-without-repeating-characters/">Leetcode</a>, I rush to write this light but very interesting <code>Sliding Window</code> technique in order to review the way using two pointer efficiently.</p>
+            <p>Motivated by my successful solution to the “Longest Substring Without Repeating Characters” problem on <a target="_blank" rel="noopener" href="https://leetcode.com/problems/longest-substring-without-repeating-characters/">Leetcode</a>, I eagerly present the “Sliding Window” technique, a simple yet intriguing method that leverages two pointers to achieve optimal performance.</p>
 <hr>
-<h1 id="Origin-Problem"><a href="#Origin-Problem" class="headerlink" title="Origin Problem"></a>Origin Problem</h1><p>The origin description is quite short</p>
+<h1 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h1><p>The problem statement is brief and to the point:</p>
 <pre><code class="text">Example 1:
 Input: s = &quot;abcabcbb&quot;
 Output: 3
@@ -177,24 +177,24 @@ Output: 3
 Explanation: The answer is &quot;wke&quot;, with the length of 3.
 Notice that the answer must be a substring, &quot;pwke&quot; is a subsequence and not a substring.
 </code></pre>
-<p>The output answer is counting only, therefore we can make it easy by using:</p>
+<p>Since the required output is simply a count, we can employ the following approach:</p>
 <ul>
-<li>HashSet: to determine whether the next char is existed yet, or not</li>
-<li>Right Pointer: shifting point on the right. Right Pointer iterates entire the length of string</li>
-<li>Left Pointer: shifting point on the left. If the Right Pointer met existing char, the Left Pointer would be shifted till that first duplicated position and removed entirely from the HashSet</li>
+<li>HashSet: to determine whether the next character has already appeared</li>
+<li>Right Pointer: shifting point on the right of the string. Right Pointer iterates entire the length of string</li>
+<li>Left Pointer: shifting point on the left of the string. If the Right Pointer met existing char, the Left Pointer would be shifted till that first duplicated position and removed entirely from the HashSet</li>
 </ul>
 <p>For example:</p>
 <pre><code class="text">s = abcabcbb
 s[left:right] = a
 s[left:right] = ab
 s[left:right] = abc
-s[left:right] = bca &lt;= Here we will remove first &#39;a&#39; from &#39;abca&#39;
-s[left:right] = cab &lt;= Similarly,&#39;b&#39; removed from &#39;bcab&#39;
+s[left:right] = bca &lt;= Here, we will remove first &#39;a&#39; from &#39;abca&#39;
+s[left:right] = cab &lt;= Similarly, &#39;b&#39; removed from &#39;bcab&#39;
 s[left:right] = abc &lt;= &#39;c&#39; removed from &#39;cabc&#39;
 s[left:right] = cb &lt;= Here we removed &#39;ab&#39; from substring &#39;abcb&#39;
 s[left:right] = b &lt;= Here &#39;cb&#39; removed from &#39;cbb&#39;
 </code></pre>
-<p>During sliding, we could get the maximum longest integer as the result is 3 for that.</p>
+<p>By sliding the window, we can find the length of the longest substring without any duplicate characters, which is 3 for the given input string.</p>
 <p>Python code</p>
 <pre><code class="python">class Solution:
     def lengthOfLongestSubstring(self, s: str) -&gt; int:
@@ -211,7 +211,10 @@ s[left:right] = b &lt;= Here &#39;cb&#39; removed from &#39;cbb&#39;
 
         return result
 </code></pre>
-<h1 id="Further-Expanding"><a href="#Further-Expanding" class="headerlink" title="Further Expanding"></a>Further Expanding</h1><p>What if the question required us to <strong>return substring instead of counting</strong>? Well, you could declare a new dictionary, which key is <code>result integer</code> to store value <code>array of strings</code>, since there could be multiple substrings with the same maximum length.</p>
+<p>The time complexity of this code is O(n), where n is the length of the input string s.</p>
+<p>The for loop iterates over each character in the string once, and the while loop inside the for loop may iterate over some of those characters again, but it only does so once for each character, so the total number of iterations of the while loop is at most n. Therefore, the time complexity of the algorithm is O(n + n) = O(n).</p>
+<p>The space complexity of this code is also O(n), because in the worst case, the set charSet will contain all characters in the input string, and therefore will take up O(n) space.</p>
+<h1 id="Extension"><a href="#Extension" class="headerlink" title="Extension"></a>Extension</h1><p>What if the problem requires us to <strong>return the longest substring instead of its length</strong>? In that case, we could create a new dictionary with the result length as the key and an array of corresponding substrings as the value, since there could be multiple substrings with the same maximum length.</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -296,7 +299,7 @@ s[left:right] = b &lt;= Here &#39;cb&#39; removed from &#39;cbb&#39;
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>Contents</h4>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Origin-Problem"><span class="toc-number">1.</span> <span class="toc-text">Origin Problem</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Further-Expanding"><span class="toc-number">2.</span> <span class="toc-text">Further Expanding</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Problem-Description"><span class="toc-number">1.</span> <span class="toc-text">Problem Description</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Extension"><span class="toc-number">2.</span> <span class="toc-text">Extension</span></a></li></ol>
                 </div>
             </div>
             
