@@ -162,21 +162,21 @@
 </code></pre>
 <p>Initially, I employed Postman to test the request, using the following link as an example: <a target="_blank" rel="noopener" href="https://www.redfin.com/zipcode/10001/filter/include=sold-6mo">https://www.redfin.com/zipcode/10001/filter/include=sold-6mo</a>. </p>
 <p>Regrettably, Redfin’s web scraping protection detected the suspicious request from Postman, resulting in an “Oops!” page being returned. You can see the screenshot below</p>
-<p><img src="/images%5Cpasted-17.png"></p>
+<p><img src="/images/pasted-17.png"></p>
 <p>I then switched back to the Edge browser to explore the Network used for that request. To access it, you can press F12 and navigate to the Network tab.</p>
 <p>My next step was to investigate whether there was any JSON data being transferred between the client and server. To do this, I pressed Ctrl + F and searched for the text “410 W 25th St,” referring to the first listing card. The results indicated that this data only existed in the main request homepage. You can refer to the screenshot below:</p>
 <p><img src="/images/pasted-16.png"></p>
 <p>Unfortunately, I discovered that no data was available for retrieval. It appears to be hidden using some React technique that I am unfamiliar with, but it’s quite intriguing.</p>
-<p><img src="/images%5Cpasted-18.png"></p>
+<p><img src="/images/pasted-18.png"></p>
 <p>Considering the above processes, I decided back to Postman because I found that the original request could do <code>edit and resend</code> without any data loss, as there were no new headers, including updated cookies, and no access state handled yet. Thus, I assumed that the headers could be retrieved, and by manipulating them, I could create a deceptive pure HTTP request that exposed the data without involving JavaScript.</p>
 <p>To achieve this, I clicked on “Edit and Resend,” which sent the request to another tab at the bottom of the Network Console. See the screenshot below:</p>
-<p><img src="/images%5Cpasted-20.png"></p>
+<p><img src="/images/pasted-20.png"></p>
 <p>I successfully sent multiple requests using those headers without losing any data. Refer to the screenshot below:</p>
-<p><img src="/images%5Cpasted-19.png"></p>
+<p><img src="/images/pasted-19.png"></p>
 <p>I will try to simulate that headers, by copying cURL (bash)</p>
-<p><img src="/images%5Cpasted-21.png"></p>
+<p><img src="/images/pasted-21.png"></p>
 <p>Next, I attempted to simulate those headers by copying the cURL command (bash) and pasting it into an online converter such as <a target="_blank" rel="noopener" href="https://curlconverter.com/">https://curlconverter.com/</a>. When I ran the converted code for the first time, it provided the desired response with the required data. The next step involved removing unnecessary elements one by one to reduce the size. See the screenshot below:</p>
-<p><img src="/images%5Cpasted-22.png"></p>
+<p><img src="/images/pasted-22.png"></p>
 <p>Finally, I present a simplified code snippet that accomplishes the task:</p>
 <pre><code class="python">import requests
 
