@@ -5,12 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Crawl data from App Store Connect - Nguyen Luu Blog</title>
+    <title>Cracking the Code: Mastering Redfin&#39;s Web Scraping Protection - Nguyen Luu Blog</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Nguyen Luu zhenyuan0502,"> 
-    <meta name="description" content="In this article, I will show you the way to get Units, the term indicates how many downloads on you,"> 
+    <meta name="description" content="In this topic, we will delve into the intriguing world of web scraping protection on Redfin Houses ,"> 
     <meta name="author" content="Nguyen Luu"> 
     <link rel="alternative" href="atom.xml" title="Nguyen Luu Blog" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -76,7 +76,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="/">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">Crawl data from App Store Connect</h3>
+        <h3 class="subtitle">Cracking the Code: Mastering Redfin's Web Scraping Protection</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -106,25 +106,24 @@
         <div class="else">
             <p class="animated fadeInDown">
                 
-                <a href="/categories/Crawl Data"><b>「
-                    </b>CRAWL DATA<b> 」</b></a>
+                <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
                 
-                June 27, 2022
+                May 12, 2023
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2022/06/27/Crawl-data-from-App-Store-Connect/" title="Crawl data from App Store Connect" class="">Crawl data from App Store Connect</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2023/05/12/Cracking-the-Code-Mastering-Redfin-s-Web-Scraping-Protection/" title="Cracking the Code: Mastering Redfin&#39;s Web Scraping Protection" class="">Cracking the Code: Mastering Redfin&#39;s Web Scraping Protection</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    5.7k
+                    10k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    5 mins.
+                    9 mins.
                 </span>
                 
                 
@@ -136,8 +135,6 @@
                 
             </p>
             
-            
-            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/App-Store-Connect/" rel="tag">App Store Connect</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Apple/" rel="tag">Apple</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Scrape/" rel="tag">Scrape</a></li></ul>
             
         </div>
     </div>
@@ -158,107 +155,102 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <p>In this article, I will show you the way to get Units, the term indicates how many downloads on your own application published on App Store, following by days, months, years, using Python script</p>
+            <p>In this topic, we will delve into the intriguing world of web scraping protection on Redfin Houses - a well-known platform for real estate listings. The primary technique employed here involves utilizing HTTP requests with pure Python, eliminating the need for a web driver like Selenium. This approach allows us to utilize it in various environments, including Colab and non-browser-supported environments.</p>
 <hr>
-<p>Make sure you have your own privileges to access App Store Connect and generate below information</p>
-<h1 id="Generate-API-Key-download-Private-Key"><a href="#Generate-API-Key-download-Private-Key" class="headerlink" title="Generate API Key, download Private Key,"></a>Generate API Key, download Private Key,</h1><pre><code class="text">- Select Users and Access, and then select the API Keys tab.
-- Click Generate API Key or the Add (+) button.
-- Enter a name for the key. The name is for your reference only and is not part of the key itself.
-- Under Access, select the role for the key.
-- Click Generate.
-- Click &quot;Download API Key&quot; link next to the new API key.
-More instruction: https://developer.apple.com/documentation/appstoreconnectapi/creating_api_keys_for_app_store_connect_api
+<p><img src="/images/pasted-15.png"></p>
+<pre><code class="Disclaimer">Before proceeding with the web scraping technique described herein, it is important to understand and acknowledge the legal and ethical implications associated with scraping web data. This disclaimer serves as a reminder that the use of web scraping tools or techniques to extract data from websites may be subject to legal restrictions or terms of service imposed by the website owners.
 </code></pre>
-<p>The API Key looks like this format</p>
-<pre><code class="text">2X9R4HXF34
-</code></pre>
-<p>The Private Key looks like this format</p>
-<pre><code class="text">---- Begin Private Key ----
-Key....
----- End Private Key ----
-</code></pre>
-<p>Also from Connector page, please prepares more 2 Ids to process next step</p>
-<pre><code class="text">IssuerId. Ex: 57246542-96fe-1a63-e053-0824d011072a
-VendorId. Ex. 1234567
-More Instruction: https://help.apple.com/app-store-connect/#/dev3a16f3fe0
-</code></pre>
-<p>So, in total, make sure you already kept:</p>
-<pre><code class="text">IssuerId
-VendorId
-KeyId = API Key
-PrivateKey
-</code></pre>
-<h1 id="Sign-JWT-Token"><a href="#Sign-JWT-Token" class="headerlink" title="Sign JWT Token"></a>Sign JWT Token</h1><p>Next, we will use them to create and sign JWT Token, I have created a python function to archieve downloading, if you are using another language or simply RESTful, please follow official instruction here<br><a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/appstoreconnectapi/generating_tokens_for_api_requests">https://developer.apple.com/documentation/appstoreconnectapi/generating_tokens_for_api_requests</a></p>
-<pre><code class="python"># pip install pyjwt
-# pip install pyjwt[crypto]
-from datetime import datetime, timezone
-import jwt
-
-def sign_appstore_token(issuer_id, key_id, generated_private_key):
-    bin_private_key = generated_private_key.encode()
-    current_unix = int(datetime.now(tz=timezone.utc).timestamp())
-    token = jwt.encode(&#123;
-            &quot;iss&quot;: issuer_id,
-            &quot;iat&quot;: current_unix,
-            &quot;exp&quot;: current_unix + 1000, 
-            &quot;aud&quot;: &quot;appstoreconnect-v1&quot;,
-    &#125;, key= bin_private_key, algorithm= &#39;ES256&#39;, headers= &#123;
-        &quot;alg&quot;: &quot;ES256&quot;,
-        &quot;kid&quot;: key_id,
-        &quot;typ&quot;: &quot;JWT&quot;
-    &#125;)
-    return token
-</code></pre>
-<h1 id="Download-report"><a href="#Download-report" class="headerlink" title="Download report"></a>Download report</h1><p>This link provides the method to download report <a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/appstoreconnectapi/download_sales_and_trends_reports">https://developer.apple.com/documentation/appstoreconnectapi/download_sales_and_trends_reports</a></p>
-<p>Be noticed that to get the Units, reportType should be <code>SALES</code>. Also noticed that reportDate and frequency have to consistency each other, if you specify: </p>
-<ul>
-<li><code>filter[frequency] = YEARLY</code>, then <code>filter[reportDate] = 2021</code></li>
-<li><code>filter[frequency] = MONTHLY</code>, then <code>filter[reportDate] = 2021-06</code>.<br>The frequency configuration groups the report to a file, depends on your needs. </li>
-</ul>
-<p>Sample query:</p>
-<pre><code class="text">https://api.appstoreconnect.apple.com/v1/salesReports?filter[frequency]=YEARLY&amp;filter[reportDate]=2021&amp;filter[reportSubType]=SUMMARY&amp;filter[reportType]=SALES&amp;filter[vendorNumber]=YOUR_VENDOR_ID
-Headers: Authorization: Bearer YOUR_ABOVE_TOKEN
-</code></pre>
-<p>You will get binary response if it is success, represented for .gz file as well. Extract gz to get .txt schema deliminated by <code>\t</code></p>
-<p>Python script here returns file content as text, you can do your next step, pandas table, or to model, it is up to you</p>
+<p>Initially, I employed Postman to test the request, using the following link as an example: <a target="_blank" rel="noopener" href="https://www.redfin.com/zipcode/10001/filter/include=sold-6mo">https://www.redfin.com/zipcode/10001/filter/include=sold-6mo</a>. </p>
+<p>Regrettably, Redfin’s web scraping protection detected the suspicious request from Postman, resulting in an “Oops!” page being returned. You can see the screenshot below</p>
+<p><img src="/images%5Cpasted-17.png"></p>
+<p>I then switched back to the Edge browser to explore the Network used for that request. To access it, you can press F12 and navigate to the Network tab.</p>
+<p>My next step was to investigate whether there was any JSON data being transferred between the client and server. To do this, I pressed Ctrl + F and searched for the text “410 W 25th St,” referring to the first listing card. The results indicated that this data only existed in the main request homepage. You can refer to the screenshot below:</p>
+<p><img src="/images/pasted-16.png"></p>
+<p>Unfortunately, I discovered that no data was available for retrieval. It appears to be hidden using some React technique that I am unfamiliar with, but it’s quite intriguing.</p>
+<p><img src="/images%5Cpasted-18.png"></p>
+<p>Considering the above processes, I decided back to Postman because I found that the original request could do <code>edit and resend</code> without any data loss, as there were no new headers, including updated cookies, and no access state handled yet. Thus, I assumed that the headers could be retrieved, and by manipulating them, I could create a deceptive pure HTTP request that exposed the data without involving JavaScript.</p>
+<p>To achieve this, I clicked on “Edit and Resend,” which sent the request to another tab at the bottom of the Network Console. See the screenshot below:</p>
+<p><img src="/images%5Cpasted-20.png"></p>
+<p>I successfully sent multiple requests using those headers without losing any data. Refer to the screenshot below:</p>
+<p><img src="/images%5Cpasted-19.png"></p>
+<p>I will try to simulate that headers, by copying cURL (bash)</p>
+<p><img src="/images%5Cpasted-21.png"></p>
+<p>Next, I attempted to simulate those headers by copying the cURL command (bash) and pasting it into an online converter such as <a target="_blank" rel="noopener" href="https://curlconverter.com/">https://curlconverter.com/</a>. When I ran the converted code for the first time, it provided the desired response with the required data. The next step involved removing unnecessary elements one by one to reduce the size. See the screenshot below:</p>
+<p><img src="/images%5Cpasted-22.png"></p>
+<p>Finally, I present a simplified code snippet that accomplishes the task:</p>
 <pre><code class="python">import requests
-import gzip
-def download_appstore_objects(token, vendor_id, frequency, reportDate):
-    link = f&#39;https://api.appstoreconnect.apple.com/v1/salesReports?filter[frequency]=&#123;frequency&#125;&amp;filter[reportDate]=&#123;reportDate&#125;&amp;filter[reportSubType]=SUMMARY&amp;filter[reportType]=SALES&amp;filter[vendorNumber]=&#123;vendor_id&#125;&#39;
-    response = requests.get(link, headers= &#123;&#39;Authorization&#39;: f&#39;Bearer &#123;token&#125;&#39; &#125;)
-    file_content = gzip.decompress(response.content).decode(&#39;utf-8&#39;)
-    return file_content
+
+cookies = &#123;
+    &#39;RF_UNBLOCK_ID&#39;: &#39;avWazYWD&#39;,
+&#125;
+
+response = requests.get(&#39;https://www.redfin.com/zipcode/10001/filter/include=sold-6mo&#39;, cookies=cookies)
 </code></pre>
-<p>Columns included:</p>
-<pre><code class="text">Provider    
-Provider Country    
-SKU Developer   
-Title   
-Version 
-Product Type Identifier 
-Units   
-Developer Proceeds  
-Begin Date  
-End Date    
-Customer Currency   
-Country Code    
-Currency of Proceeds    
-Apple Identifier    
-Customer Price  
-Promo Code  
-Parent Identifier   
-Subscription    
-Period  Category    
-CMB 
-Device  
-Supported Platforms
-Proceeds Reason 
-Preserved Pricing   
-Client  
-Order 
-Type
+<p>With these modifications, the remaining steps become much simpler. I will utilize BeautifulSoup to handle the HTML, specifically extracting the price and address fields for demonstration purposes:</p>
+<pre><code class="Python">from bs4 import BeautifulSoup
+
+import requests
+
+cookies = &#123;
+    &#39;RF_UNBLOCK_ID&#39;: &#39;avWazYWD&#39;,
+&#125;
+
+response = requests.get(&#39;https://www.redfin.com/zipcode/10001/filter/include=sold-6mo&#39;, cookies=cookies)
+soup = BeautifulSoup(response.text, &#39;html.parser&#39;)
+frames = soup.find_all(&#39;div&#39;, &#123;&#39;class&#39;: &#39;bottomV2&#39;&#125;)
+for i in frames:
+    price = i.find(&#39;span&#39;, &#123;&#39;class&#39;: &#39;homecardV2Price&#39;&#125;)
+
+    if price is None:
+        price = i.find(&#39;span&#39;, &#123;&#39;class&#39;: &#39;priceLabelV2 font-size-smaller&#39;&#125;)
+    print(&#123;
+        &#39;price&#39;: price.text,
+        &#39;address&#39;: i.find(&#39;div&#39;, &#123;&#39;class&#39;: &#39;homeAddressV2&#39;&#125;).text
+    &#125;)
 </code></pre>
-<p>About field types, please refer <a target="_blank" rel="noopener" href="https://help.apple.com/app-store-connect/#/dev15f9508ca">https://help.apple.com/app-store-connect/#/dev15f9508ca</a></p>
+<p>The result obtained from executing the code is as follows:</p>
+<pre><code class="text">&#123;&#39;price&#39;: &#39; Sign in for price &#39;, &#39;address&#39;: &#39;410 W 25th St Unit PHB, New York, NY 10001&#39;&#125;
+&#123;&#39;price&#39;: &#39; Sign in for price &#39;, &#39;address&#39;: &#39;357 W 29th St Unit GB, New York, NY 10001&#39;&#125;
+&#123;&#39;price&#39;: &#39; Sign in for price &#39;, &#39;address&#39;: &#39;20 W 27th St #5, New York, NY 10001&#39;&#125;
+&#123;&#39;price&#39;: &#39; Sign in for price &#39;, &#39;address&#39;: &#39;146 W 29th St Unit 9RE, New York, NY 10001&#39;&#125;
+&#123;&#39;price&#39;: &#39; Sign in for price &#39;, &#39;address&#39;: &#39;408 W 34th St Unit 6B, New York, NY 10001&#39;&#125;
+&#123;&#39;price&#39;: &#39; Sign in for price &#39;, &#39;address&#39;: &#39;11 W 30th St Unit 9-F, New York, NY 10001&#39;&#125;
+&#123;&#39;price&#39;: &#39; Sign in for price &#39;, &#39;address&#39;: &#39;433 W 34th St Unit 3-E, New York, NY 10001&#39;&#125;
+&#123;&#39;price&#39;: &#39; Sign in for price &#39;, &#39;address&#39;: &#39;520 W 27th St #601, New York, NY 10001&#39;&#125;
+&#123;&#39;price&#39;: &#39; Sign in for price &#39;, &#39;address&#39;: &#39;315 Seventh Ave Unit 8C, New York, NY 10001&#39;&#125;
+&#123;&#39;price&#39;: &#39; Sign in for price &#39;, &#39;address&#39;: &#39;144 W 27th St Unit 4F, New York, NY 10001&#39;&#125;
+&#123;&#39;price&#39;: &#39; Sign in for price &#39;, &#39;address&#39;: &#39;252 Seventh Ave Unit 9O, New York, NY 10001&#39;&#125;
+&#123;&#39;price&#39;: &#39; Sign in for price &#39;, &#39;address&#39;: &#39;252 Seventh Ave Unit 10X, New York, NY 10001&#39;&#125;
+&#123;&#39;price&#39;: &#39; Sign in for price &#39;, &#39;address&#39;: &#39;252 Seventh Ave Unit 17C, New York, NY 10001&#39;&#125;
+&#123;&#39;price&#39;: &#39; Sign in for price &#39;, &#39;address&#39;: &#39;225 W 25th St Unit 5E, New York, NY 10001&#39;&#125;
+&#123;&#39;price&#39;: &#39; Sign in for price &#39;, &#39;address&#39;: &#39;408 W 25th St Unit 4FW, New York, NY 10001&#39;&#125;
+&#123;&#39;price&#39;: &#39; Sign in for price &#39;, &#39;address&#39;: &#39;261 W 25th St Unit 3E, New York, NY 10001&#39;&#125;
+&#123;&#39;price&#39;: &#39; Sign in for price &#39;, &#39;address&#39;: &#39;261 W 25th St Unit 3B, New York, NY 10001&#39;&#125;
+&#123;&#39;price&#39;: &#39; Sign in for price &#39;, &#39;address&#39;: &#39;50 W 30th St Unit 4-C, New York, NY 10001&#39;&#125;
+&#123;&#39;price&#39;: &#39; Sign in for price &#39;, &#39;address&#39;: &#39;1200 Broadway Unit 7A, New York, NY 10001&#39;&#125;
+&#123;&#39;price&#39;: &#39; Sign in for price &#39;, &#39;address&#39;: &#39;520 W 28th St #10, New York, NY 10001&#39;&#125;
+&#123;&#39;price&#39;: &#39; Sign in for price &#39;, &#39;address&#39;: &#39;15 Hudson Yards Unit 71E, New York, NY 10001&#39;&#125;
+&#123;&#39;price&#39;: &#39; Sign in for price &#39;, &#39;address&#39;: &#39;522 W 29th St Unit 5-B, New York, NY 10001&#39;&#125;
+&#123;&#39;price&#39;: &#39;$2,800,000&#39;, &#39;address&#39;: &#39;233 W 26th St Unit 7-E, New York, NY 10001&#39;&#125;
+&#123;&#39;price&#39;: &#39; Sign in for price &#39;, &#39;address&#39;: &#39;35 Hudson Yards #6101, New York, NY 10001&#39;&#125;
+&#123;&#39;price&#39;: &#39; Sign in for price &#39;, &#39;address&#39;: &#39;35 Hudson Yards #5704, New York, NY 10001&#39;&#125;
+&#123;&#39;price&#39;: &#39; Sign in for price &#39;, &#39;address&#39;: &#39;35 Hudson Yards #5702, New York, NY 10001&#39;&#125;
+&#123;&#39;price&#39;: &#39; Sign in for price &#39;, &#39;address&#39;: &#39;35 Hudson Yards #5901, New York, NY 10001&#39;&#125;
+&#123;&#39;price&#39;: &#39;$2,750,000&#39;, &#39;address&#39;: &#39;1182 Broadway Unit 13A, New York, NY 10001&#39;&#125;
+&#123;&#39;price&#39;: &#39; Sign in for price &#39;, &#39;address&#39;: &#39;35 Hudson Yards #8102, New York, NY 10001&#39;&#125;
+&#123;&#39;price&#39;: &#39; Sign in for price &#39;, &#39;address&#39;: &#39;35 Hudson Yards #6001, New York, NY 10001&#39;&#125;
+&#123;&#39;price&#39;: &#39; Sign in for price &#39;, &#39;address&#39;: &#39;215 W 28th St Unit 14B, New York, NY 10001&#39;&#125;
+&#123;&#39;price&#39;: &#39; Sign in for price &#39;, &#39;address&#39;: &#39;215 W 28th St Unit 8D, New York, NY 10001&#39;&#125;
+&#123;&#39;price&#39;: &#39; Sign in for price &#39;, &#39;address&#39;: &#39;35 Hudson Yards #5302, New York, NY 10001&#39;&#125;
+&#123;&#39;price&#39;: &#39; Sign in for price &#39;, &#39;address&#39;: &#39;35 Hudson Yards #5502, New York, NY 10001&#39;&#125;
+&#123;&#39;price&#39;: &#39; Sign in for price &#39;, &#39;address&#39;: &#39;35 Hudson Yards #6201, New York, NY 10001&#39;&#125;
+&#123;&#39;price&#39;: &#39; Sign in for price &#39;, &#39;address&#39;: &#39;35 Hudson Yards #6202, New York, NY 10001&#39;&#125;
+&#123;&#39;price&#39;: &#39; Sign in for price &#39;, &#39;address&#39;: &#39;35 Hudson Yards #8103, New York, NY 10001&#39;&#125;
+&#123;&#39;price&#39;: &#39; Sign in for price &#39;, &#39;address&#39;: &#39;35 Hudson Yards #8201, New York, NY 10001&#39;&#125;
+&#123;&#39;price&#39;: &#39; Sign in for price &#39;, &#39;address&#39;: &#39;35 Hudson Yards #8501, New York, NY 10001&#39;&#125;
+&#123;&#39;price&#39;: &#39; Sign in for price &#39;, &#39;address&#39;: &#39;25 W 28th St Ph 40D, New York, NY 10001&#39;&#125;
+</code></pre>
+<p>It is worth noting that in the near future, the hardcoded cookie ‘RF_UNBLOCK_ID’: ‘avWazYWD’ may change. However, we can address this by making an initial request to renew the RF-UNBLOCK_ID and subsequently using it for future requests.</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -283,11 +275,11 @@ Type
 <ul class="post-copyright">
   <li class="post-copyright-author">
     <strong>Author</strong>
-    Nguyên Lưu
+    Nguyen Luu
   </li>
   <li class="post-copyright-link">
     <strong>Link</strong>
-    <a href="https://nguyenluu.dev/2022/06/27/Crawl-data-from-App-Store-Connect/" title="Crawl data from App Store Connect">https://nguyenluu.dev/2022/06/27/Crawl-data-from-App-Store-Connect/</a>
+    <a href="https://nguyenluu.dev/2023/05/12/Cracking-the-Code-Mastering-Redfin-s-Web-Scraping-Protection/" title="Cracking the Code: Mastering Redfin&#39;s Web Scraping Protection">https://nguyenluu.dev/2023/05/12/Cracking-the-Code-Mastering-Redfin-s-Web-Scraping-Protection/</a>
   </li>
   <li class="post-copyright-license">
     <strong>License</strong>
@@ -302,13 +294,9 @@ Type
             <div class="post-nav">
                 <hr>
                 
-                    <div class="post-nav-item">Previous Post: <a href="/2022/06/29/KickStart-Practice-2-Building-Palindromes/" rel="prev" 
-                        title="KickStart Practice #2: Building Palindromes">KickStart Practice #2: Building Palindromes
-                      </a></div>
                 
-                
-                    <div class="post-nav-item">Next Post: <a href="/2021/12/27/Shuffle-strategic-for-limited-resources/" rel="next" 
-                        title="Shuffle strategic for limited resources">Shuffle strategic for limited resources</a></div>
+                    <div class="post-nav-item">Next Post: <a href="/2022/07/14/Apply-Sliding-Window-technique-with-two-pointers/" rel="next" 
+                        title="Apply Sliding Window technique with Two Pointers">Apply Sliding Window technique with Two Pointers</a></div>
                                 
             </div>   
                         
@@ -316,7 +304,7 @@ Type
             
 
             
-            <div class="fb-comments" data-width="100%" data-href="/2022/06/27/Crawl-data-from-App-Store-Connect/" data-width="" data-numposts="5"></div>
+            <div class="fb-comments" data-width="100%" data-href="/2023/05/12/Cracking-the-Code-Mastering-Redfin-s-Web-Scraping-Protection/" data-width="" data-numposts="5"></div>
             
 
         </div>
@@ -343,13 +331,6 @@ Type
             </div>
             
             
-            
-            <div class="box sticky animated fadeInRight faster">
-                <div id="toc" class="subbox">
-                    <h4>Contents</h4>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Generate-API-Key-download-Private-Key"><span class="toc-number">1.</span> <span class="toc-text">Generate API Key, download Private Key,</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Sign-JWT-Token"><span class="toc-number">2.</span> <span class="toc-text">Sign JWT Token</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Download-report"><span class="toc-number">3.</span> <span class="toc-text">Download report</span></a></li></ol>
-                </div>
-            </div>
             
             
         </div>
