@@ -382,7 +382,8 @@ audio {
   background-size: 75px 32px;
   background-repeat: no-repeat;
   background-position: center center;
-  -webkit-mask-box-image: url("../img/logo.png");
+  -webkit-mask-image: url("../img/logo.png");
+  -webkit-mask-size: contain;
   background-color: #fff;
   width: 75px;
   height: 32px;
