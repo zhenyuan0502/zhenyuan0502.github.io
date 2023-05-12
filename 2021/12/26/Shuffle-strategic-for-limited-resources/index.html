@@ -5,12 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Crawl data from App Store Connect - Nguyen Luu Blog</title>
+    <title>Shuffle strategic for limited resources - Nguyen Luu Blog</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Nguyen Luu zhenyuan0502,"> 
-    <meta name="description" content="In this article, I will show you the way to get Units, the term indicates how many downloads on you,"> 
+    <meta name="description" content="On the early stage of Machine Learning, Data Mining progress, one of the problems we have to deal w,"> 
     <meta name="author" content="Nguyen Luu"> 
     <link rel="alternative" href="atom.xml" title="Nguyen Luu Blog" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -76,7 +76,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="/">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">Crawl data from App Store Connect</h3>
+        <h3 class="subtitle">Shuffle strategic for limited resources</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -106,25 +106,25 @@
         <div class="else">
             <p class="animated fadeInDown">
                 
-                <a href="/categories/Crawl Data"><b>「
-                    </b>CRAWL DATA<b> 」</b></a>
+                <a href="/categories/Algorithms"><b>「
+                    </b>ALGORITHMS<b> 」</b></a>
                 
-                June 27, 2022
+                December 26, 2021
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2022/06/27/Crawl-data-from-App-Store-Connect/" title="Crawl data from App Store Connect" class="">Crawl data from App Store Connect</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2021/12/26/Shuffle-strategic-for-limited-resources/" title="Shuffle strategic for limited resources" class="">Shuffle strategic for limited resources</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    5.7k
+                    7.4k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    5 mins.
+                    7 mins.
                 </span>
                 
                 
@@ -137,7 +137,7 @@
             </p>
             
             
-            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/App-Store-Connect/" rel="tag">App Store Connect</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Apple/" rel="tag">Apple</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Scrape/" rel="tag">Scrape</a></li></ul>
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Lazy-Shuffle/" rel="tag">Lazy Shuffle</a></li></ul>
             
         </div>
     </div>
@@ -158,107 +158,76 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <p>In this article, I will show you the way to get Units, the term indicates how many downloads on your own application published on App Store, following by days, months, years, using Python script</p>
+            <p>On the early stage of Machine Learning, Data Mining progress, one of the problems we have to deal with processing large-size file, including corpus shuffle, usually its size would be larger than our limited resources like memory or capacity. Let’s say, the file is 30GB, whereas the provided memory is 8GB or 16GB, we surely cannot load entire them to memory in term of resource shuffling distribution notion. Therefore, the strategic tends to serve that case called Lazy Shuffling Algorithm allowing us to generally trade off time and capacity for memory allocation.</p>
 <hr>
-<p>Make sure you have your own privileges to access App Store Connect and generate below information</p>
-<h1 id="Generate-API-Key-download-Private-Key"><a href="#Generate-API-Key-download-Private-Key" class="headerlink" title="Generate API Key, download Private Key,"></a>Generate API Key, download Private Key,</h1><pre><code class="text">- Select Users and Access, and then select the API Keys tab.
-- Click Generate API Key or the Add (+) button.
-- Enter a name for the key. The name is for your reference only and is not part of the key itself.
-- Under Access, select the role for the key.
-- Click Generate.
-- Click &quot;Download API Key&quot; link next to the new API key.
-More instruction: https://developer.apple.com/documentation/appstoreconnectapi/creating_api_keys_for_app_store_connect_api
+<h1 id="Shuffle-Algorithm"><a href="#Shuffle-Algorithm" class="headerlink" title="Shuffle Algorithm"></a>Shuffle Algorithm</h1><p>In Computer Science, mixing dataset randomly required unpredictable randomness method, that pure randomness leads the data to be more natural sense. Due to the fact that computer only creates a <em>true random number</em> indeed an external event from real world, by other words, it measures some type of physical phenomenon that takes place outside of the computer like keyboard typing, mouse moving, temporature, treated as environment seeds to make sure generated numbers cannot be reproduced by some kind of reverse engineering.</p>
+<p><img src="/images/pasted-10.png" alt="Random number"></p>
+<p>Actually, the true data shuffling with high and perfect expectation could be somewhere fulfill by <em>pseudorandom generator</em>, these random numbers completely created by algorithm and seed value, instead of external event factors are also reluctantly acceptable, since sequence results are closer to truly random in several proven experiments. From there, Fisher Yates shuffle algorithm, leverages the perspective of pseudorandom generator approach, says </p>
+<pre><code class="text">-- To shuffle an array a of n elements (indices 0..n-1):
+for i from n−1 downto 1 do
+     j ← random integer such that 0 ≤ j ≤ i
+     exchange a[j] and a[i]
 </code></pre>
-<p>The API Key looks like this format</p>
-<pre><code class="text">2X9R4HXF34
-</code></pre>
-<p>The Private Key looks like this format</p>
-<pre><code class="text">---- Begin Private Key ----
-Key....
----- End Private Key ----
-</code></pre>
-<p>Also from Connector page, please prepares more 2 Ids to process next step</p>
-<pre><code class="text">IssuerId. Ex: 57246542-96fe-1a63-e053-0824d011072a
-VendorId. Ex. 1234567
-More Instruction: https://help.apple.com/app-store-connect/#/dev3a16f3fe0
-</code></pre>
-<p>So, in total, make sure you already kept:</p>
-<pre><code class="text">IssuerId
-VendorId
-KeyId = API Key
-PrivateKey
-</code></pre>
-<h1 id="Sign-JWT-Token"><a href="#Sign-JWT-Token" class="headerlink" title="Sign JWT Token"></a>Sign JWT Token</h1><p>Next, we will use them to create and sign JWT Token, I have created a python function to archieve downloading, if you are using another language or simply RESTful, please follow official instruction here<br><a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/appstoreconnectapi/generating_tokens_for_api_requests">https://developer.apple.com/documentation/appstoreconnectapi/generating_tokens_for_api_requests</a></p>
-<pre><code class="python"># pip install pyjwt
-# pip install pyjwt[crypto]
-from datetime import datetime, timezone
-import jwt
-
-def sign_appstore_token(issuer_id, key_id, generated_private_key):
-    bin_private_key = generated_private_key.encode()
-    current_unix = int(datetime.now(tz=timezone.utc).timestamp())
-    token = jwt.encode(&#123;
-            &quot;iss&quot;: issuer_id,
-            &quot;iat&quot;: current_unix,
-            &quot;exp&quot;: current_unix + 1000, 
-            &quot;aud&quot;: &quot;appstoreconnect-v1&quot;,
-    &#125;, key= bin_private_key, algorithm= &#39;ES256&#39;, headers= &#123;
-        &quot;alg&quot;: &quot;ES256&quot;,
-        &quot;kid&quot;: key_id,
-        &quot;typ&quot;: &quot;JWT&quot;
-    &#125;)
-    return token
-</code></pre>
-<h1 id="Download-report"><a href="#Download-report" class="headerlink" title="Download report"></a>Download report</h1><p>This link provides the method to download report <a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/appstoreconnectapi/download_sales_and_trends_reports">https://developer.apple.com/documentation/appstoreconnectapi/download_sales_and_trends_reports</a></p>
-<p>Be noticed that to get the Units, reportType should be <code>SALES</code>. Also noticed that reportDate and frequency have to consistency each other, if you specify: </p>
+<p>Wiki: <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle">https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle</a></p>
+<p>The algorithm inspired by pseudorandom generator approach to randomly permutate in-memory swapping throughout entire dataset, thus, the in-place update does not incurred new dataset, of course no more spaces required before and after executing. But when if memory issue is a big deal, which would become puzzled to apply.</p>
+<h1 id="Lazy-Shuffle-Algorithm"><a href="#Lazy-Shuffle-Algorithm" class="headerlink" title="Lazy Shuffle Algorithm"></a>Lazy Shuffle Algorithm</h1><p>Considering space is adjustable and time could be as fast as possible excepts memory is finite, we are not able to load whole large data based on FY Shuffle, then we have to improve it as Lazy Shuffle Algorithm, working around by shuffling index first, seeking and assigning new shuffled data later. Below algorithm serves the line by line format, if the file is a binary, we will have same approach but more complicated on binary serial structure.</p>
 <ul>
-<li><code>filter[frequency] = YEARLY</code>, then <code>filter[reportDate] = 2021</code></li>
-<li><code>filter[frequency] = MONTHLY</code>, then <code>filter[reportDate] = 2021-06</code>.<br>The frequency configuration groups the report to a file, depends on your needs. </li>
+<li>Load line by line and save the cursor offset, aka line map on each line into the offset_list. For example line 1 ends at 30, line 2 ends at 60 and so on, the offset_list should be <code>offset_list = [0, 30, 60, .... 40]</code></li>
+<li>Create the index_list from range 0 to length of the offset_list, then the line 1 marked as index 0, line 2 marked as index 1,… The index_list must be <code>index_list = [0, 1, 2, 3, 4...., n]</code></li>
+<li>Conduct shuffling index_list, in view of the fact that index_list contains only those indices, so it will not too much large resource basically. The sequence results would be also index_list object (because of in-place swapping) likely as <code>index_list = [4504, 134, 27676, 364756, 4...., 43]</code></li>
+<li>Looping through shuffled index_list, we will leverage the offset_list to quickly access to the line, for example, <code>index_list[0] = 4504</code> and <code>offset_list[4504] = 490478</code>, seek file cursor <code>f</code> by <code>f.seek(490478)</code> and <code>new_line = f.readline()</code>, then appended writes <code>new_line</code> sequetially in a new file instead of in-place swapping. </li>
 </ul>
-<p>Sample query:</p>
-<pre><code class="text">https://api.appstoreconnect.apple.com/v1/salesReports?filter[frequency]=YEARLY&amp;filter[reportDate]=2021&amp;filter[reportSubType]=SUMMARY&amp;filter[reportType]=SALES&amp;filter[vendorNumber]=YOUR_VENDOR_ID
-Headers: Authorization: Bearer YOUR_ABOVE_TOKEN
+<h1 id="Python-implementation"><a href="#Python-implementation" class="headerlink" title="Python implementation"></a>Python implementation</h1><p>I have prepared the 5.6GB file aggregated by binhvq, uncompressed ~27.5GB:<br><a target="_blank" rel="noopener" href="https://github.com/binhvq/news-corpus#full-txt-v2">https://github.com/binhvq/news-corpus#full-txt-v2</a></p>
+<p>To easier demo, I will use colab for the whole algorithm, firsly, download the file and wait for completion.</p>
+<pre><code class="python">!pip install --upgrade --no-cache-dir gdown
+!gdown --no-cookies --id 1GFbe-qs6HmCYs0JwJgivOy2Bvb06M8OI
+# !gdown --id 1GFbe-qs6HmCYs0JwJgivOy2Bvb06M8OI =&gt; Not work
+!7z e corpus-full-20181217.7z
 </code></pre>
-<p>You will get binary response if it is success, represented for .gz file as well. Extract gz to get .txt schema deliminated by <code>\t</code></p>
-<p>Python script here returns file content as text, you can do your next step, pandas table, or to model, it is up to you</p>
-<pre><code class="python">import requests
-import gzip
-def download_appstore_objects(token, vendor_id, frequency, reportDate):
-    link = f&#39;https://api.appstoreconnect.apple.com/v1/salesReports?filter[frequency]=&#123;frequency&#125;&amp;filter[reportDate]=&#123;reportDate&#125;&amp;filter[reportSubType]=SUMMARY&amp;filter[reportType]=SALES&amp;filter[vendorNumber]=&#123;vendor_id&#125;&#39;
-    response = requests.get(link, headers= &#123;&#39;Authorization&#39;: f&#39;Bearer &#123;token&#125;&#39; &#125;)
-    file_content = gzip.decompress(response.content).decode(&#39;utf-8&#39;)
-    return file_content
+<p>It will take ~10 min to finish process, so let move to next section</p>
+<p>To seek the file partially, the example here<br><a target="_blank" rel="noopener" href="https://gist.github.com/JosephCatrambone/25476e9a37e932e50c527fc41e164e07">https://gist.github.com/JosephCatrambone/25476e9a37e932e50c527fc41e164e07</a></p>
+<p>I modify a bit the class <code>LineSeekableFile</code>, on the first time initialization, the line will be loop entire the file, but only keep line positions to <code>line_map</code> aka <code>offset_list</code>, I set 10 lines read to easier testing</p>
+<pre><code class="python">class LineSeekableFile:
+    def __init__(self, f):
+        self.fin = f
+        # create the line map starting by 0
+        self.line_map = [0]
+        self.line_count = 0
+        
+        file_pos = 0
+        for line in f:
+            file_pos += len(line)
+            self.line_map.append(file_pos)
+            self.line_count += 1
+
+            # Break for testing purpose
+            if self.line_count == 10:
+                break
+
+    def __getitem__(self, index):
+        # NOTE: This assumes that you&#39;re not reading the file sequentially.  
+        # For that, just use &#39;for line in file&#39;.
+        self.fin.seek(self.line_map[index])
+        return self.fin.readline()
 </code></pre>
-<p>Columns included:</p>
-<pre><code class="text">Provider    
-Provider Country    
-SKU Developer   
-Title   
-Version 
-Product Type Identifier 
-Units   
-Developer Proceeds  
-Begin Date  
-End Date    
-Customer Currency   
-Country Code    
-Currency of Proceeds    
-Apple Identifier    
-Customer Price  
-Promo Code  
-Parent Identifier   
-Subscription    
-Period  Category    
-CMB 
-Device  
-Supported Platforms
-Proceeds Reason 
-Preserved Pricing   
-Client  
-Order 
-Type
+<p>The <code>index_list</code> created by <code>line_count</code>, so when it reads 10 lines, it will get 10 lines and shuffle in that scope</p>
+<pre><code class="python">import random
+
+with open(&#39;corpus-full-0.2.txt&#39;, &#39;r&#39;, encoding=&#39;utf8&#39;,errors=&quot;ignore&quot;) as f, open(&#39;new-corpus.txt&#39;, &#39;w&#39;, encoding=&#39;utf8&#39;,errors=&quot;ignore&quot;) as fw:
+    seeker = LineSeekableFile(f)
+    index_list = list(range(seeker.line_count))
+    # Fisher Shuffle
+    random.shuffle(index_list)
+
+    for i in range(seeker.line_count):
+        print(f&#39;Row &#123;i&#125;, swap with &#123;index_list[i]&#125;&#39;)
+        print(f&#39;Origin &#123;i&#125;, &#123;seeker[i]&#125;&#39;)
+        print(f&#39;Shuffled &#123;index_list[i]&#125;, &#123;seeker[index_list[i]]&#125;&#39;)
+        print(&#39;-----&#39;)
+        fw.write(seeker[index_list[i]])
 </code></pre>
-<p>About field types, please refer <a target="_blank" rel="noopener" href="https://help.apple.com/app-store-connect/#/dev15f9508ca">https://help.apple.com/app-store-connect/#/dev15f9508ca</a></p>
+<p>After finish testing, you can remove the print message and the breaking line to see performance. </p>
+<p>Full code here: <a target="_blank" rel="noopener" href="https://colab.research.google.com/drive/1rRO5u_WpXYkRdq3lugW-ed2v0UH525G5?usp=sharing">https://colab.research.google.com/drive/1rRO5u_WpXYkRdq3lugW-ed2v0UH525G5?usp=sharing</a></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -283,11 +252,11 @@ Type
 <ul class="post-copyright">
   <li class="post-copyright-author">
     <strong>Author</strong>
-    Nguyên Lưu
+    Nguyên Lưu (Alfred - Yuan)
   </li>
   <li class="post-copyright-link">
     <strong>Link</strong>
-    <a href="https://nguyenluu.dev/2022/06/27/Crawl-data-from-App-Store-Connect/" title="Crawl data from App Store Connect">https://nguyenluu.dev/2022/06/27/Crawl-data-from-App-Store-Connect/</a>
+    <a href="https://nguyenluu.dev/2021/12/26/Shuffle-strategic-for-limited-resources/" title="Shuffle strategic for limited resources">https://nguyenluu.dev/2021/12/26/Shuffle-strategic-for-limited-resources/</a>
   </li>
   <li class="post-copyright-license">
     <strong>License</strong>
@@ -302,13 +271,13 @@ Type
             <div class="post-nav">
                 <hr>
                 
-                    <div class="post-nav-item">Previous Post: <a href="/2022/06/29/KickStart-Practice-2-Building-Palindromes/" rel="prev" 
-                        title="KickStart Practice #2: Building Palindromes">KickStart Practice #2: Building Palindromes
+                    <div class="post-nav-item">Previous Post: <a href="/2022/06/27/Crawl-data-from-App-Store-Connect/" rel="prev" 
+                        title="Crawl data from App Store Connect">Crawl data from App Store Connect
                       </a></div>
                 
                 
-                    <div class="post-nav-item">Next Post: <a href="/2021/12/26/Shuffle-strategic-for-limited-resources/" rel="next" 
-                        title="Shuffle strategic for limited resources">Shuffle strategic for limited resources</a></div>
+                    <div class="post-nav-item">Next Post: <a href="/2021/09/21/Ky-nguyen-Digital-Transformation/" rel="next" 
+                        title="Kỷ nguyên Digital Transformation">Kỷ nguyên Digital Transformation</a></div>
                                 
             </div>   
                         
@@ -316,7 +285,7 @@ Type
             
 
             
-            <div class="fb-comments" data-width="100%" data-href="/2022/06/27/Crawl-data-from-App-Store-Connect/" data-width="" data-numposts="5"></div>
+            <div class="fb-comments" data-width="100%" data-href="/2021/12/26/Shuffle-strategic-for-limited-resources/" data-width="" data-numposts="5"></div>
             
 
         </div>
@@ -347,7 +316,7 @@ Type
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>Contents</h4>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Generate-API-Key-download-Private-Key"><span class="toc-number">1.</span> <span class="toc-text">Generate API Key, download Private Key,</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Sign-JWT-Token"><span class="toc-number">2.</span> <span class="toc-text">Sign JWT Token</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Download-report"><span class="toc-number">3.</span> <span class="toc-text">Download report</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Shuffle-Algorithm"><span class="toc-number">1.</span> <span class="toc-text">Shuffle Algorithm</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Lazy-Shuffle-Algorithm"><span class="toc-number">2.</span> <span class="toc-text">Lazy Shuffle Algorithm</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Python-implementation"><span class="toc-number">3.</span> <span class="toc-text">Python implementation</span></a></li></ol>
                 </div>
             </div>
             
