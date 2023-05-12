@@ -3406,7 +3406,7 @@ pre .keyword {
     margin: 10px 30px 0 0;
   }
   .else .post-count {
-    margin: 15px 30px 0 0;
+    margin: 15px 0;
   }
   .else .post-count i {
     display: none;
