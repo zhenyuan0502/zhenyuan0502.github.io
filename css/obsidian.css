@@ -1717,7 +1717,7 @@ footer .copyright a {
   -webkit-transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
   -moz-transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
   transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
-  background: #fff;
+  background: #100e17;
 }
 .dark-obsidian.section {
   min-height: calc(100vh - 151px) !important;
