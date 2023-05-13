@@ -155,7 +155,6 @@ div {
   padding: 0;
   font-weight: 400;
   list-style: none;
-  background: #100e17;
 }
 h1,
 h2,
@@ -1947,6 +1946,7 @@ h1.title {
   margin: 0;
   animation-delay: 400ms;
   animation-duration: 800ms;
+  background: #100e17;
 /*width: 100%;*/
 }
 .article p a:hover {
