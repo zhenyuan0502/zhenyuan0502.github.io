@@ -43,8 +43,9 @@ pre code .language-mark b {
 .CodeMirror {
   height: auto !important;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 5px;
   transition: box-shadow 0.3s ease-out;
+  box-shadow: 0 0px 1px 2px rgba(14,210,247,0.502);
 }
 .CodeMirror .CodeMirror-gutters,
 .CodeMirror .CodeMirror-linenumber {
@@ -62,5 +63,5 @@ pre code .language-mark b {
   font-size: 0.8rem;
 }
 .CodeMirror:hover {
-  box-shadow: 0 5px 20px 0 #0ed2f7;
+  box-shadow: 0 0px 1px 2px #0ed2f7;
 }

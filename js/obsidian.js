@@ -236,7 +236,7 @@ var Obsidian = {
           // 'overflow-y': 'auto'
         });
         Obsidian.initArticleJs();
-      }, 500);
+      }, 0);
     }, 0);
   },
   player: function () {
@@ -467,8 +467,8 @@ var Obsidian = {
 
           item.empty();
 
-          // https://codemirror.net/doc/manual.html
-          var myCodeMirror = CodeMirror(this, {
+          https://codemirror.net/doc/manual.html
+          CodeMirror(this, {
             value: $code,
             mode: Obsidian.getCodeMirrorMode(lang),
             lineNumbers: isInLangMap && !item.is('.inline'),
@@ -484,7 +484,7 @@ var Obsidian = {
             .prepend(
               '<span class="language-mark" ref=' +
                 lang +
-                '> <b class="iconfont icon-code" style="line-height: 0.7rem"></b> ' +
+                '> <b class="iconfont icon-code" style="line-height: 1rem"></b> ' +
                 displayLangText +
                 '</span>'
             );
@@ -883,8 +883,8 @@ var Obsidian = {
       $('html, body').removeClass('loading');
       setTimeout(function () {
         $('.loader').css('z-index', '-1');
-      }, 600);
-    }, 500);
+      }, 100);
+    }, 100);
   },
 };
 
@@ -959,7 +959,7 @@ $(function () {
             logoImg.classList.add('spin');
             setTimeout(function () {
               logoImg.classList.remove('spin');
-            }, 2000);
+            }, 200);
           }
         }
       }

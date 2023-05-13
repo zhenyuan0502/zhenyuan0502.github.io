@@ -88,8 +88,9 @@ pre code .language-mark b {
 .CodeMirror {
   height: auto !important;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 5px;
   transition: box-shadow 0.3s ease-out;
+  box-shadow: 0 0px 1px 2px rgba(14,210,247,0.502);
 }
 .CodeMirror .CodeMirror-gutters,
 .CodeMirror .CodeMirror-linenumber {
@@ -107,10 +108,10 @@ pre code .language-mark b {
   font-size: 0.8rem;
 }
 .CodeMirror:hover {
-  box-shadow: 0 5px 20px 0 #0ed2f7;
+  box-shadow: 0 0px 1px 2px #0ed2f7;
 }
 .post-copyright-container {
-  background: rgba(178,201,252,0.88);
+  background: rgba(178,201,252,0.1);
   border-left: 3px solid #096ef3;
   list-style: none;
   margin: 2em 0 0;
@@ -154,6 +155,7 @@ div {
   padding: 0;
   font-weight: 400;
   list-style: none;
+  background: #100e17;
 }
 h1,
 h2,
@@ -252,7 +254,6 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
-  box-shadow: 0 5px 25px 0 #000;
 }
 audio {
   display: none;
@@ -1985,10 +1986,9 @@ h1.title {
 }
 .article .sidebar .box .subbox {
   position: relative;
-  border-radius: 16px;
-  box-shadow: 0 0 30px rgba(16,14,23,0.25);
+  border-radius: 4px;
   padding: 1rem;
-  background: #fff;
+  background: linear-gradient(to top right, #b2fefa, #0ed2f7, #0052d4) !important;
 }
 .article .sidebar .box .subbox dl dd {
   display: block;
@@ -2025,6 +2025,7 @@ h1.title {
   padding-top: 1rem;
   margin: 0 auto;
   text-align: center;
+  font-weight: 600;
 }
 .article .sidebar .box .subbox span {
   display: block;
@@ -2032,13 +2033,13 @@ h1.title {
   margin: 0 auto;
   padding-top: 10px;
   text-align: center;
-  color: #9e9e9e;
+  color: #100e17;
   font-size: 12px;
+  font-weight: 600;
 }
 .article .sidebar .box ul {
   position: relative;
   top: 1.2rem;
-  right: -1rem;
   display: grid;
   grid-template-columns: 70px 70px 70px;
   font-weight: bold;
@@ -2051,14 +2052,14 @@ h1.title {
   border-right: 1px solid rgba(158,158,158,0.16);
 }
 .article .sidebar .box ul li a {
-  color: var(--dark);
+  color: #c2c2c2;
 }
 .article .sidebar .box ul li:last-of-type {
   border-right: none;
 }
 .article .sidebar .box ul li p {
   font-size: 12px;
-  color: #9e9e9e;
+  color: #c2c2c2;
 }
 .article .sidebar .box img {
   display: block;
@@ -2422,7 +2423,7 @@ h1.title {
 }
 .else .md-content blockquote {
   position: relative;
-  color: #bdbdbd;
+  color: #c2c2c2;
   background-color: rgba(32,28,41,0.75);
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -2717,10 +2718,10 @@ h1.title {
 }
 .content {
   display: block;
-  animation-delay: 900ms;
+  animation-delay: 300ms;
   animation-duration: 3s;
   padding-bottom: 20px;
-  color: #232323;
+  color: #c2c2c2;
   text-justify: inter-word;
 }
 .content strong {
@@ -2880,7 +2881,7 @@ h1.title {
 }
 .content img {
   cursor: pointer;
-  border-radius: 8px;
+  border-radius: 4px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -2924,11 +2925,11 @@ h1.title {
 .content blockquote {
   position: relative;
   padding: 1rem 2rem 1rem 2rem;
-  color: #656565;
+  color: #c2c2c2;
   background-color: rgba(119,119,119,0.05);
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  margin: 0 0 0;
+  margin: 1rem 0rem 1rem 0rem;
 }
 .content blockquote:before {
   content: '';
@@ -2988,129 +2989,129 @@ code {
   border-radius: 8px;
   opacity: 0.9;
 }
-pre {
+pre code {
   font-family: 'Roboto', 'Microsoft Yahei UI', 'WenQuanYi Micro Hei', sans-serif;
   margin: 2em 0;
 }
-pre .comment {
+pre code .comment {
   color: #999;
 }
-pre .title {
+pre code .title {
   color: #999;
   color: #f2777a;
 }
-pre .variable {
+pre code .variable {
   color: #f2777a;
 }
-pre .attribute {
+pre code .attribute {
   color: #f2777a;
 }
-pre .tag {
+pre code .tag {
   color: #f2777a;
 }
-pre .regexp {
+pre code .regexp {
   color: #f2777a;
 }
-pre .ruby .constant {
+pre code .ruby .constant {
   color: #f2777a;
 }
-pre .ruby .class .title {
+pre code .ruby .class .title {
   color: #9c9;
 }
-pre .ruby .symbol {
+pre code .ruby .symbol {
   color: #9c9;
 }
-pre .ruby .function .title {
+pre code .ruby .function .title {
   color: #69c;
 }
-pre .ruby .title .keyword {
+pre code .ruby .title .keyword {
   color: #69c;
 }
-pre .xml .tag {
+pre code .xml .tag {
   color: #f2777a;
 }
-pre .xml .pi {
+pre code .xml .pi {
   color: #f2777a;
 }
-pre .xml .doctype {
+pre code .xml .doctype {
   color: #f2777a;
 }
-pre .xml .cdata {
+pre code .xml .cdata {
   color: #9c9;
 }
-pre .html .doctype {
+pre code .html .doctype {
   color: #f2777a;
 }
-pre .css .id {
+pre code .css .id {
   color: #f2777a;
 }
-pre .css .class {
+pre code .css .class {
   color: #f2777a;
 }
-pre .css .pseudo {
+pre code .css .pseudo {
   color: #f2777a;
 }
-pre .css .rules .attribute {
+pre code .css .rules .attribute {
   color: #9c9;
 }
-pre .css .hexcolor {
+pre code .css .hexcolor {
   color: #6cc;
 }
-pre .number {
+pre code .number {
   color: #f99157;
 }
-pre .preprocessor {
+pre code .preprocessor {
   color: #f99157;
 }
-pre .built_in {
+pre code .built_in {
   color: #f99157;
 }
-pre .literal {
+pre code .literal {
   color: #f99157;
 }
-pre .params {
+pre code .params {
   color: #f99157;
 }
-pre .constant {
+pre code .constant {
   color: #f99157;
 }
-pre .class {
+pre code .class {
   color: #9c9;
 }
-pre .string {
+pre code .string {
   color: #9c9;
 }
-pre .value {
+pre code .value {
   color: #9c9;
 }
-pre .inheritance {
+pre code .inheritance {
   color: #9c9;
 }
-pre .header {
+pre code .header {
   color: #9c9;
 }
-pre .function {
+pre code .function {
   color: #69c;
 }
-pre .python .decorator {
+pre code .python .decorator {
   color: #69c;
 }
-pre .python .title {
+pre code .python .title {
   color: #69c;
 }
-pre .perl .sub {
+pre code .perl .sub {
   color: #69c;
 }
-pre .javascript .title {
+pre code .javascript .title {
   color: #69c;
 }
-pre .javascript .function {
+pre code .javascript .function {
   color: #c9c;
 }
-pre .coffeescript .title {
+pre code .coffeescript .title {
   color: #69c;
 }
-pre .keyword {
+pre code .keyword {
   color: #c9c;
 }
 .social-share .social-share-icon {
@@ -3244,6 +3245,7 @@ pre .keyword {
   }
   .else .md-content {
     margin: 0;
+    background: transparent;
   }
   .else .post-count {
     margin: 15px 0;
