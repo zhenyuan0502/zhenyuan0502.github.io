@@ -1992,7 +1992,7 @@ h1.title {
 }
 .article .sidebar .box .subbox div {
   padding: 0.7rem;
-  background-color: #100e01;
+  background-color: rgba(16,14,23,0.8);
 }
 .article .sidebar .box .subbox dl dd {
   display: block;
