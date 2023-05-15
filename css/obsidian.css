@@ -2821,7 +2821,8 @@ h1.title {
 .content > h1 {
   margin-top: 2rem;
   margin-bottom: 0.8rem;
-  color: #0ed2f7;
+  color: #258bf5;
+  font-weight: 600;
 }
 .content > h1:first-child {
   margin-top: 0;
@@ -2829,7 +2830,8 @@ h1.title {
 .content > h2 {
   margin-top: 2rem;
   margin-bottom: 0.8rem;
-  color: #000;
+  font-weight: 600;
+  color: #258bf5;
 }
 .content > h2:first-child {
   margin-top: 0;
@@ -2837,7 +2839,7 @@ h1.title {
 .content > h3 {
   margin-top: 2rem;
   margin-bottom: 0.8rem;
-  color: #000;
+  color: #258bf5;
 }
 .content > h3:first-child {
   margin-top: 0;
@@ -2845,7 +2847,7 @@ h1.title {
 .content > h4 {
   margin-top: 2rem;
   margin-bottom: 0.8rem;
-  color: #000;
+  color: #258bf5;
 }
 .content > h4:first-child {
   margin-top: 0;
@@ -2853,7 +2855,7 @@ h1.title {
 .content > h5 {
   margin-top: 2rem;
   margin-bottom: 0.8rem;
-  color: #000;
+  color: #258bf5;
 }
 .content > h5:first-child {
   margin-top: 0;
@@ -2861,7 +2863,7 @@ h1.title {
 .content > h6 {
   margin-top: 2rem;
   margin-bottom: 0.8rem;
-  color: #000;
+  color: #258bf5;
 }
 .content > h6:first-child {
   margin-top: 0;
@@ -2952,7 +2954,7 @@ h1.title {
   margin: 0;
 }
 .content table {
-  margin: 15px 0;
+  margin: 1rem 0;
   border-collapse: collapse;
   display: table;
   width: 100%;
@@ -2961,7 +2963,7 @@ h1.title {
 }
 .content table tr {
   border-top: 1px solid #ccc;
-  background-color: #fff;
+  background-color: #100e17;
 }
 .content table th {
   border: 1px solid #ddd;
