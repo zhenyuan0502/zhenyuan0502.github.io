@@ -347,12 +347,13 @@ var Obsidian = {
         var item = $(this),
           lang = '';
         if (item[0].className.indexOf(' ') > -1) {
-          lang = item[0].className.split(' ')[0];
+          lang = item[0].className.split(' ')[0].toLowerCase();
         } else {
-          lang = item[0].className;
+          lang = item[0].className.toLowerCase();
         }
         var langMap = {
           html: 'HTML',
+          python: 'Python',
           xml: 'XML',
           svg: 'SVG',
           mathml: 'MathML',
@@ -473,8 +474,8 @@ var Obsidian = {
             mode: Obsidian.getCodeMirrorMode(lang),
             lineNumbers: isInLangMap && !item.is('.inline'),
             readOnly: true,
-            lineWrapping: true,
-            indentUnit: 2,
+            lineWrapping: !isInLangMap,
+            indentUnit: 4,
             tabSize: 4,
             indentWithTabs: true,
             theme: 'dracula',

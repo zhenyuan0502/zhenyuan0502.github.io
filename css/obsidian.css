@@ -1987,8 +1987,12 @@ h1.title {
 .article .sidebar .box .subbox {
   position: relative;
   border-radius: 4px;
-  padding: 1rem;
+  padding: 0.2rem;
   background: linear-gradient(to top right, #b2fefa, #0ed2f7, #0052d4) !important;
+}
+.article .sidebar .box .subbox div {
+  padding: 0.7rem;
+  background-color: rgba(16,14,23,0.502);
 }
 .article .sidebar .box .subbox dl dd {
   display: block;
@@ -2026,6 +2030,7 @@ h1.title {
   margin: 0 auto;
   text-align: center;
   font-weight: 600;
+  color: #fff;
 }
 .article .sidebar .box .subbox span {
   display: block;
@@ -2033,7 +2038,7 @@ h1.title {
   margin: 0 auto;
   padding-top: 10px;
   text-align: center;
-  color: #100e17;
+  color: #fff;
   font-size: 12px;
   font-weight: 600;
 }
