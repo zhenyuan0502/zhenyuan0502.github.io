@@ -174,7 +174,7 @@
   - analysis.ipynb
 - others/
 </code></pre>
-<p><code>libs/*</code> and <code>configurations/*</code> are shared among backend/<em>, jupyter/</em>, main.py. To ensure that the lib.py file can be accessed from both app.py and analysis.ipynb, you needed to add the parent path using the following code snippet:</p>
+<p><code>libs/*</code> and <code>configurations/*</code> are shared among <code>backend/*, jupyter/*, main.py</code>. To ensure that the lib.py file can be accessed from both app.py and analysis.ipynb, you needed to add the parent path using the following code snippet:</p>
 <pre><code class="python">import sys
 sys.path.append(&#39;..&#39;)
 </code></pre>
