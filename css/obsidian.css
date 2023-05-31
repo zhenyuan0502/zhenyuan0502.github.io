@@ -2286,7 +2286,7 @@ h1.title {
   z-index: -1;
 }
 .article p.image-caption {
-  color: #0f1dce;
+  color: var(--primary);
   text-align: center;
   padding-top: 10px;
   margin: 0 auto 15px auto;
