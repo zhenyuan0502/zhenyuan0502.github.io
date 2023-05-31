@@ -179,7 +179,7 @@
 sys.path.append(&#39;..&#39;)
 </code></pre>
 <p>By doing so, you were able to import the required library from the libs folder:</p>
-<pre><code>from libs.lib import BaseGenerator, Generator
+<pre><code class="python">from libs.lib import BaseGenerator, Generator
 import libs.generator_utils as gu
 </code></pre>
 <p>However, when attempting to deploy your application to Azure Web App Service (Linux), you encountered the need to customize the deployment package, also known as the DevOps process. This is because the <code>Azure App Service Extension</code> with <code>Deploy To Web App</code> feature only packages the contents of the backend/ directory, and you preferred not to include the entire root directory in the deployment package.</p>
