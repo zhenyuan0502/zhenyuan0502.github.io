@@ -266,13 +266,16 @@ $appName = &quot;YOUR_APP_NAME&quot;
 <p>gunicorn –bind=0.0.0.0 –timeout 600 hello:myapp</p>
 </blockquote>
 <p>You can read more here: <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/azure/app-service/configure-language-python#example-startup-commands">https://learn.microsoft.com/en-us/azure/app-service/configure-language-python#example-startup-commands</a></p>
-<p>Last but not least, the –bind=0.0.0.0 flag without specifying a port can cause an error because the server needs to know the specific port to bind to. By default, when you specify –bind=0.0.0.0, the server will attempt to bind to port 8000. However, in some cases, you may encounter an error indicating that the Docker container cannot bind to port 8000.</p>
+<p>Last but not least, the <code>--bind=0.0.0.0</code> flag without specifying a port can cause an error because the server needs to know the specific port to bind to. By default, when you specify <code>--bind=0.0.0.0</code>, the server will attempt to bind to port 8000. However, in some cases, you may encounter an error indicating that the Docker container cannot bind to port 8000.</p>
 <p>To resolve this issue, you correctly specified the port by using the <code>--bind=0.0.0.0:8000</code> flag. This explicitly tells the server to bind to port 8000, ensuring that it can properly listen for incoming connections.</p>
 <p>By providing the port along with the –bind flag, you resolved the issue and allowed the server to bind to the specified port, enabling your application to work correctly.</p>
 <p>Finally, it is recommended to clean up certain files and folders before and after the deployment. Here’s a simplified approach:</p>
 <p>Before Deployment:</p>
 <ul>
-<li>Remove the .deploy folder, which contains the files and directories that were organized for deployment.<br>After Deployment:</li>
+<li>Remove the .deploy folder, which contains the files and directories that were organized for deployment.</li>
+</ul>
+<p>After Deployment:</p>
+<ul>
 <li>Remove both the .deploy folder and the app.zip file that were used for the deployment. These files are no longer needed once the application is successfully deployed.</li>
 </ul>
 <pre><code class="powershell"># Remove previous
