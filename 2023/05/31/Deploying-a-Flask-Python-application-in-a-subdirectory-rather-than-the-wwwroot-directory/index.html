@@ -1,0 +1,610 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title> Deploying a Python Flask Application to Azure Web App Service with a Subdirectory Configuration - Nguyen Luu Blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Nguyen Luu zhenyuan0502,"> 
+    <meta name="description" content="In this blog post, we will explore the process of deploying a Python Flask application to Azure Web,"> 
+    <meta name="author" content="Nguyen Luu"> 
+    <link rel="alternative" href="atom.xml" title="Nguyen Luu Blog" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/theme/dracula.css">
+
+    
+<link rel="stylesheet" href="/css/obsidian.css">
+
+    
+<link rel="stylesheet" href="/css/ball-atom.min.css">
+
+    
+
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="//www.googletagmanager.com/gtag/js?id=UA-193142270-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-193142270-1');
+    </script>
+    
+
+    
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body class="loading">
+    <div class="loader">
+        <div class="la-ball-atom la-2x">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <span id="config-title" style="display:none">Nguyen Luu Blog</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div class="scrollbar gradient-bg-rev"></div>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <div class="navigation animated fadeIn fast delay-1s">
+        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="/">
+        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
+        <h3 class="subtitle"> Deploying a Python Flask Application to Azure Web App Service with a Subdirectory Configuration</h3>
+        <div class="social">
+            <!--        <div class="like-icon">-->
+            <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+            <!--        </div>-->
+            <div>
+                <div class="share">
+                    
+                        <a href="javascript:;" class="iconfont icon-share1"></a>
+                        <div class="share-component-cc" data-disabled="douban,diandian,tencent,google,qq"></div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="section">
+        <div class=article-header-wrapper>
+    <div class="article-header">
+        <div class="article-cover animated fadeIn" style="
+            animation-delay: 600ms;
+            animation-duration: 1.2s;
+            background-image: 
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+                url(/img/cover.jpg) ">
+        </div>
+        <div class="else">
+            <p class="animated fadeInDown">
+                
+                <a href="/categories/Python"><b>「
+                    </b>PYTHON<b> 」</b></a>
+                
+                May 31, 2023
+            </p>
+            <h3 class="post-title animated fadeInDown"><a href="/2023/05/31/Deploying-a-Flask-Python-application-in-a-subdirectory-rather-than-the-wwwroot-directory/" title=" Deploying a Python Flask Application to Azure Web App Service with a Subdirectory Configuration" class=""> Deploying a Python Flask Application to Azure Web App Service with a Subdirectory Configuration</a>
+            </h3>
+            
+            <p class="post-count animated fadeInDown">
+                
+                <span>
+                    <b class="iconfont icon-text2"></b> <i>Words count</i>
+                    13k
+                </span>
+                
+                
+                <span>
+                    <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                    12 mins.
+                </span>
+                
+                
+                
+                <span id="busuanzi_container_page_pv">
+                    <b class="iconfont icon-read"></b> <i>Read count</i>
+                    <span id="busuanzi_value_page_pv">0</span>
+                </span>
+                
+            </p>
+            
+            
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Flask/" rel="tag">Flask</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Powershell/" rel="tag">Powershell</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+            
+        </div>
+    </div>
+</div>
+
+<div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="animated fadeIn delay-1s"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class='main'>
+        <div class="content markdown animated fadeIn">
+            <p>In this blog post, we will explore the process of deploying a Python Flask application to Azure Web App Service (Linux). However, instead of deploying it to the default <code>wwwroot</code> directory, we will deploy it to a subdirectory within the web app. This approach offers flexibility and organization, allowing you to keep your application code separate from other files in the root directory.</p>
+<hr>
+<p><img src="/images/pasted-23.png" alt="Azure App Service"></p>
+<p>When developing Python applications, it is common to start with a standalone .py file or a Jupyter notebook. However, as the application evolves and becomes more stable, it often becomes necessary to create an API host to facilitate collaboration and sharing within a team. By separating shared libraries from the Flask app, we can create a more modular and reusable solution that can be easily shared across teams.</p>
+<p>In such cases, simply placing the Flask app in the wwwroot directory may not be the best choice. The wwwroot directory is typically reserved for web files, and mixing shared libraries with the Flask app can lead to cluttered code and potential conflicts.</p>
+<p>Consider an example project structure as follows:</p>
+<pre><code class="text">root/
+- backend/
+  - app.py
+  - requirements.txt
+- libs/
+  - lib.py
+- configurations/
+  - *.json
+- main.py
+- jupyter/
+  - analysis.ipynb
+- others/
+</code></pre>
+<p><code>libs/*</code> and <code>configurations/*</code> are shared among backend/<em>, jupyter/</em>, main.py. To ensure that the lib.py file can be accessed from both app.py and analysis.ipynb, you needed to add the parent path using the following code snippet:</p>
+<pre><code class="python">import sys
+sys.path.append(&#39;..&#39;)
+</code></pre>
+<p>By doing so, you were able to import the required library from the libs folder:</p>
+<pre><code>from libs.lib import BaseGenerator, Generator
+import libs.generator_utils as gu
+</code></pre>
+<p>However, when attempting to deploy your application to Azure Web App Service (Linux), you encountered the need to customize the deployment package, also known as the DevOps process. This is because the <code>Azure App Service Extension</code> with <code>Deploy To Web App</code> feature only packages the contents of the backend/ directory, and you preferred not to include the entire root directory in the deployment package.</p>
+<p>So I have to achieve 3 objectives</p>
+<ul>
+<li>Compress selected directories into a zip file: Create a zip file that includes the necessary directories for deployment. These directories should be the ones you want to include under the root directory. Make sure to exclude any unnecessary files or directories.</li>
+<li>Specify the main application to run: Within the compressed zip file, ensure that the server runs the main application located at backend/app.py. This can typically be achieved by configuring the entry point in the Azure Web App Service settings or by providing a startup command in the deployment configuration.</li>
+<li>Include requirements.txt in site/wwwroot: As per Microsoft’s documentation, the requirements.txt file should be placed in the site/wwwroot directory. When creating the zip file for deployment, make sure to include the requirements.txt file in the root location within the compressed package.</li>
+</ul>
+<blockquote>
+<p>“Could not find setup.py or requirements.txt; Not running pip install.”: The Oryx build process failed to find your requirements.txt file.</p>
+</blockquote>
+<blockquote>
+<p>Connect to the web app’s container via SSH and verify that requirements.txt is named correctly and exists directly under site/wwwroot. If it doesn’t exist, make site the file exists in your repository and is included in your deployment. If it exists in a separate folder, move it to the root.</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/azure/app-service/configure-language-python#could-not-find-setuppy-or-requirementstxt">https://learn.microsoft.com/en-us/azure/app-service/configure-language-python#could-not-find-setuppy-or-requirementstxt</a></p>
+<p>To restructure your project before compressing it into a zip file, you can move all the files to a new folder named <code>.deploy</code> under the root directory. The updated project structure would look like this:</p>
+<pre><code class="text">root/
+- .deploy/
+  - backend/*
+  - libs/*
+  - configurations/*
+  - requirements.txt
+- backend/
+  - app.py
+  - requirements.txt
+- libs/
+  - lib.py
+- configurations/
+  - *.json
+- main.py
+- jupyter/
+  - analysis.ipynb
+- others/
+</code></pre>
+<p>I plan to utilize PowerShell to handle the copying and zipping tasks, ensuring that the resulting zip file contains the contents of the .deploy folder rather than including the folder itself. The Azure will use this as-in zip for operation</p>
+<pre><code class="powershell">
+$zipFilePath = &quot;app.zip&quot;
+
+$mainDir = &quot;backend&quot;
+$externalDir = @(
+    $mainDir,
+    &quot;libs&quot;,
+    &quot;configurations&quot;,
+    &quot;$mainDir/requirements.txt&quot;
+)
+
+# Create new .deploy directory
+New-Item -ItemType Directory -Force -Path $deploymentDir | Out-Null
+
+foreach ($dir in $externalDir) &#123;
+    Copy-Item -Path &quot;$dir&quot; -Destination &quot;$deploymentDir&quot; -Recurse -Force
+&#125;
+
+Compress-Archive -Path $deploymentDir/* -DestinationPath $zipFilePath -Force
+</code></pre>
+<p>Next, you can reference the provided links to access the instructions and guidelines for deploying your application to Azure. </p>
+<pre><code class="powershell">$resourceGroupName = &quot;YOUR_RESOURCE_GROUP_NAME&quot;
+$appName = &quot;YOUR_APP_NAME&quot;
+$zipFilePath = &quot;app.zip&quot;
+
+az webapp config appsettings set --name &quot;$appName&quot; --resource-group &quot;$resourceGroupName&quot; --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
+az webapp deploy --name $appName --resource-group $resourceGroupName --src-path $zipFilePath --type zip
+az webapp config set --name &quot;$appName&quot; --resource-group &quot;$resourceGroupName&quot; --startup-file &quot;gunicorn --bind=0.0.0.0:8000 --chdir $mainDir app:app&quot;
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/azure/app-service/deploy-zip?tabs=cli">https://learn.microsoft.com/en-us/azure/app-service/deploy-zip?tabs=cli</a></p>
+<p>You need to know your resouce group and app name, or id for your service within Azure Portal.</p>
+<pre><code>$resourceGroupName = &quot;YOUR_RESOURCE_GROUP_NAME&quot;
+$appName = &quot;YOUR_APP_NAME&quot;
+</code></pre>
+<p>Please note that setting the environment variable <code>SCM_DO_BUILD_DURING_DEPLOYMENT=true</code> in Azure means that Azure will automatically build your application during the deployment process. Additionally, the <code>requirements.txt</code> file will be used to install the required Python libraries.</p>
+<p>The second command, <code>az webapp deploy</code>, is used to deploy the previously compressed <code>app.zip</code> file. This command initiates the deployment process and ensures that your application is uploaded to Azure Web App Service.</p>
+<p>The third command, <code>az webapp config set</code>, is used to configure the startup command for your application. In this case, the <code>--startup-file</code> flag is set to <code>gunicorn --bind=0.0.0.0:8000 --chdir $mainDir app:app</code>. This command instructs <code>gunicorn</code> - a Python WSGI HTTP Server for UNIX, to start your application on port 8000. The <code>$mainDir</code> variable represents the main directory of your application.</p>
+<p>For more information, you can read here: <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/azure/app-service/quickstart-python?tabs=flask,windows,azure-cli,vscode-deploy,deploy-instructions-azportal,terminal-bash,deploy-instructions-zip-azcli#1---sample-application">https://learn.microsoft.com/en-us/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-cli%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli#1---sample-application</a></p>
+<p>By default, Azure App Service for Linux utilizes gunicorn. You can begin testing your application after the initial deployment of the Flask app, and you can use <code>os.environ</code> to debug and inspect the environment variables.</p>
+<pre><code class="python">os.environ.get(&quot;SERVER_SOFTWARE&quot;, &quot;&quot;)
+# gunicorn/20.1.0
+</code></pre>
+<p>Back to the third command, <code>--chdir $mainDir</code> will specify <code>backend</code> folder is the main directory, with <code>app:app</code> stands for <code>app.py</code> : <code>app</code> object name of Flask. </p>
+<blockquote>
+<p>Custom Flask main module: By default, App Service assumes that a Flask app’s main module is application.py or app.py. If your main module uses a different name, then you must customize the startup command. For example, if you have a Flask app whose main module is hello.py and the Flask app object in that file is named myapp, then the command is as follows:</p>
+</blockquote>
+<blockquote>
+<p>gunicorn –bind=0.0.0.0 –timeout 600 hello:myapp</p>
+</blockquote>
+<p>You can read more here: <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/azure/app-service/configure-language-python#example-startup-commands">https://learn.microsoft.com/en-us/azure/app-service/configure-language-python#example-startup-commands</a></p>
+<p>Last but not least, the –bind=0.0.0.0 flag without specifying a port can cause an error because the server needs to know the specific port to bind to. By default, when you specify –bind=0.0.0.0, the server will attempt to bind to port 8000. However, in some cases, you may encounter an error indicating that the Docker container cannot bind to port 8000.</p>
+<p>To resolve this issue, you correctly specified the port by using the <code>--bind=0.0.0.0:8000</code> flag. This explicitly tells the server to bind to port 8000, ensuring that it can properly listen for incoming connections.</p>
+<p>By providing the port along with the –bind flag, you resolved the issue and allowed the server to bind to the specified port, enabling your application to work correctly.</p>
+<p>Finally, it is recommended to clean up certain files and folders before and after the deployment. Here’s a simplified approach:</p>
+<p>Before Deployment:</p>
+<ul>
+<li>Remove the .deploy folder, which contains the files and directories that were organized for deployment.<br>After Deployment:</li>
+<li>Remove both the .deploy folder and the app.zip file that were used for the deployment. These files are no longer needed once the application is successfully deployed.</li>
+</ul>
+<pre><code class="powershell"># Remove previous
+if (Test-Path -Path $deploymentDir) &#123;
+    Remove-Item -Path $deploymentDir -Recurse -Force
+&#125;
+
+....
+
+
+# Clean up the deployment files
+Remove-Item -Path $zipFilePath -Force
+Remove-Item -Path $deploymentDir -Recurse
+</code></pre>
+<p>By doing that, you can maintain a clean and streamlined deployment process. This helps to avoid clutter and ensures that only the necessary files are present during and after the deployment.</p>
+<p>Full powershell code</p>
+<pre><code class="powershell">$resourceGroupName = &quot;YOUR_RESOURCE_GROUP_NAME&quot;
+$appName = &quot;YOUR_APP_NAME&quot;
+$zipFilePath = &quot;app.zip&quot;
+
+$mainDir = &quot;backend&quot;
+$externalDir = @(
+    $mainDir,
+    &quot;libs&quot;,
+    &quot;configurations&quot;,
+    &quot;$mainDir/requirements.txt&quot;
+)
+
+# Remove previous
+if (Test-Path -Path $deploymentDir) &#123;
+    Remove-Item -Path $deploymentDir -Recurse -Force
+&#125;
+
+# Create new .deploy directory
+New-Item -ItemType Directory -Force -Path $deploymentDir | Out-Null
+
+foreach ($dir in $externalDir) &#123;
+    Copy-Item -Path &quot;$dir&quot; -Destination &quot;$deploymentDir&quot; -Recurse -Force
+&#125;
+
+Compress-Archive -Path $deploymentDir/* -DestinationPath $zipFilePath -Force
+
+# Deploy
+az webapp config appsettings set --name &quot;$appName&quot; --resource-group &quot;$resourceGroupName&quot; --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
+az webapp deploy --name $appName --resource-group $resourceGroupName --src-path $zipFilePath --type zip
+az webapp config set --name &quot;$appName&quot; --resource-group &quot;$resourceGroupName&quot; --startup-file &quot;gunicorn --bind=0.0.0.0:8000 --chdir $mainDir app:app&quot;
+
+# Clean up the deployment files
+Remove-Item -Path $zipFilePath -Force
+Remove-Item -Path $deploymentDir -Recurse
+</code></pre>
+<p>In conclusion, deploying a Flask Python application to Azure Web App Service requires careful consideration of file organization, configuration settings, and deployment steps. By following the recommended practices, such as structuring the project, customizing the deployment package, and configuring the startup command, you can successfully deploy your application to Azure.</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls"
+                data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+            <ul id="audio-list" style="display:none">
+                
+                
+                <li title='0' data-url='/statics/shijiandeguoke.mp3'></li>
+                
+                    
+            </ul>
+            
+
+            
+            
+
+
+<div class="post-copyright-container">
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Author</strong>
+    Nguyen Luu
+  </li>
+  <li class="post-copyright-link">
+    <strong>Link</strong>
+    <a href="https://nguyenluu.dev/2023/05/31/Deploying-a-Flask-Python-application-in-a-subdirectory-rather-than-the-wwwroot-directory/" title=" Deploying a Python Flask Application to Azure Web App Service with a Subdirectory Configuration">https://nguyenluu.dev/2023/05/31/Deploying-a-Flask-Python-application-in-a-subdirectory-rather-than-the-wwwroot-directory/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>License</strong>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>by-nc-sa</a>
+  </li>
+</ul>
+</div>
+
+            
+
+            
+            <div class="post-nav">
+                <hr>
+                
+                
+                    <div class="post-nav-item">Next Post: <a href="/2023/05/12/Cracking-the-Code-Mastering-Redfin-s-Web-Scraping-Protection/" rel="next" 
+                        title="Cracking the Code: Mastering Redfin's Web Scraping Protection">Cracking the Code: Mastering Redfin's Web Scraping Protection</a></div>
+                                
+            </div>   
+                        
+            
+            
+
+            
+
+        </div>
+        <div class="sidebar">
+            <div class="box animated fadeInRight">
+                <div class="subbox">
+                    <div>
+                        <img src="/img/qoobee.jpeg" margin-top=1rem height=200 width=200></img>
+                        <p>Nguyen Luu<br>(Alfred - Yuan)</p>
+                        <span>Think like an artist, develop like an artisan</span>
+                        <dl>
+                            <dd><a href="https://github.com/zhenyuan0502" target="_blank"><span
+                                        class=" iconfont icon-github"></span></a></dd>
+                            <dd><a href="https://twitter.com/zhenyuan0502" target="_blank"><span
+                                        class=" iconfont icon-twitter"></span></a></dd>
+                            <dd><a href="https://stackoverflow.com/users/3789481/" target="_blank"><span
+                                        class=" iconfont icon-stack-overflow"></span></a></dd>
+                        </dl>
+                    </div>
+                </div>
+                <ul>
+                    <li><a href="/">9 <p>Articles</p></a></li>
+                    <li><a href="/categories">11 <p>Categories</p></a></li>
+                    <li><a href="/tags">17 <p>Tags</p></a></li>
+                </ul>
+            </div>
+            
+            
+            
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+    <div id="back-to-top" class="animated fadeIn faster">
+        <div class="flow"></div>
+        <span class="percentage animated fadeIn faster">0%</span>
+        <span class="iconfont icon-top02 animated fadeIn faster"></span>
+    </div>
+</body>
+<footer>
+    <p class="copyright" id="copyright">
+        &copy; 2023
+        <span class="gradient-text">
+            Nguyen Luu
+        </span>.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme
+        <span class="gradient-text">
+            <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+        </span>
+        <small><a href="https://github.com/TriDiamond/hexo-theme-obsidian/blob/master/CHANGELOG.md" title="v1.4.5" target="_blank" rel="noopener">v1.4.5</a></small>
+    </p>
+ 
+</footer>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script>
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+      preferredFont: "TeX",
+      availableFonts: ["STIX", "TeX"],
+      linebreaks: {
+        automatic: true
+      },
+      EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+      inlineMath: [
+        ["$", "$"],
+        ["\\(", "\\)"]
+      ],
+      processEscapes: true,
+      ignoreClass: "tex2jax_ignore|dno",
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      noUndefined: {
+        attributes: {
+          mathcolor: "red",
+          mathbackground: "#FFEEEE",
+          mathsize: "90%"
+        }
+      },
+      Macros: {
+        href: "{}"
+      }
+    },
+    messageStyle: "none"
+  });
+</script>
+<script>
+  function initialMathJax() {
+    MathJax.Hub.Queue(function () {
+      var all = MathJax.Hub.getAllJax(),
+        i;
+      // console.log(all);
+      for (i = 0; i < all.length; i += 1) {
+        console.log(all[i].SourceElement().parentNode)
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  }
+
+  function reprocessMathJax() {
+    if (typeof MathJax !== 'undefined') {
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    }
+  }
+</script>
+
+
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/obsidian.js"></script>
+<script src="/js/jquery.truncate.js"></script>
+<script src="/js/search.js"></script>
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.12.0/js/md5.min.js"></script>
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.js"></script>
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/mode/htmlmixed/htmlmixed.min.js"></script>
+  
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/mode/python/python.min.js"></script>
+  
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/mode/markdown/markdown.min.js"></script>
+   
+<script src="/js/busuanzi.min.js"></script>
+
+<script>
+  $(document).ready(function () {
+    if ($('span[id^="busuanzi_"]').length) {
+      initialBusuanzi();
+    }
+  });
+</script>
+ 
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3//photoswipe.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3//default-skin/default-skin.min.css">
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3//photoswipe.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3//photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+
+<script>
+  function initialTyped() {
+    var typedTextEl = $('.typed-text');
+    if (typedTextEl && typedTextEl.length > 0) {
+      var typed = new Typed('.typed-text', {
+        strings: ['Think like an artist, develop like an artisan', '艺术家思维去思考问题，工匠创造精神去开发'],
+        typeSpeed: 90,
+        loop: true,
+        loopCount: Infinity,
+        backSpeed: 20,
+      });
+    }
+  }
+
+  if ($('.article-header') && $('.article-header').length) {
+    $(document).ready(function () {
+      initialTyped();
+    });
+  }
+</script>
+
+
+
+
+
+
+</html>

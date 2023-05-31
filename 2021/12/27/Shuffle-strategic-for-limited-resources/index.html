@@ -115,13 +115,13 @@
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    7.4k
+                    9.6k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    7 mins.
+                    9 mins.
                 </span>
                 
                 
@@ -182,7 +182,21 @@ for i from n−1 downto 1 do
 !7z e corpus-full-20181217.7z
 </code></pre>
 <p>It will take ~10 min to finish process, so let move to next section</p>
-<p>To seek the file partially, the example here<br><a target="_blank" rel="noopener" href="https://gist.github.com/JosephCatrambone/25476e9a37e932e50c527fc41e164e07">https://gist.github.com/JosephCatrambone/25476e9a37e932e50c527fc41e164e07</a></p>
+<p>To seek the file partially, the example here</p>
+<pre><code class="python">class LineSeekableFile:
+    def __init__(self, seekable):
+        self.fin = seekable
+        self.line_map = list() # Map from line index -&gt; file position.
+        self.line_map.append(0)
+        while seekable.readline():
+            self.line_map.append(seekable.tell())
+    
+    def __getitem__(self, index):
+        # NOTE: This assumes that you&#39;re not reading the file sequentially.  For that, just use &#39;for line in file&#39;.
+        self.fin.seek(self.line_map[index])
+        return self.fin.readline()
+</code></pre>
+<p>Source: <a target="_blank" rel="noopener" href="https://gist.github.com/JosephCatrambone/25476e9a37e932e50c527fc41e164e07">https://gist.github.com/JosephCatrambone/25476e9a37e932e50c527fc41e164e07</a></p>
 <p>I modify a bit the class <code>LineSeekableFile</code>, on the first time initialization, the line will be loop entire the file, but only keep line positions to <code>line_map</code> aka <code>offset_list</code>, I set 10 lines read to easier testing</p>
 <pre><code class="python">class LineSeekableFile:
     def __init__(self, f):
@@ -224,7 +238,51 @@ with open(&#39;corpus-full-0.2.txt&#39;, &#39;r&#39;, encoding=&#39;utf8&#39;,er
         fw.write(seeker[index_list[i]])
 </code></pre>
 <p>After finish testing, you can remove the print message and the breaking line to see performance. </p>
-<p>Full code here: <a target="_blank" rel="noopener" href="https://colab.research.google.com/drive/1rRO5u_WpXYkRdq3lugW-ed2v0UH525G5?usp=sharing">https://colab.research.google.com/drive/1rRO5u_WpXYkRdq3lugW-ed2v0UH525G5?usp=sharing</a></p>
+<p>Full code here: </p>
+<pre><code class="python"># For colab only
+!pip install --upgrade --no-cache-dir gdown
+!gdown --no-cookies --id 1GFbe-qs6HmCYs0JwJgivOy2Bvb06M8OI
+!7z e corpus-full-20181217.7z
+
+
+import random
+
+class LineSeekableFile:
+    def __init__(self, f):
+        self.fin = f
+        # create the line map starting by 0
+        self.line_map = [0]
+        self.line_count = 0
+
+        file_pos = 0
+        for line in f:
+            file_pos += len(line)
+            self.line_map.append(file_pos)
+            self.line_count += 1
+
+            # Break for testing purpose
+            if self.line_count == 10:
+                break
+
+    def __getitem__(self, index):
+        # NOTE: This assumes that you&#39;re not reading the file sequentially.  
+        # For that, just use &#39;for line in file&#39;.
+        self.fin.seek(self.line_map[index])
+        return self.fin.readline()
+
+with open(&#39;corpus-full-0.2.txt&#39;, &#39;r&#39;, encoding=&#39;utf8&#39;,errors=&quot;ignore&quot;) as f, open(&#39;new-corpus.txt&#39;, &#39;w&#39;, encoding=&#39;utf8&#39;,errors=&quot;ignore&quot;) as fw:
+    seeker = LineSeekableFile(f)
+    index_list = list(range(seeker.line_count))
+    random.shuffle(index_list)
+
+    for i in range(seeker.line_count):
+        print(f&#39;Row &#123;i&#125;, swap with &#123;index_list[i]&#125;&#39;)
+        print(f&#39;Origin &#123;i&#125;, &#123;seeker[i]&#125;&#39;)
+        print(f&#39;Shuffled &#123;index_list[i]&#125;, &#123;seeker[index_list[i]]&#125;&#39;)
+        print(&#39;-----&#39;)
+        fw.write(seeker[index_list[i]])
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://colab.research.google.com/drive/1rRO5u_WpXYkRdq3lugW-ed2v0UH525G5?usp=sharing">https://colab.research.google.com/drive/1rRO5u_WpXYkRdq3lugW-ed2v0UH525G5?usp=sharing</a></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -302,9 +360,9 @@ with open(&#39;corpus-full-0.2.txt&#39;, &#39;r&#39;, encoding=&#39;utf8&#39;,er
                     </div>
                 </div>
                 <ul>
-                    <li><a href="/">8 <p>Articles</p></a></li>
-                    <li><a href="/categories">7 <p>Categories</p></a></li>
-                    <li><a href="/tags">15 <p>Tags</p></a></li>
+                    <li><a href="/">9 <p>Articles</p></a></li>
+                    <li><a href="/categories">11 <p>Categories</p></a></li>
+                    <li><a href="/tags">17 <p>Tags</p></a></li>
                 </ul>
             </div>
             
