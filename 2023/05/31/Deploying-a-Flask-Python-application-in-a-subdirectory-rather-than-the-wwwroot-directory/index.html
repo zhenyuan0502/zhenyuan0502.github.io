@@ -247,7 +247,7 @@ az webapp config set --name &quot;$appName&quot; --resource-group &quot;$resourc
 </code></pre>
 <p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/azure/app-service/deploy-zip?tabs=cli">https://learn.microsoft.com/en-us/azure/app-service/deploy-zip?tabs=cli</a></p>
 <p>You need to know your resouce group and app name, or id for your service within Azure Portal.</p>
-<pre><code>$resourceGroupName = &quot;YOUR_RESOURCE_GROUP_NAME&quot;
+<pre><code class="powershell">$resourceGroupName = &quot;YOUR_RESOURCE_GROUP_NAME&quot;
 $appName = &quot;YOUR_APP_NAME&quot;
 </code></pre>
 <p>Please note that setting the environment variable <code>SCM_DO_BUILD_DURING_DEPLOYMENT=true</code> in Azure means that Azure will automatically build your application during the deployment process. Additionally, the <code>requirements.txt</code> file will be used to install the required Python libraries.</p>
