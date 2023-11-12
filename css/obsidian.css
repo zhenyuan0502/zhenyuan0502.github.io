@@ -9,7 +9,6 @@
   --gradient-dark: #100e17;
   --code-gradient-light: #cff0ff;
   --code-gradient-dark: #afcafd;
-  --maxwidth: 1284px;
 }
 @font-face {
   font-family: 'Roboto Mono';
@@ -517,7 +516,7 @@ body.mu .icon-logo {
   left: 0;
 }
 #post0 {
-  width: 80%;
+/* width: 80%; */
   position: absolute;
   top: 165px;
   left: 10%;
@@ -1961,7 +1960,7 @@ h1.title {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 210px;
   grid-gap: 4rem;
-  max-width: var(--maxWidth);
+  max-width: 1284px;
   margin: 0 auto;
   padding: 4rem 0;
 }
@@ -2306,7 +2305,7 @@ h1.title {
 }
 .article-header {
   margin: 50px auto 0 auto;
-  max-width: var(--maxWidth);
+  max-width: 1284px;
   top: 50px;
   height: auto;
   position: relative;
