@@ -72,7 +72,8 @@
     <div class="bar" style="width: 0;"></div>
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="/">
-        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
+        <!-- <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div> -->
+        <h3 class="home">Home</h3>
         <h3 class="subtitle">Crawl data from App Store Connect</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
@@ -210,7 +211,7 @@ def sign_appstore_token(issuer_id, key_id, generated_private_key):
 <p>Be noticed that to get the Units, reportType should be <code>SALES</code>. Also noticed that reportDate and frequency have to consistency each other, if you specify: </p>
 <ul>
 <li><code>filter[frequency] = YEARLY</code>, then <code>filter[reportDate] = 2021</code></li>
-<li><code>filter[frequency] = MONTHLY</code>, then <code>filter[reportDate] = 2021-06</code>.<br>The frequency configuration groups the report to a file, depends on your needs. </li>
+<li><code>filter[frequency] = MONTHLY</code>, then <code>filter[reportDate] = 2021-06</code>.<br>The frequency configuration groups the report to a file, depends on your needs.</li>
 </ul>
 <p>Sample query:</p>
 <pre><code class="text">https://api.appstoreconnect.apple.com/v1/salesReports?filter[frequency]=YEARLY&amp;filter[reportDate]=2021&amp;filter[reportSubType]=SUMMARY&amp;filter[reportType]=SALES&amp;filter[vendorNumber]=YOUR_VENDOR_ID
@@ -258,7 +259,7 @@ Type
 <p>About field types, please refer <a target="_blank" rel="noopener" href="https://help.apple.com/app-store-connect/#/dev15f9508ca">https://help.apple.com/app-store-connect/#/dev15f9508ca</a></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-            <audio id="audio" loop="1" preload="auto" controls="controls"
+            <!-- <audio id="audio" loop="1" preload="auto" controls="controls"
                 data-autoplay="false">
                 <source type="audio/mpeg" src="">
             </audio>
@@ -270,7 +271,7 @@ Type
                 
                     
             </ul>
-            
+             -->
 
             
             

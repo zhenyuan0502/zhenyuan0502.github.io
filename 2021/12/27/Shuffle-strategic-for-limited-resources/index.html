@@ -72,7 +72,8 @@
     <div class="bar" style="width: 0;"></div>
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="/">
-        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
+        <!-- <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div> -->
+        <h3 class="home">Home</h3>
         <h3 class="subtitle">Shuffle strategic for limited resources</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
@@ -172,7 +173,7 @@ for i from n−1 downto 1 do
 <li>Load line by line and save the cursor offset, aka line map on each line into the offset_list. For example line 1 ends at 30, line 2 ends at 60 and so on, the offset_list should be <code>offset_list = [0, 30, 60, .... 40]</code></li>
 <li>Create the index_list from range 0 to length of the offset_list, then the line 1 marked as index 0, line 2 marked as index 1,… The index_list must be <code>index_list = [0, 1, 2, 3, 4...., n]</code></li>
 <li>Conduct shuffling index_list, in view of the fact that index_list contains only those indices, so it will not too much large resource basically. The sequence results would be also index_list object (because of in-place swapping) likely as <code>index_list = [4504, 134, 27676, 364756, 4...., 43]</code></li>
-<li>Looping through shuffled index_list, we will leverage the offset_list to quickly access to the line, for example, <code>index_list[0] = 4504</code> and <code>offset_list[4504] = 490478</code>, seek file cursor <code>f</code> by <code>f.seek(490478)</code> and <code>new_line = f.readline()</code>, then appended writes <code>new_line</code> sequetially in a new file instead of in-place swapping. </li>
+<li>Looping through shuffled index_list, we will leverage the offset_list to quickly access to the line, for example, <code>index_list[0] = 4504</code> and <code>offset_list[4504] = 490478</code>, seek file cursor <code>f</code> by <code>f.seek(490478)</code> and <code>new_line = f.readline()</code>, then appended writes <code>new_line</code> sequetially in a new file instead of in-place swapping.</li>
 </ul>
 <h1 id="Python-implementation"><a href="#Python-implementation" class="headerlink" title="Python implementation"></a>Python implementation</h1><p>I have prepared the 5.6GB file aggregated by binhvq, uncompressed ~27.5GB:<br><a target="_blank" rel="noopener" href="https://github.com/binhvq/news-corpus#full-txt-v2">https://github.com/binhvq/news-corpus#full-txt-v2</a></p>
 <p>To easier demo, I will use colab for the whole algorithm, firsly, download the file and wait for completion.</p>
@@ -285,7 +286,7 @@ with open(&#39;corpus-full-0.2.txt&#39;, &#39;r&#39;, encoding=&#39;utf8&#39;,er
 <p><a target="_blank" rel="noopener" href="https://colab.research.google.com/drive/1rRO5u_WpXYkRdq3lugW-ed2v0UH525G5?usp=sharing">https://colab.research.google.com/drive/1rRO5u_WpXYkRdq3lugW-ed2v0UH525G5?usp=sharing</a></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-            <audio id="audio" loop="1" preload="auto" controls="controls"
+            <!-- <audio id="audio" loop="1" preload="auto" controls="controls"
                 data-autoplay="false">
                 <source type="audio/mpeg" src="">
             </audio>
@@ -297,7 +298,7 @@ with open(&#39;corpus-full-0.2.txt&#39;, &#39;r&#39;, encoding=&#39;utf8&#39;,er
                 
                     
             </ul>
-            
+             -->
 
             
             

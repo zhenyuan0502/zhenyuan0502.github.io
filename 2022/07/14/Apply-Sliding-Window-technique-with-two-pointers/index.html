@@ -72,7 +72,8 @@
     <div class="bar" style="width: 0;"></div>
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="/">
-        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
+        <!-- <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div> -->
+        <h3 class="home">Home</h3>
         <h3 class="subtitle">Apply Sliding Window technique with Two Pointers</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
@@ -209,12 +210,12 @@ s[left:right] = b &lt;= Here &#39;cb&#39; removed from &#39;cbb&#39;
         return result
 </code></pre>
 <p>The time complexity of this code is O(n), where n is the length of the input string s.</p>
-<p>The for loop iterates over each character in the string once, and the while loop inside the for loop may iterate over some of those characters again, but it only does so once for each character, so the total number of iterations of the while loop is at most n. Therefore, the time complexity of the algorithm is O(n + n) = O(n).</p>
+<p>The for loop iterates over each character in the string once, and the while loop inside the for loop may iterate over some of those characters again, but it only does so once for each character, so the total number of iterations of the while loop is at most n. Therefore, the time complexity of the algorithm is O(n + n) &#x3D; O(n).</p>
 <p>The space complexity of this code is also O(n), because in the worst case, the set charSet will contain all characters in the input string, and therefore will take up O(n) space.</p>
 <h1 id="Extension"><a href="#Extension" class="headerlink" title="Extension"></a>Extension</h1><p>What if the problem requires us to <strong>return the longest substring instead of its length</strong>? In that case, we could create a new dictionary with the result length as the key and an array of corresponding substrings as the value, since there could be multiple substrings with the same maximum length.</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-            <audio id="audio" loop="1" preload="auto" controls="controls"
+            <!-- <audio id="audio" loop="1" preload="auto" controls="controls"
                 data-autoplay="false">
                 <source type="audio/mpeg" src="">
             </audio>
@@ -226,7 +227,7 @@ s[left:right] = b &lt;= Here &#39;cb&#39; removed from &#39;cbb&#39;
                 
                     
             </ul>
-            
+             -->
 
             
             

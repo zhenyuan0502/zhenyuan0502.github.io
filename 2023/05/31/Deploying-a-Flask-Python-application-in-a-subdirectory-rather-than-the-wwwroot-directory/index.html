@@ -72,7 +72,8 @@
     <div class="bar" style="width: 0;"></div>
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="/">
-        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
+        <!-- <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div> -->
+        <h3 class="home">Home</h3>
         <h3 class="subtitle"> Deploying a Python Flask Application to Azure Web App Service with a Subdirectory Configuration</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
@@ -182,18 +183,18 @@ sys.path.append(&#39;..&#39;)
 <pre><code class="python">from libs.lib import BaseGenerator, Generator
 import libs.generator_utils as gu
 </code></pre>
-<p>However, when attempting to deploy your application to Azure Web App Service (Linux), you encountered the need to customize the deployment package, also known as the DevOps process. This is because the <code>Azure App Service Extension</code> with <code>Deploy To Web App</code> feature only packages the contents of the backend/ directory, and you preferred not to include the entire root directory in the deployment package.</p>
+<p>However, when attempting to deploy your application to Azure Web App Service (Linux), you encountered the need to customize the deployment package, also known as the DevOps process. This is because the <code>Azure App Service Extension</code> with <code>Deploy To Web App</code> feature only packages the contents of the backend&#x2F; directory, and you preferred not to include the entire root directory in the deployment package.</p>
 <p>So I have to achieve 3 objectives</p>
 <ul>
 <li>Compress selected directories into a zip file: Create a zip file that includes the necessary directories for deployment. These directories should be the ones you want to include under the root directory. Make sure to exclude any unnecessary files or directories.</li>
-<li>Specify the main application to run: Within the compressed zip file, ensure that the server runs the main application located at backend/app.py. This can typically be achieved by configuring the entry point in the Azure Web App Service settings or by providing a startup command in the deployment configuration.</li>
-<li>Include requirements.txt in site/wwwroot: As per Microsoft’s documentation, the requirements.txt file should be placed in the site/wwwroot directory. When creating the zip file for deployment, make sure to include the requirements.txt file in the root location within the compressed package.</li>
+<li>Specify the main application to run: Within the compressed zip file, ensure that the server runs the main application located at backend&#x2F;app.py. This can typically be achieved by configuring the entry point in the Azure Web App Service settings or by providing a startup command in the deployment configuration.</li>
+<li>Include requirements.txt in site&#x2F;wwwroot: As per Microsoft’s documentation, the requirements.txt file should be placed in the site&#x2F;wwwroot directory. When creating the zip file for deployment, make sure to include the requirements.txt file in the root location within the compressed package.</li>
 </ul>
 <blockquote>
 <p>“Could not find setup.py or requirements.txt; Not running pip install.”: The Oryx build process failed to find your requirements.txt file.</p>
 </blockquote>
 <blockquote>
-<p>Connect to the web app’s container via SSH and verify that requirements.txt is named correctly and exists directly under site/wwwroot. If it doesn’t exist, make site the file exists in your repository and is included in your deployment. If it exists in a separate folder, move it to the root.</p>
+<p>Connect to the web app’s container via SSH and verify that requirements.txt is named correctly and exists directly under site&#x2F;wwwroot. If it doesn’t exist, make site the file exists in your repository and is included in your deployment. If it exists in a separate folder, move it to the root.</p>
 </blockquote>
 <p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/azure/app-service/configure-language-python#could-not-find-setuppy-or-requirementstxt">https://learn.microsoft.com/en-us/azure/app-service/configure-language-python#could-not-find-setuppy-or-requirementstxt</a></p>
 <p>To restructure your project before compressing it into a zip file, you can move all the files to a new folder named <code>.deploy</code> under the root directory. The updated project structure would look like this:</p>
@@ -263,7 +264,7 @@ $appName = &quot;YOUR_APP_NAME&quot;
 <p>Custom Flask main module: By default, App Service assumes that a Flask app’s main module is application.py or app.py. If your main module uses a different name, then you must customize the startup command. For example, if you have a Flask app whose main module is hello.py and the Flask app object in that file is named myapp, then the command is as follows:</p>
 </blockquote>
 <blockquote>
-<p>gunicorn –bind=0.0.0.0 –timeout 600 hello:myapp</p>
+<p>gunicorn –bind&#x3D;0.0.0.0 –timeout 600 hello:myapp</p>
 </blockquote>
 <p>You can read more here: <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/azure/app-service/configure-language-python#example-startup-commands">https://learn.microsoft.com/en-us/azure/app-service/configure-language-python#example-startup-commands</a></p>
 <p>Last but not least, the <code>--bind=0.0.0.0</code> flag without specifying a port can cause an error because the server needs to know the specific port to bind to. By default, when you specify <code>--bind=0.0.0.0</code>, the server will attempt to bind to port 8000. However, in some cases, you may encounter an error indicating that the Docker container cannot bind to port 8000.</p>
@@ -330,7 +331,7 @@ Remove-Item -Path $deploymentDir -Recurse
 <p>In conclusion, deploying a Flask Python application to Azure Web App Service requires careful consideration of file organization, configuration settings, and deployment steps. By following the recommended practices, such as structuring the project, customizing the deployment package, and configuring the startup command, you can successfully deploy your application to Azure.</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-            <audio id="audio" loop="1" preload="auto" controls="controls"
+            <!-- <audio id="audio" loop="1" preload="auto" controls="controls"
                 data-autoplay="false">
                 <source type="audio/mpeg" src="">
             </audio>
@@ -342,7 +343,7 @@ Remove-Item -Path $deploymentDir -Recurse
                 
                     
             </ul>
-            
+             -->
 
             
             

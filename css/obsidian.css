@@ -600,12 +600,28 @@ body.touch .article {
   top: 10px;
 }
 .icon-home {
-  top: 14px;
+  top: 10px;
+  margin-top: 12px;
+}
+.home {
+  position: absolute;
+  left: 70px;
+  top: 0px;
+  margin-top: 12px;
+  font-size: 21px;
+  cursor: pointer;
+  background: var(--secondary) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  -webkit-box-decoration-break: clone !important;
+  box-decoration-break: clone !important;
+  transition: display 400ms ease-in-out;
+  animation-delay: 800ms;
+  animation-duration: 1.2s;
+  font-weight: bold;
 }
 .subtitle {
-  background: #b2fefa !important;
-  background: -webkit-linear-gradient(to right, var(--primary), var(--secondary), var(--dark)) !important;
-  background: linear-gradient(to right, var(--primary), var(--secondary), var(--dark)) !important;
+  background: var(--secondary) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   -webkit-box-decoration-break: clone !important;
@@ -614,16 +630,17 @@ body.touch .article {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 14px;
+  font-size: 21px;
   margin-top: 12px;
   display: none;
-  transition: display 400ms ease-in-out;
+  transition: display 2000ms ease-in-out;
   max-width: 50%;
   max-height: 30px;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
   font-weight: bold;
+  cursor: pointer;
 }
 .icon-play {
   position: absolute;
@@ -1047,6 +1064,7 @@ footer .copyright a {
   display: flex;
   flex-direction: row-reverse;
   font-size: 24px;
+  font-weight: 700;
   line-height: 32px;
   margin: 0 20px 20px 0;
 }

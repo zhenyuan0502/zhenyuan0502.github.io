@@ -72,7 +72,8 @@
     <div class="bar" style="width: 0;"></div>
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="/">
-        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
+        <!-- <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div> -->
+        <h3 class="home">Home</h3>
         <h3 class="subtitle">Tìm trung vị của 2 dãy đã được sắp xếp</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
@@ -121,7 +122,7 @@
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Thời gian đọc</i>
-                    12 mins.
+                    11 mins.
                 </span>
                 
                 
@@ -210,45 +211,15 @@ Output: 2.00000
 <li>Hai dãy đã được sắp xếp</li>
 <li>Chỉ quan tâm số ở giữa để tìm trung vị</li>
 </ol>
-<p>=&gt; Cần thiết để phải sort lại toàn bộ khi mình chỉ cần 1, 2 phần tử ở giữa?</p>
+<p>&#x3D;&gt; Cần thiết để phải sort lại toàn bộ khi mình chỉ cần 1, 2 phần tử ở giữa?</p>
 <h2 id="Y-tuong-chinh"><a href="#Y-tuong-chinh" class="headerlink" title="Ý tưởng chính"></a>Ý tưởng chính</h2><p>Xét 2 dãy <code>A = [3, 6, 8, 9, 10]</code> và <code>B = [1, 4, 12]</code>. </p>
-<p>Dãy merge đã sắp xếp sẽ là <code>C = [1, 3, 4, 6, 8, 9, 10, 12]</code> =&gt; Dãy <code>Median(C) = (6 + 8)/2 = 7</code></p>
+<p>Dãy merge đã sắp xếp sẽ là <code>C = [1, 3, 4, 6, 8, 9, 10, 12]</code> &#x3D;&gt; Dãy <code>Median(C) = (6 + 8)/2 = 7</code></p>
 <p>Nếu tôi cắt đôi dãy A và dãy A, 2 dãy bên trái gọi là nhóm X, 2 dãy bên phải gọi là nhóm Y, sao cho <strong>mỗi nhóm có số lượng bằng nhau hoặc chênh lệch một phần tử</strong> như sau</p>
-<table>
-<thead>
-<tr>
-<th>Nhóm X</th>
-<th>Nhóm Y</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>[3, 6, 8]</td>
-<td>[9, 10]</td>
-</tr>
-<tr>
-<td>[1]</td>
-<td>[4, 12]</td>
-</tr>
-</tbody></table>
-<p>Nếu nhóm X hoàn toàn thuộc về bên trái, nhóm Y hoàn toàn thuộc về bên phải, hay nói cách khác, <strong>Max(X) &lt;= Min(Y)</strong>, thì bạn đã ở vị trí chính giữa của 2 dãy, hoàn toàn có thể tìm được giá trị trung vị <strong>mà không cần phải sắp xếp 2 dãy đó</strong>. Việc của mình chỉ là dịch (shift) trái hoặc dịch phải các phần tử để đáp ứng tiêu chí đó. Nếu nhóm X cho nhóm Y một phần tử ở dãy A, thì nhóm Y cũng phải cho X một phần tử ở dãy B tương ứng. Nếu bạn nhìn kỹ thì nó như theo một chiều của kim đồng hồ.</p>
+<p>|Nhóm X 	| Nhóm Y |<br>| ——	| ——-|<br>| [3, 6, 8] | [9, 10] |<br>| [1] 		| [4, 12]|</p>
+<p>Nếu nhóm X hoàn toàn thuộc về bên trái, nhóm Y hoàn toàn thuộc về bên phải, hay nói cách khác, <strong>Max(X) &lt;&#x3D; Min(Y)</strong>, thì bạn đã ở vị trí chính giữa của 2 dãy, hoàn toàn có thể tìm được giá trị trung vị <strong>mà không cần phải sắp xếp 2 dãy đó</strong>. Việc của mình chỉ là dịch (shift) trái hoặc dịch phải các phần tử để đáp ứng tiêu chí đó. Nếu nhóm X cho nhóm Y một phần tử ở dãy A, thì nhóm Y cũng phải cho X một phần tử ở dãy B tương ứng. Nếu bạn nhìn kỹ thì nó như theo một chiều của kim đồng hồ.</p>
 <p>Tôi thử shift chiều kim đồng hồ, kết quả:</p>
-<table>
-<thead>
-<tr>
-<th>Nhóm X</th>
-<th>Nhóm Y</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>[3, 6]</td>
-<td>[8, 9, 10]</td>
-</tr>
-<tr>
-<td>[1, 4]</td>
-<td>[12]</td>
-</tr>
-</tbody></table>
-<p>Nhận xét Max(X) = 6 &lt;= Min(Y) = 8. Do tổng số phần tử là chẵn, nên (6+8)/2 = 7 =&gt; giá trị cần tìm</p>
+<p>|Nhóm X 	| Nhóm Y |<br>| ——	| ——-|<br>| [3, 6] 	| [8, 9, 10] |<br>| [1, 4] 	| [12]|</p>
+<p>Nhận xét Max(X) &#x3D; 6 &lt;&#x3D; Min(Y) &#x3D; 8. Do tổng số phần tử là chẵn, nên (6+8)&#x2F;2 &#x3D; 7 &#x3D;&gt; giá trị cần tìm</p>
 <p>Có 2 ràng buộc để solution này khả thi:</p>
 <ul>
 <li>Nếu dãy A hoặc B không được sắp xếp độc lập, bạn không thể shift</li>
@@ -256,132 +227,27 @@ Output: 2.00000
 </ul>
 <p>Đây là core của bài toán, kỹ thuật này còn gọi là <code>Binary Search</code> - tìm kiếm nhị phân, các mục tiếp theo là đi sâu vào nhiều khía cạnh phải xem xét.</p>
 <h2 id="Khong-con-kha-nang-shift"><a href="#Khong-con-kha-nang-shift" class="headerlink" title="Không còn khả năng shift"></a>Không còn khả năng shift</h2><p>Nếu tôi thay 12 bằng 5, bài toán cần thiết phải shift thêm 1 lần, như sau:</p>
-<table>
-<thead>
-<tr>
-<th>Nhóm X</th>
-<th>Nhóm Y</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>[3, 6]</td>
-<td>[8, 9, 10]</td>
-</tr>
-<tr>
-<td>[1, 4]</td>
-<td>[5]</td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th>Nhóm X</th>
-<th>Nhóm Y</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>[3]</td>
-<td>[6, 8, 9, 10]</td>
-</tr>
-<tr>
-<td>[1, 4, 5]</td>
-<td>?</td>
-</tr>
-</tbody></table>
-<p>=&gt; [1, 3, 4, 5, 6, 8, 9, 10] =&gt; Chọn (5+6)/2 = 5.5<br>=&gt; Uhmm, không quan trọng lắm, <code>?</code> thay bằng <code>Infinity</code> thì sẽ không bị gì, tương tự cho các trường hợp còn lại, thì bên Y bị rút hết thì sẽ là dương vô cực, X thì là âm vô cực.</p>
+<p>|Nhóm X 	| Nhóm Y |<br>| ——	| ——-|<br>| [3, 6] 	| [8, 9, 10] |<br>| [1, 4] 	| [5]|</p>
+<p>|Nhóm X 	| Nhóm Y |<br>| ——	| ——-|<br>| [3] 	| [6, 8, 9, 10] |<br>| [1, 4, 5] | ?|</p>
+<p>&#x3D;&gt; [1, 3, 4, 5, 6, 8, 9, 10] &#x3D;&gt; Chọn (5+6)&#x2F;2 &#x3D; 5.5<br>&#x3D;&gt; Uhmm, không quan trọng lắm, <code>?</code> thay bằng <code>Infinity</code> thì sẽ không bị gì, tương tự cho các trường hợp còn lại, thì bên Y bị rút hết thì sẽ là dương vô cực, X thì là âm vô cực.</p>
 <h2 id="Truong-hop-lech-nhau-1-don-vi"><a href="#Truong-hop-lech-nhau-1-don-vi" class="headerlink" title="Trường hợp lệch nhau 1 đơn vị"></a>Trường hợp lệch nhau 1 đơn vị</h2><p>Giả sử tôi thêm 11 vào nhóm Y của dãy A</p>
-<table>
-<thead>
-<tr>
-<th>Nhóm X</th>
-<th>Nhóm Y</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>[3]</td>
-<td>[6, 8, 9, 10, 11]</td>
-</tr>
-<tr>
-<td>[1, 4, 5]</td>
-<td>?</td>
-</tr>
-</tbody></table>
-<p>=&gt; [1, 3, 4, 5, 6, 8, 9, 10, 11] =&gt; Chọn 6</p>
-<p>=&gt; Nếu lệch ở đâu thì lấy phần tử gần trung tâm nhất của bên đó</p>
+<p>|Nhóm X 	| Nhóm Y |<br>| ——	| ——-|<br>| [3] 	| [6, 8, 9, 10, 11] |<br>| [1, 4, 5] | ?|</p>
+<p>&#x3D;&gt; [1, 3, 4, 5, 6, 8, 9, 10, 11] &#x3D;&gt; Chọn 6</p>
+<p>&#x3D;&gt; Nếu lệch ở đâu thì lấy phần tử gần trung tâm nhất của bên đó</p>
 <h2 id="Co-ton-tai-lech-nhau-nhieu-hon-1-don-vi-ma-khong-the-shift"><a href="#Co-ton-tai-lech-nhau-nhieu-hon-1-don-vi-ma-khong-the-shift" class="headerlink" title="Có tồn tại lệch nhau nhiều hơn 1 đơn vị mà không thể shift?"></a>Có tồn tại lệch nhau nhiều hơn 1 đơn vị mà không thể shift?</h2><p>Không. Giả sử:</p>
-<table>
-<thead>
-<tr>
-<th>Nhóm X</th>
-<th>Nhóm Y</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>[3]</td>
-<td>[6, 8, 9, 10, 13, 15]</td>
-</tr>
-<tr>
-<td>[1, 4, 5]</td>
-<td>?</td>
-</tr>
-</tbody></table>
-<p>=&gt; Vi phạm việc chia đôi, chính xác ban đầu phải là:</p>
-<table>
-<thead>
-<tr>
-<th>Nhóm X</th>
-<th>Nhóm Y</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>[3, 6]</td>
-<td>[8, 9, 10, 13, 15]</td>
-</tr>
-<tr>
-<td>[1, 4, 5]</td>
-<td>?</td>
-</tr>
-</tbody></table>
-<h2 id="Lam-sao-de-biet-shift-chieu-nao"><a href="#Lam-sao-de-biet-shift-chieu-nao" class="headerlink" title="Làm sao để biết shift chiều nào?"></a>Làm sao để biết shift chiều nào?</h2><table>
-<thead>
-<tr>
-<th>Nhóm X</th>
-<th>Nhóm Y</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>[3, 6 = O]</td>
-<td>[8 = P, 9, 10]</td>
-</tr>
-<tr>
-<td>[1, 4 = N]</td>
-<td>[5 = M]</td>
-</tr>
-</tbody></table>
+<p>|Nhóm X 	| Nhóm Y |<br>| ——	| ——-|<br>| [3] 	| [6, 8, 9, 10, 13, 15] |<br>| [1, 4, 5] | ?|</p>
+<p>&#x3D;&gt; Vi phạm việc chia đôi, chính xác ban đầu phải là:</p>
+<p>|Nhóm X 	| Nhóm Y |<br>| ——	| ——-|<br>| [3, 6] 	| [8, 9, 10, 13, 15] |<br>| [1, 4, 5] | ?|</p>
+<h2 id="Lam-sao-de-biet-shift-chieu-nao"><a href="#Lam-sao-de-biet-shift-chieu-nao" class="headerlink" title="Làm sao để biết shift chiều nào?"></a>Làm sao để biết shift chiều nào?</h2><p>|Nhóm X 	| Nhóm Y |<br>| ——	| ——-|<br>| [3, 6 &#x3D; O]	| [8 &#x3D; P, 9, 10] |<br>| [1, 4 &#x3D; N] 	| [5 &#x3D; M]|</p>
 <p>Rất dễ nhận biết, xét 4 số trung tâm 6, 4, 8, 5, tương ứng O, N, P, M</p>
 <ul>
-<li>Theo chiều kim nếu <code>O &gt; M</code>: 6 &gt; 5. Mà <code>N &lt;= M, O &lt;= P</code> =&gt; <code>P &gt;= O &gt; M &gt;= N</code> =&gt; <code>P &gt; N</code></li>
-<li>Ngược chiều kim nếu <code>N &gt; P</code>. Mà <code>N &lt;= M, O &lt;= P</code> =&gt; <code>M &gt;= N &gt; P &gt;= O</code> =&gt; <code>M &gt; O</code></li>
+<li>Theo chiều kim nếu <code>O &gt; M</code>: 6 &gt; 5. Mà <code>N &lt;= M, O &lt;= P</code> &#x3D;&gt; <code>P &gt;= O &gt; M &gt;= N</code> &#x3D;&gt; <code>P &gt; N</code></li>
+<li>Ngược chiều kim nếu <code>N &gt; P</code>. Mà <code>N &lt;= M, O &lt;= P</code> &#x3D;&gt; <code>M &gt;= N &gt; P &gt;= O</code> &#x3D;&gt; <code>M &gt; O</code></li>
 </ul>
 <p>Như vậy, chỉ tồn tại một trong 2 điều kiện đó có thể xảy ra. Đối với dấu <code>=</code>, thuật toán có thể kết thúc ngay, vd:</p>
-<table>
-<thead>
-<tr>
-<th>Nhóm X</th>
-<th>Nhóm Y</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>[3, 5 = O]</td>
-<td>[5 = P, 9, 10]</td>
-</tr>
-<tr>
-<td>[1, 5 = N]</td>
-<td>[5 = M]</td>
-</tr>
-</tbody></table>
-<p>=&gt; Max(X) = 5 &lt;= Minx(Y) = 5 =&gt; (5+5)/2 = 5</p>
-<p>=&gt; <code>[1, 3, 5, 5, 5, 5, 9, 10]</code> =&gt; Chọn 5</p>
+<p>|Nhóm X 	| Nhóm Y |<br>| ——	| ——-|<br>| [3, 5 &#x3D; O]	| [5 &#x3D; P, 9, 10] |<br>| [1, 5 &#x3D; N] 	| [5 &#x3D; M]|</p>
+<p>&#x3D;&gt; Max(X) &#x3D; 5 &lt;&#x3D; Minx(Y) &#x3D; 5 &#x3D;&gt; (5+5)&#x2F;2 &#x3D; 5</p>
+<p>&#x3D;&gt; <code>[1, 3, 5, 5, 5, 5, 9, 10]</code> &#x3D;&gt; Chọn 5</p>
 <h2 id="Dich-bao-nhieu-don-vi"><a href="#Dich-bao-nhieu-don-vi" class="headerlink" title="Dịch bao nhiêu đơn vị?"></a>Dịch bao nhiêu đơn vị?</h2><p>Để có được độ phức tạp <code>O(log(m+n))</code>, cần thiết phải search chia đôi liên tục thay vì dịch từng đơn vị 1. Nghĩa là, với độ dài <code>k = m + n</code>, mỗi vòng lặp sẽ thực hiện trên khoảng <code>k = k/2</code>, chọn nửa <code>k</code> bên nào sẽ do chiều shift quyết định. </p>
 <h2 id="Cai-dat-tren-Python"><a href="#Cai-dat-tren-Python" class="headerlink" title="Cài đặt trên Python"></a>Cài đặt trên Python</h2><p>Thuật toán:</p>
 <ul>
@@ -437,7 +303,7 @@ Output: 2.00000
 </code></pre>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-            <audio id="audio" loop="1" preload="auto" controls="controls"
+            <!-- <audio id="audio" loop="1" preload="auto" controls="controls"
                 data-autoplay="false">
                 <source type="audio/mpeg" src="">
             </audio>
@@ -449,7 +315,7 @@ Output: 2.00000
                 
                     
             </ul>
-            
+             -->
 
             
             

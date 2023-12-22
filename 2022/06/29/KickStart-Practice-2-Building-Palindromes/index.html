@@ -72,7 +72,8 @@
     <div class="bar" style="width: 0;"></div>
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="/">
-        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
+        <!-- <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div> -->
+        <h3 class="home">Home</h3>
         <h3 class="subtitle">KickStart Practice #2: Building Palindromes</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
@@ -227,7 +228,7 @@ def test():
         sayYes += query(text, L, R)
     return sayYes
 </code></pre>
-<p>The problem of this Naive Solution is we need to create every of Dictionary for each query Q =&gt; Time and Space Complexity = O(Q*(R-L))</p>
+<p>The problem of this Naive Solution is we need to create every of Dictionary for each query Q &#x3D;&gt; Time and Space Complexity &#x3D; O(Q*(R-L))</p>
 <p>You definetely cannot pass through Test Set 2 (Time Limit Exceeded)</p>
 <h1 id="Prefix-XOR"><a href="#Prefix-XOR" class="headerlink" title="Prefix XOR"></a>Prefix XOR</h1><p>Exclusive XOR compares the bits of two numbers, in which the result bits are set to 1 if input bits are different and set to 0 if the inputs are the same </p>
 <p><img src="/images/pasted-12.png"></p>
@@ -304,13 +305,13 @@ def test_v3():
 <p>Some minor optimizations you can consider<br>If you are using Python 3.10, the count code would be <a target="_blank" rel="noopener" href="https://github.com/python/cpython/pull/771#issuecomment-288570744">6 times faster</a> </p>
 <pre><code class="python">int.bit_count()
 </code></pre>
-<p>Or you could take while loop until it exceeds 1 =&gt; return False</p>
+<p>Or you could take while loop until it exceeds 1 &#x3D;&gt; return False</p>
 <h1 id="Further-expanding-problem"><a href="#Further-expanding-problem" class="headerlink" title="Further expanding problem"></a>Further expanding problem</h1><p>During searching for optimized solution, I have found the similar challenge on <a target="_blank" rel="noopener" href="https://leetcode.com/problems/can-make-palindrome-from-substring/">leetcode</a>.</p>
-<p>The problem is expanded to opt for <code>k</code> times replacement on substring, say <code>ABC</code>, you will have at least 1 time to replace <code>C</code> to <code>A</code>, form <code>ABA</code>. Realistically, <code>ABC</code> stands for <code>[1, 1, 1]</code> and sum of 1s is 3. We would like to make valid Palindrome so there becomes <code>3 div 2 = 1</code> =&gt; 1 is the minimum of replacement.</p>
+<p>The problem is expanded to opt for <code>k</code> times replacement on substring, say <code>ABC</code>, you will have at least 1 time to replace <code>C</code> to <code>A</code>, form <code>ABA</code>. Realistically, <code>ABC</code> stands for <code>[1, 1, 1]</code> and sum of 1s is 3. We would like to make valid Palindrome so there becomes <code>3 div 2 = 1</code> &#x3D;&gt; 1 is the minimum of replacement.</p>
 <ul>
-<li>Another example, say <code>ABACDC</code>=&gt; <code>[0, 1, 0, 1]</code> =&gt; <code>2 div 2 = 1</code>. Exactly for rearrangement like <code>CCABDACC</code> =&gt; <code>D</code> to <code>B</code> or vice versa =&gt; <code>CCABBACC</code></li>
-<li><code>AA</code> =&gt; <code>[0]</code> =&gt; <code>0 div 2 = 0</code></li>
-<li><code>AAA</code> =&gt; <code>[1]</code> =&gt; <code>1 div 2 = 0</code></li>
+<li>Another example, say <code>ABACDC</code>&#x3D;&gt; <code>[0, 1, 0, 1]</code> &#x3D;&gt; <code>2 div 2 = 1</code>. Exactly for rearrangement like <code>CCABDACC</code> &#x3D;&gt; <code>D</code> to <code>B</code> or vice versa &#x3D;&gt; <code>CCABBACC</code></li>
+<li><code>AA</code> &#x3D;&gt; <code>[0]</code> &#x3D;&gt; <code>0 div 2 = 0</code></li>
+<li><code>AAA</code> &#x3D;&gt; <code>[1]</code> &#x3D;&gt; <code>1 div 2 = 0</code></li>
 </ul>
 <pre><code class="python">def query_v4(arr, L, R, k):
     odd = bin(arr[L-1] ^ arr[R]).count(&#39;1&#39;)
@@ -320,7 +321,7 @@ def test_v3():
 <p><img src="/images/tonton-2.gif"></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-            <audio id="audio" loop="1" preload="auto" controls="controls"
+            <!-- <audio id="audio" loop="1" preload="auto" controls="controls"
                 data-autoplay="false">
                 <source type="audio/mpeg" src="">
             </audio>
@@ -332,7 +333,7 @@ def test_v3():
                 
                     
             </ul>
-            
+             -->
 
             
             
