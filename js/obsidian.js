@@ -891,6 +891,13 @@ var Obsidian = {
 };
 
 $(function () {
+  if ($(window).width() < 800) {
+    $('.home').fadeOut();
+  } else {
+    $('.home').fadeIn();
+  }
+
+
   initialMathJax();
   var inputArea = document.querySelector('#local-search-input');
   if (inputArea) {
@@ -965,6 +972,7 @@ $(function () {
           }
         }
       }
+
       var topHeader = document.querySelector('#top');
       var homeIcon = document.querySelector('#home-icon');
       if (topHeader && $('.scrollbar').length && !$('.icon-images').hasClass('active')) {
@@ -985,9 +993,13 @@ $(function () {
             homeIcon.classList.add('spin');
             setTimeout(function () {
               homeIcon.classList.remove('spin');
-            }, 2000);
+            }, 1000);
+            
           }
         }
+
+       
+
         var wt = $(window).scrollTop(),
           tw = $('#top').width(),
           dh = document.body.scrollHeight,
