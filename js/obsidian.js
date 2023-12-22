@@ -176,33 +176,33 @@ var Obsidian = {
       u: url,
     };
     Obsidian.L(url, function (data) {
-      // location.href = url;
-      if (!$(data).filter('#single').length) {
-        location.href = url;
-        return;
-      }
-      switch (flag) {
-        case 'push':
-          history.pushState(state, title, url);
-          $('#preview').html($(data).filter('#single'));
-          break;
-        case 'replace':
-          history.replaceState(state, title, url);
-          $('#preview').html($(data).filter('#single'));
-          break;
-      }
-      document.title = title;
-      $('#preview').html($(data).filter('#single'));
-      switch (flag) {
-        case 'push':
-          Obsidian.preview();
-          break;
-        case 'replace':
-          Obsidian.initArticleJs();
-          window.scrollTo(0, 0);
-          Obsidian.loaded();
-          break;
-      }
+      location.href = url;
+      // if (!$(data).filter('#single').length) {
+      //   location.href = url;
+      //   return;
+      // }
+      // switch (flag) {
+      //   case 'push':
+      //     history.pushState(state, title, url);
+      //     $('#preview').html($(data).filter('#single'));
+      //     break;
+      //   case 'replace':
+      //     history.replaceState(state, title, url);
+      //     $('#preview').html($(data).filter('#single'));
+      //     break;
+      // }
+      // document.title = title;
+      // $('#preview').html($(data).filter('#single'));
+      // switch (flag) {
+      //   case 'push':
+      //     Obsidian.preview();
+      //     break;
+      //   case 'replace':
+      //     Obsidian.initArticleJs();
+      //     window.scrollTo(0, 0);
+      //     Obsidian.loaded();
+      //     break;
+      // }
       // setTimeout(function () {
       //   Obsidian.player();
       //   $('#top').show();
