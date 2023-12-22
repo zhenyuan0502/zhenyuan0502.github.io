@@ -555,7 +555,7 @@ body.mu .icon-logo {
   background-image: -moz-linear-gradient(left, #f16f5c 0%, #f16f5c 12.5%, #5b56dd 12.5%, #5b56dd 25%, #e15ced 25%, #e15ced 37.5%, #27e559 37.5%, #27e559 50%, #18c8c9 50%, #18c8c9 62.5%, #dc8987 62.5%, #dc8987 75%, #bb83d6 75%, #bb83d6 87.5%, #e774bd 87.5%, #e774bd 100%);
 }
 #top {
-  height: 50px;
+  height: 60px;
   text-align: center;
   background: #100e17;
   width: 100%;
@@ -602,12 +602,14 @@ body.touch .article {
 .icon-home {
   top: 10px;
   margin-top: 12px;
+  margin-bottom: 12px;
 }
 .home {
   position: absolute;
   left: 70px;
   top: 0px;
   margin-top: 12px;
+  margin-bottom: 12px;
   font-size: 21px;
   cursor: pointer;
   background: var(--secondary) !important;
@@ -632,6 +634,7 @@ body.touch .article {
   transform: translateX(-50%);
   font-size: 21px;
   margin-top: 12px;
+  margin-bottom: 12px;
   display: none;
   transition: display 2000ms ease-in-out;
   max-width: 50%;

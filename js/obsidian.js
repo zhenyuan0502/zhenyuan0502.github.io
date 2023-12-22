@@ -1132,6 +1132,15 @@ $(function () {
           location.href = $('.icon-home').data('url');
         }
         return false;
+
+      case tag.indexOf('home') != -1:
+          $('.toc').fadeOut(100);
+          if ($('#preview').hasClass('show')) {
+            history.back();
+          } else {
+            location.href = $('.home').data('url');
+          }
+          return false;
       // qrcode
       case tag.indexOf('icon-QRcode-o') != -1:
         if ($('.icon-scan').hasClass('tg')) {
