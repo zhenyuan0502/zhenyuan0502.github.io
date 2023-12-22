@@ -226,6 +226,7 @@ var Obsidian = {
         Obsidian.loaded();
       }
     );
+    Obsidian.initArticleJs();
     setTimeout(function () {
       $('#preview').addClass('show');
       $('#container').data('scroll', window.scrollY);
@@ -235,8 +236,7 @@ var Obsidian = {
           position: 'static',
           // 'overflow-y': 'auto'
         });
-        Obsidian.initArticleJs();
-      }, 0);
+      }, 500);
     }, 0);
   },
   player: function () {
@@ -884,8 +884,8 @@ var Obsidian = {
       $('html, body').removeClass('loading');
       setTimeout(function () {
         $('.loader').css('z-index', '-1');
-      }, 100);
-    }, 100);
+      }, 600);
+    }, 500);
   },
 };
 
@@ -960,7 +960,7 @@ $(function () {
             logoImg.classList.add('spin');
             setTimeout(function () {
               logoImg.classList.remove('spin');
-            }, 200);
+            }, 2000);
           }
         }
       }
@@ -1134,13 +1134,13 @@ $(function () {
         return false;
 
       case tag.indexOf('home') != -1:
-          $('.toc').fadeOut(100);
-          if ($('#preview').hasClass('show')) {
-            history.back();
-          } else {
-            location.href = $('.home').data('url');
-          }
-          return false;
+        $('.toc').fadeOut(100);
+        if ($('#preview').hasClass('show')) {
+          history.back();
+        } else {
+          location.href = $('.home').data('url');
+        }
+        return false;
       // qrcode
       case tag.indexOf('icon-QRcode-o') != -1:
         if ($('.icon-scan').hasClass('tg')) {
@@ -1350,10 +1350,4 @@ $(function () {
   utiliseBgColor();
   initialTyped();
   Obsidian.setCodeRowWithLang();
-  console.log(
-    '%c Github %c',
-    'background:#24272A; color:#73ddd7',
-    '',
-    'https://github.com/TriDiamond/hexo-theme-obsidian'
-  );
 });
