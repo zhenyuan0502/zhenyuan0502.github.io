@@ -176,6 +176,7 @@ var Obsidian = {
       u: url,
     };
     Obsidian.L(url, function (data) {
+      // location.href = url;
       if (!$(data).filter('#single').length) {
         location.href = url;
         return;
@@ -202,14 +203,14 @@ var Obsidian = {
           Obsidian.loaded();
           break;
       }
-      setTimeout(function () {
-        Obsidian.player();
-        $('#top').show();
-        comment = $('#gitalk-container');
-        if (comment.data('ae') == true) {
-          comment.click();
-        }
-      }, 0);
+      // setTimeout(function () {
+      //   Obsidian.player();
+      //   $('#top').show();
+      //   comment = $('#gitalk-container');
+      //   if (comment.data('ae') == true) {
+      //     comment.click();
+      //   }
+      // }, 0);
     });
   },
   preview: function () {
@@ -238,7 +239,7 @@ var Obsidian = {
           // 'overflow-y': 'auto'
         });
       }, 500);
-    }, 0);
+    }, 100);
   },
   player: function () {
     var p = $('#audio');

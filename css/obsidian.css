@@ -1763,7 +1763,6 @@ footer .copyright a {
   background-size: cover;
   background-repeat: no-repeat;
   opacity: 0.85;
-  background-image: radial-gradient(ellipse closest-side, rgba(0,0,0,0.46), #100e17), url("../img/cover.jpg");
   z-index: -1;
   animation-delay: 900ms;
   animation-duration: 1.2s;
