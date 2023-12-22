@@ -172,14 +172,12 @@
       
       <categories>
           
-          <category> Algorithms </category>
+          <category> Algorithm </category>
           
       </categories>
       
       
         <tags>
-            
-            <tag> Algorithm </tag>
             
             <tag> Lazy Shuffle </tag>
             
@@ -218,7 +216,7 @@
       
       <categories>
           
-          <category> Algorithms </category>
+          <category> Algorithm </category>
           
       </categories>
       
@@ -226,8 +224,6 @@
         <tags>
             
             <tag> Python </tag>
-            
-            <tag> Algorithms </tag>
             
             <tag> BinarySearch </tag>
             
