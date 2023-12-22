@@ -226,8 +226,9 @@ var Obsidian = {
         Obsidian.loaded();
       }
     );
-    Obsidian.initArticleJs();
     setTimeout(function () {
+      Obsidian.initArticleJs();
+
       $('#preview').addClass('show');
       $('#container').data('scroll', window.scrollY);
       setTimeout(function () {
