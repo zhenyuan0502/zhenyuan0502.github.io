@@ -1272,22 +1272,22 @@ $(function () {
         }
         return false;
       // comment
-      case -1 != tag.indexOf('comment'):
-        Obsidian.loading(), (comment = $('#gitalk-container'));
-        var gitalk = new Gitalk({
-          clientID: comment.data('ci'),
-          clientSecret: comment.data('cs'),
-          repo: comment.data('r'),
-          owner: comment.data('o'),
-          admin: [comment.data('a')],
-          id: md5(window.location.pathname),
-          distractionFreeMode: comment.data('d'),
-          labels: ['Gitalk'],
-        });
-        $('.comment').removeClass('link');
-        gitalk.render('gitalk-container');
-        Obsidian.loaded();
-        return false;
+      // case -1 != tag.indexOf('comment'):
+      //   Obsidian.loading(), (comment = $('#gitalk-container'));
+      //   var gitalk = new Gitalk({
+      //     clientID: comment.data('ci'),
+      //     clientSecret: comment.data('cs'),
+      //     repo: comment.data('r'),
+      //     owner: comment.data('o'),
+      //     admin: [comment.data('a')],
+      //     id: md5(window.location.pathname),
+      //     distractionFreeMode: comment.data('d'),
+      //     labels: ['Gitalk'],
+      //   });
+      //   $('.comment').removeClass('link');
+      //   gitalk.render('gitalk-container');
+      //   Obsidian.loaded();
+      //   return false;
       case tag.indexOf('category-list-child') != -1:
         tag = $(e.target);
         set = $('.set');
