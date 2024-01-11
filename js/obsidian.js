@@ -224,7 +224,6 @@ var Obsidian = {
         } else {
           $('#container').show();
         }
-        Obsidian.loaded();
       }
     );
     setTimeout(function () {
@@ -305,13 +304,6 @@ var Obsidian = {
       '</style>';
     $('.loaderstyle').remove();
     $('head').append(css);
-    $('#loader')
-      .removeClass()
-      .addClass('loader' + w)
-      .show();
-  },
-  loaded: function () {
-    $('#loader').removeClass().hide();
   },
   F: function (id, w, h) {
     var _height = $(id).parent().height(),
@@ -1117,7 +1109,6 @@ $(function () {
             var tempScrollTop = $(window).scrollTop();
             $('#primary').append($(data).find('.post'));
             $(window).scrollTop(tempScrollTop + 100);
-            Obsidian.loaded();
             $('html,body').animate(
               {
                 scrollTop: tempScrollTop + 400,
