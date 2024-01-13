@@ -2225,7 +2225,7 @@ h1.title {
   flex-grow: 0;
   margin: 0;
   text-align: initial;
-  font-size: inherit;
+  font-size: 1rem;
   padding: 0 0.2rem;
   color: #9e9e9e;
 }
