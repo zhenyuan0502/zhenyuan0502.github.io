@@ -1,0 +1,526 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Crawl data from App Store Connect - Nguyen Luu Blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Nguyen Luu zhenyuan0502,"> 
+    <meta name="description" content="In this article, I will show you the way to get Units, the term indicates how many downloads on you,"> 
+    <meta name="author" content="Nguyen Luu"> 
+    <link rel="alternative" href="atom.xml" title="Nguyen Luu Blog" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/theme/dracula.css">
+
+    
+<link rel="stylesheet" href="/css/obsidian.css">
+
+    
+
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="//www.googletagmanager.com/gtag/js?id=UA-193142270-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-193142270-1');
+    </script>
+    
+
+    
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body class="loading">
+    <span id="config-title" style="display:none">Nguyen Luu Blog</span>
+    <div id="single">
+    <div class="scrollbar gradient-bg-rev"></div>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <div class="navigation">
+        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="/">
+        <!-- <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div> -->
+        <h3 class="home" alt="" data-url="/">Home</h3>
+        <h3 class="subtitle">Crawl data from App Store Connect</h3>
+        <div class="social">
+            <!--        <div class="like-icon">-->
+            <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+            <!--        </div>-->
+            <div>
+                <div class="share">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="section">
+        <div class=article-header-wrapper>
+    <div class="article-header">
+        <!-- <div class="article-cover animated fadeIn" style="
+            animation-delay: 600ms;
+            animation-duration: 1.2s;
+            background-image: 
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+                url(/img/cover.jpg) ">
+        </div> -->
+        <div class="else">
+            <p class="animated fadeInDown">
+                
+                <a href="/categories/Crawl Data"><b>「
+                    </b>CRAWL DATA<b> 」</b></a>
+                
+                June 27, 2022
+            </p>
+            <h3 class="post-title animated fadeInDown"><a href="/post/2022/06/27/Crawl-data-from-App-Store-Connect.html" title="Crawl data from App Store Connect" class="">Crawl data from App Store Connect</a>
+            </h3>
+            
+            <p class="post-count animated fadeInDown">
+                
+                <span>
+                    <b class="iconfont icon-text2"></b> <i>Words count</i>
+                    6.8k
+                </span>
+                
+                
+                <span>
+                    <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                    6 mins.
+                </span>
+                
+                
+                
+            </p>
+            
+            
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/App-Store-Connect/" rel="tag">App Store Connect</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Apple/" rel="tag">Apple</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Scrape/" rel="tag">Scrape</a></li></ul>
+            
+        </div>
+    </div>
+</div>
+
+<div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="animated fadeIn delay-1s"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class='main'>
+        <div class="content markdown animated fadeIn">
+            <p>In this article, I will show you the way to get Units, the term indicates how many downloads on your own application published on App Store, following by days, months, years, using Python script</p>
+<hr>
+<p>Make sure you have your own privileges to access App Store Connect and generate below information</p>
+<h1 id="Generate-API-Key-download-Private-Key"><a href="#Generate-API-Key-download-Private-Key" class="headerlink" title="Generate API Key, download Private Key,"></a>Generate API Key, download Private Key,</h1><pre><code class="highlight text">- Select Users and Access, and then select the API Keys tab.
+- Click Generate API Key or the Add (+) button.
+- Enter a name for the key. The name is for your reference only and is not part of the key itself.
+- Under Access, select the role for the key.
+- Click Generate.
+- Click &quot;Download API Key&quot; link next to the new API key.
+More instruction: https://developer.apple.com/documentation/appstoreconnectapi/creating_api_keys_for_app_store_connect_api</code></pre>
+
+<p>The API Key looks like this format</p>
+<pre><code class="highlight text">2X9R4HXF34</code></pre>
+
+<p>The Private Key looks like this format</p>
+<pre><code class="highlight text">---- Begin Private Key ----
+Key....
+---- End Private Key ----</code></pre>
+
+<p>Also from Connector page, please prepares more 2 Ids to process next step</p>
+<pre><code class="highlight text">IssuerId. Ex: 57246542-96fe-1a63-e053-0824d011072a
+VendorId. Ex. 1234567
+More Instruction: https://help.apple.com/app-store-connect/#/dev3a16f3fe0</code></pre>
+<p>So, in total, make sure you already kept:</p>
+<pre><code class="highlight text">IssuerId
+VendorId
+KeyId = API Key
+PrivateKey</code></pre>
+
+<h1 id="Sign-JWT-Token"><a href="#Sign-JWT-Token" class="headerlink" title="Sign JWT Token"></a>Sign JWT Token</h1><p>Next, we will use them to create and sign JWT Token, I have created a python function to archieve downloading, if you are using another language or simply RESTful, please follow official instruction here<br><a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/appstoreconnectapi/generating_tokens_for_api_requests">https://developer.apple.com/documentation/appstoreconnectapi/generating_tokens_for_api_requests</a></p>
+<pre><code class="highlight python"><span class="comment"># pip install pyjwt</span>
+<span class="comment"># pip install pyjwt[crypto]</span>
+<span class="keyword">from</span> datetime <span class="keyword">import</span> datetime, timezone
+<span class="keyword">import</span> jwt
+
+<span class="keyword">def</span> <span class="title function_">sign_appstore_token</span>(<span class="params">issuer_id, key_id, generated_private_key</span>):
+    bin_private_key = generated_private_key.encode()
+    current_unix = <span class="built_in">int</span>(datetime.now(tz=timezone.utc).timestamp())
+    token = jwt.encode(&#123;
+            <span class="string">&quot;iss&quot;</span>: issuer_id,
+            <span class="string">&quot;iat&quot;</span>: current_unix,
+            <span class="string">&quot;exp&quot;</span>: current_unix + <span class="number">1000</span>, 
+            <span class="string">&quot;aud&quot;</span>: <span class="string">&quot;appstoreconnect-v1&quot;</span>,
+    &#125;, key= bin_private_key, algorithm= <span class="string">&#x27;ES256&#x27;</span>, headers= &#123;
+        <span class="string">&quot;alg&quot;</span>: <span class="string">&quot;ES256&quot;</span>,
+        <span class="string">&quot;kid&quot;</span>: key_id,
+        <span class="string">&quot;typ&quot;</span>: <span class="string">&quot;JWT&quot;</span>
+    &#125;)
+    <span class="keyword">return</span> token
+</code></pre>
+
+<h1 id="Download-report"><a href="#Download-report" class="headerlink" title="Download report"></a>Download report</h1><p>This link provides the method to download report <a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/appstoreconnectapi/download_sales_and_trends_reports">https://developer.apple.com/documentation/appstoreconnectapi/download_sales_and_trends_reports</a></p>
+<p>Be noticed that to get the Units, reportType should be <code>SALES</code>. Also noticed that reportDate and frequency have to consistency each other, if you specify: </p>
+<ul>
+<li><code>filter[frequency] = YEARLY</code>, then <code>filter[reportDate] = 2021</code></li>
+<li><code>filter[frequency] = MONTHLY</code>, then <code>filter[reportDate] = 2021-06</code>.<br>The frequency configuration groups the report to a file, depends on your needs.</li>
+</ul>
+<p>Sample query:</p>
+<pre><code class="highlight text">https://api.appstoreconnect.apple.com/v1/salesReports?filter[frequency]=YEARLY&amp;filter[reportDate]=2021&amp;filter[reportSubType]=SUMMARY&amp;filter[reportType]=SALES&amp;filter[vendorNumber]=YOUR_VENDOR_ID
+Headers: Authorization: Bearer YOUR_ABOVE_TOKEN</code></pre>
+
+<p>You will get binary response if it is success, represented for .gz file as well. Extract gz to get .txt schema deliminated by <code>\t</code></p>
+<p>Python script here returns file content as text, you can do your next step, pandas table, or to model, it is up to you</p>
+<pre><code class="highlight python"><span class="keyword">import</span> requests
+<span class="keyword">import</span> gzip
+<span class="keyword">def</span> <span class="title function_">download_appstore_objects</span>(<span class="params">token, vendor_id, frequency, reportDate</span>):
+    link = <span class="string">f&#x27;https://api.appstoreconnect.apple.com/v1/salesReports?filter[frequency]=<span class="subst">&#123;frequency&#125;</span>&amp;filter[reportDate]=<span class="subst">&#123;reportDate&#125;</span>&amp;filter[reportSubType]=SUMMARY&amp;filter[reportType]=SALES&amp;filter[vendorNumber]=<span class="subst">&#123;vendor_id&#125;</span>&#x27;</span>
+    response = requests.get(link, headers= &#123;<span class="string">&#x27;Authorization&#x27;</span>: <span class="string">f&#x27;Bearer <span class="subst">&#123;token&#125;</span>&#x27;</span> &#125;)
+    file_content = gzip.decompress(response.content).decode(<span class="string">&#x27;utf-8&#x27;</span>)
+    <span class="keyword">return</span> file_content
+</code></pre>
+
+<p>Columns included:</p>
+<pre><code class="highlight text">Provider    
+Provider Country    
+SKU Developer   
+Title   
+Version 
+Product Type Identifier 
+Units   
+Developer Proceeds  
+Begin Date  
+End Date    
+Customer Currency   
+Country Code    
+Currency of Proceeds    
+Apple Identifier    
+Customer Price  
+Promo Code  
+Parent Identifier   
+Subscription    
+Period  Category    
+CMB 
+Device  
+Supported Platforms
+Proceeds Reason 
+Preserved Pricing   
+Client  
+Order 
+Type</code></pre>
+<p>About field types, please refer <a target="_blank" rel="noopener" href="https://help.apple.com/app-store-connect/#/dev15f9508ca">https://help.apple.com/app-store-connect/#/dev15f9508ca</a></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <!-- <audio id="audio" loop="1" preload="auto" controls="controls"
+                data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+            <ul id="audio-list" style="display:none">
+                
+                
+                <li title='0' data-url='/statics/shijiandeguoke.mp3'></li>
+                
+                    
+            </ul>
+             -->
+
+            
+            
+
+
+<div class="post-copyright-container">
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Author</strong>
+    Nguyên Lưu
+  </li>
+  <li class="post-copyright-link">
+    <strong>Link</strong>
+    <a href="https://nguyenluu.dev/post/2022/06/27/Crawl-data-from-App-Store-Connect.html" title="Crawl data from App Store Connect">https://nguyenluu.dev/post/2022/06/27/Crawl-data-from-App-Store-Connect.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>License</strong>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>by-nc-sa</a>
+  </li>
+</ul>
+</div>
+
+            
+
+            
+            <div class="post-nav">
+                <hr>
+                
+                    <div class="post-nav-item">Previous Post: <a href="/post/2022/06/29/KickStart-Practice-2-Building-Palindromes.html" rel="prev" 
+                        title="KickStart Practice #2: Building Palindromes">KickStart Practice #2: Building Palindromes
+                      </a></div>
+                
+                
+                    <div class="post-nav-item">Next Post: <a href="/post/2021/12/27/Shuffle-strategic-for-limited-resources.html" rel="next" 
+                        title="Shuffle strategic for limited resources">Shuffle strategic for limited resources</a></div>
+                                
+            </div>   
+            
+            
+            <!--  -->
+
+            
+            
+
+            
+
+        </div>
+        <div class="sidebar">
+            <div class="box animated fadeInRight">
+                <div class="subbox">
+                    <div>
+                        <img src="/img/qoobee.jpeg" margin-top=1rem height=200 width=200></img>
+                        <p>Nguyen Luu<br>(Alfred - Yuan)</p>
+                        <span>Think like an artist, develop like an artisan</span>
+                        <dl>
+                            <dd><a href="https://github.com/zhenyuan0502" target="_blank"><span
+                                        class=" iconfont icon-github"></span></a></dd>
+                            <dd><a href="https://twitter.com/zhenyuan0502" target="_blank"><span
+                                        class=" iconfont icon-twitter"></span></a></dd>
+                            <dd><a href="https://stackoverflow.com/users/3789481/" target="_blank"><span
+                                        class=" iconfont icon-stack-overflow"></span></a></dd>
+                        </dl>
+                    </div>
+                </div>
+                <ul>
+                    <li><a href="/">10 <p>Articles</p></a></li>
+                    <li><a href="/categories">11 <p>Categories</p></a></li>
+                    <li><a href="/tags">18 <p>Tags</p></a></li>
+                </ul>
+            </div>
+            
+            
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <div>
+                        <h4>Table of Contents</h4>
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Generate-API-Key-download-Private-Key"><span class="toc-number">1.</span> <span class="toc-text">Generate API Key, download Private Key,</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Sign-JWT-Token"><span class="toc-number">2.</span> <span class="toc-text">Sign JWT Token</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Download-report"><span class="toc-number">3.</span> <span class="toc-text">Download report</span></a></li></ol>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+    <div id="back-to-top" class="animated fadeIn faster">
+        <div class="flow"></div>
+        <span class="percentage animated fadeIn faster">0%</span>
+        <span class="iconfont icon-top02 animated fadeIn faster"></span>
+    </div>
+</body>
+<footer>
+    <p class="copyright" id="copyright">
+        &copy; 2024
+        <span class="gradient-text">
+            Nguyen Luu
+        </span>.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme
+        <span class="gradient-text">
+            <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+        </span>
+        <small><a href="https://github.com/TriDiamond/hexo-theme-obsidian/blob/master/CHANGELOG.md" title="v1.4.5" target="_blank" rel="noopener">v1.4.5</a></small>
+    </p>
+ 
+</footer>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script>
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+      preferredFont: "TeX",
+      availableFonts: ["STIX", "TeX"],
+      linebreaks: {
+        automatic: true
+      },
+      EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+      inlineMath: [
+        ["$", "$"],
+        ["\\(", "\\)"]
+      ],
+      processEscapes: true,
+      ignoreClass: "tex2jax_ignore|dno",
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      noUndefined: {
+        attributes: {
+          mathcolor: "red",
+          mathbackground: "#FFEEEE",
+          mathsize: "90%"
+        }
+      },
+      Macros: {
+        href: "{}"
+      }
+    },
+    messageStyle: "none"
+  });
+</script>
+<script>
+  function initialMathJax() {
+    MathJax.Hub.Queue(function () {
+      var all = MathJax.Hub.getAllJax(),
+        i;
+      // console.log(all);
+      for (i = 0; i < all.length; i += 1) {
+        console.log(all[i].SourceElement().parentNode)
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  }
+
+  function reprocessMathJax() {
+    if (typeof MathJax !== 'undefined') {
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    }
+  }
+</script>
+
+
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/obsidian.js"></script>
+<script src="/js/jquery.truncate.js"></script>
+<script src="/js/search.js"></script>
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.js"></script>
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/mode/htmlmixed/htmlmixed.min.js"></script>
+  
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/mode/python/python.min.js"></script>
+  
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/mode/markdown/markdown.min.js"></script>
+   
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3//photoswipe.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3//default-skin/default-skin.min.css">
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3//photoswipe.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3//photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+
+<script>
+  function initialTyped() {
+    var typedTextEl = $('.typed-text');
+    if (typedTextEl && typedTextEl.length > 0) {
+      var typed = new Typed('.typed-text', {
+        strings: ['Think like an artist, develop like an artisan', '艺术家思维去思考问题，工匠创造精神去开发'],
+        typeSpeed: 90,
+        loop: true,
+        loopCount: Infinity,
+        backSpeed: 20,
+      });
+    }
+  }
+
+  if ($('.article-header') && $('.article-header').length) {
+    $(document).ready(function () {
+      initialTyped();
+    });
+  }
+</script>
+
+
+
+
+
+
+</html>

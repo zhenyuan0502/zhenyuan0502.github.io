@@ -1,0 +1,551 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Shuffle strategic for limited resources - Nguyen Luu Blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Nguyen Luu zhenyuan0502,"> 
+    <meta name="description" content="On the early stage of Machine Learning, Data Mining progress, one of the problems we have to deal w,"> 
+    <meta name="author" content="Nguyen Luu"> 
+    <link rel="alternative" href="atom.xml" title="Nguyen Luu Blog" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/theme/dracula.css">
+
+    
+<link rel="stylesheet" href="/css/obsidian.css">
+
+    
+
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="//www.googletagmanager.com/gtag/js?id=UA-193142270-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-193142270-1');
+    </script>
+    
+
+    
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body class="loading">
+    <span id="config-title" style="display:none">Nguyen Luu Blog</span>
+    <div id="single">
+    <div class="scrollbar gradient-bg-rev"></div>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <div class="navigation">
+        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="/">
+        <!-- <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div> -->
+        <h3 class="home" alt="" data-url="/">Home</h3>
+        <h3 class="subtitle">Shuffle strategic for limited resources</h3>
+        <div class="social">
+            <!--        <div class="like-icon">-->
+            <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+            <!--        </div>-->
+            <div>
+                <div class="share">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="section">
+        <div class=article-header-wrapper>
+    <div class="article-header">
+        <!-- <div class="article-cover animated fadeIn" style="
+            animation-delay: 600ms;
+            animation-duration: 1.2s;
+            background-image: 
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+                url(/img/cover.jpg) ">
+        </div> -->
+        <div class="else">
+            <p class="animated fadeInDown">
+                
+                <a href="/categories/Algorithm"><b>「
+                    </b>ALGORITHM<b> 」</b></a>
+                
+                December 27, 2021
+            </p>
+            <h3 class="post-title animated fadeInDown"><a href="/post/2021/12/27/Shuffle-strategic-for-limited-resources.html" title="Shuffle strategic for limited resources" class="">Shuffle strategic for limited resources</a>
+            </h3>
+            
+            <p class="post-count animated fadeInDown">
+                
+                <span>
+                    <b class="iconfont icon-text2"></b> <i>Words count</i>
+                    14k
+                </span>
+                
+                
+                <span>
+                    <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                    12 mins.
+                </span>
+                
+                
+                
+            </p>
+            
+            
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Lazy-Shuffle/" rel="tag">Lazy Shuffle</a></li></ul>
+            
+        </div>
+    </div>
+</div>
+
+<div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="animated fadeIn delay-1s"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class='main'>
+        <div class="content markdown animated fadeIn">
+            <p>On the early stage of Machine Learning, Data Mining progress, one of the problems we have to deal with processing large-size file, including corpus shuffle, usually its size would be larger than our limited resources like memory or capacity. Let’s say, the file is 30GB, whereas the provided memory is 8GB or 16GB, we surely cannot load entire them to memory in term of resource shuffling distribution notion. Therefore, the strategic tends to serve that case called Lazy Shuffling Algorithm allowing us to generally trade off time and capacity for memory allocation.</p>
+<hr>
+<h1 id="Shuffle-Algorithm"><a href="#Shuffle-Algorithm" class="headerlink" title="Shuffle Algorithm"></a>Shuffle Algorithm</h1><p>In Computer Science, mixing dataset randomly required unpredictable randomness method, that pure randomness leads the data to be more natural sense. Due to the fact that computer only creates a <em>true random number</em> indeed an external event from real world, by other words, it measures some type of physical phenomenon that takes place outside of the computer like keyboard typing, mouse moving, temporature, treated as environment seeds to make sure generated numbers cannot be reproduced by some kind of reverse engineering.</p>
+<p><img src="/images/pasted-10.png" alt="Random number"></p>
+<p>Actually, the true data shuffling with high and perfect expectation could be somewhere fulfill by <em>pseudorandom generator</em>, these random numbers completely created by algorithm and seed value, instead of external event factors are also reluctantly acceptable, since sequence results are closer to truly random in several proven experiments. From there, Fisher Yates shuffle algorithm, leverages the perspective of pseudorandom generator approach, says </p>
+<pre><code class="highlight text">-- To shuffle an array a of n elements (indices 0..n-1):
+for i from n−1 downto 1 do
+     j ← random integer such that 0 ≤ j ≤ i
+     exchange a[j] and a[i]</code></pre>
+<p>Wiki: <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle">https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle</a></p>
+<p>The algorithm inspired by pseudorandom generator approach to randomly permutate in-memory swapping throughout entire dataset, thus, the in-place update does not incurred new dataset, of course no more spaces required before and after executing. But when if memory issue is a big deal, which would become puzzled to apply.</p>
+<h1 id="Lazy-Shuffle-Algorithm"><a href="#Lazy-Shuffle-Algorithm" class="headerlink" title="Lazy Shuffle Algorithm"></a>Lazy Shuffle Algorithm</h1><p>Considering space is adjustable and time could be as fast as possible excepts memory is finite, we are not able to load whole large data based on FY Shuffle, then we have to improve it as Lazy Shuffle Algorithm, working around by shuffling index first, seeking and assigning new shuffled data later. Below algorithm serves the line by line format, if the file is a binary, we will have same approach but more complicated on binary serial structure.</p>
+<ul>
+<li>Load line by line and save the cursor offset, aka line map on each line into the offset_list. For example line 1 ends at 30, line 2 ends at 60 and so on, the offset_list should be <code>offset_list = [0, 30, 60, .... 40]</code></li>
+<li>Create the index_list from range 0 to length of the offset_list, then the line 1 marked as index 0, line 2 marked as index 1,… The index_list must be <code>index_list = [0, 1, 2, 3, 4...., n]</code></li>
+<li>Conduct shuffling index_list, in view of the fact that index_list contains only those indices, so it will not too much large resource basically. The sequence results would be also index_list object (because of in-place swapping) likely as <code>index_list = [4504, 134, 27676, 364756, 4...., 43]</code></li>
+<li>Looping through shuffled index_list, we will leverage the offset_list to quickly access to the line, for example, <code>index_list[0] = 4504</code> and <code>offset_list[4504] = 490478</code>, seek file cursor <code>f</code> by <code>f.seek(490478)</code> and <code>new_line = f.readline()</code>, then appended writes <code>new_line</code> sequetially in a new file instead of in-place swapping.</li>
+</ul>
+<h1 id="Python-implementation"><a href="#Python-implementation" class="headerlink" title="Python implementation"></a>Python implementation</h1><p>I have prepared the 5.6GB file aggregated by binhvq, uncompressed ~27.5GB:<br><a target="_blank" rel="noopener" href="https://github.com/binhvq/news-corpus#full-txt-v2">https://github.com/binhvq/news-corpus#full-txt-v2</a></p>
+<p>To easier demo, I will use colab for the whole algorithm, firsly, download the file and wait for completion.</p>
+<pre><code class="highlight python">!pip install --upgrade --no-cache-<span class="built_in">dir</span> gdown
+!gdown --no-cookies --<span class="built_in">id</span> 1GFbe-qs6HmCYs0JwJgivOy2Bvb06M8OI
+<span class="comment"># !gdown --id 1GFbe-qs6HmCYs0JwJgivOy2Bvb06M8OI =&gt; Not work</span>
+!7z e corpus-full-<span class="number">20181217.7</span>z</code></pre>
+<p>It will take ~10 min to finish process, so let move to next section</p>
+<p>To seek the file partially, the example here</p>
+<pre><code class="highlight python"><span class="keyword">class</span> <span class="title class_">LineSeekableFile</span>:
+    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, seekable</span>):
+        self.fin = seekable
+        self.line_map = <span class="built_in">list</span>() <span class="comment"># Map from line index -&gt; file position.</span>
+        self.line_map.append(<span class="number">0</span>)
+        <span class="keyword">while</span> seekable.readline():
+            self.line_map.append(seekable.tell())
+    
+    <span class="keyword">def</span> <span class="title function_">__getitem__</span>(<span class="params">self, index</span>):
+        <span class="comment"># <span class="doctag">NOTE:</span> This assumes that you&#x27;re not reading the file sequentially.  For that, just use &#x27;for line in file&#x27;.</span>
+        self.fin.seek(self.line_map[index])
+        <span class="keyword">return</span> self.fin.readline()</code></pre>
+<p>Source: <a target="_blank" rel="noopener" href="https://gist.github.com/JosephCatrambone/25476e9a37e932e50c527fc41e164e07">https://gist.github.com/JosephCatrambone/25476e9a37e932e50c527fc41e164e07</a></p>
+<p>I modify a bit the class <code>LineSeekableFile</code>, on the first time initialization, the line will be loop entire the file, but only keep line positions to <code>line_map</code> aka <code>offset_list</code>, I set 10 lines read to easier testing</p>
+<pre><code class="highlight python"><span class="keyword">class</span> <span class="title class_">LineSeekableFile</span>:
+\t<span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, f</span>):
+        self.fin = f
+        <span class="comment"># create the line map starting by 0</span>
+        self.line_map = [<span class="number">0</span>]
+        self.line_count = <span class="number">0</span>
+        
+        file_pos = <span class="number">0</span>
+        <span class="keyword">for</span> line <span class="keyword">in</span> f:
+            file_pos += <span class="built_in">len</span>(line)
+            self.line_map.append(file_pos)
+            self.line_count += <span class="number">1</span>
+
+            <span class="comment"># Break for testing purpose</span>
+            <span class="keyword">if</span> self.line_count == <span class="number">10</span>:
+                <span class="keyword">break</span>
+
+    <span class="keyword">def</span> <span class="title function_">__getitem__</span>(<span class="params">self, index</span>):
+        <span class="comment"># <span class="doctag">NOTE:</span> This assumes that you&#x27;re not reading the file sequentially.  </span>
+        <span class="comment"># For that, just use &#x27;for line in file&#x27;.</span>
+        self.fin.seek(self.line_map[index])
+        <span class="keyword">return</span> self.fin.readline()</code></pre>
+
+<p>The <code>index_list</code> created by <code>line_count</code>, so when it reads 10 lines, it will get 10 lines and shuffle in that scope</p>
+<pre><code class="highlight python"><span class="keyword">import</span> random
+
+<span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;corpus-full-0.2.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, encoding=<span class="string">&#x27;utf8&#x27;</span>,errors=<span class="string">&quot;ignore&quot;</span>) <span class="keyword">as</span> f, <span class="built_in">open</span>(<span class="string">&#x27;new-corpus.txt&#x27;</span>, <span class="string">&#x27;w&#x27;</span>, encoding=<span class="string">&#x27;utf8&#x27;</span>,errors=<span class="string">&quot;ignore&quot;</span>) <span class="keyword">as</span> fw:
+    seeker = LineSeekableFile(f)
+    index_list = <span class="built_in">list</span>(<span class="built_in">range</span>(seeker.line_count))
+    <span class="comment"># Fisher Shuffle</span>
+    random.shuffle(index_list)
+
+    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(seeker.line_count):
+        <span class="built_in">print</span>(<span class="string">f&#x27;Row <span class="subst">&#123;i&#125;</span>, swap with <span class="subst">&#123;index_list[i]&#125;</span>&#x27;</span>)
+        <span class="built_in">print</span>(<span class="string">f&#x27;Origin <span class="subst">&#123;i&#125;</span>, <span class="subst">&#123;seeker[i]&#125;</span>&#x27;</span>)
+        <span class="built_in">print</span>(<span class="string">f&#x27;Shuffled <span class="subst">&#123;index_list[i]&#125;</span>, <span class="subst">&#123;seeker[index_list[i]]&#125;</span>&#x27;</span>)
+        <span class="built_in">print</span>(<span class="string">&#x27;-----&#x27;</span>)
+        fw.write(seeker[index_list[i]])</code></pre>
+
+<p>After finish testing, you can remove the print message and the breaking line to see performance. </p>
+<p>Full code here: </p>
+<pre><code class="highlight python"><span class="comment"># For colab only</span>
+!pip install --upgrade --no-cache-<span class="built_in">dir</span> gdown
+!gdown --no-cookies --<span class="built_in">id</span> 1GFbe-qs6HmCYs0JwJgivOy2Bvb06M8OI
+!7z e corpus-full-<span class="number">20181217.7</span>z
+
+
+<span class="keyword">import</span> random
+
+<span class="keyword">class</span> <span class="title class_">LineSeekableFile</span>:
+    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, f</span>):
+        self.fin = f
+        <span class="comment"># create the line map starting by 0</span>
+        self.line_map = [<span class="number">0</span>]
+        self.line_count = <span class="number">0</span>
+
+        file_pos = <span class="number">0</span>
+        <span class="keyword">for</span> line <span class="keyword">in</span> f:
+            file_pos += <span class="built_in">len</span>(line)
+            self.line_map.append(file_pos)
+            self.line_count += <span class="number">1</span>
+
+            <span class="comment"># Break for testing purpose</span>
+            <span class="keyword">if</span> self.line_count == <span class="number">10</span>:
+                <span class="keyword">break</span>
+
+    <span class="keyword">def</span> <span class="title function_">__getitem__</span>(<span class="params">self, index</span>):
+        <span class="comment"># <span class="doctag">NOTE:</span> This assumes that you&#x27;re not reading the file sequentially.  </span>
+        <span class="comment"># For that, just use &#x27;for line in file&#x27;.</span>
+        self.fin.seek(self.line_map[index])
+        <span class="keyword">return</span> self.fin.readline()
+
+<span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;corpus-full-0.2.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, encoding=<span class="string">&#x27;utf8&#x27;</span>,errors=<span class="string">&quot;ignore&quot;</span>) <span class="keyword">as</span> f, <span class="built_in">open</span>(<span class="string">&#x27;new-corpus.txt&#x27;</span>, <span class="string">&#x27;w&#x27;</span>, encoding=<span class="string">&#x27;utf8&#x27;</span>,errors=<span class="string">&quot;ignore&quot;</span>) <span class="keyword">as</span> fw:
+    seeker = LineSeekableFile(f)
+    index_list = <span class="built_in">list</span>(<span class="built_in">range</span>(seeker.line_count))
+    random.shuffle(index_list)
+
+    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(seeker.line_count):
+        <span class="built_in">print</span>(<span class="string">f&#x27;Row <span class="subst">&#123;i&#125;</span>, swap with <span class="subst">&#123;index_list[i]&#125;</span>&#x27;</span>)
+        <span class="built_in">print</span>(<span class="string">f&#x27;Origin <span class="subst">&#123;i&#125;</span>, <span class="subst">&#123;seeker[i]&#125;</span>&#x27;</span>)
+        <span class="built_in">print</span>(<span class="string">f&#x27;Shuffled <span class="subst">&#123;index_list[i]&#125;</span>, <span class="subst">&#123;seeker[index_list[i]]&#125;</span>&#x27;</span>)
+        <span class="built_in">print</span>(<span class="string">&#x27;-----&#x27;</span>)
+        fw.write(seeker[index_list[i]])
+</code></pre>
+
+<p><a target="_blank" rel="noopener" href="https://colab.research.google.com/drive/1rRO5u_WpXYkRdq3lugW-ed2v0UH525G5?usp=sharing">https://colab.research.google.com/drive/1rRO5u_WpXYkRdq3lugW-ed2v0UH525G5?usp=sharing</a></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <!-- <audio id="audio" loop="1" preload="auto" controls="controls"
+                data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+            <ul id="audio-list" style="display:none">
+                
+                
+                <li title='0' data-url='/statics/shijiandeguoke.mp3'></li>
+                
+                    
+            </ul>
+             -->
+
+            
+            
+
+
+<div class="post-copyright-container">
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Author</strong>
+    Nguyên Lưu (Alfred - Yuan)
+  </li>
+  <li class="post-copyright-link">
+    <strong>Link</strong>
+    <a href="https://nguyenluu.dev/post/2021/12/27/Shuffle-strategic-for-limited-resources.html" title="Shuffle strategic for limited resources">https://nguyenluu.dev/post/2021/12/27/Shuffle-strategic-for-limited-resources.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>License</strong>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>by-nc-sa</a>
+  </li>
+</ul>
+</div>
+
+            
+
+            
+            <div class="post-nav">
+                <hr>
+                
+                    <div class="post-nav-item">Previous Post: <a href="/post/2022/06/27/Crawl-data-from-App-Store-Connect.html" rel="prev" 
+                        title="Crawl data from App Store Connect">Crawl data from App Store Connect
+                      </a></div>
+                
+                
+                    <div class="post-nav-item">Next Post: <a href="/post/2021/09/21/Ky-nguyen-Digital-Transformation.html" rel="next" 
+                        title="Kỷ nguyên Digital Transformation">Kỷ nguyên Digital Transformation</a></div>
+                                
+            </div>   
+            
+            
+            <!--  -->
+
+            
+            
+
+            
+
+        </div>
+        <div class="sidebar">
+            <div class="box animated fadeInRight">
+                <div class="subbox">
+                    <div>
+                        <img src="/img/qoobee.jpeg" margin-top=1rem height=200 width=200></img>
+                        <p>Nguyen Luu<br>(Alfred - Yuan)</p>
+                        <span>Think like an artist, develop like an artisan</span>
+                        <dl>
+                            <dd><a href="https://github.com/zhenyuan0502" target="_blank"><span
+                                        class=" iconfont icon-github"></span></a></dd>
+                            <dd><a href="https://twitter.com/zhenyuan0502" target="_blank"><span
+                                        class=" iconfont icon-twitter"></span></a></dd>
+                            <dd><a href="https://stackoverflow.com/users/3789481/" target="_blank"><span
+                                        class=" iconfont icon-stack-overflow"></span></a></dd>
+                        </dl>
+                    </div>
+                </div>
+                <ul>
+                    <li><a href="/">10 <p>Articles</p></a></li>
+                    <li><a href="/categories">11 <p>Categories</p></a></li>
+                    <li><a href="/tags">18 <p>Tags</p></a></li>
+                </ul>
+            </div>
+            
+            
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <div>
+                        <h4>Table of Contents</h4>
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Shuffle-Algorithm"><span class="toc-number">1.</span> <span class="toc-text">Shuffle Algorithm</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Lazy-Shuffle-Algorithm"><span class="toc-number">2.</span> <span class="toc-text">Lazy Shuffle Algorithm</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Python-implementation"><span class="toc-number">3.</span> <span class="toc-text">Python implementation</span></a></li></ol>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+    <div id="back-to-top" class="animated fadeIn faster">
+        <div class="flow"></div>
+        <span class="percentage animated fadeIn faster">0%</span>
+        <span class="iconfont icon-top02 animated fadeIn faster"></span>
+    </div>
+</body>
+<footer>
+    <p class="copyright" id="copyright">
+        &copy; 2024
+        <span class="gradient-text">
+            Nguyen Luu
+        </span>.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme
+        <span class="gradient-text">
+            <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+        </span>
+        <small><a href="https://github.com/TriDiamond/hexo-theme-obsidian/blob/master/CHANGELOG.md" title="v1.4.5" target="_blank" rel="noopener">v1.4.5</a></small>
+    </p>
+ 
+</footer>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script>
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+      preferredFont: "TeX",
+      availableFonts: ["STIX", "TeX"],
+      linebreaks: {
+        automatic: true
+      },
+      EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+      inlineMath: [
+        ["$", "$"],
+        ["\\(", "\\)"]
+      ],
+      processEscapes: true,
+      ignoreClass: "tex2jax_ignore|dno",
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      noUndefined: {
+        attributes: {
+          mathcolor: "red",
+          mathbackground: "#FFEEEE",
+          mathsize: "90%"
+        }
+      },
+      Macros: {
+        href: "{}"
+      }
+    },
+    messageStyle: "none"
+  });
+</script>
+<script>
+  function initialMathJax() {
+    MathJax.Hub.Queue(function () {
+      var all = MathJax.Hub.getAllJax(),
+        i;
+      // console.log(all);
+      for (i = 0; i < all.length; i += 1) {
+        console.log(all[i].SourceElement().parentNode)
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  }
+
+  function reprocessMathJax() {
+    if (typeof MathJax !== 'undefined') {
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    }
+  }
+</script>
+
+
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/obsidian.js"></script>
+<script src="/js/jquery.truncate.js"></script>
+<script src="/js/search.js"></script>
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.js"></script>
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/mode/htmlmixed/htmlmixed.min.js"></script>
+  
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/mode/python/python.min.js"></script>
+  
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/mode/markdown/markdown.min.js"></script>
+   
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3//photoswipe.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3//default-skin/default-skin.min.css">
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3//photoswipe.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3//photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+
+<script>
+  function initialTyped() {
+    var typedTextEl = $('.typed-text');
+    if (typedTextEl && typedTextEl.length > 0) {
+      var typed = new Typed('.typed-text', {
+        strings: ['Think like an artist, develop like an artisan', '艺术家思维去思考问题，工匠创造精神去开发'],
+        typeSpeed: 90,
+        loop: true,
+        loopCount: Infinity,
+        backSpeed: 20,
+      });
+    }
+  }
+
+  if ($('.article-header') && $('.article-header').length) {
+    $(document).ready(function () {
+      initialTyped();
+    });
+  }
+</script>
+
+
+
+
+
+
+</html>

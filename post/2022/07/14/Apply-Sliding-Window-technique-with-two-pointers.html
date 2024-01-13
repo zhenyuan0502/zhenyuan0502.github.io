@@ -1,0 +1,483 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Apply Sliding Window technique with Two Pointers - Nguyen Luu Blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Nguyen Luu zhenyuan0502,"> 
+    <meta name="description" content="Motivated by my successful solution to the “Longest Substring Without Repeating Characters” problem,"> 
+    <meta name="author" content="Nguyen Luu"> 
+    <link rel="alternative" href="atom.xml" title="Nguyen Luu Blog" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/theme/dracula.css">
+
+    
+<link rel="stylesheet" href="/css/obsidian.css">
+
+    
+
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="//www.googletagmanager.com/gtag/js?id=UA-193142270-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-193142270-1');
+    </script>
+    
+
+    
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body class="loading">
+    <span id="config-title" style="display:none">Nguyen Luu Blog</span>
+    <div id="single">
+    <div class="scrollbar gradient-bg-rev"></div>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <div class="navigation">
+        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="/">
+        <!-- <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div> -->
+        <h3 class="home" alt="" data-url="/">Home</h3>
+        <h3 class="subtitle">Apply Sliding Window technique with Two Pointers</h3>
+        <div class="social">
+            <!--        <div class="like-icon">-->
+            <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+            <!--        </div>-->
+            <div>
+                <div class="share">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="section">
+        <div class=article-header-wrapper>
+    <div class="article-header">
+        <!-- <div class="article-cover animated fadeIn" style="
+            animation-delay: 600ms;
+            animation-duration: 1.2s;
+            background-image: 
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+                url(/img/cover.jpg) ">
+        </div> -->
+        <div class="else">
+            <p class="animated fadeInDown">
+                
+                <a href="/categories/Algorithm"><b>「
+                    </b>ALGORITHM<b> 」</b></a>
+                
+                July 14, 2022
+            </p>
+            <h3 class="post-title animated fadeInDown"><a href="/post/2022/07/14/Apply-Sliding-Window-technique-with-two-pointers.html" title="Apply Sliding Window technique with Two Pointers" class="">Apply Sliding Window technique with Two Pointers</a>
+            </h3>
+            
+            <p class="post-count animated fadeInDown">
+                
+                <span>
+                    <b class="iconfont icon-text2"></b> <i>Words count</i>
+                    4.3k
+                </span>
+                
+                
+                <span>
+                    <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                    4 mins.
+                </span>
+                
+                
+                
+            </p>
+            
+            
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Sliding-Window/" rel="tag">Sliding Window</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Two-Pointers/" rel="tag">Two Pointers</a></li></ul>
+            
+        </div>
+    </div>
+</div>
+
+<div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="animated fadeIn delay-1s"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class='main'>
+        <div class="content markdown animated fadeIn">
+            <p>Motivated by my successful solution to the “Longest Substring Without Repeating Characters” problem on <a target="_blank" rel="noopener" href="https://leetcode.com/problems/longest-substring-without-repeating-characters/">Leetcode</a>, I eagerly present the “Sliding Window” technique, a simple yet intriguing method that leverages two pointers to achieve optimal performance.</p>
+<hr>
+<h1 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h1><p>The problem statement is brief and to the point:</p>
+<pre><code class="highlight text">Example 1:
+Input: s = &quot;abcabcbb&quot;
+Output: 3
+Explanation: The answer is &quot;abc&quot;, with the length of 3.
+
+Example 2:
+Input: s = &quot;bbbbb&quot;
+Output: 1
+Explanation: The answer is &quot;b&quot;, with the length of 1.
+
+Example 3:
+Input: s = &quot;pwwkew&quot;
+Output: 3
+Explanation: The answer is &quot;wke&quot;, with the length of 3.
+Notice that the answer must be a substring, &quot;pwke&quot; is a subsequence and not a substring.
+</code></pre>
+
+<p>Since the required output is simply a count, we can employ the following approach:</p>
+<ul>
+<li>HashSet: to determine whether the next character has already appeared</li>
+<li>Right Pointer: shifting point on the right of the string. Right Pointer iterates entire the length of string</li>
+<li>Left Pointer: shifting point on the left of the string. If the Right Pointer met existing char, the Left Pointer would be shifted till that first duplicated position and removed entirely from the HashSet</li>
+</ul>
+<p>For example:</p>
+<pre><code class="highlight text">s = abcabcbb
+s[left:right] = a
+s[left:right] = ab
+s[left:right] = abc
+s[left:right] = bca &lt;= Here, we will remove first &#x27;a&#x27; from &#x27;abca&#x27;
+s[left:right] = cab &lt;= Similarly, &#x27;b&#x27; removed from &#x27;bcab&#x27;
+s[left:right] = abc &lt;= &#x27;c&#x27; removed from &#x27;cabc&#x27;
+s[left:right] = cb &lt;= Here we removed &#x27;ab&#x27; from substring &#x27;abcb&#x27;
+s[left:right] = b &lt;= Here &#x27;cb&#x27; removed from &#x27;cbb&#x27;</code></pre>
+
+<p>By sliding the window, we can find the length of the longest substring without any duplicate characters, which is 3 for the given input string.</p>
+<p>Python code</p>
+<pre><code class="highlight python"><span class="keyword">class</span> <span class="title class_">Solution</span>:
+    <span class="keyword">def</span> <span class="title function_">lengthOfLongestSubstring</span>(<span class="params">self, s: <span class="built_in">str</span></span>) -&gt; <span class="built_in">int</span>:
+        charSet = <span class="built_in">set</span>()
+        left = <span class="number">0</span>
+        result = <span class="number">0</span>
+        <span class="keyword">for</span> right <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(s)):
+            <span class="keyword">while</span> s[right] <span class="keyword">in</span> charSet:
+                charSet.remove(s[left])
+                left += <span class="number">1</span>
+                
+            charSet.add(s[right])
+            result = <span class="built_in">max</span>(result, right - left + <span class="number">1</span>)
+
+        <span class="keyword">return</span> result</code></pre>
+
+<p>The time complexity of this code is O(n), where n is the length of the input string s.</p>
+<p>The for loop iterates over each character in the string once, and the while loop inside the for loop may iterate over some of those characters again, but it only does so once for each character, so the total number of iterations of the while loop is at most n. Therefore, the time complexity of the algorithm is O(n + n) &#x3D; O(n).</p>
+<p>The space complexity of this code is also O(n), because in the worst case, the set charSet will contain all characters in the input string, and therefore will take up O(n) space.</p>
+<h1 id="Extension"><a href="#Extension" class="headerlink" title="Extension"></a>Extension</h1><p>What if the problem requires us to <strong>return the longest substring instead of its length</strong>? In that case, we could create a new dictionary with the result length as the key and an array of corresponding substrings as the value, since there could be multiple substrings with the same maximum length.</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <!-- <audio id="audio" loop="1" preload="auto" controls="controls"
+                data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+            <ul id="audio-list" style="display:none">
+                
+                
+                <li title='0' data-url='/statics/shijiandeguoke.mp3'></li>
+                
+                    
+            </ul>
+             -->
+
+            
+            
+
+
+<div class="post-copyright-container">
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Author</strong>
+    Nguyen Luu
+  </li>
+  <li class="post-copyright-link">
+    <strong>Link</strong>
+    <a href="https://nguyenluu.dev/post/2022/07/14/Apply-Sliding-Window-technique-with-two-pointers.html" title="Apply Sliding Window technique with Two Pointers">https://nguyenluu.dev/post/2022/07/14/Apply-Sliding-Window-technique-with-two-pointers.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>License</strong>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>by-nc-sa</a>
+  </li>
+</ul>
+</div>
+
+            
+
+            
+            <div class="post-nav">
+                <hr>
+                
+                    <div class="post-nav-item">Previous Post: <a href="/post/2023/05/12/Cracking-the-Code-Mastering-Redfin-s-Web-Scraping-Protection.html" rel="prev" 
+                        title="Cracking the Code: Mastering Redfin's Web Scraping Protection">Cracking the Code: Mastering Redfin's Web Scraping Protection
+                      </a></div>
+                
+                
+                    <div class="post-nav-item">Next Post: <a href="/post/2022/06/29/KickStart-Practice-2-Building-Palindromes.html" rel="next" 
+                        title="KickStart Practice #2: Building Palindromes">KickStart Practice #2: Building Palindromes</a></div>
+                                
+            </div>   
+            
+            
+            <!--  -->
+
+            
+            
+
+            
+
+        </div>
+        <div class="sidebar">
+            <div class="box animated fadeInRight">
+                <div class="subbox">
+                    <div>
+                        <img src="/img/qoobee.jpeg" margin-top=1rem height=200 width=200></img>
+                        <p>Nguyen Luu<br>(Alfred - Yuan)</p>
+                        <span>Think like an artist, develop like an artisan</span>
+                        <dl>
+                            <dd><a href="https://github.com/zhenyuan0502" target="_blank"><span
+                                        class=" iconfont icon-github"></span></a></dd>
+                            <dd><a href="https://twitter.com/zhenyuan0502" target="_blank"><span
+                                        class=" iconfont icon-twitter"></span></a></dd>
+                            <dd><a href="https://stackoverflow.com/users/3789481/" target="_blank"><span
+                                        class=" iconfont icon-stack-overflow"></span></a></dd>
+                        </dl>
+                    </div>
+                </div>
+                <ul>
+                    <li><a href="/">10 <p>Articles</p></a></li>
+                    <li><a href="/categories">11 <p>Categories</p></a></li>
+                    <li><a href="/tags">18 <p>Tags</p></a></li>
+                </ul>
+            </div>
+            
+            
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <div>
+                        <h4>Table of Contents</h4>
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Problem-Description"><span class="toc-number">1.</span> <span class="toc-text">Problem Description</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Extension"><span class="toc-number">2.</span> <span class="toc-text">Extension</span></a></li></ol>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+    <div id="back-to-top" class="animated fadeIn faster">
+        <div class="flow"></div>
+        <span class="percentage animated fadeIn faster">0%</span>
+        <span class="iconfont icon-top02 animated fadeIn faster"></span>
+    </div>
+</body>
+<footer>
+    <p class="copyright" id="copyright">
+        &copy; 2024
+        <span class="gradient-text">
+            Nguyen Luu
+        </span>.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme
+        <span class="gradient-text">
+            <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+        </span>
+        <small><a href="https://github.com/TriDiamond/hexo-theme-obsidian/blob/master/CHANGELOG.md" title="v1.4.5" target="_blank" rel="noopener">v1.4.5</a></small>
+    </p>
+ 
+</footer>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script>
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+      preferredFont: "TeX",
+      availableFonts: ["STIX", "TeX"],
+      linebreaks: {
+        automatic: true
+      },
+      EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+      inlineMath: [
+        ["$", "$"],
+        ["\\(", "\\)"]
+      ],
+      processEscapes: true,
+      ignoreClass: "tex2jax_ignore|dno",
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      noUndefined: {
+        attributes: {
+          mathcolor: "red",
+          mathbackground: "#FFEEEE",
+          mathsize: "90%"
+        }
+      },
+      Macros: {
+        href: "{}"
+      }
+    },
+    messageStyle: "none"
+  });
+</script>
+<script>
+  function initialMathJax() {
+    MathJax.Hub.Queue(function () {
+      var all = MathJax.Hub.getAllJax(),
+        i;
+      // console.log(all);
+      for (i = 0; i < all.length; i += 1) {
+        console.log(all[i].SourceElement().parentNode)
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  }
+
+  function reprocessMathJax() {
+    if (typeof MathJax !== 'undefined') {
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    }
+  }
+</script>
+
+
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/obsidian.js"></script>
+<script src="/js/jquery.truncate.js"></script>
+<script src="/js/search.js"></script>
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.js"></script>
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/mode/htmlmixed/htmlmixed.min.js"></script>
+  
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/mode/python/python.min.js"></script>
+  
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/mode/markdown/markdown.min.js"></script>
+   
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3//photoswipe.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3//default-skin/default-skin.min.css">
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3//photoswipe.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3//photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+
+<script>
+  function initialTyped() {
+    var typedTextEl = $('.typed-text');
+    if (typedTextEl && typedTextEl.length > 0) {
+      var typed = new Typed('.typed-text', {
+        strings: ['Think like an artist, develop like an artisan', '艺术家思维去思考问题，工匠创造精神去开发'],
+        typeSpeed: 90,
+        loop: true,
+        loopCount: Infinity,
+        backSpeed: 20,
+      });
+    }
+  }
+
+  if ($('.article-header') && $('.article-header').length) {
+    $(document).ready(function () {
+      initialTyped();
+    });
+  }
+</script>
+
+
+
+
+
+
+</html>
