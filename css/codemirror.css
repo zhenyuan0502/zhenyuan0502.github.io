@@ -53,7 +53,7 @@ pre code .language-mark b {
   padding: 0 3px 0 15px;
 }
 .CodeMirror .CodeMirror-scroll {
-  padding: 30px 0px 10px 10px !important;
+  padding: 30px 0px 30px 20px !important;
 }
 .CodeMirror.cm-s-dracula {
   height: 100%;
