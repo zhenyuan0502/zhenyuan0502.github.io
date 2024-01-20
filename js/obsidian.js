@@ -341,7 +341,7 @@ var Obsidian = {
         var item = $(this),
           lang = '';
         if (item[0].className.indexOf(' ') > -1) {
-          lang = item[0].className.split(' ')[0].toLowerCase();
+          lang = item[0].className.split(' ')[1].toLowerCase();
         } else {
           lang = item[0].className.toLowerCase();
         }
