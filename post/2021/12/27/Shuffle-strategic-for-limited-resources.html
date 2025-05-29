@@ -49,7 +49,7 @@
     
 
     
-<meta name="generator" content="Hexo 7.1.0"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 <body class="loading">
@@ -101,13 +101,13 @@
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    14k
+                    15k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    12 mins.
+                    13 mins.
                 </span>
                 
                 
@@ -164,40 +164,40 @@ for i from n−1 downto 1 do
 <p>To seek the file partially, the example here</p>
 <pre><code class="highlight python"><span class="keyword">class</span> <span class="title class_">LineSeekableFile</span>:
     <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, seekable</span>):
-        self.fin = seekable
-        self.line_map = <span class="built_in">list</span>() <span class="comment"># Map from line index -&gt; file position.</span>
-        self.line_map.append(<span class="number">0</span>)
+        <span class="variable language_">self</span>.fin = seekable
+        <span class="variable language_">self</span>.line_map = <span class="built_in">list</span>() <span class="comment"># Map from line index -&gt; file position.</span>
+        <span class="variable language_">self</span>.line_map.append(<span class="number">0</span>)
         <span class="keyword">while</span> seekable.readline():
-            self.line_map.append(seekable.tell())
+            <span class="variable language_">self</span>.line_map.append(seekable.tell())
     
     <span class="keyword">def</span> <span class="title function_">__getitem__</span>(<span class="params">self, index</span>):
         <span class="comment"># <span class="doctag">NOTE:</span> This assumes that you&#x27;re not reading the file sequentially.  For that, just use &#x27;for line in file&#x27;.</span>
-        self.fin.seek(self.line_map[index])
-        <span class="keyword">return</span> self.fin.readline()</code></pre>
+        <span class="variable language_">self</span>.fin.seek(<span class="variable language_">self</span>.line_map[index])
+        <span class="keyword">return</span> <span class="variable language_">self</span>.fin.readline()</code></pre>
 <p>Source: <a target="_blank" rel="noopener" href="https://gist.github.com/JosephCatrambone/25476e9a37e932e50c527fc41e164e07">https://gist.github.com/JosephCatrambone/25476e9a37e932e50c527fc41e164e07</a></p>
 <p>I modify a bit the class <code>LineSeekableFile</code>, on the first time initialization, the line will be loop entire the file, but only keep line positions to <code>line_map</code> aka <code>offset_list</code>, I set 10 lines read to easier testing</p>
 <pre><code class="highlight python"><span class="keyword">class</span> <span class="title class_">LineSeekableFile</span>:
 \t<span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, f</span>):
-        self.fin = f
+        <span class="variable language_">self</span>.fin = f
         <span class="comment"># create the line map starting by 0</span>
-        self.line_map = [<span class="number">0</span>]
-        self.line_count = <span class="number">0</span>
+        <span class="variable language_">self</span>.line_map = [<span class="number">0</span>]
+        <span class="variable language_">self</span>.line_count = <span class="number">0</span>
 
         file_pos = <span class="number">0</span>
         <span class="keyword">for</span> line <span class="keyword">in</span> f:
             file_pos += <span class="built_in">len</span>(line)
-            self.line_map.append(file_pos)
-            self.line_count += <span class="number">1</span>
+            <span class="variable language_">self</span>.line_map.append(file_pos)
+            <span class="variable language_">self</span>.line_count += <span class="number">1</span>
 
             <span class="comment"># Break for testing purpose</span>
-            <span class="keyword">if</span> self.line_count == <span class="number">10</span>:
+            <span class="keyword">if</span> <span class="variable language_">self</span>.line_count == <span class="number">10</span>:
                 <span class="keyword">break</span>
 
     <span class="keyword">def</span> <span class="title function_">__getitem__</span>(<span class="params">self, index</span>):
         <span class="comment"># <span class="doctag">NOTE:</span> This assumes that you&#x27;re not reading the file sequentially.  </span>
         <span class="comment"># For that, just use &#x27;for line in file&#x27;.</span>
-        self.fin.seek(self.line_map[index])
-        <span class="keyword">return</span> self.fin.readline()</code></pre>
+        <span class="variable language_">self</span>.fin.seek(<span class="variable language_">self</span>.line_map[index])
+        <span class="keyword">return</span> <span class="variable language_">self</span>.fin.readline()</code></pre>
 
 <p>The <code>index_list</code> created by <code>line_count</code>, so when it reads 10 lines, it will get 10 lines and shuffle in that scope</p>
 <pre><code class="highlight python"><span class="keyword">import</span> random
@@ -227,26 +227,26 @@ for i from n−1 downto 1 do
 
 <span class="keyword">class</span> <span class="title class_">LineSeekableFile</span>:
     <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, f</span>):
-        self.fin = f
+        <span class="variable language_">self</span>.fin = f
         <span class="comment"># create the line map starting by 0</span>
-        self.line_map = [<span class="number">0</span>]
-        self.line_count = <span class="number">0</span>
+        <span class="variable language_">self</span>.line_map = [<span class="number">0</span>]
+        <span class="variable language_">self</span>.line_count = <span class="number">0</span>
 
         file_pos = <span class="number">0</span>
         <span class="keyword">for</span> line <span class="keyword">in</span> f:
             file_pos += <span class="built_in">len</span>(line)
-            self.line_map.append(file_pos)
-            self.line_count += <span class="number">1</span>
+            <span class="variable language_">self</span>.line_map.append(file_pos)
+            <span class="variable language_">self</span>.line_count += <span class="number">1</span>
 
             <span class="comment"># Break for testing purpose</span>
-            <span class="keyword">if</span> self.line_count == <span class="number">10</span>:
+            <span class="keyword">if</span> <span class="variable language_">self</span>.line_count == <span class="number">10</span>:
                 <span class="keyword">break</span>
 
     <span class="keyword">def</span> <span class="title function_">__getitem__</span>(<span class="params">self, index</span>):
         <span class="comment"># <span class="doctag">NOTE:</span> This assumes that you&#x27;re not reading the file sequentially.  </span>
         <span class="comment"># For that, just use &#x27;for line in file&#x27;.</span>
-        self.fin.seek(self.line_map[index])
-        <span class="keyword">return</span> self.fin.readline()
+        <span class="variable language_">self</span>.fin.seek(<span class="variable language_">self</span>.line_map[index])
+        <span class="keyword">return</span> <span class="variable language_">self</span>.fin.readline()
 
 <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;corpus-full-0.2.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, encoding=<span class="string">&#x27;utf8&#x27;</span>,errors=<span class="string">&quot;ignore&quot;</span>) <span class="keyword">as</span> f, <span class="built_in">open</span>(<span class="string">&#x27;new-corpus.txt&#x27;</span>, <span class="string">&#x27;w&#x27;</span>, encoding=<span class="string">&#x27;utf8&#x27;</span>,errors=<span class="string">&quot;ignore&quot;</span>) <span class="keyword">as</span> fw:
     seeker = LineSeekableFile(f)

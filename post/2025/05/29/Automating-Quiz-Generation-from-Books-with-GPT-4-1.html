@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Nguyen Luu zhenyuan0502,"> 
-    <meta name="description" content="GPT-4.1 is the latest evolution of OpenAI’s large language model, offering improved accuracy, reaso,"> 
+    <meta name="description" content="GPT-4.1 is the latest advancement in OpenAI’s large language models, providing enhanced accuracy an,"> 
     <meta name="author" content="Nguyen Luu"> 
     <link rel="alternative" href="atom.xml" title="Nguyen Luu Blog" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -49,7 +49,7 @@
     
 
     
-<meta name="generator" content="Hexo 7.1.0"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 <body class="loading">
@@ -101,13 +101,13 @@
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    185k
+                    187k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    2:48
+                    2:50
                 </span>
                 
                 
@@ -136,26 +136,37 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <p>GPT-4.1 is the latest evolution of OpenAI’s large language model, offering improved accuracy, reasoning, and response quality compared to its predecessor, GPT-4o. It builds on the strengths of earlier models while delivering more consistent performance across tasks such as reading comprehension, content generation, and interactive learning tools like quizzes.</p>
-<h1 id="GPT-4-1-compares-to-GPT-4o"><a href="#GPT-4-1-compares-to-GPT-4o" class="headerlink" title="GPT-4.1 compares to GPT-4o"></a>GPT-4.1 compares to GPT-4o</h1><p>As these are significant update from GPT-4o to GPT-4.1 we considered on few criterias:</p>
+            <p>GPT-4.1 is the latest advancement in OpenAI’s large language models, providing enhanced accuracy and response quality compared to its predecessor, GPT-4o. It builds on the strengths of earlier models while delivering more consistent performance across tasks such as reading comprehension, content generation, and interactive learning tools like quizzes.</p>
+<h1 id="GPT-4-1-vs-GPT-4o-Key-Differences-and-Comparison"><a href="#GPT-4-1-vs-GPT-4o-Key-Differences-and-Comparison" class="headerlink" title="GPT-4.1 vs. GPT-4o: Key Differences and Comparison"></a>GPT-4.1 vs. GPT-4o: Key Differences and Comparison</h1><p>When evaluating the transition from GPT-4o to GPT-4.1, several key criteria should be considered to determine which model best fits your use case:</p>
 <ul>
-<li>Context Window: The context window refers to the total number of tokens the model can consider in a single request, including both input and output tokens.</li>
-<li>Token Limits: Exceeding the token limits may result in errors or truncated responses. It’s important to design prompts and handle responses within these constraints.</li>
-<li>Model Selection: Choose GPT-4.1 for tasks requiring deep reasoning and structured outputs, such as generating quizzes from books. Opt for GPT-4o when dealing with multimodal inputs or requiring faster, more versatile responses.</li>
+<li><p><strong>Context Window</strong>: The context window defines the maximum number of tokens (words, code, or symbols) the model can process in a single request, including both input and output. GPT-4.1 offers a much larger context window (up to 1,047,576 tokens) compared to GPT-4o (128,000 tokens), making it ideal for processing entire books or large documents without splitting them into smaller chunks.</p>
+</li>
+<li><p><strong>Token Limits and Handling</strong>: Exceeding a model’s token limit can result in errors, incomplete outputs, or truncated responses. It’s important to design prompts and workflows that respect these boundaries. GPT-4.1’s expanded token capacity allows for more comprehensive analysis and richer outputs, while GPT-4o’s smaller window may require more aggressive chunking or summarization.</p>
+</li>
+<li><p><strong>Model Capabilities and Use Case Alignment</strong>: GPT-4.1 is not specifically a “reasoning” model, but it excels at large-scale, structured text processing tasks, such as extracting topics from books or generating detailed quizzes. It also supports multimodality (text, image, etc.), though GPT-4o is more optimized for real-time multimodal interactions (text, image, audio). GPT-4.1’s strength lies in maintaining context and producing consistent, structured outputs over long documents, while GPT-4o offers faster and more versatile responses but with a smaller context window.</p>
+</li>
+<li><p><strong>Performance and Speed</strong>: GPT-4o is designed for lower latency and higher throughput, making it suitable for interactive applications or scenarios where response time is critical. GPT-4.1 may have longer processing times due to its larger context window and more extensive outputs.</p>
+</li>
+<li><p><strong>Output Structure and Quality</strong>: For tasks requiring highly structured outputs (such as JSON, quizzes, or topic lists), GPT-4.1’s consistency and ability to retain context across large documents provide a significant advantage. GPT-4o is better suited for tasks that benefit from multimodal understanding or require rapid, conversational responses.</p>
+</li>
+<li><p><strong>Cost Considerations</strong>: Larger context windows and more complex outputs can increase API usage costs. Evaluate the trade-offs between model capabilities, required output quality, and budget constraints.</p>
+</li>
 </ul>
-<p>In the moment of writing this blog - 29-May-2025:</p>
+<blockquote>
+<p><strong>GPT-4.1 vs. GPT-4o on Azure (as of May 29, 2025)</strong></p>
+</blockquote>
 <table>
 <thead>
 <tr>
 <th>Feature</th>
-<th>GPT-4.1 (Azure)</th>
-<th>GPT-4o (Azure)</th>
+<th><strong>GPT-4.1 (Azure)</strong></th>
+<th><strong>GPT-4o (Azure)</strong></th>
 </tr>
 </thead>
 <tbody><tr>
 <td><strong>Max Context Window</strong></td>
 <td>Up to <strong>1,047,576 tokens</strong></td>
-<td>Input tokens up to <strong>128,000 tokens</strong></td>
+<td>Up to <strong>128,000 tokens</strong> (input)</td>
 </tr>
 <tr>
 <td><strong>Max Output Tokens</strong></td>
@@ -164,7 +175,7 @@
 </tr>
 <tr>
 <td><strong>Best Use Cases</strong></td>
-<td>Large-scale text processing, in-depth analysis, educational tools like quizzes. Multimodality supported</td>
+<td>Large-scale text processing, in-depth analysis, educational tools (e.g., quizzes). Multimodality supported</td>
 <td>Multimodal tasks (text, image, audio), real-time interactions</td>
 </tr>
 </tbody></table>
@@ -228,13 +239,13 @@ Generate a structured list of topics following provided pydantic model
     answers: <span class="type">List</span>[Answer] = Field(..., description=<span class="string">&quot;List of possible answers (should contain exactly 4 answers)&quot;</span>)
 
     <span class="keyword">def</span> <span class="title function_">get_correct_answer</span>(<span class="params">self</span>) -&gt; Answer:
-        <span class="keyword">for</span> answer <span class="keyword">in</span> self.answers:
+        <span class="keyword">for</span> answer <span class="keyword">in</span> <span class="variable language_">self</span>.answers:
             <span class="keyword">if</span> answer.is_correct:
                 <span class="keyword">return</span> answer
         <span class="keyword">raise</span> ValueError(<span class="string">&quot;No correct answer found.&quot;</span>)
 
     <span class="keyword">def</span> <span class="title function_">get_incorrect_answers</span>(<span class="params">self</span>) -&gt; <span class="type">List</span>[Answer]:
-        <span class="keyword">return</span> [answer <span class="keyword">for</span> answer <span class="keyword">in</span> self.answers <span class="keyword">if</span> <span class="keyword">not</span> answer.is_correct]
+        <span class="keyword">return</span> [answer <span class="keyword">for</span> answer <span class="keyword">in</span> <span class="variable language_">self</span>.answers <span class="keyword">if</span> <span class="keyword">not</span> answer.is_correct]
 
 <span class="keyword">class</span> <span class="title class_">ListQuestion</span>(<span class="title class_ inherited__">BaseModel</span>):
     responses: <span class="type">List</span>[MultipleChoiceQuestion] = Field(..., description=<span class="string">&quot;List of response strings or questions&quot;</span>)
@@ -458,7 +469,7 @@ Generate a structured list of topics following provided pydantic model
 <span class="punctuation">&#125;</span></code></pre>
 
 
-<h2 id="✨-GPT-4-1-Quiz-Generation"><a href="#✨-GPT-4-1-Quiz-Generation" class="headerlink" title="✨ GPT-4.1: Quiz Generation"></a>✨ GPT-4.1: Quiz Generation</h2><p>A second call to GPT-4.1 is made, this time to generate multiple-choice quizzes based on the Markdown content and extracted topics - actually I used random 3 of 10 topics above to make it more quizzes generated. This ensures the quizzes are relevant, accurate, and aligned with the core material.</p>
+<h2 id="✨-GPT-4-1-Quiz-Generation"><a href="#✨-GPT-4-1-Quiz-Generation" class="headerlink" title="✨ GPT-4.1: Quiz Generation"></a>✨ GPT-4.1: Quiz Generation</h2><p>A second call to GPT-4.1 is made, this time to generate multiple-choice quizzes based on the Markdown content and extracted topics - actually I used random 3 of 10 topics above to make it more quizzes generated per topic. This ensures the quizzes are relevant, accurate, and aligned with the core material.</p>
 <p>My developer prompt, prompt_create_qna.md</p>
 <pre><code class="highlight markdown"><span class="section"># Custom Question Answering Prompting Guide</span>
 
@@ -472,7 +483,7 @@ Create a custom question-answering system using input from a markdown file. The 
 <span class="bullet">-</span> For technical content, include code-based questions where appropriate.
 <span class="bullet">-</span> Consider including true/false or fill-in-the-blank questions for variety.</code></pre>
 
-<p>Function generate_quizz(), with json_topic_text is purely text in topic.json and same markdown_content</p>
+<p>Function generate_quiz(), with json_topic_text is purely text in topic.json and same markdown_content</p>
 <pre><code class="highlight python">markdown_content = <span class="built_in">open</span>(<span class="string">&#x27;markdown.md&#x27;</span>), <span class="string">&#x27;r&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>).read()
 json_topic_text = <span class="built_in">open</span>(<span class="string">&#x27;topic.json&#x27;</span>), <span class="string">&#x27;r&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>).read()
 
@@ -1611,7 +1622,7 @@ json_topic_text = <span class="built_in">open</span>(<span class="string">&#x27;
                 <div id="toc" class="subbox">
                     <div>
                         <h4>Table of Contents</h4>
-                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#GPT-4-1-compares-to-GPT-4o"><span class="toc-number">1.</span> <span class="toc-text">GPT-4.1 compares to GPT-4o</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Step-by-Step-Workflow"><span class="toc-number">2.</span> <span class="toc-text">Step-by-Step Workflow</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%9A-Input-Books"><span class="toc-number">2.1.</span> <span class="toc-text">📚 Input: Books</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%84-Document-Intelligence"><span class="toc-number">2.2.</span> <span class="toc-text">📄 Document Intelligence</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%9D-Markdown"><span class="toc-number">2.3.</span> <span class="toc-text">📝 Markdown</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9C%A8-GPT-4-1-Topic-Extraction"><span class="toc-number">2.4.</span> <span class="toc-text">✨ GPT-4.1: Topic Extraction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9C%A8-GPT-4-1-Quiz-Generation"><span class="toc-number">2.5.</span> <span class="toc-text">✨ GPT-4.1: Quiz Generation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9C%85-Output-Quiz"><span class="toc-number">2.6.</span> <span class="toc-text">✅ Output: Quiz</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#How-many-token-actually-used"><span class="toc-number">3.</span> <span class="toc-text">How many token actually used?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#What-improvement-could-be-made"><span class="toc-number">4.</span> <span class="toc-text">What improvement could be made?</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Source-Citations-for-Each-Question"><span class="toc-number">4.1.</span> <span class="toc-text">Source Citations for Each Question</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Validate-Quiz-Content"><span class="toc-number">4.2.</span> <span class="toc-text">Validate Quiz Content</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Difficulty-Grading-and-Bloom%E2%80%99s-Taxonomy-Alignment"><span class="toc-number">4.3.</span> <span class="toc-text">Difficulty Grading and Bloom’s Taxonomy Alignment</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cross-Referencing-with-External-Knowledge"><span class="toc-number">4.4.</span> <span class="toc-text">Cross-Referencing with External Knowledge</span></a></li></ol></li></ol>
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#GPT-4-1-vs-GPT-4o-Key-Differences-and-Comparison"><span class="toc-number">1.</span> <span class="toc-text">GPT-4.1 vs. GPT-4o: Key Differences and Comparison</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Step-by-Step-Workflow"><span class="toc-number">2.</span> <span class="toc-text">Step-by-Step Workflow</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%9A-Input-Books"><span class="toc-number">2.1.</span> <span class="toc-text">📚 Input: Books</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%84-Document-Intelligence"><span class="toc-number">2.2.</span> <span class="toc-text">📄 Document Intelligence</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%9D-Markdown"><span class="toc-number">2.3.</span> <span class="toc-text">📝 Markdown</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9C%A8-GPT-4-1-Topic-Extraction"><span class="toc-number">2.4.</span> <span class="toc-text">✨ GPT-4.1: Topic Extraction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9C%A8-GPT-4-1-Quiz-Generation"><span class="toc-number">2.5.</span> <span class="toc-text">✨ GPT-4.1: Quiz Generation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9C%85-Output-Quiz"><span class="toc-number">2.6.</span> <span class="toc-text">✅ Output: Quiz</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#How-many-token-actually-used"><span class="toc-number">3.</span> <span class="toc-text">How many token actually used?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#What-improvement-could-be-made"><span class="toc-number">4.</span> <span class="toc-text">What improvement could be made?</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Source-Citations-for-Each-Question"><span class="toc-number">4.1.</span> <span class="toc-text">Source Citations for Each Question</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Validate-Quiz-Content"><span class="toc-number">4.2.</span> <span class="toc-text">Validate Quiz Content</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Difficulty-Grading-and-Bloom%E2%80%99s-Taxonomy-Alignment"><span class="toc-number">4.3.</span> <span class="toc-text">Difficulty Grading and Bloom’s Taxonomy Alignment</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cross-Referencing-with-External-Knowledge"><span class="toc-number">4.4.</span> <span class="toc-text">Cross-Referencing with External Knowledge</span></a></li></ol></li></ol>
                     </div>
                 </div>
             </div>
