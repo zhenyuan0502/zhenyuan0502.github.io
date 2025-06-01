@@ -290,8 +290,8 @@ Welcome back, &#123;username&#125;! Your last login was on &#123;last_login_time
 <pre><code class="highlight text">Translate the following into English. Context: Chinese historical novel - Three Kingdoms.
 
 [&#123;
-  &quot;id&quot;: 1,
-  &quot;source&quot;: &quot;孙鲁班&quot;
+    &quot;id&quot;: 1,
+    &quot;source&quot;: &quot;孙鲁班&quot;
 &#125;,
 &#123;
     &quot;id&quot;: 2,
@@ -305,15 +305,15 @@ Welcome back, &#123;username&#125;! Your last login was on &#123;last_login_time
     <span class="attr">&quot;destination&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Sun Luban&quot;</span>
 <span class="punctuation">&#125;</span><span class="punctuation">,</span>
 <span class="punctuation">&#123;</span>
-\t  <span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">2</span><span class="punctuation">,</span>
+    <span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">2</span><span class="punctuation">,</span>
     <span class="attr">&quot;destination&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Sun Ce&quot;</span>
 <span class="punctuation">&#125;</span><span class="punctuation">]</span></code></pre>
 
 <p>The <code>id</code> field is important for remapping results back to the original data. You may also use a dictionary format for easier processing:</p>
 <pre><code class="highlight json"><span class="punctuation">&#123;</span>
   <span class="attr">&quot;1&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span>
-    <span class="attr">&quot;source&quot;</span><span class="punctuation">:</span> <span class="string">&quot;孙鲁班&quot;</span><span class="punctuation">,</span>
-    <span class="attr">&quot;destination&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Sun Luban&quot;</span>
+      <span class="attr">&quot;source&quot;</span><span class="punctuation">:</span> <span class="string">&quot;孙鲁班&quot;</span><span class="punctuation">,</span>
+      <span class="attr">&quot;destination&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Sun Luban&quot;</span>
   <span class="punctuation">&#125;</span>
 <span class="punctuation">&#125;</span></code></pre>
 
@@ -438,8 +438,8 @@ Keywords: [(&#x27;蜀汉&#x27;, 0.8161), (&#x27;司马懿&#x27;, 0.774), (&#x27;
 Result in json:
 
 &#123;
-\t&quot;诸葛亮&quot;: &quot;Zhuge Liang&quot;,
-    ....
+    &quot;诸葛亮&quot;: &quot;Zhuge Liang&quot;,
+      ....
 &#125;</code></pre>
 
 <p>Expected Output:</p>
