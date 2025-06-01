@@ -1,0 +1,803 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>LLM-Powered Localization Pipeline #1: Faster, Smarter and More Accurate Translation - Nguyen Luu Blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Nguyen Luu zhenyuan0502,"> 
+    <meta name="description" content="Traditional Translation Management Systems (TMS) handle workflow logistics but still rely heavily o,"> 
+    <meta name="author" content="Nguyen Luu"> 
+    <link rel="alternative" href="atom.xml" title="Nguyen Luu Blog" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/theme/dracula.css">
+
+    
+<link rel="stylesheet" href="/css/obsidian.css">
+
+    
+
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="//www.googletagmanager.com/gtag/js?id=UA-193142270-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-193142270-1');
+    </script>
+    
+
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body class="loading">
+    <span id="config-title" style="display:none">Nguyen Luu Blog</span>
+    <div id="single">
+    <div class="scrollbar gradient-bg-rev"></div>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <div class="navigation">
+        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="/">
+        <!-- <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div> -->
+        <h3 class="home" alt="" data-url="/">Home</h3>
+        <h3 class="subtitle">LLM-Powered Localization Pipeline #1: Faster, Smarter and More Accurate Translation</h3>
+        <div class="social">
+            <!--        <div class="like-icon">-->
+            <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+            <!--        </div>-->
+            <div>
+                <div class="share">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="section">
+        <div class=article-header-wrapper>
+    <div class="article-header">
+        <!-- <div class="article-cover animated fadeIn" style="
+            animation-delay: 600ms;
+            animation-duration: 1.2s;
+            background-image: 
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+                url(/img/cover.jpg) ">
+        </div> -->
+        <div class="else">
+            <p class="animated fadeInDown">
+                
+                <a href="/categories/LLM"><b>「
+                    </b>LLM<b> 」</b></a>
+                
+                June 02, 2025
+            </p>
+            <h3 class="post-title animated fadeInDown"><a href="/post/2025/06/02/LLM-Powered-Localization-Pipeline-#1-Faster-Smarter-and-More-Accurate-Translation" title="LLM-Powered Localization Pipeline #1: Faster, Smarter and More Accurate Translation" class="">LLM-Powered Localization Pipeline #1: Faster, Smarter and More Accurate Translation</a>
+            </h3>
+            
+            <p class="post-count animated fadeInDown">
+                
+                <span>
+                    <b class="iconfont icon-text2"></b> <i>Words count</i>
+                    37k
+                </span>
+                
+                
+                <span>
+                    <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                    34 mins.
+                </span>
+                
+                
+                
+            </p>
+            
+            
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/LLM/" rel="tag">LLM</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Localization/" rel="tag">Localization</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/TMS/" rel="tag">TMS</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Translation/" rel="tag">Translation</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Translation-Management-System/" rel="tag">Translation Management System</a></li></ul>
+            
+        </div>
+    </div>
+</div>
+
+<div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="animated fadeIn delay-1s"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class='main'>
+        <div class="content markdown animated fadeIn">
+            <p>Traditional Translation Management Systems (TMS) handle workflow logistics but still rely heavily on the translator’s cultural insight and deep knowledge of both source and target languages. In this blog post, we explore a modern architecture that integrates Large Language Models (LLMs), such as GPT-4o, with a traditional Translation Management System (TMS) to streamline and enhance the localization workflow. The workflow pipeline can ease this dependency, automate repetitive tasks, and enhance accuracy—resulting in a faster, smarter, and more reliable translation process.</p>
+<h1 id="Key-Terms-Abbreviations"><a href="#Key-Terms-Abbreviations" class="headerlink" title="Key Terms &amp; Abbreviations"></a>Key Terms &amp; Abbreviations</h1><ul>
+<li>TMS – Translation Management System: A platform that manages translation workflows, files, and collaboration between translators, reviewers, and project managers.</li>
+<li>TM – Translation Memory: A database that stores previously translated text segments for reuse.</li>
+<li>TB – Term Base: A glossary or dictionary of approved terms for consistent translation.</li>
+<li>CAT tool - Computer-Assisted Translation: is software used by translators to improve efficiency and consistency by leveraging translation memory (TM), term bases (TB), and other linguistic assets.</li>
+</ul>
+<h1 id="Traditional-Localization"><a href="#Traditional-Localization" class="headerlink" title="Traditional Localization"></a>Traditional Localization</h1><p>A Translation Management System (TMS) is essential in localization for games and applications because it streamlines and automates the complex process of adapting content for different languages and cultures. Games and apps often contain large volumes of dynamic text, frequent updates, and context-specific nuances that require precise handling to maintain user experience and brand consistency. A TMS centralizes translation workflows, enables collaboration among translators, developers, and project managers, and integrates with development pipelines to ensure faster turnaround times. Additionally, it helps manage terminology, maintain quality through reviews and version control, and supports scalability as projects grow. Without a TMS, localization can become error-prone, inefficient, and costly, ultimately impacting user satisfaction and market reach.</p>
+<p>Within a TMS, the CAT tool serves as the translation interface—it’s where translators actually do the work. The TMS handles workflow management, file storage, version control, and collaboration, while the CAT tool is focused on assisting the translation process itself.</p>
+<p>Key Functions of a CAT Tool in a TMS:</p>
+<ul>
+<li>Segmenting text into manageable units (sentences&#x2F;phrases)</li>
+<li>Suggesting matches from Translation Memory (TM)</li>
+<li>Highlighting terminology from the Term Base (TB)</li>
+<li>Auto-propagation of repeated segments</li>
+<li>Built-in QA checks (e.g., number mismatches, punctuation, tag consistency, placeholder)</li>
+<li>Glossary enforcement and style guide integration</li>
+</ul>
+<p>Popular CAT Tools (often embedded or integrated into TMSs):</p>
+<ul>
+<li>SDL Trados Studio</li>
+<li>MemoQ</li>
+<li>Memsource (Phrase)</li>
+<li>XTM</li>
+<li>Smartcat</li>
+<li>Wordfast</li>
+</ul>
+<p>The common translation will include placeholder, it is usually variable, color and layout format definition. You can imagine it will look like:</p>
+<pre><code class="highlight plaintext">Chinese:
+欢迎回来，&#123;username&#125;！您上次登录是在 &#123;last_login_time&#125;。
+
+English Translation:
+Welcome back, &#123;username&#125;! Your last login was on &#123;last_login_time&#125;.</code></pre>
+
+<p>The CAT tool can help you validation, it offers built-in support primarily for generic machine translation engines like Google Translate or Bing Translator.</p>
+<p><img src="/images/pasted-27.png"></p>
+<p>These systems, while useful, do not leverage the contextual understanding and customization capabilities that LLMs like GPT-4o can provide. As a result, there’s a growing gap between the potential of AI-driven translation and what traditional CAT tools currently supports.</p>
+<h1 id="LLM-Powered-approach"><a href="#LLM-Powered-approach" class="headerlink" title="LLM-Powered approach"></a>LLM-Powered approach</h1><p>Last year, I had my freelance work and focused on enhancing localization efficiency. At the time, GPT-4o stood out as a top contender among large language models due to its speed and accuracy. Its token usage was notably more efficient compared to GPT-4, and it demonstrated strong multilingual support. These advantages led me to prioritize an LLM-driven approach over traditional rule-based methods.</p>
+<p><img src="/images/pasted-30.png"></p>
+<h2 id="1-Translation-Management-System-TMS"><a href="#1-Translation-Management-System-TMS" class="headerlink" title="1. Translation Management System (TMS)"></a>1. Translation Management System (TMS)</h2><p>The process begins with a Translation Management System (TMS) — the core platform that stores and manages all translation data. The TMS contains:</p>
+<ul>
+<li>Project files</li>
+<li>Translation Memories (TM)</li>
+<li>Approved Term Bases (TB)</li>
+</ul>
+<p>The TMS acts as the central source of the project, ingesting translation data externaly and import back to TMs</p>
+<h2 id="2-Export-Translation-File"><a href="#2-Export-Translation-File" class="headerlink" title="2. Export Translation File"></a>2. Export Translation File</h2><p>We export the translation project from the TMS in industry-standard formats like: .XLIFF &#x2F;.MXLIFF</p>
+<p>These files contain structured translation units — typically including source text, translated (target) text, and metadata such as segment ID or status. Reading there files are simple with following python code:</p>
+<pre><code class="highlight python"><span class="keyword">def</span> <span class="title function_">read_mxliff</span>(<span class="params">file_path</span>):
+    <span class="string">&quot;&quot;&quot;</span>
+<span class="string">    Sample MXLiff file structure:</span>
+<span class="string"></span>
+<span class="string">    &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="string">    &lt;xliff xmlns=&quot;urn:oasis:names:tc:xliff:document:1.2&quot; xmlns:m=&quot;http://www.memsource.com/mxlf/2.0&quot; version=&quot;1.2&quot;&gt;</span>
+<span class="string">      &lt;file original=&quot;sample.txt&quot; source-language=&quot;zh-CN&quot; target-language=&quot;en-US&quot; datatype=&quot;plaintext&quot;&gt;</span>
+<span class="string">        &lt;body&gt;</span>
+<span class="string">          &lt;group id=&quot;1&quot; m:para-id=&quot;188&quot;&gt;</span>
+<span class="string">            &lt;trans-unit id=&quot;w3cCVMTAQ0gkoeBP0_dc7:189&quot; m:confirmed=&quot;0&quot; m:created-at=&quot;0&quot; m:created-by=&quot;&quot; m:gross-score=&quot;0.0&quot; m:level-edited=&quot;false&quot; m:locked=&quot;false&quot; m:modified-at=&quot;0&quot; m:modified-by=&quot;&quot; m:para-id=&quot;188&quot; m:score=&quot;0.0&quot; m:trans-origin=&quot;null&quot; xml:space=&quot;preserve&quot;&gt;</span>
+<span class="string">              &lt;source&gt;士兵数量已达校场上限，只能再招募&#123;1&#125;名士兵&lt;/source&gt;</span>
+<span class="string">              &lt;target&gt;Maximum number of soldiers reached. You can only recruit &#123;1&#125; more soldiers.&lt;/target&gt;</span>
+<span class="string">              &lt;alt-trans origin=&quot;machine-trans&quot;&gt;</span>
+<span class="string">                &lt;target&gt;Maximum soldiers reached, only &#123;1&#125; more can be recruited.&lt;/target&gt;</span>
+<span class="string">              &lt;/alt-trans&gt;</span>
+<span class="string">              &lt;alt-trans origin=&quot;memsource-tm&quot;&gt;</span>
+<span class="string">                &lt;target&gt;Soldier count has reached the training ground limit, only &#123;1&#125; more can be recruited.&lt;/target&gt;</span>
+<span class="string">              &lt;/alt-trans&gt;</span>
+<span class="string">              &lt;m:tunit-metadata&gt;</span>
+<span class="string">                &lt;m:mark id=&quot;1&quot;&gt;</span>
+<span class="string">                  &lt;m:type&gt;code&lt;/m:type&gt;</span>
+<span class="string">                  &lt;m:content&gt;%s&lt;/m:content&gt;</span>
+<span class="string">                &lt;/m:mark&gt;</span>
+<span class="string">              &lt;/m:tunit-metadata&gt;</span>
+<span class="string">            &lt;/trans-unit&gt;</span>
+<span class="string">          &lt;/group&gt;</span>
+<span class="string">        &lt;/body&gt;</span>
+<span class="string">      &lt;/file&gt;</span>
+<span class="string">    &lt;/xliff&gt;</span>
+<span class="string">    &quot;&quot;&quot;</span>
+    tree = ET.parse(file_path)
+    root = tree.getroot()
+
+    ns = &#123;<span class="string">&#x27;n&#x27;</span>: <span class="string">&#x27;urn:oasis:names:tc:xliff:document:1.2&#x27;</span>, <span class="string">&#x27;m&#x27;</span>: <span class="string">&#x27;http://www.memsource.com/mxlf/2.0&#x27;</span>&#125;
+        
+    <span class="comment"># Read group id, m:para-id, source, target     </span>
+    m = <span class="string">&#x27;&#123;&#x27;</span> + ns[<span class="string">&#x27;m&#x27;</span>] + <span class="string">&#x27;&#125;&#x27;</span>
+    list_data = []
+    
+    <span class="keyword">for</span> group <span class="keyword">in</span> root.findall(<span class="string">&#x27;.//n:group&#x27;</span>, ns):
+        group_id = group.get(<span class="string">&#x27;id&#x27;</span>)
+        para_id = group.get(<span class="string">f&#x27;<span class="subst">&#123;m&#125;</span>para-id&#x27;</span>)
+        
+        trans_units = group.findall(<span class="string">&#x27;.//n:trans-unit&#x27;</span>, ns)
+        <span class="keyword">if</span> <span class="built_in">len</span>(trans_units) &gt; <span class="number">1</span>:
+            <span class="keyword">raise</span> Exception(<span class="string">f&#x27;More than 1 trans_unit: <span class="subst">&#123;group_id&#125;</span>, <span class="subst">&#123;para_id&#125;</span>&#x27;</span>)
+        
+        <span class="keyword">for</span> trans_unit <span class="keyword">in</span> trans_units:
+            source = trans_unit.find(<span class="string">&#x27;.//n:source&#x27;</span>, ns).text
+            target = trans_unit.find(<span class="string">&#x27;.//n:target&#x27;</span>, ns).text <span class="keyword">if</span> trans_unit.find(<span class="string">&#x27;.//n:target&#x27;</span>, ns) <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span> <span class="keyword">else</span> <span class="literal">None</span>
+            converted_target = tn.normalize_text(target) <span class="keyword">if</span> target <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span> <span class="keyword">else</span> <span class="literal">None</span>
+            <span class="keyword">if</span> converted_target != target:
+                logging.info(<span class="string">f&quot;Auto fixing composed word, Source: <span class="subst">&#123;source&#125;</span>, Target: <span class="subst">&#123;target&#125;</span>, Converted Target: <span class="subst">&#123;converted_target&#125;</span>&quot;</span>)
+            target = converted_target
+
+            <span class="comment"># trans-unit id, m:confirmed, m:locked</span>
+            trans_unit_id = trans_unit.get(<span class="string">&#x27;id&#x27;</span>)
+            confirmed = trans_unit.get(<span class="string">f&#x27;<span class="subst">&#123;m&#125;</span>confirmed&#x27;</span>) == <span class="string">&#x27;1&#x27;</span>
+            locked = trans_unit.get(<span class="string">f&#x27;<span class="subst">&#123;m&#125;</span>locked&#x27;</span>) == <span class="string">&#x27;true&#x27;</span>
+            
+            tunit_metadata_dict = &#123;&#125;
+            tunit_metadata = trans_unit.find(<span class="string">f&#x27;.//m:tunit-metadata&#x27;</span>, ns)
+            
+            <span class="keyword">if</span> tunit_metadata <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:
+                marks = tunit_metadata.findall(<span class="string">f&#x27;.//m:mark&#x27;</span>, ns)
+                <span class="keyword">for</span> mark <span class="keyword">in</span> marks:
+                    mark_id = mark.get(<span class="string">&#x27;id&#x27;</span>)
+                    mark_type = mark.find(<span class="string">f&#x27;.//m:type&#x27;</span>, ns).text
+                    mark_content = mark.find(<span class="string">f&#x27;.//m:content&#x27;</span>, ns).text
+                    tunit_metadata_dict[mark_id] = &#123;
+                        <span class="string">&#x27;type&#x27;</span>: mark_type,
+                        <span class="string">&#x27;content&#x27;</span>: mark_content
+                    &#125;
+            
+            <span class="keyword">if</span> confirmed <span class="keyword">or</span> locked: 
+                logging.info(<span class="string">f&quot;Confirmed or Locked: <span class="subst">&#123;group_id&#125;</span>, <span class="subst">&#123;para_id&#125;</span>, <span class="subst">&#123;source&#125;</span>, <span class="subst">&#123;target&#125;</span>&quot;</span>)
+
+            list_data.append(&#123;
+                <span class="string">&#x27;group_id&#x27;</span>: group_id,
+                <span class="string">&#x27;para_id&#x27;</span>: para_id,
+                <span class="string">&#x27;source&#x27;</span>: source,
+                <span class="string">&#x27;target&#x27;</span>: target,
+                <span class="string">&#x27;trans_unit_id&#x27;</span>: trans_unit_id,
+                <span class="string">&#x27;confirmed&#x27;</span>: confirmed,
+                <span class="string">&#x27;locked&#x27;</span>: locked,
+                <span class="string">&#x27;tunit_metadata&#x27;</span>: tunit_metadata_dict
+            &#125;)
+        
+    <span class="keyword">return</span> list_data
+</code></pre>
+
+<h2 id="3-Translation-Memory-TM"><a href="#3-Translation-Memory-TM" class="headerlink" title="3. Translation Memory (TM)"></a>3. Translation Memory (TM)</h2><p>When a Translation Management System (TMS) is undergoing a certain project which containing pairs of source and translated records, that is good to leverage past work into one more step processing, as there are a good knowledge for LLM to learning instead of translating from scratch with no provided context. The TM could be extracted from current MXLIFF, or sourced from various formats within the TMS.</p>
+<h2 id="4-Term-Base-TB"><a href="#4-Term-Base-TB" class="headerlink" title="4. Term Base (TB)"></a>4. Term Base (TB)</h2><p>In many cases, existing term bases are provided. However, sometimes employees receive only a raw list containing original names, geographic locations, event titles, attributes, and similar elements:</p>
+<pre><code class="highlight csv">source,destination
+孙鲁班,Sun Luban
+孙策,Sun Ce
+许攸,Xu You
+陈宫,Chen Gong
+冲城车,Battering Ram
+普通兵种,Standard Troop Type</code></pre>
+
+<p>There are several ways to handle translation in such cases. You can use traditional tools like Google Translate or Bing Translator. Alternatively, modern approaches using large language models (LLMs) like GPT-4o offer more flexible and context-aware options. If you choose to use an LLM, consider formatting your data as structured input and output (e.g., JSON). This approach helps maintain clarity and consistency. Learn more about structured outputs <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/structured-outputs?tabs=python-secure,dotnet-entra-id&pivots=programming-language-csharp">here</a></p>
+<p>A input prompt could be:</p>
+<pre><code class="highlight text">Translate the following into English. Context: Chinese historical novel - Three Kingdoms.
+
+[&#123;
+\t&quot;id&quot;: 1,
+    &quot;source&quot;: &quot;孙鲁班&quot;
+&#125;,
+&#123;
+\t&quot;id&quot;: 2,
+    &quot;source&quot;: &quot;孙策&quot;
+&#125;]
+</code></pre>
+
+<p>Output object could be like this:</p>
+<pre><code class="highlight json"><span class="punctuation">[</span><span class="punctuation">&#123;</span>
+\t<span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span>
+    <span class="attr">&quot;destination&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Sun Luban&quot;</span>
+<span class="punctuation">&#125;</span><span class="punctuation">,</span>
+<span class="punctuation">&#123;</span>
+\t<span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">2</span><span class="punctuation">,</span>
+    <span class="attr">&quot;destination&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Sun Ce&quot;</span>
+<span class="punctuation">&#125;</span><span class="punctuation">]</span></code></pre>
+
+<p>The <code>id</code> field is important for remapping results back to the original data. You may also use a dictionary format for easier processing:</p>
+<pre><code class="highlight json"><span class="punctuation">&#123;</span>
+\t<span class="attr">&quot;1&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span>
+    \t<span class="attr">&quot;source&quot;</span><span class="punctuation">:</span> <span class="string">&quot;孙鲁班&quot;</span><span class="punctuation">,</span>
+        <span class="attr">&quot;destination&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Sun Luban&quot;</span>
+    <span class="punctuation">&#125;</span>
+<span class="punctuation">&#125;</span></code></pre>
+
+<p>If you’re aiming for high accuracy, consider adding a validation step. For example, you can prompt the model to confirm whether the translation is correct:</p>
+<pre><code class="highlight text">Validate the following translation from Chinese to English. Context: Chinese historical novel - Three Kingdoms.
+
+&#123;
+\t&quot;1&quot;: &#123;
+    \t&quot;source&quot;: &quot;孙鲁班&quot;,
+        &quot;destination&quot;: &quot;Sun Luban&quot;,
+        &quot;is_correct&quot;: true,
+        &quot;reason_if_incorrect&quot;: &quot;....&quot;
+    &#125;
+&#125;
+</code></pre>
+
+<p>This double-checking step helps ensure that translations are both contextually accurate and linguistically sound.</p>
+<h2 id="5-Incremental-Term-Base-ITB"><a href="#5-Incremental-Term-Base-ITB" class="headerlink" title="5. Incremental Term Base (ITB)"></a>5. Incremental Term Base (ITB)</h2><p>Here, we bring in AI. Since each localization effort often involves unique source-target translation pairs—tailored to specific contexts, it is essential to extract domain-specific terms directly from these human-validated records. Incremental Term Base addresses to TBs are extracted from translated source-dest, untranslated source. They are not from Term Base provided in previous section and also need to be translated to fill in Full Dictionary Term Base (FDTB) in next section.</p>
+<p>A Transformer-based model is applied to the latest content (e.g., from TM or exported files) to extract newly relevant or important terms, by doing so, the ITB helps maintain consistency, reduces redundant work, and enriches the overall term base with project-relevant terminology as it is capturing terminology that emerges organically from actual translation projects. </p>
+<h3 id="Using-LLM-to-extract-pair-translated-source-dest"><a href="#Using-LLM-to-extract-pair-translated-source-dest" class="headerlink" title="Using LLM to extract pair translated source-dest"></a>Using LLM to extract pair translated source-dest</h3><p>Let’s say you have pairs of translated and prompting:</p>
+<pre><code class="highlight text">Extract proper names, geographic locations, historical names, slang, idioms, and culturally significant phrases from the provided translation pairs. 
+
+&#123;
+\t&quot;1&quot;: &#123;
+    \t&quot;source&quot;: &quot;欢迎回来，&#123;username&#125;！您上次驻扎在洛阳，最后一次战役是在 &#123;last_battle_time&#125;。&quot;,
+        &quot;destination&quot;: &quot;Welcome back, &#123;username&#125;! Your last stationed location was Luoyang, and your last battle took place on &#123;last_battle_time&#125;.&quot;,
+    &#125;
+&#125;</code></pre>
+
+<p>Expected output</p>
+<pre><code class="highlight json"><span class="punctuation">[</span><span class="punctuation">&#123;</span>
+  <span class="attr">&quot;洛阳&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Luoyang&quot;</span>
+<span class="punctuation">&#125;</span><span class="punctuation">]</span></code></pre>
+
+<h3 id="Using-Keybert-to-extract-ITB-in-untranslated-source"><a href="#Using-Keybert-to-extract-ITB-in-untranslated-source" class="headerlink" title="Using Keybert to extract ITB in untranslated source"></a>Using Keybert to extract ITB in untranslated source</h3><p>It is recommended to use Keybert to extract n-gram words from source, let’s say you have:</p>
+<pre><code class="highlight text">乱世出英雄，曹操、刘备、孙权三分天下，逐鹿中原。
+关羽单刀赴会，于荆州饮酒谈笑，气吞万里如虎。
+赤壁之战，火烧连营，周瑜智破曹军八十万。
+张飞怒吼长坂桥，喝退曹军万人，孤身守关。
+诸葛亮七擒孟获，以智谋安定南中，展现王者风范。
+桃园三结义，刘关张誓同生死，共创蜀汉伟业。
+司马懿隐忍深谋，终掌天下，改魏为晋，开千秋基业。
+东吴悍将吕蒙白衣渡江，智取荆州，令关羽饮恨。
+马超怒战许褚，铁骑奔腾，枪影如龙，杀声震天。
+诸葛亮临终叹息：“命运不由人，天命难违，北伐终未成。
+</code></pre>
+
+<p>The code for extracting looks like:</p>
+<pre><code class="highlight python"><span class="keyword">from</span> keybert <span class="keyword">import</span> KeyBERT
+<span class="keyword">from</span> sentence_transformers <span class="keyword">import</span> SentenceTransformer
+<span class="keyword">from</span> sklearn.feature_extraction.text <span class="keyword">import</span> CountVectorizer
+<span class="keyword">import</span> jieba
+<span class="keyword">from</span> stopwordsiso <span class="keyword">import</span> stopwords
+<span class="keyword">import</span> logging
+
+logging.basicConfig(level=logging.INFO)
+
+<span class="comment"># Use sentence model</span>
+<span class="keyword">def</span> <span class="title function_">add_stopwords</span>(<span class="params">lang</span>):
+    stop_words = <span class="built_in">list</span>(stopwords(lang))
+    <span class="keyword">return</span> stop_words
+
+<span class="keyword">def</span> <span class="title function_">tokenize_zh</span>(<span class="params">text</span>):
+    words = jieba.lcut(text)
+    <span class="keyword">return</span> words
+
+VECTORIZER = CountVectorizer(tokenizer=tokenize_zh)
+
+<span class="keyword">def</span> <span class="title function_">get_model</span>():
+    sentence_model = SentenceTransformer(<span class="string">&quot;paraphrase-multilingual-mpnet-base-v2&quot;</span>)
+    kw_model = KeyBERT(model=sentence_model)
+    <span class="keyword">return</span> kw_model
+
+<span class="keyword">def</span> <span class="title function_">extract_keywords</span>(<span class="params">text_array, model, **kwargs</span>):
+    keywords = model.extract_keywords(text_array, vectorizer=VECTORIZER,
+                                      diversity=<span class="number">0.7</span>, **kwargs)
+    <span class="keyword">return</span> keywords
+    
+<span class="keyword">def</span> <span class="title function_">test_keybert</span>():
+    input_raw = <span class="string">&quot;&quot;&quot;</span>
+<span class="string">        乱世出英雄，曹操、刘备、孙权三分天下，逐鹿中原。</span>
+<span class="string">        关羽单刀赴会，于荆州饮酒谈笑，气吞万里如虎。</span>
+<span class="string">        赤壁之战，火烧连营，周瑜智破曹军八十万。</span>
+<span class="string">        张飞怒吼长坂桥，喝退曹军万人，孤身守关。</span>
+<span class="string">        诸葛亮七擒孟获，以智谋安定南中，展现王者风范。</span>
+<span class="string">        桃园三结义，刘关张誓同生死，共创蜀汉伟业。</span>
+<span class="string">        司马懿隐忍深谋，终掌天下，改魏为晋，开千秋基业。</span>
+<span class="string">        东吴悍将吕蒙白衣渡江，智取荆州，令关羽饮恨。</span>
+<span class="string">        马超怒战许褚，铁骑奔腾，枪影如龙，杀声震天。</span>
+<span class="string">        诸葛亮临终叹息：“命运不由人，天命难违，北伐终未成。</span>
+<span class="string">    &quot;&quot;&quot;</span>
+
+    model = get_model()
+    zh_stopwords = add_stopwords(<span class="string">&#x27;zh&#x27;</span>)
+    keywords = extract_keywords(input_raw, model, stop_words=zh_stopwords, top_n=<span class="number">50</span>, keyphrase_ngram_range=(<span class="number">1</span>, <span class="number">3</span>))
+    <span class="built_in">print</span>(<span class="string">f&quot;Keywords: <span class="subst">&#123;keywords&#125;</span>&quot;</span>)
+</code></pre>
+
+<p>Adjusting <code>top_n</code> and keyphrase_ngram_range increases the number of terms captured. The <code>jieba</code> library is essential for tokenizing Chinese words—without <code>jieba</code>, the following output cannot be generated.</p>
+<p>Output</p>
+<pre><code class="highlight text">Loading model cost 1.157 seconds.
+DEBUG:jieba:Loading model cost 1.157 seconds.
+Prefix dict has been built successfully.
+DEBUG:jieba:Prefix dict has been built successfully.
+Keywords: [(&#x27;蜀汉&#x27;, 0.8161), (&#x27;司马懿&#x27;, 0.774), (&#x27;渡江&#x27;, 0.7544), (&#x27;千秋&#x27;, 0.7436), (&#x27;东吴&#x27;, 0.7429), (&#x27;晋&#x27;, 0.7411), (&#x27;刘备&#x27;, 0.7408), (&#x27;周瑜&#x27;, 0.7406), (&#x27;怒战许&#x27;, 0.7369), (&#x27;刘&#x27;, 0.7331), (&#x27;长坂&#x27;, 0.7276), (&#x27;曹操&#x27;, 0.7234), (&#x27;终掌&#x27;, 0.7208), (&#x27;结义&#x27;, 0.7205), (&#x27;荆州&#x27;, 0.7056), (&#x27;单刀赴会&#x27;, 0.6966), (&#x27;曹军&#x27;, 0.6922), (&#x27;诸葛亮&#x27;, 0.6913), (&#x27;智破&#x27;, 0.6845), (&#x27;如龙&#x27;, 0.6842), (&#x27;基业&#x27;, 0.6785), (&#x27;中&#x27;, 0.6764), (&#x27;智谋&#x27;, 0.6762), (&#x27;逐鹿中原&#x27;, 0.6649), (&#x27;乱世&#x27;, 0.664), (&#x27;悍将&#x27;, 0.6612), (&#x27;于&#x27;, 0.66), (&#x27;张飞&#x27;, 0.6591), (&#x27;风范&#x27;, 0.6579), (&#x27;关羽&#x27;, 0.6574), (&#x27;改魏&#x27;, 0.6559), (&#x27;北伐&#x27;, 0.6519), (&#x27;震天&#x27;, 0.6514), (&#x27;临终&#x27;, 0.6492), (&#x27;叹息&#x27;, 0.649), (&#x27;智取&#x27;, 0.6482), (&#x27;怒吼&#x27;, 0.6325), (&#x27;马超&#x27;, 0.6312), (&#x27;天下&#x27;, 0.6299), (&#x27;火烧&#x27;, 0.6258), (&#x27;奔腾&#x27;, 0.6241), (&#x27;共创&#x27;, 0.619), (&#x27;孙权&#x27;, 0.617), (&#x27;孟获&#x27;, 0.6167), (&#x27;展现&#x27;, 0.6151), (&#x27;连营&#x27;, 0.6151), (&#x27;喝退&#x27;, 0.611), (&#x27;人&#x27;, 0.6095), (&#x27;褚&#x27;, 0.6049), (&#x27;隐忍&#x27;, 0.5978)]</code></pre>
+
+<p>This step is not finished because you need to translate ITB to accordingly destination process like previous section. Optionally, you can use LLM to do both extract and pre-translate ITB</p>
+<h3 id="Using-LLM-to-extract-and-pre-translate-ITB"><a href="#Using-LLM-to-extract-and-pre-translate-ITB" class="headerlink" title="Using LLM to extract and pre-translate ITB"></a>Using LLM to extract and pre-translate ITB</h3><p>Consider the prompt:</p>
+<pre><code class="highlight text">Extract all significant names, locations, military terms, and idioms from the following text and translate them from Chinese to English. Context: Chinese historical novel - Three Kingdoms. 
+
+        乱世出英雄，曹操、刘备、孙权三分天下，逐鹿中原。
+        关羽单刀赴会，于荆州饮酒谈笑，气吞万里如虎。
+        赤壁之战，火烧连营，周瑜智破曹军八十万。
+        张飞怒吼长坂桥，喝退曹军万人，孤身守关。
+        诸葛亮七擒孟获，以智谋安定南中，展现王者风范。
+        桃园三结义，刘关张誓同生死，共创蜀汉伟业。
+        司马懿隐忍深谋，终掌天下，改魏为晋，开千秋基业。
+        东吴悍将吕蒙白衣渡江，智取荆州，令关羽饮恨。
+        马超怒战许褚，铁骑奔腾，枪影如龙，杀声震天。
+        诸葛亮临终叹息：“命运不由人，天命难违，北伐终未成。
+        
+Result in json:
+
+&#123;
+\t&quot;诸葛亮&quot;: &quot;Zhuge Liang&quot;,
+    ....
+&#125;</code></pre>
+
+<p>Expected Output:</p>
+<pre><code class="highlight json"><span class="punctuation">&#123;</span>
+    <span class="attr">&quot;乱世出英雄&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Heroes arise in troubled times&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;曹操&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Cao Cao&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;刘备&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Liu Bei&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;孙权&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Sun Quan&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;三分天下&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Three Kingdoms division&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;逐鹿中原&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Competing for supremacy in Central Plains&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;关羽&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Guan Yu&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;单刀赴会&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Attending a meeting alone with a single blade&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;荆州&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Jingzhou&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;气吞万里如虎&quot;</span><span class="punctuation">:</span> <span class="string">&quot;With a mighty presence, like a tiger dominating vast lands&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;赤壁之战&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Battle of Red Cliffs&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;火烧连营&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Burning consecutive camps&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;周瑜&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Zhou Yu&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;曹军&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Cao’s army&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;张飞&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Zhang Fei&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;长坂桥&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Changban Bridge&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;喝退曹军万人&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Roaring away ten thousand Cao soldiers&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;孤身守关&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Guarding the pass alone&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;七擒孟获&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Seven captures of Meng Huo&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;智谋安定南中&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Using strategy to pacify Southern China&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;王者风范&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Regal demeanor&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;桃园三结义&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Oath of the Peach Garden&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;刘关张&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Liu Bei, Guan Yu, Zhang Fei&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;誓同生死&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Swearing to live and die together&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;蜀汉伟业&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Great cause of Shu Han&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;司马懿&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Sima Yi&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;隐忍深谋&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Patient and deep strategist&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;终掌天下&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Ultimately ruling the realm&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;改魏为晋&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Changing Wei to Jin&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;开千秋基业&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Establishing a lasting foundation&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;东吴&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Eastern Wu&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;吕蒙&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Lü Meng&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;白衣渡江&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Crossing the river in plain clothes&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;智取荆州&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Strategically capturing Jingzhou&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;令关羽饮恨&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Making Guan Yu bitterly regret&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;马超&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Ma Chao&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;怒战许褚&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Fiercely fighting Xu Chu&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;许褚&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Xu Chu&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;铁骑奔腾&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Galloping iron cavalry&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;枪影如龙&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Lance shadows like dragons&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;杀声震天&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Battle cries shaking the sky&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;命运不由人&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Fate is not determined by man&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;天命难违&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Heaven’s will is hard to defy&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;北伐终未成&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Northern expedition ultimately failed&quot;</span>
+<span class="punctuation">&#125;</span>
+</code></pre>
+<h2 id="6-Full-Dictionary-Term-Base-FDTB"><a href="#6-Full-Dictionary-Term-Base-FDTB" class="headerlink" title="6. Full Dictionary Term Base (FDTB)"></a>6. Full Dictionary Term Base (FDTB)</h2><p>We merge the existing TB and the newly generated ITB to form the Full Dictionary Term Base (FDTB) - A comprehensive version of the TB that includes all validated and approved terms. This enriched dictionary captures both static and dynamic terminology and forms a critical input for validation and LLM-enhanced review.</p>
+<p>Finally, it will look like:</p>
+<pre><code class="highlight json"><span class="punctuation">&#123;</span>
+    <span class="attr">&quot;乱世出英雄&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Heroes arise in troubled times&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;曹操&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Cao Cao&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;刘备&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Liu Bei&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;孙权&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Sun Quan&quot;</span><span class="punctuation">,</span>
+    .....
+<span class="punctuation">&#125;</span>
+</code></pre>
+
+<h2 id="Wrapping-up"><a href="#Wrapping-up" class="headerlink" title="Wrapping up"></a>Wrapping up</h2><p>At this stage in the pipeline, we’ve successfully gathered translation memories, extracted terminology, and combined both static and dynamic sources to form the Full Dictionary Term Base (FDTB). This consolidated glossary is critical for ensuring that translations remain consistent, context-aware, and aligned with evolving project needs.</p>
+<p>But building the FDTB is just the beginning. In the next stage, we move from preparation to action — parsing actual translation files and applying our term base to evaluate and enhance translation quality.</p>
+<p>We’ll dive into Step 7: Extracting Translation Units and Dictionary Terms, where we begin processing real project content and setting the stage for LLM-powered quality checks.</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <!-- <audio id="audio" loop="1" preload="auto" controls="controls"
+                data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+            <ul id="audio-list" style="display:none">
+                
+                
+                <li title='0' data-url='/statics/shijiandeguoke.mp3'></li>
+                
+                    
+            </ul>
+             -->
+
+            
+            
+
+
+<div class="post-copyright-container">
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Author</strong>
+    Nguyen Luu
+  </li>
+  <li class="post-copyright-link">
+    <strong>Link</strong>
+    <a href="https://nguyenluu.dev/post/2025/06/02/LLM-Powered-Localization-Pipeline-#1-Faster-Smarter-and-More-Accurate-Translation" title="LLM-Powered Localization Pipeline #1: Faster, Smarter and More Accurate Translation">https://nguyenluu.dev/post/2025/06/02/LLM-Powered-Localization-Pipeline-#1-Faster-Smarter-and-More-Accurate-Translation</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>License</strong>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>by-nc-sa</a>
+  </li>
+</ul>
+</div>
+
+            
+
+            
+            <div class="post-nav">
+                <hr>
+                
+                
+                    <div class="post-nav-item">Next Post: <a href="/post/2025/05/29/Automating-Quiz-Generation-from-Books-with-GPT-4-1" rel="next" 
+                        title="Automating Quiz Generation from Books with GPT-4.1">Automating Quiz Generation from Books with GPT-4.1</a></div>
+                                
+            </div>   
+            
+            
+            <!--  -->
+
+            
+            
+
+            
+
+        </div>
+        <div class="sidebar">
+            <div class="box animated fadeInRight">
+                <div class="subbox">
+                    <div>
+                        <img src="/img/qoobee.jpeg" margin-top=1rem height=200 width=200></img>
+                        <p>Nguyen Luu<br>(Alfred - Yuan)</p>
+                        <span>Think like an artist, develop like an artisan</span>
+                        <dl>
+                            <dd><a href="https://github.com/zhenyuan0502" target="_blank"><span
+                                        class=" iconfont icon-github"></span></a></dd>
+                            <dd><a href="https://twitter.com/zhenyuan0502" target="_blank"><span
+                                        class=" iconfont icon-twitter"></span></a></dd>
+                            <dd><a href="https://stackoverflow.com/users/3789481/" target="_blank"><span
+                                        class=" iconfont icon-stack-overflow"></span></a></dd>
+                        </dl>
+                    </div>
+                </div>
+                <ul>
+                    <li><a href="/">12 <p>Articles</p></a></li>
+                    <li><a href="/categories">12 <p>Categories</p></a></li>
+                    <li><a href="/tags">26 <p>Tags</p></a></li>
+                </ul>
+            </div>
+            
+            
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <div>
+                        <h4>Table of Contents</h4>
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Key-Terms-Abbreviations"><span class="toc-number">1.</span> <span class="toc-text">Key Terms &amp; Abbreviations</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Traditional-Localization"><span class="toc-number">2.</span> <span class="toc-text">Traditional Localization</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#LLM-Powered-approach"><span class="toc-number">3.</span> <span class="toc-text">LLM-Powered approach</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Translation-Management-System-TMS"><span class="toc-number">3.1.</span> <span class="toc-text">1. Translation Management System (TMS)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Export-Translation-File"><span class="toc-number">3.2.</span> <span class="toc-text">2. Export Translation File</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Translation-Memory-TM"><span class="toc-number">3.3.</span> <span class="toc-text">3. Translation Memory (TM)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Term-Base-TB"><span class="toc-number">3.4.</span> <span class="toc-text">4. Term Base (TB)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Incremental-Term-Base-ITB"><span class="toc-number">3.5.</span> <span class="toc-text">5. Incremental Term Base (ITB)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Using-LLM-to-extract-pair-translated-source-dest"><span class="toc-number">3.5.1.</span> <span class="toc-text">Using LLM to extract pair translated source-dest</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Using-Keybert-to-extract-ITB-in-untranslated-source"><span class="toc-number">3.5.2.</span> <span class="toc-text">Using Keybert to extract ITB in untranslated source</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Using-LLM-to-extract-and-pre-translate-ITB"><span class="toc-number">3.5.3.</span> <span class="toc-text">Using LLM to extract and pre-translate ITB</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Full-Dictionary-Term-Base-FDTB"><span class="toc-number">3.6.</span> <span class="toc-text">6. Full Dictionary Term Base (FDTB)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Wrapping-up"><span class="toc-number">3.7.</span> <span class="toc-text">Wrapping up</span></a></li></ol></li></ol>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+    <div id="back-to-top" class="animated fadeIn faster">
+        <div class="flow"></div>
+        <span class="percentage animated fadeIn faster">0%</span>
+        <span class="iconfont icon-top02 animated fadeIn faster"></span>
+    </div>
+</body>
+<footer>
+    <p class="copyright" id="copyright">
+        &copy; 2025
+        <span class="gradient-text">
+            Nguyen Luu
+        </span>.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme
+        <span class="gradient-text">
+            <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+        </span>
+        <small><a href="https://github.com/TriDiamond/hexo-theme-obsidian/blob/master/CHANGELOG.md" title="v1.4.5" target="_blank" rel="noopener">v1.4.5</a></small>
+    </p>
+ 
+</footer>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script>
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+      preferredFont: "TeX",
+      availableFonts: ["STIX", "TeX"],
+      linebreaks: {
+        automatic: true
+      },
+      EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+      inlineMath: [
+        ["$", "$"],
+        ["\\(", "\\)"]
+      ],
+      processEscapes: true,
+      ignoreClass: "tex2jax_ignore|dno",
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      noUndefined: {
+        attributes: {
+          mathcolor: "red",
+          mathbackground: "#FFEEEE",
+          mathsize: "90%"
+        }
+      },
+      Macros: {
+        href: "{}"
+      }
+    },
+    messageStyle: "none"
+  });
+</script>
+<script>
+  function initialMathJax() {
+    MathJax.Hub.Queue(function () {
+      var all = MathJax.Hub.getAllJax(),
+        i;
+      // console.log(all);
+      for (i = 0; i < all.length; i += 1) {
+        console.log(all[i].SourceElement().parentNode)
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  }
+
+  function reprocessMathJax() {
+    if (typeof MathJax !== 'undefined') {
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    }
+  }
+</script>
+
+
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/obsidian.js"></script>
+<script src="/js/jquery.truncate.js"></script>
+<script src="/js/search.js"></script>
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.12.0/js/md5.min.js"></script>
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.js"></script>
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/mode/htmlmixed/htmlmixed.min.js"></script>
+  
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/mode/python/python.min.js"></script>
+  
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/mode/markdown/markdown.min.js"></script>
+   
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3//photoswipe.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3//default-skin/default-skin.min.css">
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3//photoswipe.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3//photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+<!-- Highlight.js -->
+<!-- 
+<link rel="stylesheet" href="/css/dracula.css">
+ -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', event => {
+    document.querySelectorAll('pre code').forEach(block => {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+
+<script>
+  function initialTyped() {
+    var typedTextEl = $('.typed-text');
+    if (typedTextEl && typedTextEl.length > 0) {
+      var typed = new Typed('.typed-text', {
+        strings: ['Think like an artist, develop like an artisan', '艺术家思维去思考问题，工匠创造精神去开发'],
+        typeSpeed: 90,
+        loop: true,
+        loopCount: Infinity,
+        backSpeed: 20,
+      });
+    }
+  }
+
+  if ($('.article-header') && $('.article-header').length) {
+    $(document).ready(function () {
+      initialTyped();
+    });
+  }
+</script>
+
+
+
+
+
+
+</html>
