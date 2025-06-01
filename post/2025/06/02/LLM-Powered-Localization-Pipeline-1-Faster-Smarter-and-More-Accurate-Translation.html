@@ -290,43 +290,43 @@ Welcome back, &#123;username&#125;! Your last login was on &#123;last_login_time
 <pre><code class="highlight text">Translate the following into English. Context: Chinese historical novel - Three Kingdoms.
 
 [&#123;
-\t&quot;id&quot;: 1,
-    &quot;source&quot;: &quot;孙鲁班&quot;
+  &quot;id&quot;: 1,
+  &quot;source&quot;: &quot;孙鲁班&quot;
 &#125;,
 &#123;
-\t&quot;id&quot;: 2,
+    &quot;id&quot;: 2,
     &quot;source&quot;: &quot;孙策&quot;
 &#125;]
 </code></pre>
 
 <p>Output object could be like this:</p>
 <pre><code class="highlight json"><span class="punctuation">[</span><span class="punctuation">&#123;</span>
-\t<span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span>
+    <span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span>
     <span class="attr">&quot;destination&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Sun Luban&quot;</span>
 <span class="punctuation">&#125;</span><span class="punctuation">,</span>
 <span class="punctuation">&#123;</span>
-\t<span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">2</span><span class="punctuation">,</span>
+\t  <span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">2</span><span class="punctuation">,</span>
     <span class="attr">&quot;destination&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Sun Ce&quot;</span>
 <span class="punctuation">&#125;</span><span class="punctuation">]</span></code></pre>
 
 <p>The <code>id</code> field is important for remapping results back to the original data. You may also use a dictionary format for easier processing:</p>
 <pre><code class="highlight json"><span class="punctuation">&#123;</span>
-\t<span class="attr">&quot;1&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span>
-    \t<span class="attr">&quot;source&quot;</span><span class="punctuation">:</span> <span class="string">&quot;孙鲁班&quot;</span><span class="punctuation">,</span>
-        <span class="attr">&quot;destination&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Sun Luban&quot;</span>
-    <span class="punctuation">&#125;</span>
+  <span class="attr">&quot;1&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span>
+    <span class="attr">&quot;source&quot;</span><span class="punctuation">:</span> <span class="string">&quot;孙鲁班&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;destination&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Sun Luban&quot;</span>
+  <span class="punctuation">&#125;</span>
 <span class="punctuation">&#125;</span></code></pre>
 
 <p>If you’re aiming for high accuracy, consider adding a validation step. For example, you can prompt the model to confirm whether the translation is correct:</p>
 <pre><code class="highlight text">Validate the following translation from Chinese to English. Context: Chinese historical novel - Three Kingdoms.
 
 &#123;
-\t&quot;1&quot;: &#123;
-    \t&quot;source&quot;: &quot;孙鲁班&quot;,
-        &quot;destination&quot;: &quot;Sun Luban&quot;,
-        &quot;is_correct&quot;: true,
-        &quot;reason_if_incorrect&quot;: &quot;....&quot;
-    &#125;
+  &quot;1&quot;: &#123;
+      &quot;source&quot;: &quot;孙鲁班&quot;,
+      &quot;destination&quot;: &quot;Sun Luban&quot;,
+      &quot;is_correct&quot;: true,
+      &quot;reason_if_incorrect&quot;: &quot;....&quot;
+  &#125;
 &#125;
 </code></pre>
 
@@ -337,10 +337,10 @@ Welcome back, &#123;username&#125;! Your last login was on &#123;last_login_time
 <pre><code class="highlight text">Extract proper names, geographic locations, historical names, slang, idioms, and culturally significant phrases from the provided translation pairs. 
 
 &#123;
-\t&quot;1&quot;: &#123;
-    \t&quot;source&quot;: &quot;欢迎回来，&#123;username&#125;！您上次驻扎在洛阳，最后一次战役是在 &#123;last_battle_time&#125;。&quot;,
-        &quot;destination&quot;: &quot;Welcome back, &#123;username&#125;! Your last stationed location was Luoyang, and your last battle took place on &#123;last_battle_time&#125;.&quot;,
-    &#125;
+  &quot;1&quot;: &#123;
+      &quot;source&quot;: &quot;欢迎回来，&#123;username&#125;！您上次驻扎在洛阳，最后一次战役是在 &#123;last_battle_time&#125;。&quot;,
+      &quot;destination&quot;: &quot;Welcome back, &#123;username&#125;! Your last stationed location was Luoyang, and your last battle took place on &#123;last_battle_time&#125;.&quot;,
+  &#125;
 &#125;</code></pre>
 
 <p>Expected output</p>
