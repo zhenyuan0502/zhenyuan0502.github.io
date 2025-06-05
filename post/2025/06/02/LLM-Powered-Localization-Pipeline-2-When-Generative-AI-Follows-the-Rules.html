@@ -1,0 +1,786 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>LLM-Powered Localization Pipeline #2: When Generative AI Follows the Rules - Nguyen Luu Blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Nguyen Luu zhenyuan0502,"> 
+    <meta name="description" content="In the previous post, we explored how to use LLMs to generate translations in a localization pipeli,"> 
+    <meta name="author" content="Nguyen Luu"> 
+    <link rel="alternative" href="atom.xml" title="Nguyen Luu Blog" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/theme/dracula.css">
+
+    
+<link rel="stylesheet" href="/css/obsidian.css">
+
+    
+
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="//www.googletagmanager.com/gtag/js?id=UA-193142270-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-193142270-1');
+    </script>
+    
+
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body class="loading">
+    <span id="config-title" style="display:none">Nguyen Luu Blog</span>
+    <div id="single">
+    <div class="scrollbar gradient-bg-rev"></div>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <div class="navigation">
+        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="/">
+        <!-- <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div> -->
+        <h3 class="home" alt="" data-url="/">Home</h3>
+        <h3 class="subtitle">LLM-Powered Localization Pipeline #2: When Generative AI Follows the Rules</h3>
+        <div class="social">
+            <!--        <div class="like-icon">-->
+            <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+            <!--        </div>-->
+            <div>
+                <div class="share">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="section">
+        <div class=article-header-wrapper>
+    <div class="article-header">
+        <!-- <div class="article-cover animated fadeIn" style="
+            animation-delay: 600ms;
+            animation-duration: 1.2s;
+            background-image: 
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+                url(/img/cover.jpg) ">
+        </div> -->
+        <div class="else">
+            <p class="animated fadeInDown">
+                
+                <a href="/categories/LLM"><b>「
+                    </b>LLM<b> 」</b></a>
+                
+                June 02, 2025
+            </p>
+            <h3 class="post-title animated fadeInDown"><a href="/post/2025/06/02/LLM-Powered-Localization-Pipeline-2-When-Generative-AI-Follows-the-Rules" title="LLM-Powered Localization Pipeline #2: When Generative AI Follows the Rules" class="">LLM-Powered Localization Pipeline #2: When Generative AI Follows the Rules</a>
+            </h3>
+            
+            <p class="post-count animated fadeInDown">
+                
+                <span>
+                    <b class="iconfont icon-text2"></b> <i>Words count</i>
+                    32k
+                </span>
+                
+                
+                <span>
+                    <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                    29 mins.
+                </span>
+                
+                
+                
+            </p>
+            
+            
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/LLM/" rel="tag">LLM</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Localization/" rel="tag">Localization</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/TMS/" rel="tag">TMS</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Translation/" rel="tag">Translation</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Translation-Management-System/" rel="tag">Translation Management System</a></li></ul>
+            
+        </div>
+    </div>
+</div>
+
+<div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="animated fadeIn delay-1s"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class='main'>
+        <div class="content markdown animated fadeIn">
+            <p>In the previous post, we explored how to use LLMs to generate translations in a localization pipeline. Which applied GPT-4o to genererate Full Dictionary Term Base (FDTB). We will continue to build on that foundation and introduce a more structured approach to localization.</p>
+<hr>
+<h1 id="LLM-Powered-to-translate-with-rules"><a href="#LLM-Powered-to-translate-with-rules" class="headerlink" title="LLM-Powered to translate with rules"></a>LLM-Powered to translate with rules</h1><p>Let’s take a look at the localization pipeline we are going to build:</p>
+<p><img src="/images/pasted-30.png"></p>
+<h2 id="7-Extract-Data-Level-2-Dictionary-List-and-Chunkify-Submit-Data"><a href="#7-Extract-Data-Level-2-Dictionary-List-and-Chunkify-Submit-Data" class="headerlink" title="7. Extract Data Level 2, Dictionary List and Chunkify Submit Data"></a>7. Extract Data Level 2, Dictionary List and Chunkify Submit Data</h2><h3 id="Transforming-Dictionary-and-Translation-Data"><a href="#Transforming-Dictionary-and-Translation-Data" class="headerlink" title="Transforming Dictionary and Translation Data"></a>Transforming Dictionary and Translation Data</h3><p>From step 6, we already had a Full Dictionary Term Base (FDTB) <code>dictionary</code> that contains all the terms and their translations.</p>
+<pre><code class="highlight python">dictionary = &#123;
+    <span class="string">&quot;乱世出英雄-曹操&quot;</span>: <span class="string">&quot;Heroes arise in troubled times - Cao Cao&quot;</span>,
+    <span class="string">&quot;英雄&quot;</span>: <span class="string">&quot;Heroes&quot;</span>,
+    <span class="string">&quot;曹操&quot;</span>: <span class="string">&quot;Cao Cao&quot;</span>,
+    <span class="string">&quot;刘备&quot;</span>: <span class="string">&quot;Liu Bei&quot;</span>,
+    <span class="string">&quot;孙权&quot;</span>: <span class="string">&quot;Sun Quan&quot;</span>,
+    .....
+&#125;
+</code></pre>
+
+<p>And converted to dictionary list format:</p>
+<pre><code class="highlight python">dictionary_list = [
+    &#123;<span class="string">&quot;source&quot;</span>: <span class="string">&quot;乱世出英雄&quot;</span>, <span class="string">&quot;target_human&quot;</span>: <span class="string">&quot;Heroes arise in troubled times&quot;</span>&#125;,
+    &#123;<span class="string">&quot;source&quot;</span>: <span class="string">&quot;曹操&quot;</span>, <span class="string">&quot;target_human&quot;</span>: <span class="string">&quot;Cao Cao&quot;</span>&#125;,
+    &#123;<span class="string">&quot;source&quot;</span>: <span class="string">&quot;刘备&quot;</span>, <span class="string">&quot;target_human&quot;</span>: <span class="string">&quot;Liu Bei&quot;</span>&#125;,
+    &#123;<span class="string">&quot;source&quot;</span>: <span class="string">&quot;孙权&quot;</span>, <span class="string">&quot;target_human&quot;</span>: <span class="string">&quot;Sun Quan&quot;</span>&#125;,
+    <span class="comment"># ...</span>
+]</code></pre>
+
+<p>I marked the <code>target_human</code> field to indicate that this is the human validated of the term.</p>
+<p>And step 2, we have exported the translation file from the Translation Management System (TMS) in a format like XLIFF or MXLIFF, we called <code>Data Level 1</code>.<br>Here is a sample of what <code>data_level_1</code> might look like:</p>
+<pre><code class="highlight python">data_level_1 = [
+  &#123;
+    <span class="string">&#x27;group_id&#x27;</span>: <span class="string">&#x27;group_1&#x27;</span>,
+    <span class="string">&#x27;para_id&#x27;</span>: <span class="string">&#x27;para_1&#x27;</span>,
+    <span class="string">&#x27;source&#x27;</span>: <span class="string">&#x27;乱世出&#123;1&#125;英雄&#123;2&#125;&#x27;</span>,
+    <span class="string">&#x27;target&#x27;</span>: <span class="string">&#x27;Heroes arise in troubled times&#x27;</span>,
+    <span class="string">&#x27;trans_unit_id&#x27;</span>: <span class="string">&#x27;trans_unit_id_1&#x27;</span>,
+    <span class="string">&#x27;confirmed&#x27;</span>: <span class="literal">True</span>,
+    <span class="string">&#x27;locked&#x27;</span>: <span class="literal">False</span>,
+    <span class="string">&#x27;tunit_metadata&#x27;</span>: &#123;
+      <span class="string">&quot;1&quot;</span>: &#123;
+        <span class="string">&quot;type&quot;</span>: <span class="string">&quot;code&quot;</span>,
+        <span class="string">&quot;content&quot;</span>: <span class="string">&quot;[color=#1f8a34]&quot;</span>
+      &#125;,
+      <span class="string">&quot;2&quot;</span>: &#123;
+        <span class="string">&quot;type&quot;</span>: <span class="string">&quot;code&quot;</span>,
+        <span class="string">&quot;content&quot;</span>: <span class="string">&quot;[/color]&quot;</span>
+      &#125;
+    &#125;
+  &#125;,
+  &#123;
+    <span class="string">&#x27;group_id&#x27;</span>: <span class="string">&#x27;group_1&#x27;</span>,
+    <span class="string">&#x27;para_id&#x27;</span>: <span class="string">&#x27;para_2&#x27;</span>,
+    <span class="string">&#x27;source&#x27;</span>: <span class="string">&#x27;&#123;1&#125;曹操&#123;2&#125;&#x27;</span>,
+    <span class="string">&#x27;target&#x27;</span>: <span class="string">&#x27;Cao Cao&#x27;</span>,
+    <span class="string">&#x27;trans_unit_id&#x27;</span>: <span class="string">&#x27;trans_unit_id_2&#x27;</span>,
+    <span class="string">&#x27;confirmed&#x27;</span>: <span class="literal">True</span>,
+    <span class="string">&#x27;locked&#x27;</span>: <span class="literal">False</span>,
+    <span class="string">&#x27;tunit_metadata&#x27;</span>: &#123;
+      <span class="string">&quot;1&quot;</span>: &#123;
+        <span class="string">&quot;type&quot;</span>: <span class="string">&quot;code&quot;</span>,
+        <span class="string">&quot;content&quot;</span>: <span class="string">&quot;[b]&quot;</span>
+      &#125;,
+      <span class="string">&quot;2&quot;</span>: &#123;
+        <span class="string">&quot;type&quot;</span>: <span class="string">&quot;code&quot;</span>,
+        <span class="string">&quot;content&quot;</span>: <span class="string">&quot;[/b]&quot;</span>
+      &#125;
+    &#125;
+  &#125;
+]</code></pre>
+
+
+<p>We will process to <code>Data Level 2</code> by <code>build_data_level_2()</code>, the purpose of this code is to process and normalize translation unit data exported from a Translation Management System (TMS). It converts a list of translation units into a dict type keyed by <code>trans_unit_id</code>, parses and cleans up any embedded metadata (especially unescaping HTML entities in text fields), and prepares the data in a structured format suitable for further processing.</p>
+<pre><code class="highlight python"><span class="keyword">def</span> <span class="title function_">build_data_level_2</span>(<span class="params">data_level_1</span>):
+    dct = &#123;&#125;
+    <span class="keyword">for</span> item <span class="keyword">in</span> data_level_1:
+        dct[item[<span class="string">&#x27;trans_unit_id&#x27;</span>]] = item
+        
+        <span class="keyword">if</span> <span class="string">&#x27;tunit_metadata&#x27;</span> <span class="keyword">in</span> item <span class="keyword">and</span> <span class="built_in">type</span>(item[<span class="string">&quot;tunit_metadata&quot;</span>]) == <span class="built_in">str</span>:
+            metadata_text = item[<span class="string">&quot;tunit_metadata&quot;</span>].replace(<span class="string">&#x27;\&quot;&#x27;</span>, <span class="string">&#x27;\\&quot;&#x27;</span>).replace(<span class="string">&#x27;\&#x27;&#x27;</span>,<span class="string">&#x27;\&quot;&#x27;</span>)
+            item[<span class="string">&quot;tunit_metadata&quot;</span>] = json.loads(metadata_text)
+            item[<span class="string">&quot;tunit_metadata&quot;</span>] = normalize_tunit(item[<span class="string">&quot;tunit_metadata&quot;</span>])
+    
+    <span class="keyword">return</span> dct
+
+<span class="keyword">def</span> <span class="title function_">normalize_tunit</span>(<span class="params">tunit_metadata</span>):
+    <span class="keyword">for</span> k, v <span class="keyword">in</span> tunit_metadata.items():
+        tunit_metadata[k][<span class="string">&#x27;content&#x27;</span>] = unescape_multiple(tunit_metadata[k][<span class="string">&#x27;content&#x27;</span>])
+        
+    <span class="keyword">return</span> tunit_metadata
+
+<span class="keyword">import</span> html
+
+<span class="keyword">def</span> <span class="title function_">unescape_multiple</span>(<span class="params">text</span>):
+    <span class="keyword">while</span> <span class="literal">True</span>:
+        new_text = html.unescape(text)
+        <span class="keyword">if</span> new_text == text:  <span class="comment"># No change means it&#x27;s fully unescaped</span>
+            <span class="keyword">break</span>
+        text = new_text
+    <span class="keyword">return</span> text
+</code></pre>
+
+<p>Imagine the <code>data_level_2</code> is structured like this:</p>
+<pre><code class="highlight python">data_level_2 = &#123;
+  <span class="string">&#x27;trans_unit_id_1&#x27;</span>: &#123;
+    <span class="string">&#x27;group_id&#x27;</span>: <span class="string">&#x27;group_1&#x27;</span>,
+    <span class="string">&#x27;para_id&#x27;</span>: <span class="string">&#x27;para_1&#x27;</span>,
+    <span class="string">&#x27;source&#x27;</span>: <span class="string">&#x27;乱世出&#123;1&#125;英雄&#123;2&#125;&#x27;</span>,
+    <span class="string">&#x27;target&#x27;</span>: <span class="string">&#x27;Heroes arise in troubled times&#x27;</span>,
+    <span class="string">&#x27;trans_unit_id&#x27;</span>: <span class="string">&#x27;trans_unit_id_1&#x27;</span>,
+    <span class="string">&#x27;confirmed&#x27;</span>: <span class="literal">True</span>,
+    <span class="string">&#x27;locked&#x27;</span>: <span class="literal">False</span>,
+    <span class="string">&#x27;tunit_metadata&#x27;</span>: &#123;
+      <span class="string">&quot;1&quot;</span>: &#123;
+        <span class="string">&quot;type&quot;</span>: <span class="string">&quot;code&quot;</span>,
+        <span class="string">&quot;content&quot;</span>: <span class="string">&quot;[color=#1f8a34]&quot;</span>
+      &#125;,
+      <span class="string">&quot;2&quot;</span>: &#123;
+        <span class="string">&quot;type&quot;</span>: <span class="string">&quot;code&quot;</span>,
+        <span class="string">&quot;content&quot;</span>: <span class="string">&quot;[/color]&quot;</span>
+      &#125;
+    &#125;
+  &#125;,
+&#125;</code></pre>
+
+<h3 id="Transforming-Submit-Data-for-LLM-Translation"><a href="#Transforming-Submit-Data-for-LLM-Translation" class="headerlink" title="Transforming Submit Data for LLM Translation"></a>Transforming Submit Data for LLM Translation</h3><p>Next step, we will process to <code>Submit Data</code> where we only submit necessary information to LLM. The <code>build_submit_data()</code> function processes the <code>data_level_2</code> dictionary, filtering out translation units that have already been translated (i.e., those with a non-null <code>target</code>). It constructs a list of dictionaries, each containing the <code>trans_unit_id</code>, <code>source</code> text, and any relevant entries from the term base (dictionary) that match the source text. This prepares the data for submission to an LLM for translation.</p>
+<pre><code class="highlight python"><span class="keyword">import</span> logging
+logging.basicConfig(level=logging.INFO)
+
+<span class="keyword">def</span> <span class="title function_">build_submit_data</span>(<span class="params">data_level_2, dictionary_list=<span class="literal">None</span></span>):
+    logging.info(<span class="string">f&#x27;Number of rows: <span class="subst">&#123;<span class="built_in">len</span>(data_dict)&#125;</span>&#x27;</span>)
+    
+    submit_data = []
+    <span class="keyword">for</span> k, val <span class="keyword">in</span> data_level_2.items():
+        <span class="keyword">if</span> val[<span class="string">&#x27;target&#x27;</span>] <span class="keyword">is</span> <span class="literal">None</span>:
+            source = val[<span class="string">&#x27;source&#x27;</span>]
+            submit_row = &#123;
+                <span class="string">&#x27;trans_unit_id&#x27;</span>: val[<span class="string">&#x27;trans_unit_id&#x27;</span>],
+                <span class="string">&#x27;source&#x27;</span>: source,
+            &#125;
+            
+            <span class="keyword">if</span> dictionary_list <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:
+                found_translated = search_dictionary(source, dictionary_list, number_of_results=-<span class="number">1</span>)
+                submit_row[<span class="string">&#x27;dictionary&#x27;</span>] = found_translated
+            
+            submit_data.append(submit_row)
+    
+    logging.info(<span class="string">f&#x27;Number of rows to be translated: <span class="subst">&#123;<span class="built_in">len</span>(submit_data)&#125;</span>/<span class="subst">&#123;<span class="built_in">len</span>(data_level_2)&#125;</span>&#x27;</span>)
+    <span class="keyword">return</span> submit_data
+
+<span class="keyword">def</span> <span class="title function_">search_dictionary</span>(<span class="params">text, dictionary_list, number_of_results=<span class="number">3</span></span>):
+    <span class="comment"># if any source in text, return target</span>
+    found_items = []
+    <span class="keyword">for</span> item <span class="keyword">in</span> dictionary_list:
+        <span class="keyword">if</span> item[<span class="string">&#x27;source&#x27;</span>] <span class="keyword">in</span> text:
+            <span class="comment"># to prevent </span>
+            <span class="keyword">if</span> item[<span class="string">&#x27;target_human&#x27;</span>] <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:
+                found_items.append(&#123;
+                    <span class="string">&#x27;source&#x27;</span>: item[<span class="string">&#x27;source&#x27;</span>],
+                    <span class="string">&#x27;target&#x27;</span>: item[<span class="string">&#x27;target_human&#x27;</span>]
+                &#125;)
+                
+                <span class="keyword">if</span> number_of_results == -<span class="number">1</span>:
+                    <span class="keyword">continue</span>
+                
+                <span class="keyword">if</span> <span class="built_in">len</span>(found_items) &gt;= number_of_results:
+                    <span class="keyword">break</span>
+            
+    <span class="keyword">return</span> found_items</code></pre>
+
+<p>Finally, each translation unit is structured as follows:</p>
+<pre><code class="highlight python">submit_data = [&#123;
+  <span class="string">&quot;trans_unit_id&quot;</span>: <span class="string">&quot;trans_unit_id_1&quot;</span>,
+  <span class="string">&quot;source&quot;</span>: <span class="string">&quot;乱世出&#123;1&#125;英雄&#123;2&#125;-&quot;</span>,
+  <span class="string">&quot;target&quot;</span>: <span class="string">&quot;Heroes arise in troubled times&quot;</span>, 
+  <span class="string">&quot;dictionary&quot;</span>: &#123;
+    <span class="string">&quot;乱世出英雄&quot;</span>: <span class="string">&quot;Heroes arise in troubled times&quot;</span>,
+    <span class="string">&quot;英雄&quot;</span>: <span class="string">&quot;Heroes&quot;</span>,
+  &#125;,
+&#125;]</code></pre>
+
+
+<h3 id="Enhancing-Dictionary-Search-with-NLP"><a href="#Enhancing-Dictionary-Search-with-NLP" class="headerlink" title="Enhancing Dictionary Search with NLP"></a>Enhancing Dictionary Search with NLP</h3><p>The <code>search_dictionary()</code> function currently uses simple string matching to find dictionary terms in the source text. While this approach works for exact matches, it can miss variations, synonyms, or contextually similar terms.</p>
+<p>To make term recognition more robust, we could enhance this function with various NLP techniques:</p>
+<ul>
+<li><p><strong>Embeddings and Cosine Similarity</strong></p>
+<ul>
+<li>Convert terms and source text to vector representations</li>
+<li>Calculate similarity scores between vectors</li>
+<li>Match terms with similarity above a threshold</li>
+<li>Better captures semantic relationships between terms</li>
+</ul>
+</li>
+<li><p><strong>Fuzzy Matching</strong></p>
+<ul>
+<li>Use Levenshtein distance or other edit distance metrics</li>
+<li>Find terms that are similar but not identical</li>
+<li>Set appropriate threshold to avoid false positives</li>
+<li>Helps with minor spelling variations or inflections</li>
+</ul>
+</li>
+<li><p><strong>Contextual Matching</strong></p>
+<ul>
+<li>Consider surrounding words when matching terms</li>
+<li>Use sliding window approaches to capture phrases</li>
+<li>Weight matches based on contextual relevance</li>
+</ul>
+</li>
+<li><p><strong>Language-Specific Processing</strong></p>
+<ul>
+<li>Apply stemming or lemmatization for morphologically rich languages</li>
+<li>Consider word boundaries and segmentation for languages like Chinese</li>
+<li>Implement custom tokenization strategies when needed</li>
+</ul>
+</li>
+</ul>
+<p>These approaches can be combined and weighted based on the specific language pair and translation requirements, dramatically improving the quality of dictionary term matching.</p>
+<h2 id="Chunking-Submit-Data-and-Iterative-Correction"><a href="#Chunking-Submit-Data-and-Iterative-Correction" class="headerlink" title="Chunking Submit Data and Iterative Correction"></a>Chunking Submit Data and Iterative Correction</h2><p>When working with large datasets, especially in translation tasks, it is crucial to manage the data efficiently. The <code>submit_data</code> we built in the previous step is a list of dictionaries, each representing a translation unit that needs to be processed by an LLM (Large Language Model).</p>
+<p>To efficiently process large translation files, the extracted data is divided into manageable “chunks.” Each chunk contains a subset of translation units, along with their associated term base entries and context. Chunking enables parallel processing and helps LLMs handle input size limitations.</p>
+<pre><code class="highlight python"><span class="keyword">def</span> <span class="title function_">chunkify</span>(<span class="params">submit_data, chunk_size</span>):
+    chunks = []
+    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(submit_data), chunk_size):
+        chunks.append(submit_data[i:i+chunk_size])
+    <span class="keyword">return</span> chunks</code></pre>
+
+<p>To use:</p>
+<pre><code class="highlight python">
+chunk_size = <span class="number">10</span>  <span class="comment"># Define your chunk size</span>
+chunks = chunkify(submit_data, chunk_size)
+total_chunks = <span class="built_in">len</span>(chunks)
+
+<span class="keyword">for</span> index, chunk <span class="keyword">in</span> <span class="built_in">enumerate</span>(chunks):
+    logging.info(<span class="string">f&#x27;Processing chunk <span class="subst">&#123;index + <span class="number">1</span>&#125;</span>/<span class="subst">&#123;total_chunks&#125;</span> with <span class="subst">&#123;<span class="built_in">len</span>(chunk)&#125;</span> items&#x27;</span>)
+    <span class="comment"># Process each chunk with the LLM</span>
+
+    chunk_dict = &#123;i[<span class="string">&#x27;trans_unit_id&#x27;</span>]: i <span class="keyword">for</span> i <span class="keyword">in</span> chunk&#125;
+    <span class="comment"># Send chunk_dict to the LLM for translation</span>
+</code></pre>
+
+<p>Output <code>chunk_dict</code> will look like this:</p>
+<pre><code class="highlight python">
+chunk_dict = &#123;
+    <span class="string">&quot;trans_unit_id_1&quot;</span>:&#123;
+        <span class="string">&quot;trans_unit_id&quot;</span>: <span class="string">&quot;trans_unit_id_1&quot;</span>,
+        <span class="string">&quot;source&quot;</span>: <span class="string">&quot;乱世出&#123;1&#125;英雄&#123;2&#125;-&quot;</span>,
+        <span class="string">&quot;target&quot;</span>: <span class="string">&quot;Heroes arise in troubled times&quot;</span>, 
+        <span class="string">&quot;dictionary&quot;</span>: &#123;
+          <span class="string">&quot;乱世出英雄&quot;</span>: <span class="string">&quot;Heroes arise in troubled times&quot;</span>,
+          <span class="string">&quot;英雄&quot;</span>: <span class="string">&quot;Heroes&quot;</span>,
+        &#125;,
+    &#125;
+&#125;
+</code></pre>
+
+<p>Why we did not build <code>submit_data</code> as dict type from the beginning? Because it is easier to process and manipulate data in list loopingly, especially when you need to filter out items or apply transformations. However, once you have the chunk, converting it to a dict type allows for faster lookups and mappings, mainly for 2 purposes:</p>
+<ul>
+<li>To search and map <code>trans_unit_id</code> quickly after the LLM returns the results with BigO(1) complexity.</li>
+<li>These are no 100% guarantee that all returned translations will be correct and be translated</li>
+</ul>
+<p>The second point is most challenge I have met, to overcome this, each chunk is having 3 mechanisms:</p>
+<ul>
+<li>Keep looping until all items in the chunk are translated, with non-translated items being re-submitted to the LLM.</li>
+<li>Keep validation functions that check the output of the LLM against the rules defined in the translation guide, if not valid, re-submit the chunk to the LLM.</li>
+<li>For each error or issue detected, log it and provide feedback to the LLM for correction. This iterative process helps refine translations and improve quality over time.</li>
+</ul>
+<p>Uncompleted code for the chunk processing loop:</p>
+<pre><code class="highlight python">data_level_2 = build_data_level_2(data_level_1)
+NUMBER_OF_TRIES_LIMIT = <span class="number">10</span>
+<span class="keyword">for</span> index, chunk <span class="keyword">in</span> <span class="built_in">enumerate</span>(chunks):
+    number_of_tries = <span class="number">0</span>
+
+    logging.info(<span class="string">f&#x27;Processing chunk <span class="subst">&#123;index + <span class="number">1</span>&#125;</span>/<span class="subst">&#123;total_chunks&#125;</span> with <span class="subst">&#123;<span class="built_in">len</span>(chunk)&#125;</span> items&#x27;</span>)
+    focus_prompt = <span class="string">&#x27;&#x27;</span>
+    is_new_chunk = <span class="literal">True</span>
+    chunk_dict = &#123;&#125;
+    <span class="keyword">while</span> <span class="literal">True</span>:
+        <span class="keyword">try</span>:
+          <span class="keyword">if</span> is_new_chunk:
+              chunk_dict = &#123;i[<span class="string">&#x27;trans_unit_id&#x27;</span>]: i <span class="keyword">for</span> i <span class="keyword">in</span> chunk&#125;
+
+          <span class="keyword">if</span> <span class="keyword">not</span> chunk_dict:
+              logging.info(<span class="string">f&#x27;No more items in chunk <span class="subst">&#123;index&#125;</span>, moving to next chunk&#x27;</span>)
+              <span class="keyword">break</span>  <span class="comment"># No more items to process in this chunk</span>
+
+          <span class="comment"># Send chunk_dict to the LLM for translation</span>
+          llm_response = post_to_llm(chunk_dict, translation_guide, focus_prompt....)
+
+          <span class="comment"># Validate the LLM response for each item in the response</span>
+          <span class="keyword">for</span> item <span class="keyword">in</span> llm_response:
+              target = item.get(<span class="string">&#x27;target&#x27;</span>, <span class="literal">None</span>)
+              <span class="keyword">if</span> target <span class="keyword">is</span> <span class="literal">None</span>:
+                  focus_prompt += <span class="string">f&quot;Target is None for item <span class="subst">&#123;item[<span class="string">&#x27;trans_unit_id&#x27;</span>]&#125;</span>&quot;</span>
+                  <span class="keyword">raise</span> Exception(<span class="string">f&quot;Target is None for item <span class="subst">&#123;item[<span class="string">&#x27;trans_unit_id&#x27;</span>]&#125;</span>&quot;</span>)
+
+              validation_result = validate(item)
+
+              <span class="comment"># If any invalid, add to focus prompt for next iteration</span>
+              <span class="keyword">if</span> <span class="keyword">not</span> validation_result[<span class="string">&#x27;is_valid&#x27;</span>]:
+                  focus_prompt += validation_result[<span class="string">&#x27;invalid_reason&#x27;</span>]
+                  <span class="comment"># Invalid reason example: f&quot;When translating \&quot;&#123;target&#125;\&quot;, the following Chinese words were detected: &#123;xxxxx&#125;. Please translate these words manually and re-run the chunk.&quot;</span>
+                  <span class="keyword">raise</span> Exception(<span class="string">f&quot;Invalid <span class="subst">&#123;item[<span class="string">&#x27;trans_unit_id&#x27;</span>]&#125;</span>: to <span class="subst">&#123;target&#125;</span>, invalid reason: <span class="subst">&#123;validation_result[<span class="string">&#x27;invalid_reason&#x27;</span>]&#125;</span>&quot;</span>)
+                  <span class="comment"># And other validation rules can be added here</span>
+
+              <span class="comment"># if valid, update the chunk_dict like this</span>
+              <span class="keyword">del</span> chunk_dict[item[<span class="string">&#x27;trans_unit_id&#x27;</span>]]
+              data_level_2[item[<span class="string">&#x27;trans_unit_id&#x27;</span>]][<span class="string">&#x27;target&#x27;</span>] = target
+              is_new_chunk = <span class="literal">False</span>
+
+    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:
+        logging.info(<span class="string">f&quot;Error processing <span class="subst">&#123;file_name&#125;</span> chunk <span class="subst">&#123;index&#125;</span>: <span class="subst">&#123;e&#125;</span>&quot;</span>)
+        
+        number_of_tries += <span class="number">1</span>
+        logging.info(<span class="string">f&quot;Number of tries: <span class="subst">&#123;number_of_tries&#125;</span> for <span class="subst">&#123;file_name&#125;</span> chunk <span class="subst">&#123;index&#125;</span>&quot;</span>)
+        <span class="keyword">if</span> number_of_tries &gt;= NUMBER_OF_TRIES_LIMIT:
+            logging.error(<span class="string">f&quot;Number of tries exceeded <span class="subst">&#123;NUMBER_OF_TRIES_LIMIT&#125;</span>, stop program&quot;</span>)</code></pre>
+
+<p>The above code snippet more advanced to serve:</p>
+<ul>
+<li>Remove out already translated items.</li>
+<li>Validate each translation using a validate() function.</li>
+<li>If a translation is missing or invalid (e.g., untranslated Chinese words remain), it logs the issue, updates the prompt for the LLM, and retries the chunk, making its iterative correction.</li>
+<li>Retries are limited by NUMBER_OF_TRIES_LIMIT to avoid infinite loops.</li>
+<li>Update final <code>data_level_2</code> with the translated items, so that it can be used as the final output for the localization pipeline.</li>
+</ul>
+<p>We will go deep dive the <code>post_to_llm()</code> and <code>validate()</code> functions in the Step 9 and Step 10. Next section Step 8, we will build a translation guide that will be fed to the LLM to ensure it follows the rules and guidelines for translation.</p>
+<h2 id="8-Translation-Guide"><a href="#8-Translation-Guide" class="headerlink" title="8. Translation Guide"></a>8. Translation Guide</h2><p>A translation guide is generated in plain text, providing translators and reviewers with clear instructions, style guidelines, and any project-specific rules. This guide can include:</p>
+<ul>
+<li>Glossary&#x2F;term base usage</li>
+<li>Style and tone requirements</li>
+<li>Formatting and placeholder rules</li>
+<li>Examples of correct and incorrect translations</li>
+</ul>
+<p>This guide helps ensure consistency and quality throughout the translation process. You will embed this guide in the prompt sent to the LLM, ensuring that it has all the necessary context to generate or review translations effectively.</p>
+<p>For example, the guide for Chinese to Vietnamese translation might look like this. Notice that the <code>len(input_object)</code> is a rule that you can use to validate the output of the LLM. It means that the number of responses must match the number of input items. This is useful to ensure that the LLM does not generate extra or missing translations:</p>
+<pre><code class="highlight markdown">Translation Guide for Chinese to Vietnamese
+
+BEAR IN MIND:
+<span class="bullet">-</span> Language: Translate all content into <span class="strong">**full Vietnamese**</span>. Use pure Vietnamese for general terms; use Sino-Vietnamese only for proper nouns or names.
+<span class="bullet">-</span> Technical:
+<span class="bullet">  -</span> Preserve all special characters and formatting exactly as in the source.
+<span class="bullet">  -</span> Maintain line breaks and formatting, e.g., if a line ends with <span class="code">`\`</span> and the next starts with <span class="code">`n`</span>, keep this structure.
+<span class="bullet">  -</span> Keep placeholders such as <span class="code">`&#123;&#123;1&#125;&#125;`</span>, <span class="code">`&#123;&#123;2&#125;&#125;`</span>, etc., unchanged.
+<span class="bullet">  -</span> Do not alter or remove symbols like ~, !, @, #, $, %, ^, &amp;, <span class="emphasis">*, (, ), _, +, =, [, ], |, \, :, ;, &quot;, &#x27;, &lt;, &gt;, ?, /.</span>
+<span class="emphasis">  - Do not add extra punctuation; match the ending punctuation (e.g., period) to the source.</span>
+<span class="emphasis">  - The number of responses must match the number of input items (`len(input_object)`).</span>
+<span class="emphasis">  - If the `dictionary` key is present, use it to translate relevant terms.</span></code></pre>
+
+<p>Or guide for Chinese to English translation might look like this:</p>
+<pre><code class="highlight markdown">Translation Guide for Chinese to English
+BEAR IN MIND:
+<span class="bullet">-</span> Language: Translate all content into <span class="strong">**full English**</span>. Use pure English for general terms; use loanwords only for proper nouns or names.</code></pre>
+
+<p>In overrall, the guide should be clear, concise, and tailored to the specific translation task. It should help translators and reviewers understand the expectations and requirements for the translation, ensuring high-quality output.</p>
+<p>From the guide, you also need to create validation functions that will be used in 10 to validate the output of the LLM. These functions will check if the output adheres to the rules defined in the guide. For example, you can create a function that checks if the number of responses matches the number of input items, or if the placeholders are used correctly.</p>
+<h1 id="Wrapping-Up"><a href="#Wrapping-Up" class="headerlink" title="Wrapping Up"></a>Wrapping Up</h1><p>In this post, we have transformed to <code>data_level_2</code> for storing final output and <code>submit_data</code> for submitting LLM. The <code>submit_data</code> attached the Full Dictionary Term Base (FDTB) <code>dictionary_list</code> for relevant terms. We have also chunked the data for efficient processing and built a structured approach to handle translations using LLMs. Before to LLM step, we introduced the translation guide, which provides clear instructions and rules for the LLM to follow during translation.</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <!-- <audio id="audio" loop="1" preload="auto" controls="controls"
+                data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+            <ul id="audio-list" style="display:none">
+                
+                
+                <li title='0' data-url='/statics/shijiandeguoke.mp3'></li>
+                
+                    
+            </ul>
+             -->
+
+            
+            
+
+
+<div class="post-copyright-container">
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Author</strong>
+    Nguyen Luu
+  </li>
+  <li class="post-copyright-link">
+    <strong>Link</strong>
+    <a href="https://nguyenluu.dev/post/2025/06/02/LLM-Powered-Localization-Pipeline-2-When-Generative-AI-Follows-the-Rules" title="LLM-Powered Localization Pipeline #2: When Generative AI Follows the Rules">https://nguyenluu.dev/post/2025/06/02/LLM-Powered-Localization-Pipeline-2-When-Generative-AI-Follows-the-Rules</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>License</strong>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>by-nc-sa</a>
+  </li>
+</ul>
+</div>
+
+            
+
+            
+            <div class="post-nav">
+                <hr>
+                
+                
+                    <div class="post-nav-item">Next Post: <a href="/post/2025/06/02/LLM-Powered-Localization-Pipeline-1-Faster-Smarter-and-More-Accurate-Translation" rel="next" 
+                        title="LLM-Powered Localization Pipeline #1: Faster, Smarter and More Accurate Translation">LLM-Powered Localization Pipeline #1: Faster, Smarter and More Accurate Translation</a></div>
+                                
+            </div>   
+            
+            
+            <!--  -->
+
+            
+            
+
+            
+
+        </div>
+        <div class="sidebar">
+            <div class="box animated fadeInRight">
+                <div class="subbox">
+                    <div>
+                        <img src="/img/qoobee.jpeg" margin-top=1rem height=200 width=200></img>
+                        <p>Nguyen Luu<br>(Alfred - Yuan)</p>
+                        <span>Think like an artist, develop like an artisan</span>
+                        <dl>
+                            <dd><a href="https://github.com/zhenyuan0502" target="_blank"><span
+                                        class=" iconfont icon-github"></span></a></dd>
+                            <dd><a href="https://twitter.com/zhenyuan0502" target="_blank"><span
+                                        class=" iconfont icon-twitter"></span></a></dd>
+                            <dd><a href="https://stackoverflow.com/users/3789481/" target="_blank"><span
+                                        class=" iconfont icon-stack-overflow"></span></a></dd>
+                        </dl>
+                    </div>
+                </div>
+                <ul>
+                    <li><a href="/">13 <p>Articles</p></a></li>
+                    <li><a href="/categories">12 <p>Categories</p></a></li>
+                    <li><a href="/tags">26 <p>Tags</p></a></li>
+                </ul>
+            </div>
+            
+            
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <div>
+                        <h4>Table of Contents</h4>
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#LLM-Powered-to-translate-with-rules"><span class="toc-number">1.</span> <span class="toc-text">LLM-Powered to translate with rules</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-Extract-Data-Level-2-Dictionary-List-and-Chunkify-Submit-Data"><span class="toc-number">1.1.</span> <span class="toc-text">7. Extract Data Level 2, Dictionary List and Chunkify Submit Data</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Transforming-Dictionary-and-Translation-Data"><span class="toc-number">1.1.1.</span> <span class="toc-text">Transforming Dictionary and Translation Data</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Transforming-Submit-Data-for-LLM-Translation"><span class="toc-number">1.1.2.</span> <span class="toc-text">Transforming Submit Data for LLM Translation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Enhancing-Dictionary-Search-with-NLP"><span class="toc-number">1.1.3.</span> <span class="toc-text">Enhancing Dictionary Search with NLP</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chunking-Submit-Data-and-Iterative-Correction"><span class="toc-number">1.2.</span> <span class="toc-text">Chunking Submit Data and Iterative Correction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-Translation-Guide"><span class="toc-number">1.3.</span> <span class="toc-text">8. Translation Guide</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Wrapping-Up"><span class="toc-number">2.</span> <span class="toc-text">Wrapping Up</span></a></li></ol>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+    <div id="back-to-top" class="animated fadeIn faster">
+        <div class="flow"></div>
+        <span class="percentage animated fadeIn faster">0%</span>
+        <span class="iconfont icon-top02 animated fadeIn faster"></span>
+    </div>
+</body>
+<footer>
+    <p class="copyright" id="copyright">
+        &copy; 2025
+        <span class="gradient-text">
+            Nguyen Luu
+        </span>.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme
+        <span class="gradient-text">
+            <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+        </span>
+        <small><a href="https://github.com/TriDiamond/hexo-theme-obsidian/blob/master/CHANGELOG.md" title="v1.4.5" target="_blank" rel="noopener">v1.4.5</a></small>
+    </p>
+ 
+</footer>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script>
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+      preferredFont: "TeX",
+      availableFonts: ["STIX", "TeX"],
+      linebreaks: {
+        automatic: true
+      },
+      EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+      inlineMath: [
+        ["$", "$"],
+        ["\\(", "\\)"]
+      ],
+      processEscapes: true,
+      ignoreClass: "tex2jax_ignore|dno",
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      noUndefined: {
+        attributes: {
+          mathcolor: "red",
+          mathbackground: "#FFEEEE",
+          mathsize: "90%"
+        }
+      },
+      Macros: {
+        href: "{}"
+      }
+    },
+    messageStyle: "none"
+  });
+</script>
+<script>
+  function initialMathJax() {
+    MathJax.Hub.Queue(function () {
+      var all = MathJax.Hub.getAllJax(),
+        i;
+      // console.log(all);
+      for (i = 0; i < all.length; i += 1) {
+        console.log(all[i].SourceElement().parentNode)
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  }
+
+  function reprocessMathJax() {
+    if (typeof MathJax !== 'undefined') {
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    }
+  }
+</script>
+
+
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/obsidian.js"></script>
+<script src="/js/jquery.truncate.js"></script>
+<script src="/js/search.js"></script>
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.12.0/js/md5.min.js"></script>
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.js"></script>
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/mode/htmlmixed/htmlmixed.min.js"></script>
+  
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/mode/python/python.min.js"></script>
+  
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/mode/markdown/markdown.min.js"></script>
+   
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3//photoswipe.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3//default-skin/default-skin.min.css">
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3//photoswipe.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3//photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+<!-- Highlight.js -->
+<!-- 
+<link rel="stylesheet" href="/css/dracula.css">
+ -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', event => {
+    document.querySelectorAll('pre code').forEach(block => {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+
+<script>
+  function initialTyped() {
+    var typedTextEl = $('.typed-text');
+    if (typedTextEl && typedTextEl.length > 0) {
+      var typed = new Typed('.typed-text', {
+        strings: ['Think like an artist, develop like an artisan', '艺术家思维去思考问题，工匠创造精神去开发'],
+        typeSpeed: 90,
+        loop: true,
+        loopCount: Infinity,
+        backSpeed: 20,
+      });
+    }
+  }
+
+  if ($('.article-header') && $('.article-header').length) {
+    $(document).ready(function () {
+      initialTyped();
+    });
+  }
+</script>
+
+
+
+
+
+
+</html>
