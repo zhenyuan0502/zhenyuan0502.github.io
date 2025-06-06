@@ -142,14 +142,14 @@
 <p><img src="/images/llm_localization_pipeline.png"></p>
 <h2 id="9-LLM-Prompt-Design-and-Processing"><a href="#9-LLM-Prompt-Design-and-Processing" class="headerlink" title="9. LLM Prompt Design and Processing"></a>9. LLM Prompt Design and Processing</h2><p>Effective prompt engineering is the cornerstone of achieving high-quality translations with LLMs. Let’s examine how to structure prompts that maximize translation accuracy and adherence to guidelines.</p>
 <h3 id="The-Anatomy-of-an-Effective-Translation-Prompt"><a href="#The-Anatomy-of-an-Effective-Translation-Prompt" class="headerlink" title="The Anatomy of an Effective Translation Prompt"></a>The Anatomy of an Effective Translation Prompt</h3><p>A well-designed translation prompt should include:</p>
-<ol>
+<ul>
 <li><strong>Clear instructions</strong> about the translation task</li>
 <li><strong>Context</strong> for the content being translated</li>
 <li><strong>Reference to the translation guide</strong> and its rules</li>
 <li><strong>Examples</strong> of correct translations when helpful</li>
 <li><strong>Dictionary references</strong> for key terminology</li>
 <li><strong>Expected output format</strong> for consistency</li>
-</ol>
+</ul>
 <p>Before we implement the prompt request, we need to define pydantic model for the response format:</p>
 <pre><code class="highlight python"><span class="keyword">from</span> pydantic <span class="keyword">import</span> BaseModel
 <span class="keyword">class</span> <span class="title class_">MXIFF_Target</span>(<span class="title class_ inherited__">BaseModel</span>):
