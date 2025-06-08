@@ -513,8 +513,9 @@ body.mu .icon-logo {
   position: relative;
 }
 #pager a {
-  font-size: 16px;
-  letter-spacing: 5px;
+  font-size: 20px;
+  letter-spacing: normal;
+  font-weight: 800;
   border: 5px solid rgba(255,255,255,0.46);
   border-radius: 10px;
   padding: 10px 40px;
