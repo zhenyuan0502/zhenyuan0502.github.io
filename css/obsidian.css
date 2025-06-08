@@ -1857,8 +1857,10 @@ h1.title {
 .comment .gt-popup {
   margin-top: 8px;
 }
+.comment .gt-counts {
+  color: --var(--primary);
+}
 .comment .gt-counts a {
-  color: #000;
   border-bottom: 0;
   pointer-events: none;
 }
