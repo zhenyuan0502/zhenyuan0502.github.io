@@ -177,40 +177,40 @@ var Obsidian = {
     };
     Obsidian.L(url, function (data) {
       location.href = url;
-      // if (!$(data).filter('#single').length) {
-      //   location.href = url;
-      //   return;
-      // }
-      // switch (flag) {
-      //   case 'push':
-      //     history.pushState(state, title, url);
-      //     $('#preview').html($(data).filter('#single'));
-      //     break;
-      //   case 'replace':
-      //     history.replaceState(state, title, url);
-      //     $('#preview').html($(data).filter('#single'));
-      //     break;
-      // }
-      // document.title = title;
-      // $('#preview').html($(data).filter('#single'));
-      // switch (flag) {
-      //   case 'push':
-      //     Obsidian.preview();
-      //     break;
-      //   case 'replace':
-      //     Obsidian.initArticleJs();
-      //     window.scrollTo(0, 0);
-      //     Obsidian.loaded();
-      //     break;
-      // }
-      // setTimeout(function () {
-      //   Obsidian.player();
-      //   $('#top').show();
-      //   comment = $('#gitalk-container');
-      //   if (comment.data('ae') == true) {
-      //     comment.click();
-      //   }
-      // }, 0);
+      if (!$(data).filter('#single').length) {
+        location.href = url;
+        return;
+      }
+      switch (flag) {
+        case 'push':
+          history.pushState(state, title, url);
+          $('#preview').html($(data).filter('#single'));
+          break;
+        case 'replace':
+          history.replaceState(state, title, url);
+          $('#preview').html($(data).filter('#single'));
+          break;
+      }
+      document.title = title;
+      $('#preview').html($(data).filter('#single'));
+      switch (flag) {
+        case 'push':
+          Obsidian.preview();
+          break;
+        case 'replace':
+          Obsidian.initArticleJs();
+          window.scrollTo(0, 0);
+          Obsidian.loaded();
+          break;
+      }
+      setTimeout(function () {
+        Obsidian.player();
+        $('#top').show();
+        comment = $('#gitalk-container');
+        if (comment.data('ae') == true) {
+          comment.click();
+        }
+      }, 0);
     });
   },
   preview: function () {
