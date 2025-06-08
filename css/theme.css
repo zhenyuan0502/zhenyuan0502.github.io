@@ -1,6 +1,7 @@
 :root {
   --font-color: #000;
-  --night-font-color: #ddd;
+  --night-font-color: #c2c2c2;
+  --transparent-background-night: rgba(178,201,252,0.1);
   --primary: #b2fefa;
   --secondary: #0ed2f7;
   --dark: #0052d4;

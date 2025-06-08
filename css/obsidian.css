@@ -1,6 +1,7 @@
 :root {
   --font-color: #000;
-  --night-font-color: #ddd;
+  --night-font-color: #c2c2c2;
+  --transparent-background-night: rgba(178,201,252,0.1);
   --primary: #b2fefa;
   --secondary: #0ed2f7;
   --dark: #0052d4;
@@ -110,7 +111,7 @@ pre code .language-mark b {
   box-shadow: 0 0px 1px 2px #0ed2f7;
 }
 .post-copyright-container {
-  background: rgba(178,201,252,0.1);
+  background: var(--transparent-background-night);
   border-left: 3px solid #096ef3;
   list-style: none;
   margin: 2em 0 0;
@@ -1844,56 +1845,82 @@ h1.title {
 .stuff .count {
   color: #666;
 }
-.comment {
+#gitalk-container .gt-container {
   margin: 50px auto;
 }
-.comment .gt-comments-null {
+#gitalk-container .gt-container .gt-comments-null {
   display: none;
 }
-.comment .gt-header-textarea {
+#gitalk-container .gt-container .gt-header-textarea {
   border-radius: 0;
-  background: #fff;
+  color: #ddd;
+  background-color: var(--transparent-background-night) !important;
+  color: var(--night-font-color) !important;
 }
-.comment .gt-popup {
+#gitalk-container .gt-container .gt-comment-admin .gt-comment-content {
+  background-color: var(--transparent-background-night) !important;
+  box-shadow: var(--primary);
+}
+#gitalk-container .gt-container .gt-comment-admin .gt-comment-content:hover {
+  box-shadow: var(--primary);
+}
+#gitalk-container .gt-container .gt-comment-admin .gt-comment-content a {
+  color: var(--secondary);
+}
+#gitalk-container .gt-container .gt-comment-content {
+  background-color: var(--transparent-background-night) !important;
+  border-radius: 5px;
+}
+#gitalk-container .gt-container .gt-comment-content:hover {
+  box-shadow: var(--primary);
+}
+#gitalk-container .gt-container .gt-comment-content a {
+  color: var(--night-font-color) !important;
+}
+#gitalk-container .gt-container .gt-comment-body {
+  color: var(--night-font-color) !important;
+}
+#gitalk-container .gt-container .gt-popup {
   margin-top: 8px;
 }
-.comment .gt-counts {
+#gitalk-container .gt-container .gt-counts {
   color: --var(--primary);
 }
-.comment .gt-counts a {
+#gitalk-container .gt-container .gt-counts a {
   border-bottom: 0;
   pointer-events: none;
 }
-.comment .gt-avatar-github {
+#gitalk-container .gt-container .gt-avatar-github {
   display: none;
 }
-.comment .gt-header-avatar {
+#gitalk-container .gt-container .gt-header-avatar {
   display: none;
 }
-.comment .gt-header-comment {
+#gitalk-container .gt-container .gt-header-comment {
   margin-left: 0;
 }
-.comment .gt-header-preview {
+#gitalk-container .gt-container .gt-header-preview {
   border-radius: 0;
 }
-.comment .gt-btn-public {
+#gitalk-container .gt-container .gt-btn-public {
   border-radius: 0;
 }
-.comment .gt-btn-public .gt-btn-text:after {
+#gitalk-container .gt-container .gt-btn-public .gt-btn-text:after {
   content: "（Cmd | Ctrl  + Enter）";
 }
-.comment .gt-btn-preview {
+#gitalk-container .gt-container .gt-btn-preview {
   border-radius: 0;
 }
-.comment .gt-btn-login {
+#gitalk-container .gt-container .gt-btn-login {
   border-radius: 0;
 }
-.comment .gt-ico-tip {
+#gitalk-container .gt-container .gt-ico-tip {
   display: none;
 }
-.comment .gt-meta {
+#gitalk-container .gt-container .gt-meta {
   margin: 0;
   border: 0;
+  border-bottom: 1px solid var(--background-primary);
 }
 .comment.link {
   cursor: pointer;

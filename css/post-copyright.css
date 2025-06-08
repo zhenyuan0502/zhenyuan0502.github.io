@@ -1,5 +1,5 @@
 .post-copyright-container {
-  background: rgba(178,201,252,0.1);
+  background: var(--transparent-background-night);
   border-left: 3px solid #096ef3;
   list-style: none;
   margin: 2em 0 0;
