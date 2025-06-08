@@ -2468,8 +2468,8 @@ h1.title {
 .else .md-content ul li:before {
   position: absolute;
   left: 0;
-  content: "•";
-  margin: 0 1rem 0 0;
+  content: "●";
+  margin: -1 0 0 0;
   color: var(--secondary);
 }
 .else .md-content ul li ol li {
@@ -2762,7 +2762,7 @@ h1.title {
   letter-spacing: 0.6em;
 }
 .content p {
-  margin: 0 0 1em;
+  margin: 0.5em 0 0.5em 0;
 }
 .content em {
   color: #11ace6;
@@ -2772,16 +2772,16 @@ h1.title {
 }
 .content ul li {
   list-style: none;
-  margin: 5px 0;
+  margin: 0 0 0 2em;
   position: relative;
   padding: 0 0 0 1em;
 }
 .content ul li:before {
   position: absolute;
   left: 0;
-  content: "•";
-  margin: 0 1rem 0 0;
-  color: var(--dark);
+  content: "●";
+  margin: -1px 0 0 0;
+  color: #258bf5;
 }
 .content ul li ol li {
   margin-left: 1em;
