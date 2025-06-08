@@ -2125,20 +2125,22 @@ h1.title {
 #gitalk-container .gt-container .gt-header-comment {
   margin-left: 0;
 }
-#gitalk-container .gt-container .gt-button {
+#gitalk-container .gt-container .gt-btn-public {
   background-color: var(--transparent-background-night) !important;
   color: var(--secondary) !important;
-}
-#gitalk-container .gt-container .gt-btn-public {
   border-radius: 0;
 }
 #gitalk-container .gt-container .gt-btn-public .gt-btn-text:after {
   content: "（Cmd | Ctrl  + Enter）";
 }
 #gitalk-container .gt-container .gt-btn-preview {
+  background-color: var(--transparent-background-night) !important;
+  color: var(--secondary) !important;
   border-radius: 0;
 }
 #gitalk-container .gt-container .gt-btn-login {
+  background-color: var(--transparent-background-night) !important;
+  color: var(--secondary) !important;
   border-radius: 0;
 }
 #gitalk-container .gt-container .gt-ico-tip {
