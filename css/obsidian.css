@@ -2,6 +2,7 @@
   --font-color: #000;
   --night-font-color: #c2c2c2;
   --transparent-background-night: rgba(178,201,252,0.1);
+  --bg-sub-accent-55: rgba(13,185,215,0.55);
   --primary: #b2fefa;
   --secondary: #0ed2f7;
   --dark: #0052d4;
@@ -1848,6 +1849,9 @@ h1.title {
 #gitalk-container .gt-container {
   margin: 50px auto;
 }
+#gitalk-container .gt-container a {
+  color: var(--secondary);
+}
 #gitalk-container .gt-container .gt-comments-null {
   display: none;
 }
@@ -1867,6 +1871,21 @@ h1.title {
 #gitalk-container .gt-container .gt-comment-admin .gt-comment-content a {
   color: var(--secondary);
 }
+#gitalk-container .gt-container .gt-header-preview {
+  background-color: var(--transparent-background-night) !important;
+  color: var(--night-font-color) !important;
+  border-radius: 0;
+  padding: 0.5rem 1rem;
+}
+#gitalk-container .gt-container .gt-header-preview.markdown-body blockquote {
+  border-left: 0.25em solid var(--bg-sub-accent-55);
+}
+#gitalk-container .gt-container .gt-header-preview.markdown-body pre {
+  background-color: var(--transparent-background-night);
+}
+#gitalk-container .gt-container .gt-header-preview.markdown-body pre code {
+  color: var(--night-font-color) !important;
+}
 #gitalk-container .gt-container .gt-comment-content {
   background-color: var(--transparent-background-night) !important;
   border-radius: 5px;
@@ -1875,9 +1894,18 @@ h1.title {
   box-shadow: var(--primary);
 }
 #gitalk-container .gt-container .gt-comment-content a {
-  color: var(--night-font-color) !important;
+  color: var(--secondary);
 }
 #gitalk-container .gt-container .gt-comment-body {
+  color: var(--night-font-color) !important;
+}
+#gitalk-container .gt-container .gt-comment-body.markdown-body blockquote {
+  border-left: 0.25em solid var(--bg-sub-accent-55);
+}
+#gitalk-container .gt-container .gt-comment-body.markdown-body pre {
+  background-color: var(--transparent-background-night);
+}
+#gitalk-container .gt-container .gt-comment-body.markdown-body pre code {
   color: var(--night-font-color) !important;
 }
 #gitalk-container .gt-container .gt-popup {
@@ -2505,27 +2533,24 @@ h1.title {
   margin-left: 1em;
 }
 .else .md-content ol {
-  margin: 0 0 2rem 1rem;
-  padding-left: 20px;
+  margin: 0 0 0 0;
   counter-reset: li;
   padding-inline-start: 0;
 }
 .else .md-content ol li {
   list-style: none;
-  margin: 5px 0;
+  margin: 0 0 0 2em;
   counter-increment: li;
   position: relative;
 }
 .else .md-content ol li:before {
-  position: absolute;
-  content: counter(li);
-  color: var(--secondary);
+  content: counter(li) ". ";
+  color: #258bf5;
+  font-weight: bold;
   display: inline-block;
+  position: relative;
   width: 1em;
-  margin-left: -1.5em;
-  margin-right: 0.5em;
-  text-align: right;
-  direction: rtl;
+  margin: -1px 0 0 0;
 }
 .else .md-content h1 a,
 .else .md-content h2 a,
@@ -2817,25 +2842,23 @@ h1.title {
 }
 .content ol {
   margin: 0 0 0 0;
-  padding-left: 20px;
   counter-reset: li;
+  padding-inline-start: 0;
 }
 .content ol li {
   list-style: none;
-  margin: 5px 0;
+  margin: 0 0 0 2em;
   counter-increment: li;
   position: relative;
 }
 .content ol li:before {
-  content: counter(li);
-  color: var(--dark);
+  content: counter(li) ". ";
+  color: #258bf5;
+  font-weight: bold;
   display: inline-block;
-  position: absolute;
+  position: relative;
   width: 1em;
-  margin-left: -1.5em;
-  margin-right: 0.5em;
-  text-align: right;
-  direction: rtl;
+  margin: -1px 0 0 0;
 }
 .content > h1 {
   margin-top: 2rem;
