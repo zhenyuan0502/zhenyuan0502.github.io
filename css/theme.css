@@ -1,6 +1,6 @@
 :root {
-  --font-color: #000;
   --night-font-color: #c2c2c2;
+  --night-font-color-bold: #7a7a8c;
   --transparent-background-night: rgba(178,201,252,0.1);
   --bg-sub-accent-55: rgba(13,185,215,0.55);
   --primary: #b2fefa;
@@ -11,6 +11,8 @@
   --gradient-dark: #100e17;
   --code-gradient-light: #cff0ff;
   --code-gradient-dark: #afcafd;
+  --gradient-apple: -webkit-linear-gradient(to right, var(--primary), var(--secondary), var(--dark));
+  --gradient-other: linear-gradient(to right, var(--primary), var(--secondary), var(--dark));
 }
 /* roboto-mono-regular */
 @font-face {

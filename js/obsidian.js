@@ -509,17 +509,17 @@ var Obsidian = {
     });
   },
   reactToWindowHeight: function () {
-    var postSpacing = 315;
-    var winHeight = $(window).height();
-    var winWidth = $(window).width();
-    var firstPostHeight = $('#post0').height();
-    if (winWidth <= 900) {
-      postSpacing = 100;
-    }
-    if (firstPostHeight + postSpacing > winHeight || winWidth <= 900) {
-      $('#mark').css('height', firstPostHeight + postSpacing + 'px');
-      $('#screen').css('height', firstPostHeight + postSpacing + 'px');
-    }
+    // var postSpacing = 315;
+    // var winHeight = $(window).height();
+    // var winWidth = $(window).width();
+    // var firstPostHeight = $('#post0').height();
+    // if (winWidth <= 900) {
+    //   postSpacing = 100;
+    // }
+    // if (firstPostHeight + postSpacing > winHeight || winWidth <= 900) {
+    //   $('#mark').css('height', firstPostHeight + postSpacing + 'px');
+    //   $('#screen').css('height', firstPostHeight + postSpacing + 'px');
+    // }
   },
   initialShare: function () {
     var $config = {
@@ -1326,6 +1326,37 @@ $(function () {
           $('body').removeClass('fixed');
           searchBox.fadeOut(400);
         }
+        return false;
+      // AJAX pagination for numbered page links
+      case tag.indexOf('page-number') != -1 && !$(e.target).hasClass('current'):
+        // AJAX pagination for numbered page links
+        var pageLink = $(e.target);
+        if (pageLink.data('status') === 'loading') return false;
+        pageLink.html(pageLink.attr('data-loading') || 'Loading...').data('status', 'loading');
+        Obsidian.loading();
+        Obsidian.L(
+          pageLink.attr('href'),
+          function (data) {
+            // Replace post list and pager-container with new content
+            var newPosts = $(data).find('#primary').html();
+            var newPager = $(data).find('.pager-container').html();
+            if (newPosts) $('#primary').html(newPosts);
+            if (newPager) $('.pager-container').html(newPager);
+            Obsidian.loaded();
+            document.querySelectorAll('pre code').forEach(block => {
+              if(typeof hljs !== 'undefined') hljs.highlightBlock(block);
+            });
+            Obsidian.setCodeRowWithLang();
+            if ($('#vcomments').length) {
+              initValine();
+            }
+            // Scroll to top of post list
+            $('html,body').animate({ scrollTop: $('#primary').offset().top - 40 }, 300);
+          },
+          function () {
+            pageLink.html(pageLink.text()).data('status', 'loaded');
+          }
+        );
         return false;
       default:
         return true;
