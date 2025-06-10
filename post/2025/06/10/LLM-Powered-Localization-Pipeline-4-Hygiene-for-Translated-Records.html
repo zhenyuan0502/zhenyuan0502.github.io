@@ -101,13 +101,13 @@
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    60k
+                    61k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    54 mins.
+                    55 mins.
                 </span>
                 
                 
@@ -726,6 +726,21 @@ _show_hygiene_data(data_level_2, snapshot_data_dict, check_column=<span class="s
 
 <h2 id="12-Save-and-patch-to-TMS"><a href="#12-Save-and-patch-to-TMS" class="headerlink" title="12. Save and patch to TMS"></a>12. Save and patch to TMS</h2><p>After all the hygiene processes, we will save the data to the TMS, or patch the records if you have a TMS API available. In my case, I’m simly saving the data to dataframe and later overwrite the TMS records manually.</p>
 <h1 id="Wrapping-up"><a href="#Wrapping-up" class="headerlink" title="Wrapping up"></a>Wrapping up</h1><p>In this post, we have successfully implemented the hygiene processes for the translated records in our localization pipeline. We have cleaned up the text, converted punctuation, detected Chinese characters, adjusted spaces between variables, and detected insufficient variables. These processes are essential to ensure the quality and consistency of the translations.</p>
+<p><em>What’s Next?</em> </p>
+<p>You might want to turn it into a visual workflow, few popular Python-based workflow frameworks to consider:</p>
+<p><strong>Prefect</strong> - Modern and user-friendly</p>
+<ul>
+<li>Visual dashboard to monitor your translations</li>
+<li>Easy retry handling for failed translations</li>
+<li>Simple Python decorators (<code>@flow</code>, <code>@task</code>)</li>
+</ul>
+<p><strong>Apache Airflow</strong> - Industry standard</p>
+<ul>
+<li>Web UI to visualize your pipeline</li>
+<li>Schedule translations daily&#x2F;weekly</li>
+<li>Great for production environments</li>
+</ul>
+<p>And that’s it! Thank you for following this series on LLM-powered localization pipelines. I hope you found it useful and informative. If you have any questions or suggestions, feel free to leave a comment below.</p>
 <blockquote>
 <p>Series LLM-Powered Localization Pipeline:</p>
 <ul>
