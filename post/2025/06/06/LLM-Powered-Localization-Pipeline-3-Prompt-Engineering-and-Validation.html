@@ -101,13 +101,13 @@
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    27k
+                    28k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    25 mins.
+                    26 mins.
                 </span>
                 
                 
@@ -115,7 +115,7 @@
             </p>
             
             
-            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/LLM/" rel="tag">LLM</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Localization/" rel="tag">Localization</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/TMS/" rel="tag">TMS</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Translation/" rel="tag">Translation</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Translation-Management-System/" rel="tag">Translation Management System</a></li></ul>
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Automation/" rel="tag">Automation</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/LLM/" rel="tag">LLM</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Localization/" rel="tag">Localization</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/TMS/" rel="tag">TMS</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Translation/" rel="tag">Translation</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Translation-Management-System/" rel="tag">Translation Management System</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Translation-Quality/" rel="tag">Translation Quality</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Validation/" rel="tag">Validation</a></li></ul>
             
         </div>
     </div>
@@ -138,7 +138,7 @@
         <div class="content markdown animated fadeIn">
             <p>In the previous installments of this series, we established the foundation for an LLM-powered localization pipeline. In Part 2, we structured our approach further by transforming dictionary data, implementing chunking strategies, and creating translation guides to ensure consistency. We will dive into the critical elements of prompt engineering and validation – the components that determine how effectively our LLMs translate content and how we verify the quality of their output.</p>
 <hr>
-<h1 id="The-Art-and-Science-of-LLM-Prompt-Engineering-for-Translation"><a href="#The-Art-and-Science-of-LLM-Prompt-Engineering-for-Translation" class="headerlink" title="The Art and Science of LLM Prompt Engineering for Translation"></a>The Art and Science of LLM Prompt Engineering for Translation</h1><p>Let’s take a look at again the localization pipeline we are going to build, we are in step 9:</p>
+<h1 id="The-Art-of-LLM-Prompt-Engineering-for-Translation"><a href="#The-Art-of-LLM-Prompt-Engineering-for-Translation" class="headerlink" title="The Art of LLM Prompt Engineering for Translation"></a>The Art of LLM Prompt Engineering for Translation</h1><p>Let’s take a look at again the localization pipeline we are going to build, we are in step 9:</p>
 <p><img src="/images/llm_localization_pipeline.png"></p>
 <h2 id="9-LLM-Prompt-Design-and-Processing"><a href="#9-LLM-Prompt-Design-and-Processing" class="headerlink" title="9. LLM Prompt Design and Processing"></a>9. LLM Prompt Design and Processing</h2><p>Effective prompt engineering is the cornerstone of achieving high-quality translations with LLMs. Let’s examine how to structure prompts that maximize translation accuracy and adherence to guidelines.</p>
 <h3 id="The-Anatomy-of-an-Effective-Translation-Prompt"><a href="#The-Anatomy-of-an-Effective-Translation-Prompt" class="headerlink" title="The Anatomy of an Effective Translation Prompt"></a>The Anatomy of an Effective Translation Prompt</h3><p>A well-designed translation prompt should include:</p>
@@ -436,9 +436,18 @@ CHINESE_WORD_PATTERN = re.<span class="built_in">compile</span>(<span class="str
 <li><strong>Validation</strong>: Check each translation against quality criteria</li>
 <li><strong>Feedback loop</strong>: For invalid translations, provide specific feedback</li>
 <li><strong>Re-translation</strong>: Submit problematic translations with enhanced instructions</li>
-<li><strong>Hygiene</strong>: Run additional plugins to correct common issues but do not need to re-submit to the LLM</li>
+<li><strong>Hygiene</strong>: Run additional plugins to correct common issues but do not need to resubmit to the LLM</li>
 </ul>
 <p>In the next installment, we’ll explore how to hygienize and finalize translations, ensuring they are ready for delivery to clients or integration into applications. We’ll also discuss how to handle edge cases and maintain translation quality over time.</p>
+<blockquote>
+<p>Series LLM-Powered Localization Pipeline:</p>
+<ul>
+<li><a href="/post/2025/06/02/LLM-Powered-Localization-Pipeline-1-Faster-Smarter-and-More-Accurate-Translation" title="LLM-Powered Localization Pipeline #1: Faster, Smarter and More Accurate Translation">LLM-Powered Localization Pipeline #1: Faster, Smarter and More Accurate Translation</a></li>
+<li><a href="/post/2025/06/02/LLM-Powered-Localization-Pipeline-2-When-Generative-AI-Follows-the-Rules" title="LLM-Powered Localization Pipeline #2: When Generative AI Follows the Rules">LLM-Powered Localization Pipeline #2: When Generative AI Follows the Rules</a></li>
+<li><a href="/post/2025/06/06/LLM-Powered-Localization-Pipeline-3-Prompt-Engineering-and-Validation" title="LLM-Powered Localization Pipeline #3: Prompt Engineering and Validation">LLM-Powered Localization Pipeline #3: Prompt Engineering and Validation</a></li>
+<li><a href="/post/2025/06/10/LLM-Powered-Localization-Pipeline-4-Hygiene-for-Translated-Records" title="LLM-Powered Localization Pipeline #4: Hygiene for Translated Records">LLM-Powered Localization Pipeline #4: Hygiene for Translated Records</a></li>
+</ul>
+</blockquote>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <!-- <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -481,6 +490,10 @@ CHINESE_WORD_PATTERN = re.<span class="built_in">compile</span>(<span class="str
             <!-- 
             <div class="post-nav">
                 <hr>
+                
+                    <div class="post-nav-item">Previous Post: <a href="/post/2025/06/10/LLM-Powered-Localization-Pipeline-4-Hygiene-for-Translated-Records" rel="prev" 
+                        title="LLM-Powered Localization Pipeline #4: Hygiene for Translated Records">LLM-Powered Localization Pipeline #4: Hygiene for Translated Records
+                      </a></div>
                 
                 
                     <div class="post-nav-item">Next Post: <a href="/post/2025/06/02/LLM-Powered-Localization-Pipeline-2-When-Generative-AI-Follows-the-Rules" rel="next" 
@@ -528,9 +541,9 @@ CHINESE_WORD_PATTERN = re.<span class="built_in">compile</span>(<span class="str
                     </div>
                 </div>
                 <ul>
-                    <li><a href="/">14 <p>Articles</p></a></li>
-                    <li><a href="/categories">12 <p>Categories</p></a></li>
-                    <li><a href="/tags">26 <p>Tags</p></a></li>
+                    <li><a href="/">15 <p>Articles</p></a></li>
+                    <li><a href="/categories">15 <p>Categories</p></a></li>
+                    <li><a href="/tags">36 <p>Tags</p></a></li>
                 </ul>
             </div>
             
@@ -540,7 +553,7 @@ CHINESE_WORD_PATTERN = re.<span class="built_in">compile</span>(<span class="str
                 <div id="toc" class="subbox">
                     <div>
                         <h4>Table of Contents</h4>
-                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#The-Art-and-Science-of-LLM-Prompt-Engineering-for-Translation"><span class="toc-number">1.</span> <span class="toc-text">The Art and Science of LLM Prompt Engineering for Translation</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#9-LLM-Prompt-Design-and-Processing"><span class="toc-number">1.1.</span> <span class="toc-text">9. LLM Prompt Design and Processing</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-Anatomy-of-an-Effective-Translation-Prompt"><span class="toc-number">1.1.1.</span> <span class="toc-text">The Anatomy of an Effective Translation Prompt</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Iterative-Refinement-Through-Feedback-Loops"><span class="toc-number">1.1.2.</span> <span class="toc-text">Iterative Refinement Through Feedback Loops</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Model-Selection-and-Parameter-Tuning"><span class="toc-number">1.1.3.</span> <span class="toc-text">Model Selection and Parameter Tuning</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-Validation-and-Quality-Assurance"><span class="toc-number">1.2.</span> <span class="toc-text">10. Validation and Quality Assurance</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Advanced-Validation-Techniques"><span class="toc-number">1.2.1.</span> <span class="toc-text">Advanced Validation Techniques</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Wrapping-up"><span class="toc-number">2.</span> <span class="toc-text">Wrapping up</span></a></li></ol>
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#The-Art-of-LLM-Prompt-Engineering-for-Translation"><span class="toc-number">1.</span> <span class="toc-text">The Art of LLM Prompt Engineering for Translation</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#9-LLM-Prompt-Design-and-Processing"><span class="toc-number">1.1.</span> <span class="toc-text">9. LLM Prompt Design and Processing</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-Anatomy-of-an-Effective-Translation-Prompt"><span class="toc-number">1.1.1.</span> <span class="toc-text">The Anatomy of an Effective Translation Prompt</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Iterative-Refinement-Through-Feedback-Loops"><span class="toc-number">1.1.2.</span> <span class="toc-text">Iterative Refinement Through Feedback Loops</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Model-Selection-and-Parameter-Tuning"><span class="toc-number">1.1.3.</span> <span class="toc-text">Model Selection and Parameter Tuning</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-Validation-and-Quality-Assurance"><span class="toc-number">1.2.</span> <span class="toc-text">10. Validation and Quality Assurance</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Advanced-Validation-Techniques"><span class="toc-number">1.2.1.</span> <span class="toc-text">Advanced Validation Techniques</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Wrapping-up"><span class="toc-number">2.</span> <span class="toc-text">Wrapping up</span></a></li></ol>
                     </div>
                 </div>
             </div>

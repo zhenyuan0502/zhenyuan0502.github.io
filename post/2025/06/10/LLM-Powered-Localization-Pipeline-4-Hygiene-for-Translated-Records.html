@@ -1,0 +1,1052 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>LLM-Powered Localization Pipeline #4: Hygiene for Translated Records - Nguyen Luu Blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Nguyen Luu zhenyuan0502,"> 
+    <meta name="description" content="This article describes the final “hygiene” step in an LLM-powered localization pipeline, focusing o,"> 
+    <meta name="author" content="Nguyen Luu"> 
+    <link rel="alternative" href="atom.xml" title="Nguyen Luu Blog" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/theme/dracula.css">
+
+    
+<link rel="stylesheet" href="/css/obsidian.css">
+
+    
+
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="//www.googletagmanager.com/gtag/js?id=UA-193142270-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-193142270-1');
+    </script>
+    
+
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body class="loading">
+    <span id="config-title" style="display:none">Nguyen Luu Blog</span>
+    <div id="single">
+    <div class="scrollbar gradient-bg-rev"></div>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <div class="navigation">
+        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="/">
+        <!-- <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div> -->
+        <h3 class="home" alt="" data-url="/">Home</h3>
+        <h3 class="subtitle">LLM-Powered Localization Pipeline #4: Hygiene for Translated Records</h3>
+        <div class="social">
+            <!--        <div class="like-icon">-->
+            <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+            <!--        </div>-->
+            <div>
+                <div class="share">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="section">
+        <div class=article-header-wrapper>
+    <div class="article-header">
+        <!-- <div class="article-cover animated fadeIn" style="
+            animation-delay: 600ms;
+            animation-duration: 1.2s;
+            background-image: 
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+                url(/null) ">
+        </div> -->
+        <div class="else">
+            <p class="animated fadeInDown">
+                
+                <a href="/categories/LLM"><b>「
+                    </b>LLM<b> 」</b></a>
+                
+                June 10, 2025
+            </p>
+            <h3 class="post-title animated fadeInDown"><a href="/post/2025/06/10/LLM-Powered-Localization-Pipeline-4-Hygiene-for-Translated-Records" title="LLM-Powered Localization Pipeline #4: Hygiene for Translated Records" class="">LLM-Powered Localization Pipeline #4: Hygiene for Translated Records</a>
+            </h3>
+            
+            <p class="post-count animated fadeInDown">
+                
+                <span>
+                    <b class="iconfont icon-text2"></b> <i>Words count</i>
+                    60k
+                </span>
+                
+                
+                <span>
+                    <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                    54 mins.
+                </span>
+                
+                
+                
+            </p>
+            
+            
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Data-Cleaning/" rel="tag">Data Cleaning</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Hygiene/" rel="tag">Hygiene</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/LLM/" rel="tag">LLM</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Localization/" rel="tag">Localization</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Punctuation/" rel="tag">Punctuation</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/TMS/" rel="tag">TMS</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Translation/" rel="tag">Translation</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Translation-Management-System/" rel="tag">Translation Management System</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Unicode/" rel="tag">Unicode</a></li></ul>
+            
+        </div>
+    </div>
+</div>
+
+<div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="animated fadeIn delay-1s"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class='main'>
+        <div class="content markdown animated fadeIn">
+            <p>This article describes the final “hygiene” step in an LLM-powered localization pipeline, focusing on programmatically cleaning and validating translated records. It covers removing unnecessary characters, normalizing Unicode, converting punctuation, detecting mismatches and unwanted Chinese characters, adjusting variable spacing, and ensuring all placeholders are present—ensuring translation quality before saving or patching to a TMS.</p>
+<hr>
+<h1 id="Post-processing-Translated-Records"><a href="#Post-processing-Translated-Records" class="headerlink" title="Post-processing Translated Records"></a>Post-processing Translated Records</h1><p>Bravo, we are almost done with our localization pipeline! In the previous post, we have successfully validated the translated records by iteratively checking the translation quality and resubmitting the records to the LLM. Now we will do the final step, which is hygiene these records and remove any unnecessary information.</p>
+<p><img src="/images/llm_localization_pipeline.png"></p>
+<h2 id="11-What-is-Hygiene"><a href="#11-What-is-Hygiene" class="headerlink" title="11. What is Hygiene?"></a>11. What is Hygiene?</h2><p>It is frequent that the LLM will generate some unnecessary information in the translated records, such as:</p>
+<ul>
+<li>Redundant spaces, line breaks, punctuation, etc.</li>
+<li>Chinese characters like quotes, when translating to alphabetic languages, there would need to be some replacements.</li>
+<li>Unnecessary HTML tags, such as <code>&lt;p&gt;</code>, <code>&lt;br&gt;</code>, etc.</li>
+<li>Extra spaces among placeholder code, “{1} This is a test {2}”, which should be “{1}This is a test{2}” if {1} and {2} are color [color], [&#x2F;color] tags respectively.</li>
+</ul>
+<p>These hygiene processes no need to submit to LLM, obviously it is about programmatic string manipulation.</p>
+<p>Let’s take a look at the <code>data_level_2</code> dict type we have in the few previous posts:</p>
+<pre><code class="highlight python">data_level_2 = &#123;
+  <span class="string">&#x27;trans_unit_id_1&#x27;</span>: &#123;
+    <span class="string">&#x27;group_id&#x27;</span>: <span class="string">&#x27;group_1&#x27;</span>,
+    <span class="string">&#x27;para_id&#x27;</span>: <span class="string">&#x27;para_1&#x27;</span>,
+    <span class="string">&#x27;source&#x27;</span>: <span class="string">&#x27;乱世出&#123;1&#125;英雄&#123;2&#125;&#x27;</span>,
+    <span class="string">&#x27;target&#x27;</span>: <span class="string">&#x27;&#123;1&#125; Heroes &#123;2&#125; arise in troubled times&#x27;</span>, 
+    <span class="string">&#x27;trans_unit_id&#x27;</span>: <span class="string">&#x27;trans_unit_id_1&#x27;</span>,
+    <span class="string">&#x27;confirmed&#x27;</span>: <span class="literal">True</span>,
+    <span class="string">&#x27;locked&#x27;</span>: <span class="literal">False</span>,
+    <span class="string">&#x27;tunit_metadata&#x27;</span>: &#123;
+      <span class="string">&quot;1&quot;</span>: &#123;
+        <span class="string">&quot;type&quot;</span>: <span class="string">&quot;code&quot;</span>,
+        <span class="string">&quot;content&quot;</span>: <span class="string">&quot;[color=#1f8a34]&quot;</span>
+      &#125;,
+      <span class="string">&quot;2&quot;</span>: &#123;
+        <span class="string">&quot;type&quot;</span>: <span class="string">&quot;code&quot;</span>,
+        <span class="string">&quot;content&quot;</span>: <span class="string">&quot;[/color]&quot;</span>
+      &#125;
+    &#125;
+  &#125;,
+  ...
+&#125;</code></pre>
+
+<p>We will hygiene flow for the <code>target</code> field of each record in this dict with the template function like this, note that you may perform some of them sequentially in some cases:</p>
+<pre><code class="highlight python"><span class="keyword">def</span> <span class="title function_">_process_hygiene_function_flow</span>(<span class="params">data_dict, check_column=<span class="string">&#x27;target&#x27;</span>, to_column=<span class="string">&#x27;target&#x27;</span>, fix_callback=<span class="literal">None</span></span>):
+    <span class="keyword">for</span> key, item <span class="keyword">in</span> data_dict.items():
+        target = item.get(check_column, <span class="literal">None</span>)
+        
+        <span class="keyword">if</span> target <span class="keyword">is</span> <span class="literal">None</span>:
+            <span class="keyword">continue</span>
+        
+        <span class="comment"># Perform hygiene operations on the target text</span>
+        converted = hygiene_function(target)
+        item[to_column] = converted
+        
+        <span class="keyword">if</span> target == converted:
+            <span class="keyword">continue</span>
+        
+        logging.info(<span class="string">f&quot;Hygiene conversion to column <span class="subst">&#123;to_column&#125;</span> [<span class="subst">&#123;key&#125;</span>] <span class="subst">&#123;target&#125;</span> -&gt; <span class="subst">&#123;converted&#125;</span>&quot;</span>)
+        fix_callback(<span class="literal">True</span>) <span class="keyword">if</span> fix_callback <span class="keyword">else</span> <span class="literal">None</span>
+        
+    <span class="keyword">return</span> data_dict</code></pre>
+
+<p>What does this template hygiene function do?</p>
+<ul>
+<li>Iterates through each record in your translation dictionary (data_dict).</li>
+<li>Checks for the target text (or any specified column) in each record.</li>
+<li>Applies a <code>hygiene_function()</code> to clean up the text—removing unwanted spaces, fixing punctuation, or stripping out unnecessary HTML tags.</li>
+<li>Updates the record with the cleaned text, it could be the same column or a different one <code>to_column</code> if for review purposes.</li>
+<li>Logs the change if any modification was made, making it easy to track what was cleaned.</li>
+<li>Optionally triggers a callback if you want to perform additional actions after a fix.</li>
+</ul>
+<h3 id="Hygiene-composed-form"><a href="#Hygiene-composed-form" class="headerlink" title="Hygiene composed form"></a>Hygiene composed form</h3><p>In the Validation step, I have used the <code>unicodedata.normalize()</code> function to convert the text to a composed form, if you did not apply that, you can use the following code to hygiene the composed form of the text.</p>
+<pre><code class="highlight python"><span class="keyword">import</span> unicodedata
+<span class="keyword">def</span> <span class="title function_">normalize_text</span>(<span class="params">text</span>):
+    <span class="comment"># Normalize to NFC (composed form)</span>
+    <span class="keyword">return</span> unicodedata.normalize(<span class="string">&#x27;NFC&#x27;</span>, text).strip()
+
+<span class="keyword">def</span> <span class="title function_">_process_composed_form_flow</span>(<span class="params">data_dict, check_column=<span class="string">&#x27;target&#x27;</span>, to_column=<span class="string">&#x27;target&#x27;</span>, fix_callback=<span class="literal">None</span></span>):
+    <span class="keyword">for</span> key, item <span class="keyword">in</span> data_dict.items():
+        target = item.get(check_column, <span class="literal">None</span>)
+        
+        <span class="keyword">if</span> target <span class="keyword">is</span> <span class="literal">None</span>:
+            <span class="keyword">continue</span>
+        
+        converted = normalize_text(target)
+        item[to_column] = converted
+        
+        <span class="keyword">if</span> target == converted:
+            <span class="keyword">continue</span>
+        
+        logging.info(<span class="string">f&quot;Composed form conversion to column <span class="subst">&#123;to_column&#125;</span> [<span class="subst">&#123;key&#125;</span>] <span class="subst">&#123;target&#125;</span> -&gt; <span class="subst">&#123;converted&#125;</span>&quot;</span>)
+        fix_callback(<span class="literal">True</span>) <span class="keyword">if</span> fix_callback <span class="keyword">else</span> <span class="literal">None</span>
+        
+    <span class="keyword">return</span> data_dict</code></pre>
+
+<p>Why it is important?</p>
+<p>In Unicode, characters can often be represented in multiple ways. The two most common normalization forms are:</p>
+<ul>
+<li>NFC (Normalization Form C, Composed): Characters are composed into a single code point where possible.</li>
+<li>NFD (Normalization Form D, Decomposed): Characters are split into base characters and combining marks.</li>
+<li></li>
+</ul>
+<p>Example: The character “é”</p>
+<ul>
+<li>Single code point (composed, NFC):<ul>
+<li>Unicode: U+00E9</li>
+<li>Python: ‘é’</li>
+</ul>
+</li>
+<li>Decomposed (NFD):<ul>
+<li>Unicode: U+0065 (e) + U+0301 (combining acute accent)</li>
+<li>Python: ‘e\u0301’</li>
+</ul>
+</li>
+</ul>
+<pre><code class="highlight python">
+<span class="keyword">import</span> unicodedata
+
+s1 = <span class="string">&#x27;é&#x27;</span>           <span class="comment"># Composed form (NFC)</span>
+s2 = <span class="string">&#x27;e\u0301&#x27;</span>     <span class="comment"># Decomposed form (NFD)</span>
+
+<span class="built_in">print</span>(s1 == s2)  <span class="comment"># False</span>
+
+<span class="built_in">print</span>(unicodedata.normalize(<span class="string">&#x27;NFC&#x27;</span>, s2) == s1)  <span class="comment"># True</span>
+<span class="built_in">print</span>(unicodedata.normalize(<span class="string">&#x27;NFD&#x27;</span>, s1) == s2)  <span class="comment"># True</span></code></pre>
+
+<p>You may improve it further in your own language basically.</p>
+<h3 id="Convert-punctuation"><a href="#Convert-punctuation" class="headerlink" title="Convert punctuation"></a>Convert punctuation</h3><p>Chinese is an interesting language, it has its own punctuation marks, such as <code>，</code> (comma), <code>。</code> (period), <code>！</code> (exclamation mark), etc. When translating to alphabetic languages, we need to convert these punctuation marks to their English counterparts, such as <code>,</code>, <code>.</code>, <code>!</code>, etc.</p>
+<pre><code class="highlight python">
+<span class="comment"># Expanded dictionary for Chinese and full-width punctuation to English equivalents</span>
+punctuation_map = &#123;
+    <span class="string">&quot;·&quot;</span>: <span class="string">&quot;-&quot;</span>,     <span class="comment"># Middle dot</span>
+    <span class="string">&quot;。&quot;</span>: <span class="string">&quot;.&quot;</span>,      <span class="comment"># Full stop</span>
+    <span class="string">&quot;，&quot;</span>: <span class="string">&quot;,&quot;</span>,      <span class="comment"># Comma</span>
+    <span class="string">&quot;、&quot;</span>: <span class="string">&quot;,&quot;</span>,      <span class="comment"># Enumeration comma (same as comma)</span>
+    <span class="string">&quot;；&quot;</span>: <span class="string">&quot;;&quot;</span>,      <span class="comment"># Semicolon</span>
+    <span class="string">&quot;：&quot;</span>: <span class="string">&quot;:&quot;</span>,      <span class="comment"># Colon</span>
+    <span class="string">&quot;？&quot;</span>: <span class="string">&quot;?&quot;</span>,      <span class="comment"># Question mark</span>
+    <span class="string">&quot;！&quot;</span>: <span class="string">&quot;!&quot;</span>,      <span class="comment"># Exclamation mark</span>
+    <span class="string">&quot;｡&quot;</span>: <span class="string">&quot;.&quot;</span>,      <span class="comment"># Japanese full stop (｡)</span>
+    <span class="string">&quot;＂&quot;</span>: <span class="string">&quot;\&quot;&quot;</span>,     <span class="comment"># Quotation mark (full-width)</span>
+    <span class="string">&quot;＃&quot;</span>: <span class="string">&quot;#&quot;</span>,      <span class="comment"># Hash (full-width)</span>
+    <span class="string">&quot;＄&quot;</span>: <span class="string">&quot;$&quot;</span>,      <span class="comment"># Dollar sign (full-width)</span>
+    <span class="string">&quot;％&quot;</span>: <span class="string">&quot;%&quot;</span>,      <span class="comment"># Percent sign (full-width)</span>
+    <span class="string">&quot;＆&quot;</span>: <span class="string">&quot;&amp;&quot;</span>,      <span class="comment"># Ampersand (full-width)</span>
+    <span class="string">&quot;＇&quot;</span>: <span class="string">&quot;&#x27;&quot;</span>,     <span class="comment"># Apostrophe (full-width)</span>
+    <span class="string">&quot;（&quot;</span>: <span class="string">&quot;(&quot;</span>,   <span class="comment"># Parentheses (full-width)</span>
+    <span class="string">&quot;）&quot;</span>: <span class="string">&quot;)&quot;</span>,   <span class="comment"># Parentheses (full-width)</span>
+    <span class="string">&quot;＊&quot;</span>: <span class="string">&quot;*&quot;</span>,      <span class="comment"># Asterisk (full-width)</span>
+    <span class="string">&quot;＋&quot;</span>: <span class="string">&quot;+&quot;</span>,      <span class="comment"># Plus sign (full-width)</span>
+    <span class="string">&quot;，&quot;</span>: <span class="string">&quot;,&quot;</span>,      <span class="comment"># Comma (full-width)</span>
+    <span class="string">&quot;－&quot;</span>: <span class="string">&quot;-&quot;</span>,      <span class="comment"># Minus (full-width)</span>
+    <span class="string">&quot;／&quot;</span>: <span class="string">&quot;/&quot;</span>,      <span class="comment"># Slash (full-width)</span>
+    <span class="string">&quot;：&quot;</span>: <span class="string">&quot;:&quot;</span>,      <span class="comment"># Colon (full-width)</span>
+    <span class="string">&quot;；&quot;</span>: <span class="string">&quot;;&quot;</span>,      <span class="comment"># Semicolon (full-width)</span>
+    <span class="string">&quot;＜&quot;</span>: <span class="string">&quot;&lt;&quot;</span>,      <span class="comment"># Less than sign (full-width)</span>
+    <span class="string">&quot;＝&quot;</span>: <span class="string">&quot;=&quot;</span>,      <span class="comment"># Equals sign (full-width)</span>
+    <span class="string">&quot;＞&quot;</span>: <span class="string">&quot;&gt;&quot;</span>,      <span class="comment"># Greater than sign (full-width)</span>
+    <span class="string">&quot;＠&quot;</span>: <span class="string">&quot;@&quot;</span>,      <span class="comment"># At sign (full-width)</span>
+    <span class="string">&quot;［&quot;</span>: <span class="string">&quot;[&quot;</span>,      <span class="comment"># Left square bracket (full-width)</span>
+    <span class="string">&quot;＼&quot;</span>: <span class="string">&quot;\\&quot;</span>,     <span class="comment"># Backslash (full-width)</span>
+    <span class="string">&quot;］&quot;</span>: <span class="string">&quot;]&quot;</span>,      <span class="comment"># Right square bracket (full-width)</span>
+    <span class="string">&quot;＾&quot;</span>: <span class="string">&quot;^&quot;</span>,      <span class="comment"># Caret (full-width)</span>
+    <span class="string">&quot;＿&quot;</span>: <span class="string">&quot;_&quot;</span>,      <span class="comment"># Underscore (full-width)</span>
+    <span class="string">&quot;｀&quot;</span>: <span class="string">&quot;`&quot;</span>,      <span class="comment"># Backtick (full-width)</span>
+    <span class="string">&quot;｛&quot;</span>: <span class="string">&quot;&#123;&quot;</span>,      <span class="comment"># Left curly brace (full-width)</span>
+    <span class="string">&quot;｜&quot;</span>: <span class="string">&quot;|&quot;</span>,      <span class="comment"># Pipe (full-width)</span>
+    <span class="string">&quot;｝&quot;</span>: <span class="string">&quot;&#125;&quot;</span>,      <span class="comment"># Right curly brace (full-width)</span>
+    <span class="string">&quot;～&quot;</span>: <span class="string">&quot;~&quot;</span>,      <span class="comment"># Tilde (full-width)</span>
+    <span class="string">&quot;｟&quot;</span>: <span class="string">&quot;[&quot;</span>,      <span class="comment"># Open corner bracket (full-width)</span>
+    <span class="string">&quot;｠&quot;</span>: <span class="string">&quot;]&quot;</span>,      <span class="comment"># Close corner bracket (full-width)</span>
+    <span class="string">&quot;｢&quot;</span>: <span class="string">&quot;「&quot;</span>,      <span class="comment"># Opening corner bracket (Chinese quotation)</span>
+    <span class="string">&quot;｣&quot;</span>: <span class="string">&quot;」&quot;</span>,      <span class="comment"># Closing corner bracket (Chinese quotation)</span>
+    <span class="string">&quot;､&quot;</span>: <span class="string">&quot;,&quot;</span>,      <span class="comment"># Japanese comma (｡)</span>
+    <span class="string">&quot;、&quot;</span>: <span class="string">&quot;,&quot;</span>,      <span class="comment"># Japanese enumeration comma</span>
+    <span class="string">&quot;〃&quot;</span>: <span class="string">&quot;\&quot;&quot;</span>,     <span class="comment"># Ditto mark (used to repeat a phrase)</span>
+    <span class="string">&quot;》&quot;</span>: <span class="string">&quot;\&quot;&quot;</span>,      <span class="comment"># Chinese right angle quotation mark</span>
+    <span class="string">&quot;《&quot;</span>: <span class="string">&quot;\&quot;&quot;</span>,      <span class="comment"># Chinese left angle quotation mark</span>
+    <span class="string">&quot;「&quot;</span>: <span class="string">&quot;“&quot;</span>,      <span class="comment"># Left Chinese quotation mark</span>
+    <span class="string">&quot;」&quot;</span>: <span class="string">&quot;”&quot;</span>,      <span class="comment"># Right Chinese quotation mark</span>
+    <span class="string">&quot;『&quot;</span>: <span class="string">&quot;‘&quot;</span>,      <span class="comment"># Left corner quotation mark</span>
+    <span class="string">&quot;』&quot;</span>: <span class="string">&quot;’&quot;</span>,      <span class="comment"># Right corner quotation mark</span>
+    <span class="string">&quot;【&quot;</span>: <span class="string">&quot;[&quot;</span>,      <span class="comment"># Left square bracket (Chinese)</span>
+    <span class="string">&quot;】&quot;</span>: <span class="string">&quot;]&quot;</span>,      <span class="comment"># Right square bracket (Chinese)</span>
+    <span class="string">&quot;〔&quot;</span>: <span class="string">&quot;[&quot;</span>,      <span class="comment"># Left curly bracket (Chinese)</span>
+    <span class="string">&quot;〕&quot;</span>: <span class="string">&quot;]&quot;</span>,      <span class="comment"># Right curly bracket (Chinese)</span>
+    <span class="string">&quot;〖&quot;</span>: <span class="string">&quot;[&quot;</span>,      <span class="comment"># Left double square bracket</span>
+    <span class="string">&quot;〗&quot;</span>: <span class="string">&quot;]&quot;</span>,      <span class="comment"># Right double square bracket</span>
+    <span class="string">&quot;〘&quot;</span>: <span class="string">&quot;[&quot;</span>,      <span class="comment"># Left round bracket (Chinese)</span>
+    <span class="string">&quot;〙&quot;</span>: <span class="string">&quot;]&quot;</span>,      <span class="comment"># Right round bracket (Chinese)</span>
+    <span class="string">&quot;〚&quot;</span>: <span class="string">&quot;[&quot;</span>,      <span class="comment"># Left parenthesis (Chinese)</span>
+    <span class="string">&quot;〛&quot;</span>: <span class="string">&quot;]&quot;</span>,      <span class="comment"># Right parenthesis (Chinese)</span>
+    <span class="string">&quot;〜&quot;</span>: <span class="string">&quot;~&quot;</span>,      <span class="comment"># Full-width tilde (similar to ~)</span>
+    <span class="string">&quot;〝&quot;</span>: <span class="string">&quot;\&quot;&quot;</span>,     <span class="comment"># Left double quotation mark (Chinese)</span>
+    <span class="string">&quot;〞&quot;</span>: <span class="string">&quot;\&quot;&quot;</span>,     <span class="comment"># Right double quotation mark (Chinese)</span>
+    <span class="string">&quot;〟&quot;</span>: <span class="string">&quot;\&quot;&quot;</span>,     <span class="comment"># Quotation marks</span>
+    <span class="string">&quot;〰&quot;</span>: <span class="string">&quot;-&quot;</span>,      <span class="comment"># Wavy dash</span>
+    <span class="string">&quot;〾&quot;</span>: <span class="string">&quot;~&quot;</span>,      <span class="comment"># Wavy tilde</span>
+    <span class="string">&quot;〿&quot;</span>: <span class="string">&quot;~&quot;</span>,      <span class="comment"># Full-width tilde</span>
+    <span class="string">&quot;–&quot;</span>: <span class="string">&quot;-&quot;</span>,      <span class="comment"># En dash (similar to English dash)</span>
+    <span class="string">&quot;—&quot;</span>: <span class="string">&quot;-&quot;</span>,     <span class="comment"># Em dash (double dash)</span>
+    <span class="string">&quot;‘&quot;</span>: <span class="string">&quot;&#x27;&quot;</span>,      <span class="comment"># Left single quotation mark (English)</span>
+    <span class="string">&quot;’&quot;</span>: <span class="string">&quot;&#x27;&quot;</span>,      <span class="comment"># Right single quotation mark (English)</span>
+    <span class="string">&quot;‛&quot;</span>: <span class="string">&quot;&#x27;&quot;</span>,      <span class="comment"># Reversed single quotation mark</span>
+    <span class="string">&quot;“&quot;</span>: <span class="string">&quot;\&quot;&quot;</span>,     <span class="comment"># Left double quotation mark</span>
+    <span class="string">&quot;”&quot;</span>: <span class="string">&quot;\&quot;&quot;</span>,     <span class="comment"># Right double quotation mark</span>
+    <span class="string">&quot;„&quot;</span>: <span class="string">&quot;\&quot;&quot;</span>,     <span class="comment"># Low double quotation mark</span>
+    <span class="string">&quot;‟&quot;</span>: <span class="string">&quot;\&quot;&quot;</span>,     <span class="comment"># Reversed low double quotation mark</span>
+    <span class="string">&quot;…&quot;</span>: <span class="string">&quot;...&quot;</span>,    <span class="comment"># Ellipsis</span>
+    <span class="string">&quot;‧&quot;</span>: <span class="string">&quot;.&quot;</span>,      <span class="comment"># Dotted symbol, similar to period</span>
+    <span class="string">&quot;﹏&quot;</span>: <span class="string">&quot;_&quot;</span>,      <span class="comment"># Low line or underscore</span>
+    <span class="string">&quot;»&quot;</span>: <span class="string">&quot;&gt;&quot;</span>,     <span class="comment"># Right angle quotation mark</span>
+    <span class="string">&quot;«&quot;</span>: <span class="string">&quot;&lt;&quot;</span>,      <span class="comment"># Left angle quotation mark</span>
+    <span class="string">&quot;‹&quot;</span>: <span class="string">&quot;&lt;&quot;</span>,      <span class="comment"># Left angle bracket</span>
+    <span class="string">&quot;›&quot;</span>: <span class="string">&quot;&gt;&quot;</span>,      <span class="comment"># Right angle bracket</span>
+    <span class="string">&quot;〈&quot;</span>: <span class="string">&quot;&lt;&quot;</span>,      <span class="comment"># Left angle bracket (Chinese)</span>
+    <span class="string">&quot;〉&quot;</span>: <span class="string">&quot;&gt;&quot;</span>,      <span class="comment"># Right angle bracket (Chinese)</span>
+&#125;
+
+<span class="keyword">def</span> <span class="title function_">convert_punctuation</span>(<span class="params">text</span>):
+    <span class="comment"># Replace each Chinese and full-width punctuation character with its English equivalent</span>
+    <span class="keyword">for</span> ch, replacement <span class="keyword">in</span> punctuation_map.items():
+        text = text.replace(ch, replacement)
+        
+    <span class="keyword">return</span> text</code></pre>
+
+<p>Applying this to our <code>data_level_2</code> dict, we can use the following code:</p>
+<pre><code class="highlight python"><span class="keyword">def</span> <span class="title function_">_process_target_punct_flow</span>(<span class="params">data_dict, check_column=<span class="string">&#x27;target&#x27;</span>, to_column=<span class="string">&#x27;target&#x27;</span>, fix_callback=<span class="literal">None</span></span>):
+    <span class="keyword">for</span> key, item <span class="keyword">in</span> data_dict.items():
+        target = item.get(check_column, <span class="literal">None</span>)
+        
+        <span class="keyword">if</span> target <span class="keyword">is</span> <span class="literal">None</span>:
+            <span class="keyword">continue</span>
+        
+        converted = convert_punctuation(target)
+        item[to_column] = converted
+        
+        <span class="keyword">if</span> target == converted:
+            <span class="keyword">continue</span>
+        
+        logging.info(<span class="string">f&quot;Punctuation conversion to column <span class="subst">&#123;to_column&#125;</span> [<span class="subst">&#123;key&#125;</span>] <span class="subst">&#123;target&#125;</span> -&gt; <span class="subst">&#123;converted&#125;</span>&quot;</span>)
+        fix_callback(<span class="literal">True</span>) <span class="keyword">if</span> fix_callback <span class="keyword">else</span> <span class="literal">None</span>
+        
+    <span class="keyword">return</span> data_dict</code></pre>
+
+<h3 id="Detect-punctuation-mismatches"><a href="#Detect-punctuation-mismatches" class="headerlink" title="Detect punctuation mismatches"></a>Detect punctuation mismatches</h3><p>Why we need to detect punctuation mismatches? Because the translation may have some punctuation mismatches between the source and target text, for example, the source text has a comma <code>,</code> but the target text has a period <code>.</code>, or the source text has seven punctuation marks but the target text has only six. This can lead to confusion and misinterpretation of the text, especially in languages that rely heavily on punctuation to convey meaning.</p>
+<p>For example of good punctuation ordering:<br>Source: “乱世出英雄，三国演义！” &#x3D;&gt; <code>[&quot;，&quot;, &quot;！&quot;]</code></p>
+<ul>
+<li>Target (before conversion): “Heroes arise in troubled times， Three Kingdoms ！” &#x3D;&gt; <code>[&quot;，&quot;, &quot;！&quot;]</code></li>
+<li>Target (after conversion): “Heroes arise in troubled times, Three Kingdoms!” &#x3D;&gt; <code>[&quot;，&quot;, &quot;！&quot;]</code> are correct because both source and target texts have the same punctuation marks in the same order, after conversion.</li>
+<li>Target (no coversion if LLM automatically converted punctuation): “Heroes arise in troubled times, Three Kingdoms!” &#x3D;&gt; <code>[&quot;,&quot;, &quot;!&quot;]</code></li>
+</ul>
+<p>Bad punctuation ordering:<br>Source: “乱世出英雄，三国演义！” &#x3D;&gt; <code>[&quot;，&quot;, &quot;！&quot;]</code></p>
+<ul>
+<li>Target (before conversion): “Heroes arise in troubled times， Three Kingdoms。” &#x3D;&gt; <code>[&quot;，&quot;, &quot;。&quot;]</code></li>
+<li>Target (after conversion): “Heroes arise in troubled times, Three Kingdoms.” &#x3D;&gt; <code>[&quot;,&quot;, &quot;.&quot;]</code></li>
+<li>Target (no coversion if LLM automatically converted punctuation): “Heroes arise in troubled times, Three Kingdoms.” &#x3D;&gt; <code>[&quot;,&quot;, &quot;.&quot;]</code> are incorrect because the source text has a <code>！</code> it must be <code>!</code> in the target text, not <code>.</code></li>
+</ul>
+<p>We will use <code>not char.isalnum()</code> to extract all the punctuation marks from both source and target and compare them as array comparison</p>
+<pre><code class="highlight python">source = <span class="string">&quot;Hello, world! 123 (test).&quot;</span>
+punctuation = [char <span class="keyword">for</span> char <span class="keyword">in</span> source <span class="keyword">if</span> <span class="keyword">not</span> char.isalnum() <span class="keyword">and</span> char != <span class="string">&#x27; &#x27;</span>]
+<span class="built_in">print</span>(punctuation)  <span class="comment"># Output: [&#x27;,&#x27;, &#x27;!&#x27;, &#x27;(&#x27;, &#x27;)&#x27;, &#x27;.&#x27;]</span></code></pre>
+
+<p>In my case I only need to detect, not process hygiene, so if you have time you can also process to match the target punctuation marks.</p>
+<pre><code class="highlight python"><span class="keyword">def</span> <span class="title function_">is_punctuation_equal</span>(<span class="params">source, target, with_source_converted=<span class="literal">True</span></span>):
+    <span class="keyword">if</span> with_source_converted:
+        source = convert_punctuation(source)
+        
+    source_punctuation = [char <span class="keyword">for</span> char <span class="keyword">in</span> source <span class="keyword">if</span> <span class="keyword">not</span> char.isalnum() <span class="keyword">and</span> char != <span class="string">&#x27; &#x27;</span>]
+    
+    target_punctuation = [char <span class="keyword">for</span> char <span class="keyword">in</span> target <span class="keyword">if</span> <span class="keyword">not</span> char.isalnum() <span class="keyword">and</span> char != <span class="string">&#x27; &#x27;</span>]
+    
+    is_equal = source_punctuation == target_punctuation
+    
+    <span class="keyword">return</span> is_equal, source_punctuation, target_punctuation
+
+<span class="comment">## This function should run after process_target_punct_flow</span>
+<span class="keyword">def</span> <span class="title function_">_detect_punctuation_mismatch_flow</span>(<span class="params">data_dict, check_source_column=<span class="string">&#x27;source&#x27;</span>, check_target_column=<span class="string">&#x27;target&#x27;</span>, detect_callback=<span class="literal">None</span></span>):
+    <span class="keyword">for</span> key, item <span class="keyword">in</span> data_dict.items():
+        target = item.get(check_target_column, <span class="literal">None</span>)
+        source = item.get(check_source_column, <span class="literal">None</span>)
+        
+        <span class="keyword">if</span> target <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">or</span> source <span class="keyword">is</span> <span class="literal">None</span>:
+            <span class="keyword">continue</span>
+        
+        is_equal, source_punctuation, target_punctuation = is_punctuation_equal(source, target)
+        
+        <span class="keyword">if</span> is_equal:
+            <span class="keyword">continue</span>
+        
+        logging.info(<span class="string">f&quot;Punctuation mismatch detected [<span class="subst">&#123;key&#125;</span>] <span class="subst">&#123;source&#125;</span> -&gt; <span class="subst">&#123;target&#125;</span> | <span class="subst">&#123;source_punctuation&#125;</span> -&gt; <span class="subst">&#123;target_punctuation&#125;</span>&quot;</span>)
+        item[<span class="string">&#x27;punctuation_mismatch&#x27;</span>] = <span class="string">f&quot;<span class="subst">&#123;source_punctuation&#125;</span> -&gt; <span class="subst">&#123;target_punctuation&#125;</span>&quot;</span>
+        detect_callback(<span class="literal">True</span>) <span class="keyword">if</span> detect_callback <span class="keyword">else</span> <span class="literal">None</span>
+   
+    <span class="keyword">return</span> data_dict
+</code></pre>
+
+
+
+<h3 id="Detect-chinese-characters"><a href="#Detect-chinese-characters" class="headerlink" title="Detect chinese characters"></a>Detect chinese characters</h3><p>Similar to how the hygiene composed form can be converted directly without notice, we have two options for handling Chinese characters: we can either resubmit the records to the LLM for retranslation, or simply detect their presence in the target text. If Chinese characters are detected, they can be translated later using an alternative machine translation service if available.</p>
+<pre><code class="highlight python">
+<span class="keyword">import</span> re
+
+CHINESE_WORD_PATTERN = re.<span class="built_in">compile</span>(<span class="string">r&#x27;[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]+&#x27;</span>)
+<span class="keyword">def</span> <span class="title function_">detect_chinese_with_regex</span>(<span class="params">text</span>):
+    <span class="comment"># Define a regex pattern to match Chinese characters</span>
+    
+    <span class="comment"># Find all Chinese words in the text</span>
+    chinese_words = CHINESE_WORD_PATTERN.findall(text)
+    
+    <span class="keyword">return</span> chinese_words
+
+
+<span class="keyword">def</span> <span class="title function_">_detect_chinese_flow</span>(<span class="params">data_dict, check_column=<span class="string">&#x27;target&#x27;</span>, detect_callback=<span class="literal">None</span></span>):
+    <span class="keyword">for</span> key, item <span class="keyword">in</span> data_dict.items():
+        target = item.get(check_column, <span class="literal">None</span>)
+        
+        <span class="keyword">if</span> target <span class="keyword">is</span> <span class="literal">None</span>:
+            <span class="keyword">continue</span>
+        
+        words = detect_chinese_with_regex(target)
+        
+        <span class="keyword">if</span> <span class="built_in">len</span>(words) == <span class="number">0</span>:
+            <span class="keyword">continue</span>
+        
+        logging.info(<span class="string">f&quot;Chinese words detected [<span class="subst">&#123;key&#125;</span>] <span class="subst">&#123;target&#125;</span> -&gt; <span class="subst">&#123;words&#125;</span>&quot;</span>)
+        detect_callback(<span class="literal">True</span>) <span class="keyword">if</span> detect_callback <span class="keyword">else</span> <span class="literal">None</span>
+        
+    <span class="keyword">return</span> data_dict</code></pre>
+
+
+<h3 id="Process-variable-spaces"><a href="#Process-variable-spaces" class="headerlink" title="Process variable spaces"></a>Process variable spaces</h3><p>We may have some variables in the target text, such as <code>&#123;1&#125;</code>, <code>&#123;2&#125;</code>, etc., which are used to represent some code or color tags. We need to ensure that there are no extra spaces between these variables and the surrounding text. For example, if we have a target text like <code>&#123;1&#125; This is a test &#123;2&#125;</code>, we need to convert it to <code>&#123;1&#125;This is a test&#123;2&#125;</code> if <code>&#123;1&#125;</code> and <code>&#123;2&#125;</code> are color tags. But if they are naming variables, we can keep the spaces, for example, <code>Our here &#123;1&#125; defeated &#123;2&#125; the enemy</code>, we can keep the spaces as <code>&#123;1&#125; defeated &#123;2&#125;</code>. In short, we will base on the metadata of the translation unit to determine how to handle these variables.</p>
+<pre><code class="highlight python"><span class="keyword">def</span> <span class="title function_">remove_color</span>(<span class="params">text</span>):
+    text = re.sub(<span class="string">r&#x27;\[color=#[0-9a-fA-F]+\]&#x27;</span>, <span class="string">&#x27;&#x27;</span>, text)
+    text = re.sub(<span class="string">r&#x27;\[/color\]&#x27;</span>, <span class="string">&#x27;&#x27;</span>, text)
+    <span class="keyword">return</span> text
+
+<span class="keyword">def</span> <span class="title function_">replace_variable</span>(<span class="params">text, metadata</span>):
+    <span class="keyword">for</span> i <span class="keyword">in</span> metadata:
+        var = i
+        <span class="keyword">if</span> var <span class="keyword">in</span> text:
+            content = metadata[i][<span class="string">&#x27;content&#x27;</span>]
+            <span class="keyword">if</span> <span class="string">&#x27;color=&#x27;</span> <span class="keyword">in</span> content <span class="keyword">or</span> <span class="string">&#x27;&lt;#&#x27;</span> <span class="keyword">in</span> content:
+                text = text.replace(var, content)
+            <span class="keyword">elif</span> <span class="string">&#x27;/color&#x27;</span> <span class="keyword">in</span> content:
+                text = text.replace(var, content)
+            <span class="keyword">else</span>:
+                <span class="keyword">continue</span>
+            
+    <span class="keyword">return</span> text
+
+<span class="keyword">def</span> <span class="title function_">adjust_space_between_variables</span>(<span class="params">text, tunit_metadata</span>):
+    tunit_metadata = &#123;k: &#123;<span class="string">&#x27;content&#x27;</span>: v[<span class="string">&#x27;content&#x27;</span>]&#125; <span class="keyword">for</span> k, v <span class="keyword">in</span> tunit_metadata.items()&#125;
+    metadata = &#123;<span class="string">&quot;&#123;&quot;</span> + k + <span class="string">&quot;&#125;&quot;</span>: v <span class="keyword">for</span> k, v <span class="keyword">in</span> tunit_metadata.items()&#125;
+    queue = []
+    index = <span class="number">0</span> 
+    <span class="keyword">while</span> index &lt; <span class="built_in">len</span>(text):
+        <span class="keyword">if</span> text[index] == <span class="string">&#x27;&#123;&#x27;</span>:
+            var_start = index
+            <span class="comment"># find next &#x27;&#125;&#x27;</span>
+            <span class="keyword">while</span> index &lt; <span class="built_in">len</span>(text) <span class="keyword">and</span> text[index] != <span class="string">&#x27;&#125;&#x27;</span>:
+                index += <span class="number">1</span>
+                
+            index += <span class="number">1</span>
+            queue.append(text[var_start:index])
+        <span class="keyword">elif</span> text[index] <span class="keyword">in</span> [<span class="string">&#x27;,&#x27;</span>, <span class="string">&#x27;.&#x27;</span>, <span class="string">&#x27;!&#x27;</span>, <span class="string">&#x27;?&#x27;</span>, <span class="string">&#x27;:&#x27;</span>, <span class="string">&#x27;;&#x27;</span>, <span class="string">&#x27;[&#x27;</span>, <span class="string">&#x27;]&#x27;</span>, <span class="string">&#x27;(&#x27;</span>, <span class="string">&#x27;)&#x27;</span>, <span class="string">&#x27;&quot;&#x27;</span>]:
+            queue.append(text[index])
+            index += <span class="number">1</span>
+        <span class="keyword">elif</span> text[index] == <span class="string">&#x27; &#x27;</span>:
+            index += <span class="number">1</span>
+        <span class="keyword">elif</span> text[index].isalnum():
+            word_start = index
+            <span class="keyword">while</span> index &lt; <span class="built_in">len</span>(text) <span class="keyword">and</span> (text[index].isalnum() <span class="keyword">or</span> text[index] == <span class="string">&quot;%&quot;</span>):
+                index += <span class="number">1</span>
+            queue.append(text[word_start:index])
+        <span class="keyword">else</span>:
+            queue.append(text[index])
+            index+=<span class="number">1</span>
+    
+    merge_queue = []
+    stack = []
+    break_line_index = []
+    <span class="keyword">for</span> index, token <span class="keyword">in</span> <span class="built_in">enumerate</span>(queue):
+        <span class="keyword">if</span> index == <span class="number">0</span>:
+            merge_queue.append(token)
+            <span class="keyword">continue</span>
+        
+        previous_token = queue[index-<span class="number">1</span>]
+        
+        <span class="keyword">if</span> token <span class="keyword">in</span> metadata <span class="keyword">and</span> previous_token <span class="keyword">not</span> <span class="keyword">in</span> metadata:
+            content = metadata[token][<span class="string">&#x27;content&#x27;</span>]
+            <span class="keyword">if</span> <span class="string">&#x27;color=&#x27;</span> <span class="keyword">in</span> content <span class="keyword">or</span> <span class="string">&#x27;&lt;#&#x27;</span> <span class="keyword">in</span> content:
+                merge_queue.append(token)
+            <span class="keyword">elif</span> <span class="string">&#x27;/color&#x27;</span> <span class="keyword">in</span> content:
+                merge_queue[-<span class="number">1</span>] += token
+            <span class="keyword">else</span>:
+                <span class="keyword">if</span> merge_queue[-<span class="number">1</span>] <span class="keyword">not</span> <span class="keyword">in</span> content:
+                    <span class="keyword">if</span> merge_queue[-<span class="number">1</span>] <span class="keyword">in</span> [<span class="string">&#x27;[&#x27;</span>, <span class="string">&#x27;(&#x27;</span>, <span class="string">&#x27;&quot;&#x27;</span>]:
+                        merge_queue[-<span class="number">1</span>] += token
+                    <span class="keyword">else</span>:
+                        merge_queue.append(token)
+                        <span class="keyword">if</span> content == <span class="string">&#x27;\\n&#x27;</span>: break_line_index.append(token)
+                <span class="keyword">else</span>:
+                    merge_queue[-<span class="number">1</span>] += token
+                    
+        <span class="keyword">elif</span> token <span class="keyword">in</span> metadata <span class="keyword">and</span> previous_token <span class="keyword">in</span> metadata:
+            content = metadata[token][<span class="string">&#x27;content&#x27;</span>]
+            <span class="keyword">if</span> <span class="string">&#x27;color=&#x27;</span> <span class="keyword">in</span> content <span class="keyword">or</span> <span class="string">&#x27;&lt;#&#x27;</span> <span class="keyword">in</span> content:
+                merge_queue[-<span class="number">1</span>] += token
+            <span class="keyword">elif</span> <span class="string">&#x27;/color&#x27;</span> <span class="keyword">in</span> content:
+                merge_queue[-<span class="number">1</span>] += token
+            <span class="keyword">else</span>:
+                merge_queue[-<span class="number">1</span>] += token
+
+        <span class="keyword">elif</span> token == <span class="string">&#x27;&quot;&#x27;</span>:
+            <span class="keyword">if</span> stack <span class="keyword">and</span> stack[-<span class="number">1</span>] == <span class="string">&#x27;&quot;&#x27;</span>:
+                merge_queue[-<span class="number">1</span>] += token
+                stack.pop()
+            <span class="keyword">else</span>:
+                merge_queue.append(token)
+                stack.append(token)
+        <span class="keyword">elif</span> token <span class="keyword">in</span> [<span class="string">&#x27;[&#x27;</span>, <span class="string">&#x27;(&#x27;</span>]:
+            merge_queue.append(token)
+        <span class="keyword">elif</span> token <span class="keyword">in</span> [<span class="string">&#x27;]&#x27;</span>, <span class="string">&#x27;)&#x27;</span>]:
+            merge_queue[-<span class="number">1</span>] += token
+        <span class="keyword">elif</span> token <span class="keyword">in</span> [<span class="string">&#x27;,&#x27;</span>, <span class="string">&#x27;.&#x27;</span>, <span class="string">&#x27;!&#x27;</span>, <span class="string">&#x27;?&#x27;</span>, <span class="string">&#x27;:&#x27;</span>, <span class="string">&#x27;;&#x27;</span>]:
+            merge_queue[-<span class="number">1</span>] += token
+        <span class="keyword">elif</span> previous_token <span class="keyword">in</span> metadata:
+            content = metadata[previous_token][<span class="string">&#x27;content&#x27;</span>]
+            <span class="keyword">if</span> <span class="string">&#x27;color=&#x27;</span> <span class="keyword">in</span> content <span class="keyword">or</span> <span class="string">&#x27;&lt;#&#x27;</span> <span class="keyword">in</span> content:
+                merge_queue[-<span class="number">1</span>] += token
+            <span class="keyword">elif</span> <span class="string">&#x27;/color&#x27;</span> <span class="keyword">in</span> content:
+                merge_queue.append(token)
+            <span class="keyword">else</span>:
+                merge_queue.append(token)
+        <span class="keyword">else</span>:
+            merge_queue.append(token)
+            
+    <span class="comment"># logging.info(f&quot;Queue: &#123;queue&#125;&quot;)</span>
+    <span class="comment"># logging.info(f&quot;Merge queue: &#123;merge_queue&#125;&quot;)</span>
+    
+    text = <span class="string">&#x27; &#x27;</span>.join(merge_queue)
+    <span class="keyword">for</span> i <span class="keyword">in</span> break_line_index:
+        text = text.replace(<span class="string">f&#x27; <span class="subst">&#123;i&#125;</span> &#x27;</span>, i)
+    
+    hidden_color_text = remove_color(replace_variable(text, metadata))
+    <span class="keyword">return</span> text, hidden_color_text
+
+<span class="keyword">def</span> <span class="title function_">_process_variable_space_flow</span>(<span class="params">data_dict, check_column=<span class="string">&#x27;target&#x27;</span>, fix_callback=<span class="literal">None</span></span>):
+    <span class="keyword">for</span> key, item <span class="keyword">in</span> data_dict.items():
+        target = item.get(check_column, <span class="literal">None</span>)
+        
+        <span class="keyword">if</span> target <span class="keyword">is</span> <span class="literal">None</span>:
+            <span class="keyword">continue</span>
+        
+        tunit_dict = item.get(<span class="string">&#x27;tunit_metadata&#x27;</span>, <span class="literal">None</span>)
+        <span class="keyword">if</span> tunit_dict <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">or</span> <span class="built_in">len</span>(tunit_dict) == <span class="number">0</span>:
+            <span class="keyword">continue</span>
+        
+        suggest_target, hidden_color_target = adjust_space_between_variables(target, tunit_dict)
+        
+        <span class="keyword">if</span> target == suggest_target:
+            <span class="keyword">continue</span>
+        
+        logging.info(<span class="string">f&quot;Variable detected [<span class="subst">&#123;key&#125;</span>] <span class="subst">&#123;target&#125;</span> -&gt; <span class="subst">&#123;suggest_target&#125;</span>&quot;</span>)
+        fix_callback(<span class="literal">True</span>) <span class="keyword">if</span> fix_callback <span class="keyword">else</span> <span class="literal">None</span>
+        
+        item[<span class="string">&#x27;suggest_target&#x27;</span>] = suggest_target
+        item[<span class="string">&#x27;hidden_color_target&#x27;</span>] = hidden_color_target
+   
+    <span class="keyword">return</span> data_dict</code></pre>
+
+<p>The function <code>adjust_space_between_variables(text, tunit_metadata)</code> is designed to clean up and standardize the spacing between variable placeholders (such as <code>&#123;1&#125;</code>, <code>&#123;2&#125;</code>) and surrounding text in a translation string, based on the metadata describing what each variable represents (e.g., color tags, line breaks, etc.).</p>
+<p><strong>Key Steps:</strong></p>
+<ul>
+<li><strong>Metadata Preparation:</strong><ul>
+<li>The function first prepares a <code>metadata</code> dictionary mapping variable placeholders (like <code>&#123;1&#125;</code>) to their content (e.g., <code>[color=#1f8a34]</code>).</li>
+</ul>
+</li>
+<li><strong>Tokenization:</strong><ul>
+<li>It parses the input <code>text</code> character by character, splitting it into a queue of tokens: variables, punctuation, words, and other symbols, for example: <code>[&quot;&#123;1&#125;&quot;, &quot; Heroes &quot;, &quot;&#123;2&#125;&quot;, &quot; arise in troubled times&quot;]</code>.</li>
+</ul>
+</li>
+<li><strong>Merging Tokens:</strong><ul>
+<li>It processes the token queue to merge or adjust tokens based on their type and the metadata:<ul>
+<li>If a variable represents a color tag or similar, it merges it tightly with adjacent tokens (no extra spaces).</li>
+<li>If a variable is a line break (<code>\n</code>), it tracks its position for later adjustment.</li>
+<li>Punctuation and brackets are merged appropriately to avoid unwanted spaces.</li>
+<li>Quotation marks are handled with a stack to ensure correct pairing.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Reconstruction:</strong><ul>
+<li>The tokens are joined back into a string, with special handling to remove spaces around line breaks.</li>
+</ul>
+</li>
+<li><strong>Post-processing:</strong><ul>
+<li>The function replaces variable placeholders with their actual content (using <code>replace_variable</code>), removes color tags (using <code>remove_color</code>), and returns both the processed text and a version with color tags removed.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Detect-insufficient-variables"><a href="#Detect-insufficient-variables" class="headerlink" title="Detect insufficient variables"></a>Detect insufficient variables</h3><p>It is crucial to ensure all variables in the source text are present in the target text. If any variables are missing, it can lead to confusion and misinterpretation of the text. For example, if the source text has a variable <code>&#123;1&#125; ... &#123;2&#125;</code> but the target text does have <code>&#123;1&#125; ... </code>, it is not passed the validation step, we need to detect for either resubmit LLM immediately, or later resubmit, or  fix manually.</p>
+<pre><code class="highlight python"><span class="keyword">def</span> <span class="title function_">get_variable_placeholders</span>(<span class="params">text</span>):
+    queue = []
+    index = <span class="number">0</span> 
+    <span class="keyword">while</span> index &lt; <span class="built_in">len</span>(text):
+        <span class="keyword">if</span> text[index] == <span class="string">&#x27;&#123;&#x27;</span>:
+            var_start = index
+            <span class="comment"># find next &#x27;&#125;&#x27;</span>
+            <span class="keyword">while</span> index &lt; <span class="built_in">len</span>(text) <span class="keyword">and</span> text[index] != <span class="string">&#x27;&#125;&#x27;</span>:
+                index += <span class="number">1</span>
+                
+            index += <span class="number">1</span>
+            queue.append(text[var_start+<span class="number">1</span>:index-<span class="number">1</span>])
+        <span class="keyword">else</span>:
+            index += <span class="number">1</span>
+    
+    <span class="keyword">return</span> queue
+
+<span class="keyword">def</span> <span class="title function_">is_variable_placeholders_equal</span>(<span class="params">source, target, tunit_dict</span>):
+    <span class="keyword">if</span> tunit_dict <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">or</span> <span class="built_in">len</span>(tunit_dict) == <span class="number">0</span>:
+        <span class="keyword">return</span> <span class="literal">True</span>, [], []
+        
+    target_variables = get_variable_placeholders(target)
+    source_variables = get_variable_placeholders(source)
+    
+    is_valid = (<span class="built_in">len</span>(target_variables) == <span class="built_in">len</span>(source_variables) == <span class="built_in">len</span>(tunit_dict))
+    <span class="keyword">return</span> is_valid, source_variables, target_variables
+
+<span class="keyword">def</span> <span class="title function_">_detect_insufficient_variable_flow</span>(<span class="params">data_dict, check_source_column=<span class="string">&#x27;source&#x27;</span>, check_target_column=<span class="string">&#x27;target&#x27;</span>, detect_callback=<span class="literal">None</span></span>):
+    <span class="keyword">for</span> key, item <span class="keyword">in</span> data_dict.items():
+        target = item.get(check_target_column, <span class="literal">None</span>)
+        source = item.get(check_source_column, <span class="literal">None</span>)
+        
+        <span class="keyword">if</span> target <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">or</span> source <span class="keyword">is</span> <span class="literal">None</span>:
+            <span class="keyword">continue</span>
+        
+        tunit_dict = item.get(<span class="string">&#x27;tunit_metadata&#x27;</span>, &#123;&#125;)
+
+        is_valid, source_variables, target_variables = is_variable_placeholders_equal(source, target, tunit_dict)
+        item[<span class="string">&#x27;tunit_metadata&#x27;</span>] = tunit_dict
+        
+        <span class="keyword">if</span> is_valid:
+            <span class="keyword">continue</span>
+        
+        logging.info(<span class="string">f&quot;Insufficient variable detected [<span class="subst">&#123;key&#125;</span>] <span class="subst">&#123;source&#125;</span> -&gt; <span class="subst">&#123;target&#125;</span> | <span class="subst">&#123;source_variables&#125;</span> -&gt; <span class="subst">&#123;target_variables&#125;</span> | <span class="subst">&#123;tunit_dict&#125;</span>&quot;</span>)
+        detect_callback(<span class="literal">True</span>) <span class="keyword">if</span> detect_callback <span class="keyword">else</span> <span class="literal">None</span>
+   
+    <span class="keyword">return</span> data_dict</code></pre>
+
+<p>The provided code snippet implements a set of functions to detect insufficient variable placeholders in translated records for a localization pipeline. Here’s an explanation of each function and their purpose:</p>
+<p><code>get_variable_placeholders()</code>: Extracts all variable placeholders (e.g., <code>&#123;1&#125;</code>, <code>&#123;2&#125;</code>) from a given text string.</p>
+<ul>
+<li>Iterates through the text, finds substrings enclosed in curly braces <code>&#123;&#125;</code> and collects the content inside them into a list.</li>
+</ul>
+<p><code>is_variable_placeholders_equal()</code>: Checks if the variable placeholders in the source and target texts match, considering the translation unit metadata.</p>
+<ul>
+<li>If <code>tunit_dict</code> is empty or <code>None</code>, it assumes no variables need to be checked and returns <code>True</code>.</li>
+<li>Otherwise, it extracts variable placeholders from both source and target.</li>
+<li>It validates that the number of variables in the source, target, and metadata are all equal.</li>
+<li>Returns a boolean indicating validity, and the lists of source and target variables.</li>
+</ul>
+<p><code>_detect_insufficient_variable_flow()</code>: Iterates through a dictionary of translation records to detect any records where variable placeholders are missing or mismatched between source and target.</p>
+<ul>
+<li>For each record, retrieves the source and target texts and the translation unit metadata.</li>
+<li>Uses <code>is_variable_placeholders_equal</code> to check for variable consistency.</li>
+<li>If a mismatch is found, logs the issue and optionally triggers a callback.</li>
+<li>Returns the updated data dictionary.</li>
+</ul>
+<h3 id="How-do-we-run-these-flow"><a href="#How-do-we-run-these-flow" class="headerlink" title="How do we run these flow?"></a>How do we run these flow?</h3><p>We will run them sequentially, and we will also keep a snapshot of the data before running the hygiene flow, so that we can compare the changes later.</p>
+<pre><code class="highlight python"><span class="keyword">def</span> <span class="title function_">_show_hygiene_data</span>(<span class="params">data_dict, snapshot_data_dict, check_column=<span class="string">&#x27;target&#x27;</span></span>):
+    <span class="keyword">for</span> key, item <span class="keyword">in</span> data_dict.items():
+        target = item.get(check_column, <span class="literal">None</span>)
+        snapshot_item = snapshot_data_dict[key]
+        snapshot_target = snapshot_item.get(check_column, <span class="literal">None</span>)
+        
+        <span class="keyword">if</span> target <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">or</span> snapshot_target <span class="keyword">is</span> <span class="literal">None</span>:
+            <span class="keyword">continue</span>
+        
+        <span class="keyword">if</span> target != snapshot_target:
+            logging.info(<span class="string">f&quot;Hygiene [<span class="subst">&#123;key&#125;</span>] <span class="subst">&#123;snapshot_target&#125;</span> -&gt; <span class="subst">&#123;target&#125;</span>&quot;</span>)
+          
+snapshot_data_dict = json.loads(json.dumps(data_level_2))
+data_level_2 = _process_composed_form_flow(data_level_2, check_column=<span class="string">&#x27;target&#x27;</span>, to_column=<span class="string">&#x27;target&#x27;</span>)
+data_level_2 = _process_target_punct_flow(data_level_2, to_column=<span class="string">&#x27;target&#x27;</span>)
+data_level_2 = _detect_or_process_invalid_space_flow(data_level_2, to_column=<span class="string">&#x27;target&#x27;</span>)
+data_level_2 = _detect_insufficient_variable_flow(data_level_2, check_source_column=<span class="string">&#x27;source&#x27;</span>, check_target_column=<span class="string">&#x27;target&#x27;</span>)
+data_level_2 = _process_variable_space_flow(data_level_2, check_column=<span class="string">&#x27;target&#x27;</span>)
+data_level_2 = _detect_punctuation_mismatch_flow(data_level_2, check_source_column=<span class="string">&#x27;source&#x27;</span>, check_target_column=<span class="string">&#x27;target&#x27;</span>)
+
+_show_hygiene_data(data_level_2, snapshot_data_dict, check_column=<span class="string">&#x27;target&#x27;</span>)
+</code></pre>
+
+<h2 id="12-Save-and-patch-to-TMS"><a href="#12-Save-and-patch-to-TMS" class="headerlink" title="12. Save and patch to TMS"></a>12. Save and patch to TMS</h2><p>After all the hygiene processes, we will save the data to the TMS, or patch the records if you have a TMS API available. In my case, I’m simly saving the data to dataframe and later overwrite the TMS records manually.</p>
+<h1 id="Wrapping-up"><a href="#Wrapping-up" class="headerlink" title="Wrapping up"></a>Wrapping up</h1><p>In this post, we have successfully implemented the hygiene processes for the translated records in our localization pipeline. We have cleaned up the text, converted punctuation, detected Chinese characters, adjusted spaces between variables, and detected insufficient variables. These processes are essential to ensure the quality and consistency of the translations.</p>
+<blockquote>
+<p>Series LLM-Powered Localization Pipeline:</p>
+<ul>
+<li><a href="/post/2025/06/02/LLM-Powered-Localization-Pipeline-1-Faster-Smarter-and-More-Accurate-Translation" title="LLM-Powered Localization Pipeline #1: Faster, Smarter and More Accurate Translation">LLM-Powered Localization Pipeline #1: Faster, Smarter and More Accurate Translation</a></li>
+<li><a href="/post/2025/06/02/LLM-Powered-Localization-Pipeline-2-When-Generative-AI-Follows-the-Rules" title="LLM-Powered Localization Pipeline #2: When Generative AI Follows the Rules">LLM-Powered Localization Pipeline #2: When Generative AI Follows the Rules</a></li>
+<li><a href="/post/2025/06/06/LLM-Powered-Localization-Pipeline-3-Prompt-Engineering-and-Validation" title="LLM-Powered Localization Pipeline #3: Prompt Engineering and Validation">LLM-Powered Localization Pipeline #3: Prompt Engineering and Validation</a></li>
+<li><a href="/post/2025/06/10/LLM-Powered-Localization-Pipeline-4-Hygiene-for-Translated-Records" title="LLM-Powered Localization Pipeline #4: Hygiene for Translated Records">LLM-Powered Localization Pipeline #4: Hygiene for Translated Records</a></li>
+</ul>
+</blockquote>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <!-- <audio id="audio" loop="1" preload="auto" controls="controls"
+                data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+            <ul id="audio-list" style="display:none">
+                
+                
+                <li title='0' data-url='/statics/shijiandeguoke.mp3'></li>
+                
+                    
+            </ul>
+             -->
+
+            
+            
+
+
+<div class="post-copyright-container">
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Author</strong>
+    Nguyen Luu
+  </li>
+  <li class="post-copyright-link">
+    <strong>Link</strong>
+    <a href="https://nguyenluu.dev/post/2025/06/10/LLM-Powered-Localization-Pipeline-4-Hygiene-for-Translated-Records" title="LLM-Powered Localization Pipeline #4: Hygiene for Translated Records">https://nguyenluu.dev/post/2025/06/10/LLM-Powered-Localization-Pipeline-4-Hygiene-for-Translated-Records</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>License</strong>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>by-nc-sa</a>
+  </li>
+</ul>
+</div>
+
+            
+
+            <!-- 
+            <div class="post-nav">
+                <hr>
+                
+                
+                    <div class="post-nav-item">Next Post: <a href="/post/2025/06/06/LLM-Powered-Localization-Pipeline-3-Prompt-Engineering-and-Validation" rel="next" 
+                        title="LLM-Powered Localization Pipeline #3: Prompt Engineering and Validation">LLM-Powered Localization Pipeline #3: Prompt Engineering and Validation</a></div>
+                                
+            </div>   
+             -->
+            
+            
+
+            
+            
+    <div id='gitalk-container' class="comment link"
+        data-ae='true'
+        data-ci='Ov23li5wi821AxHmkjCR'
+        data-cs='e81f22e1c15d42cd5b00e2322f5f36290de85f40'
+        data-r='blog-zhenyuan0502-gitalk'
+        data-o='zhenyuan0502'
+        data-a='zhenyuan0502'
+        data-d='true'
+    >Comments</div>
+
+
+            
+            
+
+            
+
+        </div>
+        <div class="sidebar">
+            <div class="box animated fadeInRight">
+                <div class="subbox">
+                    <div>
+                        <img src="/img/qoobee.jpeg" margin-top=1rem height=200 width=200></img>
+                        <p>Nguyen Luu<br>(Alfred - Yuan)</p>
+                        <span>Think like an artist, develop like an artisan</span>
+                        <dl>
+                            <dd><a href="https://github.com/zhenyuan0502" target="_blank"><span
+                                        class=" iconfont icon-github"></span></a></dd>
+                            <dd><a href="https://twitter.com/zhenyuan0502" target="_blank"><span
+                                        class=" iconfont icon-twitter"></span></a></dd>
+                            <dd><a href="https://stackoverflow.com/users/3789481/" target="_blank"><span
+                                        class=" iconfont icon-stack-overflow"></span></a></dd>
+                        </dl>
+                    </div>
+                </div>
+                <ul>
+                    <li><a href="/">15 <p>Articles</p></a></li>
+                    <li><a href="/categories">15 <p>Categories</p></a></li>
+                    <li><a href="/tags">36 <p>Tags</p></a></li>
+                </ul>
+            </div>
+            
+            
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <div>
+                        <h4>Table of Contents</h4>
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Post-processing-Translated-Records"><span class="toc-number">1.</span> <span class="toc-text">Post-processing Translated Records</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#11-What-is-Hygiene"><span class="toc-number">1.1.</span> <span class="toc-text">11. What is Hygiene?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Hygiene-composed-form"><span class="toc-number">1.1.1.</span> <span class="toc-text">Hygiene composed form</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Convert-punctuation"><span class="toc-number">1.1.2.</span> <span class="toc-text">Convert punctuation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Detect-punctuation-mismatches"><span class="toc-number">1.1.3.</span> <span class="toc-text">Detect punctuation mismatches</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Detect-chinese-characters"><span class="toc-number">1.1.4.</span> <span class="toc-text">Detect chinese characters</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Process-variable-spaces"><span class="toc-number">1.1.5.</span> <span class="toc-text">Process variable spaces</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Detect-insufficient-variables"><span class="toc-number">1.1.6.</span> <span class="toc-text">Detect insufficient variables</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-do-we-run-these-flow"><span class="toc-number">1.1.7.</span> <span class="toc-text">How do we run these flow?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-Save-and-patch-to-TMS"><span class="toc-number">1.2.</span> <span class="toc-text">12. Save and patch to TMS</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Wrapping-up"><span class="toc-number">2.</span> <span class="toc-text">Wrapping up</span></a></li></ol>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+    <div id="back-to-top" class="animated fadeIn faster">
+        <div class="flow"></div>
+        <span class="percentage animated fadeIn faster">0%</span>
+        <span class="iconfont icon-top02 animated fadeIn faster"></span>
+    </div>
+</body>
+<footer>
+    <p class="copyright" id="copyright">
+        &copy; 2025
+        <span class="gradient-text">
+            Nguyen Luu
+        </span> |
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+    </br>
+       <span class="gradient-text">nguyenluu.dev's fork v3.0.0</span> from theme
+        <span class="gradient-text">
+            <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+        </span>
+        <small><a href="https://github.com/TriDiamond/hexo-theme-obsidian/blob/master/CHANGELOG.md" title="v1.4.5" target="_blank" rel="noopener">v1.4.5</a></small>
+    </p>
+ 
+</footer>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script>
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+      preferredFont: "TeX",
+      availableFonts: ["STIX", "TeX"],
+      linebreaks: {
+        automatic: true
+      },
+      EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+      inlineMath: [
+        ["$", "$"],
+        ["\\(", "\\)"]
+      ],
+      processEscapes: true,
+      ignoreClass: "tex2jax_ignore|dno",
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      noUndefined: {
+        attributes: {
+          mathcolor: "red",
+          mathbackground: "#FFEEEE",
+          mathsize: "90%"
+        }
+      },
+      Macros: {
+        href: "{}"
+      }
+    },
+    messageStyle: "none"
+  });
+</script>
+<script>
+  function initialMathJax() {
+    MathJax.Hub.Queue(function () {
+      var all = MathJax.Hub.getAllJax(),
+        i;
+      // console.log(all);
+      for (i = 0; i < all.length; i += 1) {
+        console.log(all[i].SourceElement().parentNode)
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  }
+
+  function reprocessMathJax() {
+    if (typeof MathJax !== 'undefined') {
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    }
+  }
+</script>
+
+
+ 
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.css">
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js"></script>
+  
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/obsidian.js"></script>
+<script src="/js/jquery.truncate.js"></script>
+<script src="/js/search.js"></script>
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.12.0/js/md5.min.js"></script>
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.js"></script>
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/mode/htmlmixed/htmlmixed.min.js"></script>
+  
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/mode/python/python.min.js"></script>
+  
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/mode/markdown/markdown.min.js"></script>
+   
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3//photoswipe.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3//default-skin/default-skin.min.css">
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3//photoswipe.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3//photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+<!-- Highlight.js -->
+<!-- 
+<link rel="stylesheet" href="/css/dracula.css">
+ -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', event => {
+    document.querySelectorAll('pre code').forEach(block => {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+
+<script>
+  function initialTyped() {
+    var typedTextEl = $('.typed-text');
+    if (typedTextEl && typedTextEl.length > 0) {
+      var typed = new Typed('.typed-text', {
+        strings: ['Think like an artist, develop like an artisan', '艺术家思维去思考问题，工匠创造精神去开发'],
+        typeSpeed: 90,
+        loop: true,
+        loopCount: Infinity,
+        backSpeed: 20,
+      });
+    }
+  }
+
+  if ($('.article-header') && $('.article-header').length) {
+    $(document).ready(function () {
+      initialTyped();
+    });
+  }
+</script>
+
+
+
+
+
+
+</html>
